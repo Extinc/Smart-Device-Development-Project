@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		9032E18120A6B40900E0D301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E18020A6B40900E0D301 /* AppDelegate.swift */; };
 		9032E18320A6B40900E0D301 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E18220A6B40900E0D301 /* FirstViewController.swift */; };
-		9032E18520A6B40900E0D301 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E18420A6B40900E0D301 /* SecondViewController.swift */; };
 		9032E18820A6B40900E0D301 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E18620A6B40900E0D301 /* Main.storyboard */; };
 		9032E18A20A6B40900E0D301 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9032E18920A6B40900E0D301 /* Assets.xcassets */; };
 		9032E18D20A6B40900E0D301 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E18B20A6B40900E0D301 /* LaunchScreen.storyboard */; };
 		9032E19820A6B40900E0D301 /* Smart_Device_Development_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E19720A6B40900E0D301 /* Smart_Device_Development_projectTests.swift */; };
 		9032E1A320A6B40900E0D301 /* Smart_Device_Development_projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E1A220A6B40900E0D301 /* Smart_Device_Development_projectUITests.swift */; };
+		9032E1F720A6BE7900E0D301 /* ExerciseMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E1F620A6BE7900E0D301 /* ExerciseMain.storyboard */; };
+		9032E1F920A6C0F500E0D301 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E1F820A6C0F500E0D301 /* Home.storyboard */; };
+		9032E1FC20A6C2EA00E0D301 /* Mood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E1FB20A6C2EA00E0D301 /* Mood.storyboard */; };
+		9032E1FF20A6C34C00E0D301 /* Dietary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E1FE20A6C34C00E0D301 /* Dietary.storyboard */; };
+		9032E20220A6C3E300E0D301 /* HealthyRestAdvisorMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9032E20120A6C3E300E0D301 /* HealthyRestAdvisorMain.storyboard */; };
+		9032E20920A6C5AB00E0D301 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E20820A6C5AB00E0D301 /* DietaryViewController.swift */; };
+		9032E20E20A6C5DE00E0D301 /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E20D20A6C5DE00E0D301 /* MoodViewController.swift */; };
+		9032E21020A6C5E600E0D301 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E20F20A6C5E600E0D301 /* HomeViewController.swift */; };
+		9032E21320A6C5F900E0D301 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E21220A6C5F900E0D301 /* ExerciseViewController.swift */; };
+		9032E21520A6C6EF00E0D301 /* HealthyRestAdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9032E21420A6C6EF00E0D301 /* HealthyRestAdvisorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +47,6 @@
 		9032E17D20A6B40900E0D301 /* Smart Device Development project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Device Development project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9032E18020A6B40900E0D301 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9032E18220A6B40900E0D301 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		9032E18420A6B40900E0D301 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9032E18720A6B40900E0D301 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9032E18920A6B40900E0D301 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9032E18C20A6B40900E0D301 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +57,16 @@
 		9032E19E20A6B40900E0D301 /* Smart Device Development projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart Device Development projectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9032E1A220A6B40900E0D301 /* Smart_Device_Development_projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_Device_Development_projectUITests.swift; sourceTree = "<group>"; };
 		9032E1A420A6B40900E0D301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9032E1F620A6BE7900E0D301 /* ExerciseMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ExerciseMain.storyboard; path = Storyboard/ExerciseMain.storyboard; sourceTree = "<group>"; };
+		9032E1F820A6C0F500E0D301 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9032E1FB20A6C2EA00E0D301 /* Mood.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mood.storyboard; sourceTree = "<group>"; };
+		9032E1FE20A6C34C00E0D301 /* Dietary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dietary.storyboard; sourceTree = "<group>"; };
+		9032E20120A6C3E300E0D301 /* HealthyRestAdvisorMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthyRestAdvisorMain.storyboard; sourceTree = "<group>"; };
+		9032E20820A6C5AB00E0D301 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
+		9032E20D20A6C5DE00E0D301 /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
+		9032E20F20A6C5E600E0D301 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9032E21220A6C5F900E0D301 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		9032E21420A6C6EF00E0D301 /* HealthyRestAdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRestAdvisorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +117,10 @@
 		9032E17F20A6B40900E0D301 /* Smart Device Development project */ = {
 			isa = PBXGroup;
 			children = (
+				9032E20320A6C50000E0D301 /* ViewControllers */,
+				9032E1F320A6BE1E00E0D301 /* Storyboard */,
 				9032E18020A6B40900E0D301 /* AppDelegate.swift */,
 				9032E18220A6B40900E0D301 /* FirstViewController.swift */,
-				9032E18420A6B40900E0D301 /* SecondViewController.swift */,
 				9032E18620A6B40900E0D301 /* Main.storyboard */,
 				9032E18920A6B40900E0D301 /* Assets.xcassets */,
 				9032E18B20A6B40900E0D301 /* LaunchScreen.storyboard */,
@@ -126,6 +145,110 @@
 				9032E1A420A6B40900E0D301 /* Info.plist */,
 			);
 			path = "Smart Device Development projectUITests";
+			sourceTree = "<group>";
+		};
+		9032E1F320A6BE1E00E0D301 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9032E20C20A6C5CB00E0D301 /* Home */,
+				9032E20020A6C39700E0D301 /* HealthyRestAdvisor */,
+				9032E1FD20A6C33D00E0D301 /* Dietary */,
+				9032E1FA20A6C2D800E0D301 /* Mood */,
+				9032E1F520A6BE4800E0D301 /* Exercise */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		9032E1F520A6BE4800E0D301 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				9032E1F620A6BE7900E0D301 /* ExerciseMain.storyboard */,
+			);
+			name = Exercise;
+			sourceTree = "<group>";
+		};
+		9032E1FA20A6C2D800E0D301 /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+				9032E1FB20A6C2EA00E0D301 /* Mood.storyboard */,
+			);
+			name = Mood;
+			sourceTree = "<group>";
+		};
+		9032E1FD20A6C33D00E0D301 /* Dietary */ = {
+			isa = PBXGroup;
+			children = (
+				9032E1FE20A6C34C00E0D301 /* Dietary.storyboard */,
+			);
+			name = Dietary;
+			sourceTree = "<group>";
+		};
+		9032E20020A6C39700E0D301 /* HealthyRestAdvisor */ = {
+			isa = PBXGroup;
+			children = (
+				9032E20120A6C3E300E0D301 /* HealthyRestAdvisorMain.storyboard */,
+			);
+			name = HealthyRestAdvisor;
+			sourceTree = "<group>";
+		};
+		9032E20320A6C50000E0D301 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9032E21120A6C5EA00E0D301 /* Exercise */,
+				9032E20B20A6C5C200E0D301 /* Home */,
+				9032E20A20A6C5B900E0D301 /* Mood */,
+				9032E20720A6C59600E0D301 /* Dietary */,
+				9032E20420A6C52000E0D301 /* HRA VC */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9032E20420A6C52000E0D301 /* HRA VC */ = {
+			isa = PBXGroup;
+			children = (
+				9032E21420A6C6EF00E0D301 /* HealthyRestAdvisorViewController.swift */,
+			);
+			name = "HRA VC";
+			sourceTree = "<group>";
+		};
+		9032E20720A6C59600E0D301 /* Dietary */ = {
+			isa = PBXGroup;
+			children = (
+				9032E20820A6C5AB00E0D301 /* DietaryViewController.swift */,
+			);
+			name = Dietary;
+			sourceTree = "<group>";
+		};
+		9032E20A20A6C5B900E0D301 /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+				9032E20D20A6C5DE00E0D301 /* MoodViewController.swift */,
+			);
+			name = Mood;
+			sourceTree = "<group>";
+		};
+		9032E20B20A6C5C200E0D301 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9032E20F20A6C5E600E0D301 /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		9032E20C20A6C5CB00E0D301 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9032E1F820A6C0F500E0D301 /* Home.storyboard */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		9032E21120A6C5EA00E0D301 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				9032E21220A6C5F900E0D301 /* ExerciseViewController.swift */,
+			);
+			name = Exercise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9032E18D20A6B40900E0D301 /* LaunchScreen.storyboard in Resources */,
+				9032E1FC20A6C2EA00E0D301 /* Mood.storyboard in Resources */,
+				9032E1F920A6C0F500E0D301 /* Home.storyboard in Resources */,
 				9032E18A20A6B40900E0D301 /* Assets.xcassets in Resources */,
+				9032E1FF20A6C34C00E0D301 /* Dietary.storyboard in Resources */,
 				9032E18820A6B40900E0D301 /* Main.storyboard in Resources */,
+				9032E20220A6C3E300E0D301 /* HealthyRestAdvisorMain.storyboard in Resources */,
+				9032E1F720A6BE7900E0D301 /* ExerciseMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +387,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9032E18520A6B40900E0D301 /* SecondViewController.swift in Sources */,
 				9032E18120A6B40900E0D301 /* AppDelegate.swift in Sources */,
+				9032E20920A6C5AB00E0D301 /* DietaryViewController.swift in Sources */,
 				9032E18320A6B40900E0D301 /* FirstViewController.swift in Sources */,
+				9032E21020A6C5E600E0D301 /* HomeViewController.swift in Sources */,
+				9032E21520A6C6EF00E0D301 /* HealthyRestAdvisorViewController.swift in Sources */,
+				9032E21320A6C5F900E0D301 /* ExerciseViewController.swift in Sources */,
+				9032E20E20A6C5DE00E0D301 /* MoodViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,6 @@
+framework module Pods_Smart_Device_Developement_ProjectUITests {
+  umbrella header "Pods-Smart Device Developement ProjectUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

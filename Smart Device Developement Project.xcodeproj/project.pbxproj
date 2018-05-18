@@ -23,6 +23,8 @@
 		5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67020AAAA210014E15D /* ExerciseViewController.swift */; };
 		5169C67320AAAA2A0014E15D /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67220AAAA2A0014E15D /* MoodViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
+		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
+		51862EBF20AE6DA70058CE01 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBE20AE6DA70058CE01 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		5169C67020AAAA210014E15D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		5169C67220AAAA2A0014E15D /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
+		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		51862EBE20AE6DA70058CE01 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Smart Device Developement Project/ViewController/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 				5169C66B20AAA9E20014E15D /* Exercise */,
 				5169C66A20AAA9DC0014E15D /* Dietary */,
 				5169C66920AAA9D50014E15D /* Home */,
+				51862EBC20AE6D5E0058CE01 /* MainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 		5169C67920AAAE150014E15D /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				51862EBE20AE6DA70058CE01 /* SignUpViewController.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -395,7 +401,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
+				51862EBF20AE6DA70058CE01 /* SignUpViewController.swift in Sources */,
 				5169C67320AAAA2A0014E15D /* MoodViewController.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C66F20AAAA110014E15D /* DietaryViewController.swift in Sources */,

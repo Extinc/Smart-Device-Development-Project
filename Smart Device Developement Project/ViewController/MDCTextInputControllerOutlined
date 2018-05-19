@@ -7,19 +7,20 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialButtons
 
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var reguser: UITextField!
-    @IBOutlet weak var regpass: UITextField!
-    @IBOutlet weak var regrepeatpass: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,9 +42,5 @@ class SignUpViewController: UIViewController {
     @IBAction func registerAction(_ sender: Any) {
         // TODO: Check if username exist in database
         //
-        
-        if(regrepeatpass.text == regpass.text){
-                
-        }
     }
 }

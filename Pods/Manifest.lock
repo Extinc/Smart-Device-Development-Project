@@ -28,6 +28,16 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
+  - "MaterialComponents/Buttons+ButtonThemer (55.0.4)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+  - "MaterialComponents/Buttons+ColorThemer (55.0.4)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+TypographyThemer (55.0.4)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
   - MaterialComponents/Cards (55.0.4):
     - MaterialComponents/Ink
     - MaterialComponents/private/Icons/ic_check_circle
@@ -132,6 +142,7 @@ DEPENDENCIES:
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
   - MaterialComponents/Buttons
+  - "MaterialComponents/Buttons+ButtonThemer"
   - MaterialComponents/Cards
   - "MaterialComponents/Cards+ColorThemer"
   - MaterialComponents/Chips
@@ -157,6 +168,6 @@ SPEC CHECKSUMS:
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
 
-PODFILE CHECKSUM: 1f16c17a547a5497e2786956149a35aee8d38d80
+PODFILE CHECKSUM: 6367d154c53273ace02fd528f90776ed162f4a44
 
 COCOAPODS: 1.5.2

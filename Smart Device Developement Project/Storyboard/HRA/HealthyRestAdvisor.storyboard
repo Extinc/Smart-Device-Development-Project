@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,15 +17,37 @@
                     <view key="view" contentMode="scaleToFill" id="9bS-rV-Kbx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wxU-cg-ovT">
+                                <rect key="frame" x="0.0" y="77" width="375" height="541"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fyN-IF-8ER">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fyN-IF-8ER" firstAttribute="leading" secondItem="DBu-D7-iKa" secondAttribute="leading" id="FcS-wA-ejl"/>
+                            <constraint firstItem="wxU-cg-ovT" firstAttribute="bottom" secondItem="DBu-D7-iKa" secondAttribute="bottom" id="N3F-71-CZ7"/>
+                            <constraint firstItem="fyN-IF-8ER" firstAttribute="top" secondItem="DBu-D7-iKa" secondAttribute="top" id="Wxd-De-dA8"/>
+                            <constraint firstItem="wxU-cg-ovT" firstAttribute="top" secondItem="fyN-IF-8ER" secondAttribute="bottom" constant="1" id="e0a-1e-dj1"/>
+                            <constraint firstItem="fyN-IF-8ER" firstAttribute="trailing" secondItem="DBu-D7-iKa" secondAttribute="trailing" id="gDr-IT-yvO"/>
+                            <constraint firstItem="wxU-cg-ovT" firstAttribute="trailing" secondItem="DBu-D7-iKa" secondAttribute="trailing" id="kiD-RC-Fls"/>
+                            <constraint firstItem="wxU-cg-ovT" firstAttribute="leading" secondItem="DBu-D7-iKa" secondAttribute="leading" id="zfS-XB-CXd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DBu-D7-iKa"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Advisor" id="Fu4-VK-8Nm"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="map" destination="wxU-cg-ovT" id="oUQ-eV-ziO"/>
+                        <outlet property="searchBar" destination="fyN-IF-8ER" id="IZg-tQ-X8c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxQ-p2-Erc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-366" y="8"/>
+            <point key="canvasLocation" x="-367.19999999999999" y="7.6461769115442282"/>
         </scene>
     </scenes>
 </document>

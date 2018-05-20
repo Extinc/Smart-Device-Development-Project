@@ -25,19 +25,32 @@ class LoginViewController: UIViewController {
         pwd.backgroundColor = .white
         return pwd
     }()
+    @IBOutlet weak var loginBtn: MDCFlatButton!
+    @IBOutlet weak var registerBtn: MDCFlatButton!
     
     var allTextFieldControllers = [MDCTextInputControllerFloatingPlaceholder]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTextField()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: loginBtn)
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: registerBtn)
+        let colorScheme = MDCSemanticColorScheme()
+        let colors = Colors()
+        colorScheme.primaryColor = colors.primaryColor
         
+        MDCButtonColorThemer.applySemanticColorScheme(colorScheme, to: loginBtn)
+        MDCButtonColorThemer.applySemanticColorScheme(colorScheme, to: registerBtn)
+        loginBtn.setTitle("Login", for: UIControlState())
+        registerBtn.setTitle("Register", for: UIControlState())
+        setupTextField()
     }
     
 

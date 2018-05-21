@@ -8,14 +8,26 @@
 
 import UIKit
 
-class DietaryViewController: UIViewController {
-
+class DietaryViewController: UIViewController, UITableViewDataSource {
+    let meals:[String] = ["Breakfast", "Lunch", "Dinner", "Snacks"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = meals[indexPath.row]
+        return cell
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

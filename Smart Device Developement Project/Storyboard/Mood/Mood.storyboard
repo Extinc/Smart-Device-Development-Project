@@ -18,22 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-lg-hM5">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-lg-hM5">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vn-Lv-wkq">
-                                        <rect key="frame" x="0.0" y="546" width="375" height="52"/>
-                                        <state key="normal" title="Record Your Mood"/>
-                                        <connections>
-                                            <segue destination="u8e-vG-Gru" kind="show" id="pAW-dF-piB"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V7F-PP-y6R">
-                                        <rect key="frame" x="22" y="332" width="330" height="158"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can visit here/eat to feel better" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooy-ic-MhQ">
-                                        <rect key="frame" x="22" y="293" width="240" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <rect key="frame" x="22" y="293" width="285" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -44,7 +34,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VT2-N0-ocp">
-                                        <rect key="frame" x="67" y="83" width="240" height="128"/>
+                                        <rect key="frame" x="67" y="87" width="240" height="124"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good job ! Its Healthy , Keep it up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffc-rS-7F5">
                                         <rect key="frame" x="67" y="236" width="255" height="21"/>
@@ -56,40 +46,55 @@
                                         <rect key="frame" x="247" y="8" width="120" height="30"/>
                                         <state key="normal" title="View Mood Trend"/>
                                         <connections>
-                                            <segue destination="1Ws-2n-Fa6" kind="show" id="zPI-kx-yxk"/>
+                                            <segue destination="1Ws-2n-Fa6" kind="show" identifier="ShowGraphFromMainPage" id="zPI-kx-yxk"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="2nh-UT-rZj">
+                                        <rect key="frame" x="22" y="344" width="334" height="171"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="334" id="e6H-3Z-iVV"/>
+                                            <constraint firstAttribute="height" constant="171" id="kSx-Sd-tbD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csi-OC-Xad">
+                                        <rect key="frame" x="2" y="547" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="JDU-BE-Fm9"/>
+                                            <constraint firstAttribute="height" constant="50" id="K42-6j-50t"/>
+                                        </constraints>
+                                        <state key="normal" title="Record Your Mood"/>
+                                        <connections>
+                                            <segue destination="u8e-vG-Gru" kind="show" id="1Ec-k8-Bd8"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="2nh-UT-rZj" firstAttribute="top" secondItem="ooy-ic-MhQ" secondAttribute="bottom" constant="30" id="0w9-Gt-rg3"/>
                                     <constraint firstItem="VT2-N0-ocp" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="67" id="12J-wf-cu4"/>
                                     <constraint firstItem="ooy-ic-MhQ" firstAttribute="top" secondItem="Ffc-rS-7F5" secondAttribute="bottom" constant="36" id="2er-xN-Vim"/>
-                                    <constraint firstAttribute="bottom" secondItem="8Vn-Lv-wkq" secondAttribute="bottom" constant="49" id="2i5-gn-ueh"/>
-                                    <constraint firstItem="8Vn-Lv-wkq" firstAttribute="top" secondItem="V7F-PP-y6R" secondAttribute="bottom" constant="56" id="3wl-u5-E3A"/>
+                                    <constraint firstItem="csi-OC-Xad" firstAttribute="top" secondItem="2nh-UT-rZj" secondAttribute="bottom" constant="68" id="50q-eW-ime"/>
                                     <constraint firstAttribute="trailing" secondItem="VT2-N0-ocp" secondAttribute="trailing" constant="68" id="6Id-SM-Z2b"/>
                                     <constraint firstItem="JHS-bb-PeZ" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="22" id="6Rl-BT-bKT"/>
+                                    <constraint firstAttribute="trailing" secondItem="csi-OC-Xad" secondAttribute="trailing" id="8TB-jM-v5D"/>
                                     <constraint firstAttribute="trailing" secondItem="JHS-bb-PeZ" secondAttribute="trailing" constant="169" id="8pe-ml-KNE"/>
-                                    <constraint firstItem="V7F-PP-y6R" firstAttribute="top" secondItem="ooy-ic-MhQ" secondAttribute="bottom" constant="21" id="97f-z4-uIJ"/>
-                                    <constraint firstItem="8Vn-Lv-wkq" firstAttribute="top" secondItem="V7F-PP-y6R" secondAttribute="bottom" constant="56" id="Awt-4o-uBf"/>
+                                    <constraint firstItem="VT2-N0-ocp" firstAttribute="top" secondItem="Hj1-H1-BxX" secondAttribute="bottom" constant="49" id="AGY-5y-TzC"/>
                                     <constraint firstItem="JHS-bb-PeZ" firstAttribute="top" secondItem="hNU-lg-hM5" secondAttribute="top" constant="41" id="CLw-Et-CxY"/>
                                     <constraint firstItem="Ffc-rS-7F5" firstAttribute="top" secondItem="VT2-N0-ocp" secondAttribute="bottom" constant="25" id="ESu-ZJ-15Y"/>
-                                    <constraint firstItem="8Vn-Lv-wkq" firstAttribute="width" secondItem="hNU-lg-hM5" secondAttribute="width" id="GJz-Jl-c7l"/>
-                                    <constraint firstItem="V7F-PP-y6R" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="22" id="ITv-XG-wMm"/>
+                                    <constraint firstItem="csi-OC-Xad" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" id="Eph-jJ-fei"/>
                                     <constraint firstAttribute="trailing" secondItem="Hj1-H1-BxX" secondAttribute="trailing" constant="8" id="J8D-Pp-jx2"/>
-                                    <constraint firstItem="VT2-N0-ocp" firstAttribute="top" secondItem="JHS-bb-PeZ" secondAttribute="bottom" constant="21" id="KGO-de-YIK"/>
+                                    <constraint firstAttribute="trailing" secondItem="ooy-ic-MhQ" secondAttribute="trailing" constant="68" id="Lwt-DC-vxC"/>
+                                    <constraint firstAttribute="trailing" secondItem="2nh-UT-rZj" secondAttribute="trailing" constant="19" id="P29-Gf-xdx"/>
+                                    <constraint firstItem="csi-OC-Xad" firstAttribute="width" secondItem="hNU-lg-hM5" secondAttribute="width" id="XIv-iI-Tip"/>
                                     <constraint firstItem="Ffc-rS-7F5" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="67" id="YhJ-41-v1y"/>
-                                    <constraint firstItem="8Vn-Lv-wkq" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" id="dm2-ST-3Mb"/>
-                                    <constraint firstItem="V7F-PP-y6R" firstAttribute="top" secondItem="ooy-ic-MhQ" secondAttribute="bottom" constant="21" id="dv1-a1-f3O"/>
+                                    <constraint firstItem="VT2-N0-ocp" firstAttribute="top" secondItem="JHS-bb-PeZ" secondAttribute="bottom" constant="25" id="ajJ-9w-4Cu"/>
                                     <constraint firstItem="ooy-ic-MhQ" firstAttribute="top" secondItem="hNU-lg-hM5" secondAttribute="top" constant="293" id="e5w-z9-fWg"/>
                                     <constraint firstAttribute="trailing" secondItem="Ffc-rS-7F5" secondAttribute="trailing" constant="53" id="fbO-fp-5sE"/>
                                     <constraint firstItem="Hj1-H1-BxX" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="247" id="iP6-eu-kKu"/>
-                                    <constraint firstAttribute="trailing" secondItem="V7F-PP-y6R" secondAttribute="trailing" constant="23" id="jJp-HV-8EC"/>
-                                    <constraint firstAttribute="trailing" secondItem="ooy-ic-MhQ" secondAttribute="trailing" constant="113" id="jOB-Nf-DPo"/>
+                                    <constraint firstAttribute="bottom" secondItem="csi-OC-Xad" secondAttribute="bottom" constant="19" id="ipd-ff-IQH"/>
                                     <constraint firstItem="ooy-ic-MhQ" firstAttribute="top" secondItem="JHS-bb-PeZ" secondAttribute="bottom" constant="231" id="laa-Iv-6te"/>
-                                    <constraint firstItem="VT2-N0-ocp" firstAttribute="top" secondItem="Hj1-H1-BxX" secondAttribute="bottom" constant="45" id="mgr-yH-ucI"/>
-                                    <constraint firstItem="ooy-ic-MhQ" firstAttribute="top" secondItem="VT2-N0-ocp" secondAttribute="bottom" constant="82" id="mkV-VF-Vru"/>
+                                    <constraint firstItem="2nh-UT-rZj" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="22" id="qzx-xl-9QK"/>
                                     <constraint firstItem="ooy-ic-MhQ" firstAttribute="leading" secondItem="hNU-lg-hM5" secondAttribute="leading" constant="22" id="rZa-IZ-4iE"/>
                                     <constraint firstItem="Hj1-H1-BxX" firstAttribute="top" secondItem="hNU-lg-hM5" secondAttribute="top" constant="8" id="xOk-JZ-GkC"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Vn-Lv-wkq" secondAttribute="trailing" id="zn3-8X-s8L"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -213,30 +218,44 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pbS-Ve-NQe">
-                                <rect key="frame" x="90" y="427" width="155" height="120"/>
+                                <rect key="frame" x="105" y="416" width="164" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4SD-1G-leZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="155" height="120"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-d8-Ykg">
-                                                <rect key="frame" x="0.0" y="0.0" width="155" height="30"/>
-                                                <state key="normal" title="Select a period of time"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03o-fK-Yeo">
-                                                <rect key="frame" x="44" y="30" width="67" height="30"/>
-                                                <state key="normal" title="7 day ago"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-p6-JR4">
-                                                <rect key="frame" x="38" y="60" width="79" height="30"/>
-                                                <state key="normal" title="2 week ago"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhH-u5-3OT">
-                                                <rect key="frame" x="33.5" y="90" width="88" height="30"/>
-                                                <state key="normal" title="A month ago"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-d8-Ykg">
+                                        <rect key="frame" x="0.0" y="0.0" width="164" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="PoD-tz-htF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Select a period of time"/>
+                                        <connections>
+                                            <action selector="HandleSelection:" destination="mD5-EH-XAK" eventType="touchUpInside" id="bRW-qE-dXr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03o-fK-Yeo">
+                                        <rect key="frame" x="0.0" y="32" width="164" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="zFa-cr-fIY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="7 day ago"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-p6-JR4">
+                                        <rect key="frame" x="0.0" y="64" width="164" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="Rur-Yl-GiP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="2 week ago"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhH-u5-3OT">
+                                        <rect key="frame" x="0.0" y="96" width="164" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="Q8d-b2-Pmc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="A month ago"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -245,13 +264,17 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFj-Wm-peB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mD5-EH-XAK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1565.5999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="3" width="364" height="293"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zPI-kx-yxk"/>
-        <segue reference="pAW-dF-piB"/>
-        <segue reference="oSS-GH-QjG"/>
+        <segue reference="sGz-48-LRa"/>
+        <segue reference="Jee-Nl-PgY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,9 +45,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hj1-H1-BxX">
                                         <rect key="frame" x="247" y="8" width="120" height="30"/>
                                         <state key="normal" title="View Mood Trend"/>
-                                        <connections>
-                                            <segue destination="1Ws-2n-Fa6" kind="show" identifier="ShowGraphFromMainPage" id="zPI-kx-yxk"/>
-                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="2nh-UT-rZj">
                                         <rect key="frame" x="22" y="344" width="334" height="171"/>
@@ -57,14 +54,14 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csi-OC-Xad">
-                                        <rect key="frame" x="2" y="547" width="375" height="50"/>
+                                        <rect key="frame" x="2" y="546" width="375" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="375" id="JDU-BE-Fm9"/>
                                             <constraint firstAttribute="height" constant="50" id="K42-6j-50t"/>
                                         </constraints>
                                         <state key="normal" title="Record Your Mood"/>
                                         <connections>
-                                            <segue destination="u8e-vG-Gru" kind="show" id="1Ec-k8-Bd8"/>
+                                            <segue destination="u8e-vG-Gru" kind="presentation" id="PWh-iu-691"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -273,8 +270,8 @@
         <image name="3" width="364" height="293"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zPI-kx-yxk"/>
-        <segue reference="sGz-48-LRa"/>
-        <segue reference="Jee-Nl-PgY"/>
+        <segue reference="Epj-nb-oB3"/>
+        <segue reference="PWh-iu-691"/>
+        <segue reference="oSS-GH-QjG"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,22 +10,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
-        <scene sceneID="olV-KU-2OH">
+        <!--Navigation Controller-->
+        <scene sceneID="2U9-ry-NDz">
             <objects>
-                <viewController storyboardIdentifier="HomeStoryboard" id="Zld-H2-amn" customClass="HomeViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hbn-HW-dSr">
+                <navigationController id="wrk-YJ-E4E" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bPz-JR-eF6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ni2-59-zEX" kind="relationship" relationship="rootViewController" id="WFu-Vj-4s3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IzA-Pf-85U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1444" y="164"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="yvO-C3-tsJ">
+            <objects>
+                <viewController storyboardIdentifier="HomeStoryboard" id="Ni2-59-zEX" customClass="HomeViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xU2-Vk-GQg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="TIh-MQ-YcL"/>
+                        <viewLayoutGuide key="safeArea" id="jHe-iw-DfU"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="ULI-V6-wes"/>
+                    <navigationItem key="navigationItem" id="U4g-oV-gBd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="seO-J9-6s4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Pk-eS-Crg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="156"/>
+            <point key="canvasLocation" x="-476" y="163"/>
         </scene>
     </scenes>
 </document>

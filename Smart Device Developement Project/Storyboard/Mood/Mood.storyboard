@@ -215,7 +215,7 @@
         </scene>
         <!--View Controller-->
         <scene sceneID="hsz-jx-ItC">
-            <objects>
+            <objects> 
                 <viewController id="oAo-tx-yr5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JOC-aZ-Kcv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="618"/>

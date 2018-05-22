@@ -8,12 +8,27 @@
 
 import UIKit
 
-class HRAViewController: UIViewController {
-
+class HRAViewController: UIViewController, UITableViewDataSource {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.label?.text = "Bryan 1 star restaurant"
+        //cell.imageView?.image = UIImage(named: name)
+        return cell
     }
 
     override func didReceiveMemoryWarning() {

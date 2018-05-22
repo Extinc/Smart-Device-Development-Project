@@ -49,12 +49,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wva-ci-Qcz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Exercise" id="AJ5-o4-bYB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jo0-jN-gJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="854" y="715"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TjM-cl-ycv">
+            <objects>
+                <viewController id="XZl-lI-JAB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ogv-VL-QPX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="D4R-tY-RkD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="90Y-eG-mPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1561" y="745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="27z-Sg-6f0">

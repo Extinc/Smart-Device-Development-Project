@@ -9,6 +9,9 @@
 import UIKit
 
 class DietaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     let headers:[String] = ["Breakfast", "Lunch", "Dinner", "Snacks"]
     
     let meal = [[Meal("Porridge", "350 Calories", "porridge")],
@@ -50,6 +53,17 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMealDetails"
+        {
+            let detailViewController = segue.destination as! DisplayMealViewController
+            let myIndexPath = self.tableView.indexPathForSelectedRow
+            if myIndexPath != nil {
+                let actualMeal = meal[myIndexPath!.section][myIndexPath!.row]
+                detailViewController.mealItem = actualMeal
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

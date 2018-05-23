@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="-1346" y="117"/>
         </scene>
-        <!--View Controller-->
+        <!--Summary-->
         <scene sceneID="pAC-yh-WxX">
             <objects>
                 <viewController id="sYN-gK-GPU" sceneMemberID="viewController">
@@ -66,14 +66,47 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Record Your Mood"/>
                                 <connections>
-                                    <segue destination="u8e-vG-Gru" kind="show" id="x90-Pj-Eca"/>
+                                    <segue destination="u8e-vG-Gru" kind="show" id="Fjm-iz-5hS"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squarePleasant" translatesAutoresizingMaskIntoConstraints="NO" id="GRk-tp-yQj">
+                                <rect key="frame" x="20" y="127" width="144" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feeling Mostly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYS-Ig-vZV">
+                                <rect key="frame" x="20" y="79" width="117" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="t5j-32-hy3">
+                                <rect key="frame" x="147" y="487" width="120" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="porridge" translatesAutoresizingMaskIntoConstraints="NO" id="oZR-s2-qvp">
+                                <rect key="frame" x="60" y="330" width="294" height="149"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eat this to make your mood even better" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbN-YG-IjA">
+                                <rect key="frame" x="26" y="291" width="300" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qas-Ur-hQi">
+                                <rect key="frame" x="217" y="79" width="177" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="bax-Fe-GZ0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aCN-hG-Jgp">
+                    <navigationItem key="navigationItem" title="Summary" id="aCN-hG-Jgp">
                         <barButtonItem key="rightBarButtonItem" title="View Graph" id="kdj-W0-gjV">
                             <connections>
                                 <segue destination="oAo-tx-yr5" kind="show" id="5IJ-Xm-6ba"/>
@@ -83,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRq-J1-kVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315.94202898550725" y="110.86956521739131"/>
+            <point key="canvasLocation" x="314.49275362318843" y="110.86956521739131"/>
         </scene>
         <!--Pick Your Mood-->
         <scene sceneID="0L2-wK-Web">
@@ -93,39 +126,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-u1-F9H">
-                                <rect key="frame" x="187" y="116" width="187.5" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pleasant"/>
-                                <connections>
-                                    <segue destination="1Ws-2n-Fa6" kind="show" id="gnb-EN-QZx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNN-ub-5zS">
-                                <rect key="frame" x="0.0" y="308" width="187.5" height="184"/>
-                                <state key="normal" title="Angry "/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-4M-KYG">
-                                <rect key="frame" x="187" y="308" width="187.5" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sad"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92F-Hs-mrd">
-                                <rect key="frame" x="0.0" y="116" width="187.5" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Feeling Great"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVQ-d7-gqd">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVQ-d7-gqd">
                                 <rect key="frame" x="0.0" y="544" width="414" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Talk to us, we will help you"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LeN-B1-gcr">
+                                <rect key="frame" x="0.0" y="64" width="414" height="400"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rem-rb-4f5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="414" id="Juc-cN-v1g"/>
+                                            <constraint firstAttribute="height" constant="80" id="yvq-xP-v1F"/>
+                                        </constraints>
+                                        <state key="normal" image="rsz_happy-smiling-emoticon-face-with-open-mouth"/>
+                                        <connections>
+                                            <segue destination="1Ws-2n-Fa6" kind="show" id="FOH-Nn-QgB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZC-7Y-F1b">
+                                        <rect key="frame" x="0.0" y="80" width="414" height="80"/>
+                                        <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="414" id="Ase-or-2LV"/>
+                                            <constraint firstAttribute="height" constant="80" id="Ld0-h4-jUb"/>
+                                        </constraints>
+                                        <state key="normal" image="rsz_smiling-emoticon-square-face"/>
+                                        <connections>
+                                            <segue destination="1Ws-2n-Fa6" kind="show" id="wTk-yO-xNs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-vS-swF">
+                                        <rect key="frame" x="0.0" y="160" width="414" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="414" id="JJP-oo-Atl"/>
+                                            <constraint firstAttribute="height" constant="80" id="e7h-Vj-f0r"/>
+                                        </constraints>
+                                        <state key="normal" image="rsz_sleepy-emoticon-square-face"/>
+                                        <connections>
+                                            <segue destination="1Ws-2n-Fa6" kind="show" id="efG-IG-Nlx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79Y-oT-1mo">
+                                        <rect key="frame" x="0.0" y="240" width="414" height="80"/>
+                                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Eeo-em-ocN"/>
+                                            <constraint firstAttribute="width" constant="414" id="Fcf-lk-Wqk"/>
+                                        </constraints>
+                                        <state key="normal" image="rsz_1sad-face-in-rounded-square"/>
+                                        <connections>
+                                            <segue destination="1Ws-2n-Fa6" kind="show" id="hyr-ke-5ww"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67G-4L-JwO">
+                                        <rect key="frame" x="0.0" y="320" width="414" height="80"/>
+                                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="414" id="T88-7t-39g"/>
+                                            <constraint firstAttribute="height" constant="80" id="qHW-j9-lun"/>
+                                        </constraints>
+                                        <state key="normal" image="rsz_2teardrop-falling-on-sad-emoticon-face"/>
+                                        <connections>
+                                            <segue destination="1Ws-2n-Fa6" kind="show" id="463-7D-vZ1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QVQ-d7-gqd" firstAttribute="bottom" secondItem="oB1-O8-jre" secondAttribute="bottom" id="Xbh-wa-FU1"/>
-                            <constraint firstItem="QVQ-d7-gqd" firstAttribute="top" secondItem="JNN-ub-5zS" secondAttribute="bottom" constant="52" id="Xo6-UZ-6Hf"/>
-                            <constraint firstItem="QVQ-d7-gqd" firstAttribute="trailing" secondItem="oB1-O8-jre" secondAttribute="trailing" id="c6a-Dd-0Z3"/>
-                            <constraint firstItem="QVQ-d7-gqd" firstAttribute="leading" secondItem="oB1-O8-jre" secondAttribute="leading" id="zBr-Dc-mjj"/>
+                            <constraint firstItem="LeN-B1-gcr" firstAttribute="trailing" secondItem="oB1-O8-jre" secondAttribute="trailing" id="FTB-kg-Qdb"/>
+                            <constraint firstItem="LeN-B1-gcr" firstAttribute="top" secondItem="oB1-O8-jre" secondAttribute="top" id="xxC-Y1-n9V"/>
+                            <constraint firstItem="LeN-B1-gcr" firstAttribute="leading" secondItem="oB1-O8-jre" secondAttribute="leading" id="yaq-Qd-5WX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oB1-O8-jre"/>
                     </view>
@@ -135,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="1185.5072463768117" y="115.7608695652174"/>
         </scene>
-        <!--Mood View Controller-->
+        <!--Graph-->
         <scene sceneID="PLG-rj-8zt">
             <objects>
                 <viewController id="1Ws-2n-Fa6" customClass="MoodViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -160,43 +236,66 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pbS-Ve-NQe">
-                                <rect key="frame" x="125" y="413" width="164" height="128"/>
+                                <rect key="frame" x="125" y="413" width="180" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-d8-Ykg">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="32"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="PoD-tz-htF"/>
+                                            <constraint firstAttribute="height" constant="32" id="0fg-5h-kg5"/>
+                                            <constraint firstAttribute="width" constant="180" id="UPw-rW-N5s"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Select a period of time"/>
+                                        <state key="normal" title="Select a period of time">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="HandleSelection:" destination="mD5-EH-XAK" eventType="touchUpInside" id="bRW-qE-dXr"/>
+                                            <action selector="handleSelection:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="Bnd-Fu-QfZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03o-fK-Yeo">
-                                        <rect key="frame" x="0.0" y="32" width="164" height="32"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03o-fK-Yeo">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="32"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="zFa-cr-fIY"/>
+                                            <constraint firstAttribute="width" constant="180" id="mee-vI-G37"/>
+                                            <constraint firstAttribute="height" constant="32" id="yG8-Pa-iQu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="7 day ago"/>
+                                        <connections>
+                                            <action selector="periodTapped:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="htG-HF-isz"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-p6-JR4">
-                                        <rect key="frame" x="0.0" y="64" width="164" height="32"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hS6-p6-JR4">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="32"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="Rur-Yl-GiP"/>
+                                            <constraint firstAttribute="width" constant="180" id="LSz-Ie-7ce"/>
+                                            <constraint firstAttribute="height" constant="32" id="qOv-qc-AMI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="2 week ago"/>
+                                        <connections>
+                                            <action selector="periodTapped:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="ERK-cb-mve"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhH-u5-3OT">
-                                        <rect key="frame" x="0.0" y="96" width="164" height="32"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhH-u5-3OT">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="32"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="Q8d-b2-Pmc"/>
+                                            <constraint firstAttribute="height" constant="32" id="WkN-qj-5uo"/>
+                                            <constraint firstAttribute="width" constant="180" id="del-Wy-CGc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="A month ago"/>
+                                        <connections>
+                                            <action selector="periodTapped:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="XT0-71-qqW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -204,9 +303,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="H5O-WN-K3o"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fH0-XP-x6b">
+                    <navigationItem key="navigationItem" title="Graph" id="fH0-XP-x6b">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="j0X-cG-5yS"/>
                     </navigationItem>
+                    <connections>
+                        <outletCollection property="periodButton" destination="03o-fK-Yeo" collectionClass="NSMutableArray" id="Roc-Oq-mft"/>
+                        <outletCollection property="periodButton" destination="hS6-p6-JR4" collectionClass="NSMutableArray" id="ubS-r5-5v9"/>
+                        <outletCollection property="periodButton" destination="yhH-u5-3OT" collectionClass="NSMutableArray" id="NxI-K9-FUO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFj-Wm-peB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mD5-EH-XAK" userLabel="Exit" sceneMemberID="exit"/>
@@ -225,47 +329,6 @@
                                 <rect key="frame" x="0.0" y="137" width="414" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o0O-lG-jm8">
-                                <rect key="frame" x="125" y="418" width="164" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dq-2h-EKv">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="88L-0b-Cb2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Select a period of time"/>
-                                        <connections>
-                                            <action selector="HandleSelection:" destination="mD5-EH-XAK" eventType="touchUpInside" id="bAQ-oj-WaE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmP-8y-7LR">
-                                        <rect key="frame" x="0.0" y="32" width="164" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="fhI-TT-Pe8"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="7 day ago"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hep-6B-smQ">
-                                        <rect key="frame" x="0.0" y="64" width="164" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="XOb-IJ-i4c"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="2 week ago"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQT-Kv-WAV">
-                                        <rect key="frame" x="0.0" y="96" width="164" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="164" id="aJ7-ca-Ps2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="A month ago"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="V0r-7q-dis"/>
@@ -276,4 +339,16 @@
             <point key="canvasLocation" x="2021.7391304347827" y="836.41304347826099"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="porridge" width="620" height="413"/>
+        <image name="rsz_1sad-face-in-rounded-square" width="70" height="70"/>
+        <image name="rsz_2teardrop-falling-on-sad-emoticon-face" width="70" height="70"/>
+        <image name="rsz_happy-smiling-emoticon-face-with-open-mouth" width="70" height="70"/>
+        <image name="rsz_sleepy-emoticon-square-face" width="70" height="70"/>
+        <image name="rsz_smiling-emoticon-square-face" width="70" height="70"/>
+        <image name="squarePleasant" width="512" height="512"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="463-7D-vZ1"/>
+    </inferredMetricsTieBreakers>
 </document>

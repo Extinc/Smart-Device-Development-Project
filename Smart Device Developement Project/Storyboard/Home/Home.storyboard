@@ -41,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="155.17241379310346"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="oGk-HH-Bmg">
             <objects>
                 <viewController id="8cY-3t-SS2" sceneMemberID="viewController">
@@ -49,8 +49,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="F3a-Ms-73P"/>
                     </view>
-                    <navigationItem key="navigationItem" id="icM-j7-QVv"/>
+                    <navigationItem key="navigationItem" title="Home" id="icM-j7-QVv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOS-BZ-wtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

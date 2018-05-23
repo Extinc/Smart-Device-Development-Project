@@ -26,13 +26,15 @@
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
-		51A9CB0B20B51C9600BD18BB /* PreviewMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0520B51C9600BD18BB /* PreviewMealCell.swift */; };
 		51A9CB0C20B51C9600BD18BB /* ChooseFromDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0620B51C9600BD18BB /* ChooseFromDBViewController.swift */; };
 		51A9CB0D20B51C9600BD18BB /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0720B51C9600BD18BB /* DietaryViewController.swift */; };
 		51A9CB0E20B51C9600BD18BB /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0820B51C9600BD18BB /* OptionsViewController.swift */; };
-		51A9CB0F20B51C9600BD18BB /* AddMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0920B51C9600BD18BB /* AddMealCell.swift */; };
 		51A9CB1020B51C9600BD18BB /* DisplayMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0A20B51C9600BD18BB /* DisplayMealViewController.swift */; };
+		69E9629620B58A2F006DB2F8 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629520B58A2F006DB2F8 /* Meal.swift */; };
+		69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */; };
+		69E9629A20B595C0006DB2F8 /* DBMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629920B595C0006DB2F8 /* DBMealTableViewCell.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
+		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
@@ -81,15 +83,17 @@
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		51A9CB0520B51C9600BD18BB /* PreviewMealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewMealCell.swift; sourceTree = "<group>"; };
 		51A9CB0620B51C9600BD18BB /* ChooseFromDBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseFromDBViewController.swift; sourceTree = "<group>"; };
 		51A9CB0720B51C9600BD18BB /* DietaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
 		51A9CB0820B51C9600BD18BB /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		51A9CB0920B51C9600BD18BB /* AddMealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealCell.swift; sourceTree = "<group>"; };
 		51A9CB0A20B51C9600BD18BB /* DisplayMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayMealViewController.swift; sourceTree = "<group>"; };
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
+		69E9629520B58A2F006DB2F8 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		69E9629920B595C0006DB2F8 /* DBMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMealTableViewCell.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -275,12 +279,13 @@
 		5169C66A20AAA9DC0014E15D /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
-				51A9CB0920B51C9600BD18BB /* AddMealCell.swift */,
 				51A9CB0620B51C9600BD18BB /* ChooseFromDBViewController.swift */,
 				51A9CB0720B51C9600BD18BB /* DietaryViewController.swift */,
 				51A9CB0A20B51C9600BD18BB /* DisplayMealViewController.swift */,
 				51A9CB0820B51C9600BD18BB /* OptionsViewController.swift */,
-				51A9CB0520B51C9600BD18BB /* PreviewMealCell.swift */,
+				69E9629520B58A2F006DB2F8 /* Meal.swift */,
+				69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */,
+				69E9629920B595C0006DB2F8 /* DBMealTableViewCell.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				5169C67020AAAA210014E15D /* ExerciseViewController.swift */,
+				90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -565,20 +571,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
+				69E9629A20B595C0006DB2F8 /* DBMealTableViewCell.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
+				69E9629620B58A2F006DB2F8 /* Meal.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
-				51A9CB0F20B51C9600BD18BB /* AddMealCell.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
 				51A9CB0E20B51C9600BD18BB /* OptionsViewController.swift in Sources */,
 				5169C67320AAAA2A0014E15D /* MoodViewController.swift in Sources */,
 				51A9CB0D20B51C9600BD18BB /* DietaryViewController.swift in Sources */,
+				69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */,
 				51A9CB1020B51C9600BD18BB /* DisplayMealViewController.swift in Sources */,
 				51A9CB0C20B51C9600BD18BB /* ChooseFromDBViewController.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
-				51A9CB0B20B51C9600BD18BB /* PreviewMealCell.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

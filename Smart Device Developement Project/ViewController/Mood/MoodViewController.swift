@@ -21,7 +21,19 @@ class MoodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func handleSelection(_ sender: UIButton) {
+        periodButton.forEach{(button) in
+            button.isHidden = !button.isHidden
+            
+        }
+    }
+    
+    
+    @IBOutlet var periodButton: [UIButton]!
+    
+    
+    @IBAction func periodTapped(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

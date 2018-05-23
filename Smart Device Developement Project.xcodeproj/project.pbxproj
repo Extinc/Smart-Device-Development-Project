@@ -34,6 +34,7 @@
 		69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */; };
 		69E9629A20B595C0006DB2F8 /* DBMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629920B595C0006DB2F8 /* DBMealTableViewCell.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
+		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
@@ -92,6 +93,7 @@
 		69E9629920B595C0006DB2F8 /* DBMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMealTableViewCell.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				5169C67020AAAA210014E15D /* ExerciseViewController.swift */,
+				90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,46 +7,44 @@
 //
 
 import UIKit
-import MapKit
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-class HRAViewController: UIViewController {
-    
-    @IBOutlet weak var map: MKMapView!
-    @IBOutlet weak var searchBar: UISearchBar!
-=======
 class HRAViewController: UIViewController, UITableViewDataSource {
->>>>>>> 36e0d21b13ea8fa45b168bfe3bda0d4fc7733b9a
     
-=======
-class HRAViewController: UIViewController {
-
->>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
-=======
-class HRAViewController: UIViewController {
-
->>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
-=======
-class HRAViewController: UIViewController {
-
->>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
-=======
-class HRAViewController: UIViewController {
-
->>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        cell.label?.text = "Bryan 1 star restaurant"
+        //cell.imageView?.image = UIImage(named: name)
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

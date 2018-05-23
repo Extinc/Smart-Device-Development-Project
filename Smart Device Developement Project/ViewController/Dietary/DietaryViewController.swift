@@ -9,15 +9,10 @@
 import UIKit
 
 class DietaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    let meals:[[String]] = [["Meal"],
-                            ["Meal"],
-                            ["Meal"],
-                            ["Meal"]]
-    let calories:[[String]] = [["350 Calories"],
-                               ["350 Calories"],
-                               ["350 Calories"],
-                               ["350 Calories"]]
     let headers:[String] = ["Breakfast", "Lunch", "Dinner", "Snacks"]
+    
+    let meal = [[Meal("Porridge", "350 Calories", "porridge")],
+                [Meal("Chicken Rice", "500 Calories", "chickenrice")]]
     
     
     override func viewDidLoad() {
@@ -27,15 +22,15 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals[section].count
+        return meal[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //cell.textLabel?.text = meals[indexPath.section][indexPath.row]
-        //cell.detailTextLabel?.text = calories[indexPath.section][indexPath.row]
-        //cell.imageView.image = .... //For database later on. 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealTableViewCell
+        cell.mealLabel.text = meal[indexPath.section][indexPath.row].mealName
+        cell.caloriesLabel.text = meal[indexPath.section][indexPath.row].mealCalories
+        cell.mealImage.image = UIImage(named: meal[indexPath.section][indexPath.row].imagePath)
         return cell
       
         
@@ -48,7 +43,7 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return meals.count
+        return meal.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

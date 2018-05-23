@@ -37,11 +37,6 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destination = DisplayMealViewController()
-        navigationController?.pushViewController(destination, animated: true)
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return meal.count
     }

@@ -10,6 +10,10 @@ import UIKit
 
 class HRAViewController: UIViewController, UITableViewDataSource {
     
+    let data:[String] = ["Restaurnt 1", "Restaurnt 2", "Restaurnt 3","Restaurnt 4", "Restaurnt 5",
+                         "Restaurnt 6", "Restaurnt 7", "Restaurnt 8","Restaurnt 9", "Restaurnt 10"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +21,7 @@ class HRAViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,7 +30,7 @@ class HRAViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.label?.text = "Bryan 1 star restaurant"
+        cell.label?.text = data[indexPath.row]
         //cell.imageView?.image = UIImage(named: name)
         return cell
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DietaryViewController: UIViewController, UITableViewDataSource {
+class DietaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let meals:[[String]] = [["Meal"],
                             ["Meal"],
                             ["Meal"],
@@ -40,6 +40,11 @@ class DietaryViewController: UIViewController, UITableViewDataSource {
       
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destination = DisplayMealViewController()
+        navigationController?.pushViewController(destination, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

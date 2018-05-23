@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class HRAViewController: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
@@ -18,25 +19,14 @@ class HRAViewController: UIViewController {
 class HRAViewController: UIViewController, UITableViewDataSource {
 >>>>>>> 36e0d21b13ea8fa45b168bfe3bda0d4fc7733b9a
     
+=======
+class HRAViewController: UIViewController {
+
+>>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.label?.text = "Bryan 1 star restaurant"
-        //cell.imageView?.image = UIImage(named: name)
-        return cell
     }
 
     override func didReceiveMemoryWarning() {

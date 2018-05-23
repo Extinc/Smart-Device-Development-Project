@@ -15,7 +15,6 @@
             <objects>
                 <viewController storyboardIdentifier="HRAStoryboard" id="COe-dl-A4n" customClass="HRAViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9bS-rV-Kbx">
-<<<<<<< HEAD
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -91,24 +90,6 @@
             </objects>
             <point key="canvasLocation" x="2981.5999999999999" y="-15.292353823088456"/>
         </scene>
-        <!--Advisor-->
-        <scene sceneID="wq2-iq-gZu">
-            <objects>
-                <viewController storyboardIdentifier="HRAStoryboard" id="f2c-Bc-9fk" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mKD-CA-jw9">
-=======
->>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="DBu-D7-iKa"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Advisor" id="Fu4-VK-8Nm"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MxQ-p2-Erc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-366" y="8"/>
-        </scene>
+
     </scenes>
 </document>

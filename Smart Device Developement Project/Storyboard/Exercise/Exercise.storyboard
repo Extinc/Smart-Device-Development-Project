@@ -97,13 +97,7 @@
                         <viewLayoutGuide key="safeArea" id="D4R-tY-RkD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Exercise" id="DuR-Qm-8de">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="J5X-cx-sJN">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Kd-5S-4gA">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" style="plain" id="J5X-cx-sJN"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90Y-eG-mPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -126,4 +120,7 @@
             <point key="canvasLocation" x="849" y="667"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_mic_black_24pt" width="24" height="24"/>
+    </resources>
 </document>

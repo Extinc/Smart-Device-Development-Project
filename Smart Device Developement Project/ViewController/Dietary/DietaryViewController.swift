@@ -31,11 +31,15 @@ class DietaryViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         //cell.textLabel?.text = meals[indexPath.section][indexPath.row]
         //cell.detailTextLabel?.text = calories[indexPath.section][indexPath.row]
         //cell.imageView.image = .... //For database later on. 
         return cell
+      
+        
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

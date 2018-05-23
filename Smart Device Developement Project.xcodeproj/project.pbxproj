@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
+		512DA21A20B44CFF006137DE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DA21920B44CFF006137DE /* CustomCell.swift */; };
 		5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C62420AAA4460014E15D /* AppDelegate.swift */; };
 		5169C62C20AAA4460014E15D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62A20AAA4460014E15D /* Main.storyboard */; };
 		5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62D20AAA4460014E15D /* Assets.xcassets */; };
@@ -27,7 +28,9 @@
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		69BA08ED20B2F9D000CDD899 /* PreviewMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA08EC20B2F9D000CDD899 /* PreviewMealCell.swift */; };
-		69BA08EF20B2FD7B00CDD899 /* AddMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA08EE20B2FD7B00CDD899 /* AddMealCell.swift */; };
+		69BB1E7720B46A2C001452E6 /* DisplayMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB1E7620B46A2C001452E6 /* DisplayMealViewController.swift */; };
+		69BB1E7920B46A67001452E6 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB1E7820B46A67001452E6 /* OptionsViewController.swift */; };
+		69BB1E7B20B46AD9001452E6 /* ChooseFromDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB1E7A20B46AD9001452E6 /* ChooseFromDBViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
@@ -54,6 +57,7 @@
 /* Begin PBXFileReference section */
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		512DA21920B44CFF006137DE /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5169C62120AAA4460014E15D /* Smart Device Developement Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Device Developement Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5169C62420AAA4460014E15D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5169C62B20AAA4460014E15D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,7 +83,9 @@
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
 		69BA08EC20B2F9D000CDD899 /* PreviewMealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMealCell.swift; sourceTree = "<group>"; };
-		69BA08EE20B2FD7B00CDD899 /* AddMealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealCell.swift; sourceTree = "<group>"; };
+		69BB1E7620B46A2C001452E6 /* DisplayMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealViewController.swift; sourceTree = "<group>"; };
+		69BB1E7820B46A67001452E6 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		69BB1E7A20B46AD9001452E6 /* ChooseFromDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromDBViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -269,7 +275,9 @@
 			children = (
 				5169C66E20AAAA110014E15D /* DietaryViewController.swift */,
 				69BA08EC20B2F9D000CDD899 /* PreviewMealCell.swift */,
-				69BA08EE20B2FD7B00CDD899 /* AddMealCell.swift */,
+				69BB1E7620B46A2C001452E6 /* DisplayMealViewController.swift */,
+				69BB1E7820B46A67001452E6 /* OptionsViewController.swift */,
+				69BB1E7A20B46AD9001452E6 /* ChooseFromDBViewController.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -294,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				5169C67420AAAA390014E15D /* HRAViewController.swift */,
+				512DA21920B44CFF006137DE /* CustomCell.swift */,
 			);
 			path = HRA;
 			sourceTree = "<group>";
@@ -553,16 +562,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
+				512DA21A20B44CFF006137DE /* CustomCell.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
+				69BB1E7920B46A67001452E6 /* OptionsViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
-				69BA08EF20B2FD7B00CDD899 /* AddMealCell.swift in Sources */,
 				5169C67320AAAA2A0014E15D /* MoodViewController.swift in Sources */,
+				69BB1E7B20B46AD9001452E6 /* ChooseFromDBViewController.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C66F20AAAA110014E15D /* DietaryViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				69BA08ED20B2F9D000CDD899 /* PreviewMealCell.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				69BB1E7720B46A2C001452E6 /* DisplayMealViewController.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

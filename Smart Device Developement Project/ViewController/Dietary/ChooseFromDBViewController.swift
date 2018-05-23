@@ -1,34 +1,19 @@
 //
-//  HRAViewController.swift
+//  ChooseFromDBViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by ITP312 on 15/5/18.
+//  Created by Guan Wei on 22/5/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
 
-class HRAViewController: UIViewController, UITableViewDataSource {
-    
+class ChooseFromDBViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.label?.text = "Bryan 1 star restaurant"
-        //cell.imageView?.image = UIImage(named: name)
-        return cell
     }
 
     override func didReceiveMemoryWarning() {

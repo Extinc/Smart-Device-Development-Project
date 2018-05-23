@@ -18,6 +18,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -114,6 +115,8 @@
             <objects>
                 <viewController storyboardIdentifier="HRAStoryboard" id="f2c-Bc-9fk" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mKD-CA-jw9">
+=======
+>>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
 =======
 >>>>>>> parent of 36e0d21... Merge branch 'master' of https://github.com/VoidBlanc/Smart-Device-Development-Project
 =======

@@ -17,6 +17,7 @@ target 'Smart Device Developement Project' do
     # Pods for testing
   end
 
+  # Material Design pods by google
   pod 'MaterialComponents/AppBar'
   pod 'MaterialComponents/Cards'
   pod 'MaterialComponents/Dialogs'
@@ -27,6 +28,7 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/Palettes'
   pod 'MaterialComponents/schemes/Color'
   pod 'MaterialComponents/schemes/Typography'
+  pod 'MaterialComponents/Buttons+ButtonThemer'
   pod 'MaterialComponents/TextFields+ColorThemer'
   pod 'MaterialComponents/Cards+ColorThemer'
   pod 'MaterialComponents/AppBar+ColorThemer’

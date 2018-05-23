@@ -2,22 +2,74 @@
 //  SignUpViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by ITP312 on 18/5/18.
+//  Created by lim kei yiang on 19/5/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
+import MaterialComponents
+
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var reguser: UITextField!
-    @IBOutlet weak var regpass: UITextField!
-    @IBOutlet weak var regrepeatpass: UITextField!
+    @IBOutlet weak var reguser: MDCTextField! = {
+        let name = MDCTextField()
+        name.autocapitalizationType = .words
+        name.backgroundColor = .white
+        return name
+    }()
+
+    @IBOutlet weak var regpass: MDCTextField! = {
+        let pass = MDCTextField()
+        pass.backgroundColor = .white
+        return pass
+    }()
+    
+    @IBOutlet weak var regrepeatpwd: MDCTextField! = {
+        let pass = MDCTextField()
+        pass.backgroundColor = .white
+        return pass
+    }()
+    
+    @IBOutlet weak var signupBtn: MDCFlatButton!
+    
+    var allTextFieldControllers = [MDCTextInputControllerFloatingPlaceholder]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: signupBtn)
+        let colorScheme = MDCSemanticColorScheme()
+        let colors = Colors()
+        colorScheme.primaryColor = colors.primaryColor
 
+        MDCButtonColorThemer.applySemanticColorScheme(colorScheme, to: signupBtn)
+        signupBtn.setTitle("Sign Up", for: UIControlState())
+        setUpTextField()
+    }
+    
+    
+    
+    func setUpTextField(){
+            let reguserController = MDCTextInputControllerOutlined(textInput: reguser)
+            reguserController.placeholderText = "Enter username"
+            allTextFieldControllers.append(reguserController)
+        
+            let regpassController = MDCTextInputControllerOutlined(textInput: regpass)
+            regpassController.placeholderText = "Enter Password"
+            allTextFieldControllers.append(regpassController)
+        
+            let regrepeatpwdController = MDCTextInputControllerOutlined(textInput: regrepeatpwd)
+            regrepeatpwdController.placeholderText = "Enter Password Again"
+            allTextFieldControllers.append(regrepeatpwdController)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,15 +85,5 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    // Action for the signup button
-    //
-    @IBAction func registerAction(_ sender: Any) {
-        // TODO: Check if username exist in database
-        //
-        
-        if(regrepeatpass.text == regpass.text){
-                
-        }
-    }
+
 }

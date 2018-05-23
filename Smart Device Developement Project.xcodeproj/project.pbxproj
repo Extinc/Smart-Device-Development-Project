@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
+		512DA21A20B44CFF006137DE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512DA21920B44CFF006137DE /* CustomCell.swift */; };
 		5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C62420AAA4460014E15D /* AppDelegate.swift */; };
 		5169C62C20AAA4460014E15D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62A20AAA4460014E15D /* Main.storyboard */; };
 		5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62D20AAA4460014E15D /* Assets.xcassets */; };
@@ -26,8 +27,14 @@
 		5169C67320AAAA2A0014E15D /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67220AAAA2A0014E15D /* MoodViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
-		51862EBF20AE6DA70058CE01 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBE20AE6DA70058CE01 /* SignUpViewController.swift */; };
+		69BA08ED20B2F9D000CDD899 /* PreviewMealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BA08EC20B2F9D000CDD899 /* PreviewMealCell.swift */; };
+		69BB1E7720B46A2C001452E6 /* DisplayMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB1E7620B46A2C001452E6 /* DisplayMealViewController.swift */; };
+		69BB1E7920B46A67001452E6 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB1E7820B46A67001452E6 /* OptionsViewController.swift */; };
+		69BB1E7B20B46AD9001452E6 /* ChooseFromDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BB1E7A20B46AD9001452E6 /* ChooseFromDBViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
+		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
+		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
+		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,7 @@
 /* Begin PBXFileReference section */
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		512DA21920B44CFF006137DE /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5169C62120AAA4460014E15D /* Smart Device Developement Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Device Developement Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5169C62420AAA4460014E15D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5169C62B20AAA4460014E15D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,10 +81,16 @@
 		5169C67220AAAA2A0014E15D /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		51862EBE20AE6DA70058CE01 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "Smart Device Developement Project/ViewController/SignUpViewController.swift"; sourceTree = SOURCE_ROOT; };
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
+		69BA08EC20B2F9D000CDD899 /* PreviewMealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMealCell.swift; sourceTree = "<group>"; };
+		69BB1E7620B46A2C001452E6 /* DisplayMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMealViewController.swift; sourceTree = "<group>"; };
+		69BB1E7820B46A67001452E6 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		69BB1E7A20B46AD9001452E6 /* ChooseFromDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromDBViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A17DA4018283E26F6203D928 /* Pods-Smart Device Developement Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.release.xcconfig"; sourceTree = "<group>"; };
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +163,7 @@
 		5169C62320AAA4460014E15D /* Smart Device Developement Project */ = {
 			isa = PBXGroup;
 			children = (
+				90C601E820B00E87002FFF5D /* UI */,
 				5169C66620AAA99C0014E15D /* ViewController */,
 				5169C65520AAA49C0014E15D /* Storyboard */,
 				5169C62420AAA4460014E15D /* AppDelegate.swift */,
@@ -233,13 +248,16 @@
 		5169C66620AAA99C0014E15D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5169C67920AAAE150014E15D /* Register */,
+				90C601EB20B01549002FFF5D /* Login */,
+				909ED72B20AFD1A80092D385 /* Register */,
 				5169C66D20AAA9ED0014E15D /* HRA */,
 				5169C66C20AAA9E80014E15D /* Mood */,
 				5169C66B20AAA9E20014E15D /* Exercise */,
 				5169C66A20AAA9DC0014E15D /* Dietary */,
 				5169C66920AAA9D50014E15D /* Home */,
 				51862EBC20AE6D5E0058CE01 /* MainViewController.swift */,
+				909ED72C20AFD1B30092D385 /* SignUpViewController.swift */,
+				90C601EC20B01596002FFF5D /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,6 +274,10 @@
 			isa = PBXGroup;
 			children = (
 				5169C66E20AAAA110014E15D /* DietaryViewController.swift */,
+				69BA08EC20B2F9D000CDD899 /* PreviewMealCell.swift */,
+				69BB1E7620B46A2C001452E6 /* DisplayMealViewController.swift */,
+				69BB1E7820B46A67001452E6 /* OptionsViewController.swift */,
+				69BB1E7A20B46AD9001452E6 /* ChooseFromDBViewController.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -280,16 +302,9 @@
 			isa = PBXGroup;
 			children = (
 				5169C67420AAAA390014E15D /* HRAViewController.swift */,
+				512DA21920B44CFF006137DE /* CustomCell.swift */,
 			);
 			path = HRA;
-			sourceTree = "<group>";
-		};
-		5169C67920AAAE150014E15D /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				51862EBE20AE6DA70058CE01 /* SignUpViewController.swift */,
-			);
-			path = Register;
 			sourceTree = "<group>";
 		};
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
@@ -300,6 +315,28 @@
 				BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		909ED72B20AFD1A80092D385 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		90C601E820B00E87002FFF5D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				90C601E920B00EAA002FFF5D /* Colors.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		90C601EB20B01549002FFF5D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +351,6 @@
 				5169C61E20AAA4460014E15D /* Frameworks */,
 				5169C61F20AAA4460014E15D /* Resources */,
 				E13AD2F3C77CAC43A88E155A /* [CP] Embed Pods Frameworks */,
-				071F7FEF5A61E9F1F38ACD98 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,8 +369,6 @@
 				5169C63320AAA4460014E15D /* Sources */,
 				5169C63420AAA4460014E15D /* Frameworks */,
 				5169C63520AAA4460014E15D /* Resources */,
-				64A3FD26A76DF6FAF76B5FD8 /* [CP] Embed Pods Frameworks */,
-				50ABB8F5CE126D1BE4A50539 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -354,8 +388,6 @@
 				5169C63E20AAA4460014E15D /* Sources */,
 				5169C63F20AAA4460014E15D /* Frameworks */,
 				5169C64020AAA4460014E15D /* Resources */,
-				F3FE9F4AD37F4B749E0A9D8F /* [CP] Embed Pods Frameworks */,
-				21877D4DE9D6862864CB1FC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -446,21 +478,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		071F7FEF5A61E9F1F38ACD98 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		11D9611A83C3DE976D55E2DE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -479,21 +496,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		21877D4DE9D6862864CB1FC5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		26A19298588B0E31D0399BF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,36 +512,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		50ABB8F5CE126D1BE4A50539 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64A3FD26A76DF6FAF76B5FD8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		70785ABD0ED6F98C9FE1CC5D /* [CP] Check Pods Manifest.lock */ = {
@@ -582,21 +554,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3FE9F4AD37F4B749E0A9D8F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -605,12 +562,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
+				512DA21A20B44CFF006137DE /* CustomCell.swift in Sources */,
+				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
+				69BB1E7920B46A67001452E6 /* OptionsViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
-				51862EBF20AE6DA70058CE01 /* SignUpViewController.swift in Sources */,
+				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
 				5169C67320AAAA2A0014E15D /* MoodViewController.swift in Sources */,
+				69BB1E7B20B46AD9001452E6 /* ChooseFromDBViewController.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C66F20AAAA110014E15D /* DietaryViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
+				69BA08ED20B2F9D000CDD899 /* PreviewMealCell.swift in Sources */,
+				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				69BB1E7720B46A2C001452E6 /* DisplayMealViewController.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

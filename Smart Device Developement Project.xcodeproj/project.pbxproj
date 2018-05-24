@@ -39,6 +39,7 @@
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
 		7038C01620B6D86300D1FFBD /* MoodTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038C01520B6D86300D1FFBD /* MoodTableController.swift */; };
 		704B808620B6FCE400ADAEB1 /* RecoFoodPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704B808520B6FCE400ADAEB1 /* RecoFoodPopUp.swift */; };
+		704B808820B7072800ADAEB1 /* ViewGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704B808720B7072800ADAEB1 /* ViewGraphViewController.swift */; };
 		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
@@ -101,6 +102,7 @@
 		69E9629920B595C0006DB2F8 /* DBMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMealTableViewCell.swift; sourceTree = "<group>"; };
 		7038C01520B6D86300D1FFBD /* MoodTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableController.swift; sourceTree = "<group>"; };
 		704B808520B6FCE400ADAEB1 /* RecoFoodPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoFoodPopUp.swift; sourceTree = "<group>"; };
+		704B808720B7072800ADAEB1 /* ViewGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGraphViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				5169C67220AAAA2A0014E15D /* MoodViewController.swift */,
 				7038C01520B6D86300D1FFBD /* MoodTableController.swift */,
 				704B808520B6FCE400ADAEB1 /* RecoFoodPopUp.swift */,
+				704B808720B7072800ADAEB1 /* ViewGraphViewController.swift */,
 			);
 			path = Mood;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				7038C01620B6D86300D1FFBD /* MoodTableController.swift in Sources */,
 				51A9CB1020B51C9600BD18BB /* DisplayMealViewController.swift in Sources */,
 				51A9CB0C20B51C9600BD18BB /* ChooseFromDBViewController.swift in Sources */,
+				704B808820B7072800ADAEB1 /* ViewGraphViewController.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,

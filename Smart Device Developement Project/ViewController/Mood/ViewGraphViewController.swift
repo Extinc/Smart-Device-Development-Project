@@ -1,17 +1,16 @@
 //
-//  MoodViewController.swift
+//  ViewGraphViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by ITP312 on 15/5/18.
+//  Created by Ang Bryan on 24/5/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
 
-class MoodViewController: UIViewController {
+class ViewGraphViewController: UIViewController {
 
-    @IBOutlet weak var graphImg: UIImageView!
-    @IBOutlet weak var labelNotification: UILabel!
+    @IBOutlet weak var imgGraph: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,30 +22,27 @@ class MoodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func handleSelection(_ sender: UIButton) {
-        labelNotification.isHidden = true
-        periodButton.forEach{(button) in
-            button.isHidden = !button.isHidden
+    
+    @IBOutlet var periodButton: [UIButton]!
+        
+        @IBAction func handleSelection(_ sender: UIButton) {
             
-        }
+            periodButton.forEach{(button) in
+                button.isHidden = !button.isHidden
+            }
     }
     
     
-    @IBOutlet var periodButton: [UIButton]!
-    
     @IBAction func daysago(_ sender: Any) {
-        
-        graphImg.image = UIImage (named : "graph7day")
+        imgGraph.image = UIImage (named : "graph7day")
     }
     
     @IBAction func weeksago(_ sender: Any) {
-        graphImg.image = UIImage (named : "graphweek")
-    }
-    @IBAction func monthsago(_ sender: Any) {
-          graphImg.image = UIImage (named : "monthago")
+        imgGraph.image = UIImage (named : "graphweek")
     }
     
-    @IBAction func periodTapped(_ sender: UIButton) {
+    @IBAction func monthsago(_ sender: Any) {
+        imgGraph.image = UIImage (named : "monthago")
     }
     /*
     // MARK: - Navigation

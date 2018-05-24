@@ -7,21 +7,26 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialButtons_ButtonThemer
 
 class DietaryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var totalCaloriesButton: UIButton!
     
     let headers:[String] = ["Breakfast", "Lunch", "Dinner", "Snacks"]
     
     let meal = [[Meal("Porridge", "350 Calories", "porridge")],
-                [Meal("Chicken Rice", "500 Calories", "chickenrice")]]
+                [Meal("Chicken Rice", "500 Calories", "chickenrice")],
+                [Meal("Aglio Olio", "450 Calories", "")],
+                [Meal("Oreo", "200 Calories", "")]]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        totalCaloriesButton.setImage(UIImage(named: "chickenrice")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

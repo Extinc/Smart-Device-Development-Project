@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ChooseFromDBViewController: UIViewController {
+class ChooseFromDBViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let headers:[String] = ["Breakfast", "Lunch", "Dinner", "Snacks"]
+    @IBOutlet weak var table: UITableView!
     
-    let meal = [[Meal("Porridge", "350 Calories", "porridge")],
-                [Meal("Chicken Rice", "500 Calories", "chickenrice")]]
+    
+    let meal = [Meal("Porridge", "350 Calories", "porridge"),
+                Meal("Chicken Rice", "500 Calories", "chickenrice"),
+                Meal("Aglio Olio", "450 Calories", ""),
+                Meal("Oreo", "200 Calories", "")]
     
     
     override func viewDidLoad() {
@@ -22,28 +25,35 @@ class ChooseFromDBViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meal[section].count
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealTableViewCell
-        cell.mealLabel.text = meal[indexPath.section][indexPath.row].mealName
-        cell.caloriesLabel.text = meal[indexPath.section][indexPath.row].mealCalories
-        cell.mealImage.image = UIImage(named: meal[indexPath.section][indexPath.row].imagePath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DBMealTableViewCell
+        cell.mealLabel.text = meal[indexPath.row].mealName
+        cell.caloriesLabel.text = meal[indexPath.row].mealCalories
+        cell.mealImage.image = UIImage(named: meal[indexPath.row].imagePath)
         return cell
-        
-        
-        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meal.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return meal.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return headers[section]
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "ShowMealDetails"
+        {
+            let detailViewController = segue.destination as! DisplayMealViewController
+            
+            let myIndexPath = self.table.indexPathForSelectedRow
+            if myIndexPath != nil {
+                let actualMeal = meal[myIndexPath!.row]
+                detailViewController.mealItem = actualMeal
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

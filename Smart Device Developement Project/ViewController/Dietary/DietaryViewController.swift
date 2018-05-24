@@ -29,8 +29,8 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        totalCaloriesButton.setImage(UIImage(named: "chickenrice")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        addMealButton.backgroundColor = colors.primaryColor
+        totalCaloriesButton.setImage(UIImage(named: "dietary1")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        addMealButton.backgroundColor = colors.secondaryDarkColor
         addMealButton.setTitleColor(colors.secondaryTextColor, for: .normal)
         
     }

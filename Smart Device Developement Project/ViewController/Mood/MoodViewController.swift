@@ -10,6 +10,7 @@ import UIKit
 
 class MoodViewController: UIViewController {
 
+    @IBOutlet weak var labelNotification: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,7 @@ class MoodViewController: UIViewController {
     }
     
     @IBAction func handleSelection(_ sender: UIButton) {
+        labelNotification.isHidden = true
         periodButton.forEach{(button) in
             button.isHidden = !button.isHidden
             

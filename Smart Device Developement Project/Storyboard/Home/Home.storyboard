@@ -46,21 +46,6 @@
             </objects>
             <point key="canvasLocation" x="-450" y="163"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="JtR-YP-Rpq">
-            <objects>
-                <viewController id="XGZ-LW-c3f" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mOu-kX-pDX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="DrF-SY-jZJ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IHE-hk-DTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="390" y="880"/>
-        </scene>
         <!--Home-->
         <scene sceneID="Fbv-VT-fJY">
             <objects>
@@ -69,14 +54,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1o-a8-ADt">
-                                <rect key="frame" x="77" y="339" width="46" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="220px-Pie-chart" translatesAutoresizingMaskIntoConstraints="NO" id="6gt-i2-Yb2">
+                                <rect key="frame" x="20" y="212" width="368" height="312"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="XGZ-LW-c3f" kind="show" id="VP8-b6-AQB"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Yfj-3V-QG1"/>
@@ -85,7 +66,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vx-cn-3hs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-450" y="881"/>
+            <point key="canvasLocation" x="-450.72463768115944" y="880.43478260869574"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="220px-Pie-chart" width="220" height="204"/>
+    </resources>
 </document>

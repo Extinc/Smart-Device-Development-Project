@@ -186,18 +186,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Rvb-jf-UkV">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="217" width="414" height="470"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="67o-aN-4fy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Running" id="Lsy-YB-jYV"/>
+                    <navigationItem key="navigationItem" title="Running" id="etL-3h-1WU">
+                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" id="lY3-am-Dbc">
+                            <connections>
+                                <segue destination="kVW-XZ-fvY" kind="presentation" id="3It-hz-aB2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZv-2e-eIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340.5797101449275" y="744.70108695652175"/>
+            <point key="canvasLocation" x="2339.130434782609" y="743.88586956521749"/>
         </scene>
         <!--Exercise Speech View Controller-->
         <scene sceneID="IfC-hF-R8i">
@@ -229,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uca-z5-84O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="725"/>
+            <point key="canvasLocation" x="1100" y="1618"/>
         </scene>
         <!--Training-->
         <scene sceneID="Aiv-Dj-haz">
@@ -253,7 +259,11 @@
                         <viewLayoutGuide key="safeArea" id="FdB-WH-xxo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Training" id="ui7-kN-Fgb">
-                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" id="Tqb-Dk-Ihj"/>
+                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" id="Tqb-Dk-Ihj">
+                            <connections>
+                                <segue destination="kVW-XZ-fvY" kind="presentation" id="VVN-Fh-aB4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAc-BO-O4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,6 +279,6 @@
         <image name="baseline_mic_black_24pt" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yhk-Bj-tug"/>
+        <segue reference="3It-hz-aB2"/>
     </inferredMetricsTieBreakers>
 </document>

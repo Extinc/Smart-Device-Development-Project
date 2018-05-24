@@ -415,102 +415,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1RU-TD-hjf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graph7day" translatesAutoresizingMaskIntoConstraints="NO" id="lQj-IZ-49L">
+                                <rect key="frame" x="0.0" y="205" width="414" height="303"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-pk-kuw">
                                 <rect key="frame" x="0.0" y="64" width="414" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBe-ti-gNT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYd-gb-t5h">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="tD7-An-D9F"/>
+                                            <constraint firstAttribute="height" constant="50" id="wsT-PX-aTQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Select a period of time">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="handleSelection:" destination="oAo-tx-yr5" eventType="touchUpInside" id="Yen-En-DQH"/>
+                                            <action selector="HandleSelection:" destination="mD5-EH-XAK" eventType="touchUpInside" id="FS9-aE-RD3"/>
+                                            <action selector="handleSelection:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="WDr-hU-vJA"/>
+                                            <action selector="handleSelection:" destination="oAo-tx-yr5" eventType="touchUpInside" id="q2k-CR-vEz"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vas-Gs-pZS">
-                                        <rect key="frame" x="0.0" y="-50" width="414" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3O7-4A-cBP">
+                                        <rect key="frame" x="0.0" y="-64" width="414" height="50"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="fON-KF-Qiw"/>
+                                            <constraint firstAttribute="height" constant="50" id="t9K-83-xgf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="7 day ago">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="7 day ago"/>
                                         <connections>
-                                            <action selector="daysago:" destination="oAo-tx-yr5" eventType="touchUpInside" id="l5L-Cs-ViP"/>
+                                            <action selector="daysago:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="CYh-3I-35r"/>
+                                            <action selector="daysago:" destination="oAo-tx-yr5" eventType="touchUpInside" id="GIz-qB-Dzx"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-bi-c05">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lld-mB-hcH">
+                                        <rect key="frame" x="0.0" y="-64" width="414" height="50"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="xnC-cU-Okj"/>
+                                            <constraint firstAttribute="height" constant="50" id="yxI-NK-TEj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="2 week ago">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="2 week ago"/>
                                         <connections>
-                                            <action selector="weeksago:" destination="oAo-tx-yr5" eventType="touchUpInside" id="Ga8-ot-9Bm"/>
+                                            <action selector="weeksago:" destination="oAo-tx-yr5" eventType="touchUpInside" id="T05-Yy-lkN"/>
+                                            <action selector="weeksago:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="dhp-aS-qU2"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmm-WR-ex3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lF4-qy-mOV">
+                                        <rect key="frame" x="0.0" y="-64" width="414" height="50"/>
+                                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="qrP-XX-Lsc"/>
+                                            <constraint firstAttribute="height" constant="50" id="0jl-Nh-Agl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="A month ago">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="A month ago"/>
                                         <connections>
-                                            <action selector="handleSelection:" destination="oAo-tx-yr5" eventType="touchUpInside" id="4CI-BY-VtV"/>
-                                            <action selector="monthsago:" destination="oAo-tx-yr5" eventType="touchUpInside" id="prM-fi-ph6"/>
+                                            <action selector="monthsago:" destination="1Ws-2n-Fa6" eventType="touchUpInside" id="4pk-bs-zVI"/>
+                                            <action selector="monthsago:" destination="oAo-tx-yr5" eventType="touchUpInside" id="xDS-XV-cFN"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tmm-WR-ex3" secondAttribute="trailing" id="2N3-0J-4UF"/>
-                                    <constraint firstItem="tmm-WR-ex3" firstAttribute="leading" secondItem="1RU-TD-hjf" secondAttribute="leading" id="IbG-xA-3O4"/>
-                                    <constraint firstAttribute="trailing" secondItem="h4Q-bi-c05" secondAttribute="trailing" id="LA2-Ei-0Cg"/>
-                                    <constraint firstItem="Vas-Gs-pZS" firstAttribute="top" secondItem="1RU-TD-hjf" secondAttribute="top" id="Lrq-av-t3k"/>
-                                    <constraint firstItem="OBe-ti-gNT" firstAttribute="leading" secondItem="1RU-TD-hjf" secondAttribute="leading" id="SHa-J9-uHs"/>
-                                    <constraint firstAttribute="trailing" secondItem="OBe-ti-gNT" secondAttribute="trailing" id="aqz-f0-LSk"/>
-                                    <constraint firstItem="OBe-ti-gNT" firstAttribute="top" secondItem="Vas-Gs-pZS" secondAttribute="bottom" id="av3-El-rKh"/>
-                                    <constraint firstItem="tmm-WR-ex3" firstAttribute="top" secondItem="1RU-TD-hjf" secondAttribute="top" id="baH-Sw-DXG"/>
-                                    <constraint firstItem="Vas-Gs-pZS" firstAttribute="leading" secondItem="1RU-TD-hjf" secondAttribute="leading" id="d4n-Jl-UeZ"/>
-                                    <constraint firstItem="h4Q-bi-c05" firstAttribute="leading" secondItem="1RU-TD-hjf" secondAttribute="leading" id="e4l-UI-hg8"/>
-                                    <constraint firstItem="h4Q-bi-c05" firstAttribute="top" secondItem="1RU-TD-hjf" secondAttribute="top" id="x9d-AP-9PB"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vas-Gs-pZS" secondAttribute="trailing" id="yae-dD-hNK"/>
+                                    <constraint firstItem="3O7-4A-cBP" firstAttribute="leading" secondItem="MKF-pk-kuw" secondAttribute="leading" id="CSI-Zr-eYg"/>
+                                    <constraint firstItem="lld-mB-hcH" firstAttribute="leading" secondItem="MKF-pk-kuw" secondAttribute="leading" id="Gr9-1i-JaB"/>
+                                    <constraint firstItem="lF4-qy-mOV" firstAttribute="leading" secondItem="MKF-pk-kuw" secondAttribute="leading" id="UtU-WY-MOg"/>
+                                    <constraint firstAttribute="trailing" secondItem="3O7-4A-cBP" secondAttribute="trailing" id="VdC-19-t8M"/>
+                                    <constraint firstAttribute="trailing" secondItem="lF4-qy-mOV" secondAttribute="trailing" id="Yp7-Ge-TfV"/>
+                                    <constraint firstItem="PYd-gb-t5h" firstAttribute="leading" secondItem="MKF-pk-kuw" secondAttribute="leading" id="i2J-1z-RJA"/>
+                                    <constraint firstAttribute="trailing" secondItem="lld-mB-hcH" secondAttribute="trailing" id="lvD-so-XqY"/>
+                                    <constraint firstAttribute="trailing" secondItem="PYd-gb-t5h" secondAttribute="trailing" id="qQY-ee-LDp"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graph7day" translatesAutoresizingMaskIntoConstraints="NO" id="lQj-IZ-49L">
-                                <rect key="frame" x="0.0" y="205" width="414" height="303"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1RU-TD-hjf" firstAttribute="top" secondItem="V0r-7q-dis" secondAttribute="top" id="LW4-ej-ZYd"/>
-                            <constraint firstItem="V0r-7q-dis" firstAttribute="trailing" secondItem="1RU-TD-hjf" secondAttribute="trailing" id="Q5l-ZO-GTj"/>
-                            <constraint firstItem="1RU-TD-hjf" firstAttribute="leading" secondItem="V0r-7q-dis" secondAttribute="leading" id="esL-ch-lAv"/>
-                            <constraint firstItem="1RU-TD-hjf" firstAttribute="leading" secondItem="V0r-7q-dis" secondAttribute="leading" id="iCJ-Xt-iaK"/>
-                            <constraint firstItem="1RU-TD-hjf" firstAttribute="trailing" secondItem="V0r-7q-dis" secondAttribute="trailing" id="syF-My-BOb"/>
+                            <constraint firstItem="MKF-pk-kuw" firstAttribute="leading" secondItem="V0r-7q-dis" secondAttribute="leading" id="S3Z-Xl-vET"/>
+                            <constraint firstItem="V0r-7q-dis" firstAttribute="trailing" secondItem="MKF-pk-kuw" secondAttribute="trailing" id="Xkx-BZ-lfR"/>
+                            <constraint firstItem="MKF-pk-kuw" firstAttribute="top" secondItem="V0r-7q-dis" secondAttribute="top" id="pXe-mJ-ukC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V0r-7q-dis"/>
                     </view>
                     <connections>
                         <outlet property="imgGraph" destination="lQj-IZ-49L" id="Ca1-dB-Wyy"/>
-                        <outletCollection property="periodButton" destination="Vas-Gs-pZS" collectionClass="NSMutableArray" id="Rgg-QX-DJr"/>
-                        <outletCollection property="periodButton" destination="h4Q-bi-c05" collectionClass="NSMutableArray" id="LgE-9w-BL4"/>
-                        <outletCollection property="periodButton" destination="tmm-WR-ex3" collectionClass="NSMutableArray" id="FAK-zH-HsL"/>
+                        <outletCollection property="periodButton" destination="lld-mB-hcH" collectionClass="NSMutableArray" id="pdQ-Yi-erq"/>
+                        <outletCollection property="periodButton" destination="3O7-4A-cBP" collectionClass="NSMutableArray" id="5JF-Ks-aRO"/>
+                        <outletCollection property="periodButton" destination="lF4-qy-mOV" collectionClass="NSMutableArray" id="pLe-2x-VfI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMv-zE-v8L" userLabel="First Responder" sceneMemberID="firstResponder"/>

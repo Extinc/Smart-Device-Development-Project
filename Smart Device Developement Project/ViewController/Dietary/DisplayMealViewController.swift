@@ -30,7 +30,6 @@ class DisplayMealViewController: UIViewController {
         super.viewWillAppear(animated)
         mealNameTextField.text = mealItem?.mealName
         mealImage.image = UIImage(named: mealItem!.imagePath)
-        
         self.navigationItem.title = mealItem?.mealName
     }
 

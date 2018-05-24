@@ -24,13 +24,15 @@ class SignUpViewController: UIViewController {
         return pass
     }()
     
+    @IBOutlet weak var regRepeatPass: MDCTextField! = {
+        let pass = MDCTextField()
+        pass.backgroundColor = .white
+        return pass
+    }()
+    
     @IBOutlet weak var signupBtn: MDCFlatButton!
     var allTextFieldControllers = [MDCTextInputControllerFloatingPlaceholder]()
     
-    let primaryColor = UIColor(red: 0.19, green: 0.25, blue: 0.62, alpha: 1.0);
-    let primaryLightColor = UIColor(red: 0.40, green: 0.42, blue: 0.82, alpha: 1.0);
-    let primaryDarkColor = UIColor(red: 0.00, green: 0.10, blue: 0.44, alpha: 1.0);
-    let primaryTextColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.0);
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -42,12 +44,13 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         let buttonScheme = MDCButtonScheme()
         MDCContainedButtonThemer.applyScheme(buttonScheme, to: signupBtn)
-        let colorScheme = MDCSemanticColorScheme()
+        let btncolorScheme = MDCSemanticColorScheme()
         let colors = Colors()
-        colorScheme.primaryColor = colors.primaryColor
+        btncolorScheme.primaryColor = colors.secondaryDarkColor
 
-        MDCButtonColorThemer.applySemanticColorScheme(colorScheme, to: signupBtn)
+        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: signupBtn)
         signupBtn.setTitle("Sign Up", for: UIControlState())
+        signupBtn.titleLabel?.textColor = colors.secondaryTextColor
         setUpTextField()
     }
     
@@ -61,6 +64,10 @@ class SignUpViewController: UIViewController {
             let regpassController = MDCTextInputControllerOutlined(textInput: regpass)
             regpassController.placeholderText = "Enter Password"
             allTextFieldControllers.append(regpassController)
+        
+            let regRepeatPassController = MDCTextInputControllerOutlined(textInput: regRepeatPass)
+            regRepeatPassController.placeholderText = "Enter Password"
+            allTextFieldControllers.append(regRepeatPassController)
     }
     
     override func didReceiveMemoryWarning() {

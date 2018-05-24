@@ -12,7 +12,8 @@ class SuggestionViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+   
+    @IBOutlet weak var regenerateButton: UIButton!
     
     let colors = Colors()
     
@@ -25,8 +26,8 @@ class SuggestionViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cancelButton.backgroundColor = colors.secondaryDarkColor
-        cancelButton.setTitleColor(colors.secondaryTextColor, for: .normal)
+        regenerateButton.backgroundColor = colors.secondaryDarkColor
+        regenerateButton.setTitleColor(colors.secondaryTextColor, for: .normal)
         confirmButton.backgroundColor = colors.secondaryDarkColor
         confirmButton.setTitleColor(colors.secondaryTextColor, for: .normal)
     }

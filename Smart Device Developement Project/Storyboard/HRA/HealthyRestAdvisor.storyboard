@@ -295,7 +295,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.7686274509803922" green="0.28627450980392155" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3AM-Nc-qBz" firstAttribute="top" secondItem="SbW-FI-Vte" secondAttribute="top" id="45R-fM-vjR"/>
                             <constraint firstItem="R70-jK-Imo" firstAttribute="top" secondItem="3AM-Nc-qBz" secondAttribute="bottom" id="K1O-NX-9ZP"/>
@@ -382,8 +382,8 @@
                                     <constraint firstAttribute="height" constant="380" id="oTK-m1-Q9w"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="1. Turn left 2. Turn right 3. Go Straight 50 meters 4. Turn at the traffic light" translatesAutoresizingMaskIntoConstraints="NO" id="W8M-2t-Fdz">
-                                <rect key="frame" x="0.0" y="445" width="375" height="129"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1. Turn left 2. Turn right 3. Go Straight 50 meters 4. Turn at the traffic light" translatesAutoresizingMaskIntoConstraints="NO" id="W8M-2t-Fdz">
+                                <rect key="frame" x="0.0" y="444" width="375" height="130"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -392,11 +392,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lDe-qE-gZv" firstAttribute="top" secondItem="GAi-rL-S5u" secondAttribute="top" id="4A6-f8-hyf"/>
+                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="top" secondItem="lDe-qE-gZv" secondAttribute="bottom" id="7uF-3g-YWG"/>
                             <constraint firstItem="lDe-qE-gZv" firstAttribute="leading" secondItem="GAi-rL-S5u" secondAttribute="leading" id="Ihy-Pp-DMe"/>
                             <constraint firstItem="W8M-2t-Fdz" firstAttribute="bottom" secondItem="GAi-rL-S5u" secondAttribute="bottom" id="JXG-3M-eWp"/>
                             <constraint firstItem="W8M-2t-Fdz" firstAttribute="leading" secondItem="GAi-rL-S5u" secondAttribute="leading" id="RgM-aV-6QH"/>
                             <constraint firstItem="W8M-2t-Fdz" firstAttribute="trailing" secondItem="GAi-rL-S5u" secondAttribute="trailing" id="Xmp-0v-tYC"/>
-                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="top" secondItem="lDe-qE-gZv" secondAttribute="bottom" id="ZUR-kh-gCB"/>
                             <constraint firstItem="lDe-qE-gZv" firstAttribute="trailing" secondItem="GAi-rL-S5u" secondAttribute="trailing" id="vCo-6F-a64"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GAi-rL-S5u"/>

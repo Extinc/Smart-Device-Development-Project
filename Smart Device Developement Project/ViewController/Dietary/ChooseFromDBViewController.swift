@@ -15,23 +15,14 @@ class ChooseFromDBViewController: UIViewController, UITableViewDataSource, UITab
     
     let meal = [Meal("Porridge", "350 Calories", "porridge"),
                 Meal("Chicken Rice", "500 Calories", "chickenrice"),
-                Meal("Aglio Olio", "450 Calories", ""),
-                Meal("Oreo", "200 Calories", "")]
+                Meal("Aglio Olio", "450 Calories", "aglioolio"),
+                Meal("Oreo", "200 Calories", "oreo")]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DBMealTableViewCell
-        cell.mealLabel.text = meal[indexPath.row].mealName
-        cell.caloriesLabel.text = meal[indexPath.row].mealCalories
-        cell.mealImage.image = UIImage(named: meal[indexPath.row].imagePath)
-        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,6 +33,14 @@ class ChooseFromDBViewController: UIViewController, UITableViewDataSource, UITab
         return meal.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DBMealTableViewCell
+        cell.mealLabel.text = meal[indexPath.row].mealName
+        cell.caloriesLabel.text = meal[indexPath.row].mealCalories
+        cell.mealImage.image = UIImage(named: meal[indexPath.row].imagePath)
+        return cell
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "ShowMealDetails"

@@ -14,6 +14,9 @@ class MealTableViewCell: UITableViewCell {
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var mealImage: UIImageView!
     
+    @IBOutlet weak var suggestMealImage: UIImageView!
+    @IBOutlet weak var suggestMealLabel: UILabel!
+    @IBOutlet weak var suggestMealCalories: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

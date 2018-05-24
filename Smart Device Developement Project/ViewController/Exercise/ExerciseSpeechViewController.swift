@@ -1,14 +1,15 @@
 //
-//  MoodViewController.swift
+//  ExerciseSpeechViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by ITP312 on 15/5/18.
+//  Created by lim kei yiang on 23/5/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
+/* File to be deleted after prototype / Used for other stuff */
 import UIKit
 
-class MoodViewController: UIViewController {
+class ExerciseSpeechViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +22,11 @@ class MoodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func handleSelection(_ sender: UIButton) {
-        periodButton.forEach{(button) in
-            button.isHidden = !button.isHidden
-            
-        }
+    @IBAction func dismissModal(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
-    
-    @IBOutlet var periodButton: [UIButton]!
-    
-    
-    @IBAction func periodTapped(_ sender: UIButton) {
-    }
     /*
     // MARK: - Navigation
 

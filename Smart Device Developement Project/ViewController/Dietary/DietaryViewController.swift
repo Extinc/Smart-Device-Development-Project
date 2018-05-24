@@ -14,6 +14,10 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var totalCaloriesButton: UIButton!
+    @IBOutlet weak var addMealButton: UIButton!
+    
+    let colors = Colors()
+    let buttonScheme = MDCButtonScheme()
     
     let headers:[String] = ["Breakfast", "Lunch", "Dinner", "Snacks"]
     
@@ -26,6 +30,8 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         totalCaloriesButton.setImage(UIImage(named: "chickenrice")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        addMealButton.backgroundColor = colors.primaryColor
+        addMealButton.setTitleColor(colors.secondaryTextColor, for: .normal)
         
     }
 

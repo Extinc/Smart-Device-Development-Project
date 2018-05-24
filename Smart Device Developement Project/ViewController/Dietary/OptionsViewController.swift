@@ -10,10 +10,16 @@ import UIKit
 
 class OptionsViewController: UIViewController {
 
+    @IBOutlet weak var databaseButton: UIButton!
+    @IBOutlet weak var ownButton: UIButton!
+    let colors = Colors()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        databaseButton.backgroundColor = colors.secondaryColor
+        ownButton.backgroundColor = colors.secondaryColor
+        databaseButton.setTitleColor(colors.secondaryTextColor, for: .normal)
+        ownButton.setTitleColor(colors.secondaryTextColor, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

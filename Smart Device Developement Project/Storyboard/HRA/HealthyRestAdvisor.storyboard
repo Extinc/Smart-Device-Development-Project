@@ -377,27 +377,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="lDe-qE-gZv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="380"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="293"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="380" id="oTK-m1-Q9w"/>
+                                    <constraint firstAttribute="height" constant="342" id="fwe-Cd-bVG"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1. Turn left 2. Turn right 3. Go Straight 50 meters 4. Turn at the traffic light" translatesAutoresizingMaskIntoConstraints="NO" id="W8M-2t-Fdz">
-                                <rect key="frame" x="0.0" y="444" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="397" width="375" height="126"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="cFW-dI-zLX"/>
+                                    <constraint firstAttribute="width" constant="375" id="ctG-PB-iq9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ew-av-8QY">
+                                <rect key="frame" x="16" y="357" width="78" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5T8-Zr-eRJ"/>
+                                    <constraint firstAttribute="width" constant="78" id="shG-36-RN1"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Bus"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuO-QJ-gmO">
+                                <rect key="frame" x="102" y="357" width="78" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="frM-If-4UX"/>
+                                    <constraint firstAttribute="height" constant="40" id="pwq-eR-vMh"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Train"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5j-pK-f0E">
+                                <rect key="frame" x="188" y="357" width="87" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iFb-vd-c1m"/>
+                                    <constraint firstAttribute="width" constant="87" id="tbS-Yw-DS8"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Taxi"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="T5j-pK-f0E" firstAttribute="top" secondItem="lDe-qE-gZv" secondAttribute="bottom" id="3YB-IR-IX7"/>
                             <constraint firstItem="lDe-qE-gZv" firstAttribute="top" secondItem="GAi-rL-S5u" secondAttribute="top" id="4A6-f8-hyf"/>
-                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="top" secondItem="lDe-qE-gZv" secondAttribute="bottom" id="7uF-3g-YWG"/>
+                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="top" secondItem="6ew-av-8QY" secondAttribute="bottom" id="BoH-Ky-Xhv"/>
                             <constraint firstItem="lDe-qE-gZv" firstAttribute="leading" secondItem="GAi-rL-S5u" secondAttribute="leading" id="Ihy-Pp-DMe"/>
-                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="bottom" secondItem="GAi-rL-S5u" secondAttribute="bottom" id="JXG-3M-eWp"/>
+                            <constraint firstItem="6ew-av-8QY" firstAttribute="leading" secondItem="GAi-rL-S5u" secondAttribute="leading" constant="16" id="PUL-iX-Rxq"/>
                             <constraint firstItem="W8M-2t-Fdz" firstAttribute="leading" secondItem="GAi-rL-S5u" secondAttribute="leading" id="RgM-aV-6QH"/>
                             <constraint firstItem="W8M-2t-Fdz" firstAttribute="trailing" secondItem="GAi-rL-S5u" secondAttribute="trailing" id="Xmp-0v-tYC"/>
+                            <constraint firstItem="FuO-QJ-gmO" firstAttribute="leading" secondItem="6ew-av-8QY" secondAttribute="trailing" constant="8" id="ZUu-h6-sPf"/>
+                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="bottom" secondItem="GAi-rL-S5u" secondAttribute="bottom" id="aQp-f3-Ijf"/>
+                            <constraint firstItem="W8M-2t-Fdz" firstAttribute="bottom" secondItem="GAi-rL-S5u" secondAttribute="bottom" id="cKA-Bd-CpW"/>
+                            <constraint firstItem="T5j-pK-f0E" firstAttribute="leading" secondItem="FuO-QJ-gmO" secondAttribute="trailing" constant="8" id="eNR-u3-KF9"/>
+                            <constraint firstItem="FuO-QJ-gmO" firstAttribute="top" secondItem="lDe-qE-gZv" secondAttribute="bottom" id="jy7-1u-uyr"/>
                             <constraint firstItem="lDe-qE-gZv" firstAttribute="trailing" secondItem="GAi-rL-S5u" secondAttribute="trailing" id="vCo-6F-a64"/>
+                            <constraint firstItem="6ew-av-8QY" firstAttribute="top" secondItem="lDe-qE-gZv" secondAttribute="bottom" id="vyG-n4-pdV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GAi-rL-S5u"/>
                     </view>

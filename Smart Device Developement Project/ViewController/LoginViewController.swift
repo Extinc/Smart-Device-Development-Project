@@ -40,22 +40,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let buttonScheme = MDCButtonScheme()
-        MDCContainedButtonThemer.applyScheme(buttonScheme, to: loginBtn)
-        MDCContainedButtonThemer.applyScheme(buttonScheme, to: signupBtn)
-        let btncolorScheme = MDCSemanticColorScheme()
 
         let colors = Colors()
-    
-        btncolorScheme.primaryColor = colors.secondaryDarkColor
+        let lifestyleTheme = LifestyleTheme()
 
-        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: loginBtn)
-        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: signupBtn)
-
-        loginBtn.setTitle("Login", for: UIControlState())
-        loginBtn.titleLabel?.textColor = colors.secondaryTextColor
-        signupBtn.setTitle("Sign Up", for: UIControlState())
-        signupBtn.titleLabel?.textColor = colors.secondaryTextColor
+        lifestyleTheme.styleBtn(btn: loginBtn, title: "Login", pColor: colors.secondaryDarkColor)
+        lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.secondaryDarkColor)
     }
     
 

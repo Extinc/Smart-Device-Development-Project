@@ -22,6 +22,8 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/Cards'
   pod 'MaterialComponents/Dialogs'
   pod 'MaterialComponents/FlexibleHeader'
+  pod 'MaterialComponents/BottomNavigation'
+  pod 'MaterialComponents/Slider'
   pod 'MaterialComponents/FeatureHighlight'
   pod 'MaterialComponents/Chips'
   pod ‘MaterialComponents/Buttons’
@@ -33,6 +35,8 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/Cards+ColorThemer'
   pod 'MaterialComponents/AppBar+ColorThemer’
   pod 'MaterialComponents/Tabs+TypographyThemer’
+  pod 'MaterialComponents/Slider+ColorThemer'
+  pod 'MaterialComponents/BottomNavigation+ColorThemer'
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
 end

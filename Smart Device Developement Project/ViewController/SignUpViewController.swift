@@ -42,19 +42,14 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let buttonScheme = MDCButtonScheme()
-        MDCContainedButtonThemer.applyScheme(buttonScheme, to: signupBtn)
-        let btncolorScheme = MDCSemanticColorScheme()
-        let colors = Colors()
-        btncolorScheme.primaryColor = colors.secondaryDarkColor
 
-        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: signupBtn)
-        signupBtn.setTitle("Sign Up", for: UIControlState())
-        signupBtn.titleLabel?.textColor = colors.secondaryTextColor
+        let colors = Colors()
+        let lifestyleTheme = LifestyleTheme()
+
+        lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.secondaryDarkColor)
         setUpTextField()
+        
     }
-    
-    
     
     func setUpTextField(){
             let reguserController = MDCTextInputControllerOutlined(textInput: reguser)

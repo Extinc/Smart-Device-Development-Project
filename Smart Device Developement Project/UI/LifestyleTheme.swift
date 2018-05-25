@@ -16,8 +16,14 @@ class LifestyleTheme: NSObject {
         colors = Colors()
     }
     
-    func styleBtn(btn: MDCFlatButton, title: String){
-        
+    func styleBtn(btn: MDCFlatButton, title: String, pColor: UIColor){
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: btn)
+        let btncolorScheme = MDCSemanticColorScheme()
+        btncolorScheme.primaryColor = pColor
+        btn.setTitle(title, for: UIControlState())
+        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
+        btn.titleLabel?.textColor = colors.secondaryTextColor
     }
     
 }

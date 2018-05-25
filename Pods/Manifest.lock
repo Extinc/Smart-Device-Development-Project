@@ -16,6 +16,16 @@ PODS:
     - "MaterialComponents/FlexibleHeader+ColorThemer"
     - "MaterialComponents/NavigationBar+ColorThemer"
     - MaterialComponents/Themes
+  - MaterialComponents/BottomNavigation (55.0.4):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/BottomNavigation+ColorThemer (55.0.4)":
+    - MaterialComponents/BottomNavigation
+    - MaterialComponents/schemes/Color
   - MaterialComponents/ButtonBar (55.0.4):
     - MaterialComponents/Buttons
     - MDFInternationalization
@@ -141,6 +151,8 @@ PODS:
 DEPENDENCIES:
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
+  - MaterialComponents/BottomNavigation
+  - "MaterialComponents/BottomNavigation+ColorThemer"
   - MaterialComponents/Buttons
   - "MaterialComponents/Buttons+ButtonThemer"
   - MaterialComponents/Cards
@@ -168,6 +180,6 @@ SPEC CHECKSUMS:
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
 
-PODFILE CHECKSUM: 6367d154c53273ace02fd528f90776ed162f4a44
+PODFILE CHECKSUM: a9afee0f0fd61c9bc7b7f5421ee87802d289cbaa
 
 COCOAPODS: 1.5.2

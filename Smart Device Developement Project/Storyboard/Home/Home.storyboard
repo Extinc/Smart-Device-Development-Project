@@ -21,7 +21,7 @@
                             <segue destination="PYb-Qu-ayn" kind="embed" id="c3w-hr-FHk"/>
                         </connections>
                     </containerView>
-                    <tabBarItem key="tabBarItem" title="Home" id="sOg-jP-PFw"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="baseline_home_black_24pt" id="sOg-jP-PFw"/>
                     <navigationItem key="navigationItem" title="Home" id="U4g-oV-gBd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -36,7 +36,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rV5-fs-YVa">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="gUK-wu-Mbp" kind="relationship" relationship="rootViewController" id="4Ec-9E-g6d"/>
@@ -78,5 +77,6 @@
     </scenes>
     <resources>
         <image name="220px-Pie-chart" width="220" height="204"/>
+        <image name="baseline_home_black_24pt" width="24" height="24"/>
     </resources>
 </document>

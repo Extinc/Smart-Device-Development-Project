@@ -51,7 +51,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nxJ-ax-OJW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Exercise" id="cNP-OY-sde"/>
+                    <tabBarItem key="tabBarItem" title="Exercise" image="icons8-muscle-24" id="cNP-OY-sde"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDD-tO-0AQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,6 +277,7 @@
         <image name="Cardio-Confusion" width="620" height="349"/>
         <image name="barbell_hero_curl" width="1440" height="500"/>
         <image name="baseline_mic_black_24pt" width="24" height="24"/>
+        <image name="icons8-muscle-24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Yhk-Bj-tug"/>

@@ -39,4 +39,9 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/BottomNavigation+ColorThemer'
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
+  
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end

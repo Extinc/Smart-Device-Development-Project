@@ -26,4 +26,7 @@ class LifestyleTheme: NSObject {
         btn.titleLabel?.textColor = colors.secondaryTextColor
     }
     
+    func styleTextFieldOutlined(textField: MDCTextField){
+        
+    }
 }

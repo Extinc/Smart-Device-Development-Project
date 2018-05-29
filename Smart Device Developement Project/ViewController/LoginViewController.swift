@@ -8,20 +8,19 @@
 
 import UIKit
 import MaterialComponents
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
     
     @IBOutlet weak var loginUser: MDCTextField! = {
         let username = MDCTextField()
-        username.autocapitalizationType = .words
         username.backgroundColor = .white
         return username
     }()
     
     @IBOutlet weak var loginPwd: MDCTextField! = {
         let pwd = MDCTextField()
-        pwd.autocapitalizationType = .words
         pwd.backgroundColor = .white
         return pwd
     }()
@@ -30,6 +29,23 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginBtn: MDCFlatButton!
     @IBOutlet weak var signupBtn: MDCFlatButton!
+    
+    var success: Bool = false
+    
+    @IBAction func loginAction(_ sender: Any) {
+        Auth.auth().signIn(withEmail: loginUser.text!, password: loginPwd.text!) { (user, error) in
+            if error == nil {
+                
+            } else {
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,11 +83,12 @@ class LoginViewController: UIViewController {
 
     func setupTextField(){
         let loginUserController = MDCTextInputControllerOutlined(textInput: loginUser)
-        loginUserController.placeholderText = "Username"
+        loginUserController.placeholderText = "Email"
         allTextFieldControllers.append(loginUserController)
         
         let loginPwdController = MDCTextInputControllerOutlined(textInput: loginPwd)
         loginPwdController.placeholderText = "Password"
+        loginPwd.isSecureTextEntry = true
         allTextFieldControllers.append(loginPwdController)
     }
 }

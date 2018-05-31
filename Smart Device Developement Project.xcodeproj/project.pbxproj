@@ -40,6 +40,7 @@
 		704B808620B6FCE400ADAEB1 /* RecoFoodPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704B808520B6FCE400ADAEB1 /* RecoFoodPopUp.swift */; };
 		704B808820B7072800ADAEB1 /* ViewGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704B808720B7072800ADAEB1 /* ViewGraphViewController.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
+		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
 		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 906FA74420B92B9E0061C953 /* GoogleService-Info.plist */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
@@ -106,6 +107,7 @@
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
 		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
 		906FA74420B92B9E0061C953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				5169C62F20AAA4460014E15D /* LaunchScreen.storyboard */,
 				906FA74420B92B9E0061C953 /* GoogleService-Info.plist */,
 				5169C63220AAA4460014E15D /* Info.plist */,
+				9030ED8120C0305600D28D92 /* acc.rtf */,
 			);
 			path = "Smart Device Developement Project";
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			files = (
 				5169C66020AAA68F0014E15D /* Exercise.storyboard in Resources */,
 				5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */,
+				9030ED8220C0305600D28D92 /* acc.rtf in Resources */,
 				906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */,
 				5169C63120AAA4460014E15D /* LaunchScreen.storyboard in Resources */,
 				5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */,

@@ -33,15 +33,37 @@ class LoginViewController: UIViewController {
     var success: Bool = false
     
     @IBAction func loginAction(_ sender: Any) {
-        Auth.auth().signIn(withEmail: loginUser.text!, password: loginPwd.text!) { (user, error) in
-            if error == nil {
-                
-            } else {
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
+        if loginUser.text!.isEmpty == true && loginPwd.text!.isEmpty == true{
+            let alertController = UIAlertController(title: "Error", message: "Email and Password cannot be empty", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else if loginUser.text!.isEmpty == true && loginPwd.text!.isEmpty == false {
+            let alertController = UIAlertController(title: "Error", message: "Email cannot be empty", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else if loginUser.text!.isEmpty == false && loginPwd.text!.isEmpty == true {
+            let alertController = UIAlertController(title: "Error", message: "Password cannot be empty", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else{
+            Auth.auth().signIn(withEmail: loginUser.text!, password: loginPwd.text!) { (user, error) in
+                if error == nil {
+                    
+                } else {
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
         }
     }

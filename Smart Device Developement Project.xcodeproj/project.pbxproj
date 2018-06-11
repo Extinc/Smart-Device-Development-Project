@@ -281,14 +281,8 @@
 		5169C66A20AAA9DC0014E15D /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
-				51A9CB0720B51C9600BD18BB /* DietaryViewController.swift */,
-				51A9CB0A20B51C9600BD18BB /* DisplayMealViewController.swift */,
-				69E9629520B58A2F006DB2F8 /* Meal.swift */,
-				69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */,
-				69D32F4820B700910009E2A2 /* SummaryViewController.swift */,
-				69D32F4A20B703E10009E2A2 /* DetailsTableViewCell.swift */,
-				69D32F4C20B704F70009E2A2 /* Details.swift */,
-				694E8E6820B71E4B00E55AE0 /* SuggestionViewController.swift */,
+				69D65C7720CE3D18004DD12B /* DietaryDiary */,
+				69D65C7620CE3D08004DD12B /* DietaryPlan */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -309,6 +303,28 @@
 				51A9CB0120B5184500BD18BB /* CustomCell.swift */,
 			);
 			path = HRA;
+			sourceTree = "<group>";
+		};
+		69D65C7620CE3D08004DD12B /* DietaryPlan */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DietaryPlan;
+			sourceTree = "<group>";
+		};
+		69D65C7720CE3D18004DD12B /* DietaryDiary */ = {
+			isa = PBXGroup;
+			children = (
+				51A9CB0720B51C9600BD18BB /* DietaryViewController.swift */,
+				51A9CB0A20B51C9600BD18BB /* DisplayMealViewController.swift */,
+				69E9629520B58A2F006DB2F8 /* Meal.swift */,
+				69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */,
+				69D32F4820B700910009E2A2 /* SummaryViewController.swift */,
+				69D32F4A20B703E10009E2A2 /* DetailsTableViewCell.swift */,
+				69D32F4C20B704F70009E2A2 /* Details.swift */,
+				694E8E6820B71E4B00E55AE0 /* SuggestionViewController.swift */,
+			);
+			path = DietaryDiary;
 			sourceTree = "<group>";
 		};
 		8F1373C9382ED93377F91585 /* Frameworks */ = {

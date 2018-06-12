@@ -266,9 +266,9 @@
                                 <rect key="frame" x="220" y="272" width="180" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.78873239439999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Generate Plan"/>
+                                <state key="normal" title="Meal Plan"/>
                                 <connections>
-                                    <segue destination="kYK-Po-4oH" kind="show" id="0vh-bL-rro"/>
+                                    <segue destination="Qxh-P1-NV6" kind="show" id="bss-Wa-mjG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -302,12 +302,12 @@
             <point key="canvasLocation" x="44.927536231884062" y="133.28804347826087"/>
         </scene>
         <!--DietaryPlan-->
-        <scene sceneID="Kfk-2A-2nA">
+        <scene sceneID="cZl-th-phU">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="DietaryPlan" referencedIdentifier="DietaryPlan" id="kYK-Po-4oH" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XsV-WE-cGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="DietaryPlan" storyboardName="DietaryPlan" referencedIdentifier="DietaryPlan" id="Qxh-P1-NV6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNb-ha-Cjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="152"/>
+            <point key="canvasLocation" x="693" y="123"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Sf9-ak-3oA">

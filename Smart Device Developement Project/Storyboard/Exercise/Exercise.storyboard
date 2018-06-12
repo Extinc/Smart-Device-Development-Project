@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,14 +71,6 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-8S-uaE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTj-JK-hXT">
-                                                <rect key="frame" x="-4" y="-7" width="439" height="224"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Workout" image="493x335_7_most_effective_exercises_slideshow"/>
-                                                <connections>
-                                                    <segue destination="Hoz-Xm-CAq" kind="show" id="pRO-yN-iK9"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oA4-Bc-rcr">
                                                 <rect key="frame" x="0.0" y="217" width="422" height="198"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -109,13 +101,6 @@
                                                 <color key="textColor" red="0.2156862745" green="0.94455295138888884" blue="0.37750651038333338" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4P-By-fRT">
-                                                <rect key="frame" x="132" y="83" width="153" height="45"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="37"/>
-                                                <color key="textColor" red="0.2156862745" green="0.94455295139999995" blue="0.37750651039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                     </scrollView>
                                 </subviews>
@@ -130,13 +115,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D4R-tY-RkD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Exercise" id="DuR-Qm-8de">
-                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" style="plain" id="J5X-cx-sJN">
-                            <connections>
-                                <segue destination="kVW-XZ-fvY" kind="presentation" id="Yhk-Bj-tug"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Exercise" id="DuR-Qm-8de"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90Y-eG-mPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,7 +126,7 @@
             <objects>
                 <viewController id="Hoz-Xm-CAq" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O1q-dw-FTl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barbell_hero_curl" translatesAutoresizingMaskIntoConstraints="NO" id="37U-8r-R8x">
@@ -272,13 +251,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="493x335_7_most_effective_exercises_slideshow" width="400" height="271"/>
         <image name="Cardio-Confusion" width="620" height="349"/>
         <image name="barbell_hero_curl" width="1440" height="500"/>
         <image name="baseline_mic_black_24pt" width="24" height="24"/>
         <image name="icons8-muscle-24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yhk-Bj-tug"/>
+        <segue reference="3It-hz-aB2"/>
     </inferredMetricsTieBreakers>
 </document>

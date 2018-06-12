@@ -212,6 +212,7 @@
 		5169C65520AAA49C0014E15D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9054824F20CF699400BDF5D7 /* Running */,
 				5169C66320AAA72A0014E15D /* HRA */,
 				5169C65D20AAA6710014E15D /* Exercise */,
 				5169C65A20AAA5F90014E15D /* Dietary */,
@@ -335,6 +336,13 @@
 				BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9054824F20CF699400BDF5D7 /* Running */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Running;
 			sourceTree = "<group>";
 		};
 		909ED72B20AFD1A80092D385 /* Register */ = {

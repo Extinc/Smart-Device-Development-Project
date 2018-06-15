@@ -78,8 +78,8 @@ class DietaryViewController: UIViewController, UITableViewDataSource, UITableVie
 
     //Go to meal plan page.
     @IBAction func goToMealPlan(for segue: UIStoryboardSegue,_ sender: Any) {
-        //var chosen = 1 //0 = havent choose meal plan, 1 = chose meal plan alr
-        var chosen = 0
+        var chosen = 1 //0 = havent choose meal plan, 1 = chose meal plan alr
+        //var chosen = 0
         if chosen == 1 {
             let planViewController = segue.destination as! DietaryViewController
             self.navigationController?.pushViewController(planViewController, animated: true)

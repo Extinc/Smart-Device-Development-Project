@@ -83,9 +83,6 @@
                                                 <rect key="frame" x="0.0" y="417" width="414" height="206"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="barbell_hero_curl"/>
-                                                <connections>
-                                                    <segue destination="Sp7-Sd-OlS" kind="show" id="xj4-hj-R8t"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Running" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teS-Ie-lut">
                                                 <rect key="frame" x="134" y="282" width="149" height="45"/>
@@ -129,114 +126,10 @@
             </objects>
             <point key="canvasLocation" x="1615" y="-158"/>
         </scene>
-        <!--Workout-->
-        <scene sceneID="VAA-Qh-wUU">
-            <objects>
-                <viewController id="Hoz-Xm-CAq" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O1q-dw-FTl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barbell_hero_curl" translatesAutoresizingMaskIntoConstraints="NO" id="37U-8r-R8x">
-                                <rect key="frame" x="0.0" y="64" width="414" height="273"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSH-U6-RNa">
-                                <rect key="frame" x="161" y="353" width="92" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="xbQ-xE-XPO"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Workout" id="WbR-Va-ALx">
-                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" id="yuQ-KE-fYb">
-                            <connections>
-                                <segue destination="kVW-XZ-fvY" kind="presentation" id="37I-wh-i5g"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CIQ-Fr-dpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem image="baseline_mic_black_24pt" style="plain" id="IWA-Bm-rbR"/>
-            </objects>
-            <point key="canvasLocation" x="2042" y="1505"/>
-        </scene>
-        <!--Exercise Speech View Controller-->
-        <scene sceneID="IfC-hF-R8i">
-            <objects>
-                <viewController id="kVW-XZ-fvY" customClass="ExerciseSpeechViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jes-zG-WaX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTr-Bt-89m">
-                                <rect key="frame" x="16" y="39" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="dismissModal:" destination="kVW-XZ-fvY" eventType="touchUpInside" id="GTk-s4-7qc"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Siri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWc-c1-LvA">
-                                <rect key="frame" x="175" y="299" width="25" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="4sc-VR-ZHG"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uca-z5-84O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1599" y="2229"/>
-        </scene>
-        <!--Training-->
-        <scene sceneID="Aiv-Dj-haz">
-            <objects>
-                <viewController id="Sp7-Sd-OlS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="guX-0i-ARJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barbell_hero_curl" translatesAutoresizingMaskIntoConstraints="NO" id="2qc-0z-VqJ">
-                                <rect key="frame" x="0.0" y="64" width="414" height="273"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-DE-A2S">
-                                <rect key="frame" x="149" y="345" width="89" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="FdB-WH-xxo"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Training" id="ui7-kN-Fgb">
-                        <barButtonItem key="rightBarButtonItem" image="baseline_mic_black_24pt" id="Tqb-Dk-Ihj">
-                            <connections>
-                                <segue destination="kVW-XZ-fvY" kind="presentation" id="VVN-Fh-aB4"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sAc-BO-O4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem image="baseline_mic_black_24pt" style="plain" id="NoW-m3-OAn"/>
-            </objects>
-            <point key="canvasLocation" x="1320" y="866"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Cardio-Confusion" width="620" height="349"/>
         <image name="barbell_hero_curl" width="1440" height="500"/>
-        <image name="baseline_mic_black_24pt" width="24" height="24"/>
         <image name="icons8-muscle-24" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="37I-wh-i5g"/>
-    </inferredMetricsTieBreakers>
 </document>

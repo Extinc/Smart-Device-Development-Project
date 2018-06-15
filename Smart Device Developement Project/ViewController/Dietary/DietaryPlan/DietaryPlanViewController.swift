@@ -12,19 +12,33 @@ class DietaryPlanViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
     let mealType = [[MealType("Vegan", "No animal products", "vegan")],
                 [MealType("Clean Eating", "Ideal if you are looking to make a healthy change in your eating habits", "cleaneating")],
                 [MealType("High Protein", "High Protein", "highprotein")],
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]
-
+    var frame = CGRect(x:0,y:0,width:0,height:0)
     var contentWidth:CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        pageControl.numberOfPages = mealType.count
+        //Meal Plan Types images to load
+        for i in 0...mealType.count-1{
+            //Setting size of frame.
+            frame.origin.x = scrollView.frame.size.width * CGFloat(i)
+            frame.size = scrollView.frame.size
+            //Set images to image view
+            let imgView = UIImageView(frame: frame)
+            imgView.image = UIImage(named: mealType[i][2].image)
+            //Set buttons
+            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height:50))
+            button.setTitle("Select", for: .normal)
+            //Add image to scroll view
+            self.scrollView.addSubview(imgView)
+        }
+        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(mealType.count)), height: scrollView.frame.size.height)
         scrollView.delegate = self
-        loadMealTypeImages()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,34 +46,9 @@ class DietaryPlanViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadMealTypeImages(){
-        //Meal Plan Types images to load
-        for i in 0...mealType.count-1{
-            
-            //label to display meal type
-            let mealTypeLabel = UILabel()
-            mealTypeLabel.text = ""
-            mealTypeLabel.textAlignment = .center
-            
-            //food image to display
-            let imageToDisplay = UIImage(named:"\(mealType[i][2].image)")!
-            let imageView = UIImageView(image: imageToDisplay)
-            
-            //x coordinate of image
-            let xCoordinate = view.frame.midX + view.frame.width * CGFloat(i)
-            //Set x,y coordinates and height and width of image
-            imageView.frame = CGRect(x: xCoordinate - 150, y: (view.frame.height / 2) -  100, width: 300, height: 200)
-        
-            
-            //add to scroll view horizontally, so need to + wdith every time it loops
-            contentWidth += view.frame.width
-            scrollView.addSubview(imageView)
-        }
-        scrollView.contentSize = CGSize(width: contentWidth, height: view.frame.height)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(scrollView.contentOffset.x / CGFloat(414))
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
     }
     
     

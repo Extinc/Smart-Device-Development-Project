@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Evenkit
+import EventKit
 
 class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     

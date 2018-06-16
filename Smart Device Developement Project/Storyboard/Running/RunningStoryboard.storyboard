@@ -259,6 +259,7 @@
                     </view>
                     <connections>
                         <outlet property="lblDistance" destination="Fan-ea-Wec" id="GeH-Fm-maa"/>
+                        <outlet property="test" destination="NOu-DQ-oYh" id="ek2-51-JFl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btd-fj-oiv" userLabel="First Responder" sceneMemberID="firstResponder"/>

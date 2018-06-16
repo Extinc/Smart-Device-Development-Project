@@ -227,20 +227,24 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rg9-uD-NCH">
                                         <rect key="frame" x="0.0" y="454" width="414" height="262"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI4-99-xJF">
-                                                <rect key="frame" x="28" y="186" width="358" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zI4-99-xJF">
+                                                <rect key="frame" x="0.0" y="172" width="414" height="90"/>
                                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="oDb-Lt-XBL"/>
+                                                </constraints>
                                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Create">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="btnCreate:" destination="woN-Tx-NNc" eventType="touchUpInside" id="Yhp-Y7-qv9"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zI4-99-xJF" secondAttribute="trailing" id="4Xq-Xj-3Im"/>
+                                            <constraint firstAttribute="bottom" secondItem="zI4-99-xJF" secondAttribute="bottom" id="LON-l9-EG0"/>
+                                            <constraint firstItem="zI4-99-xJF" firstAttribute="leading" secondItem="Rg9-uD-NCH" secondAttribute="leading" id="pVF-NU-GSI"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>

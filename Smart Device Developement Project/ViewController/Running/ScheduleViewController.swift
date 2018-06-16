@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Evenkit
+import EventKit
 
 class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -18,12 +18,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         lblDistance.text = String(String(format : "%.1f",sender.value))
     }
     
-    @IBAction func btnCreate(_ sender: Any){
-    
-        
-    }
-    
-      let day : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+    let day : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -45,6 +45,8 @@
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
 		9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D52120D6927F00FEAC9E /* SQLiteDB.swift */; };
+		9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008D52320D6932F00FEAC9E /* libsqlite3.tbd */; };
+		9008D53620D6943300FEAC9E /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9008D53520D6943300FEAC9E /* BridgingHeader.m */; };
 		900A3DFD20D4E60B00220298 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */; };
 		900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFB20D4E60B00220298 /* Exercise.swift */; };
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
@@ -123,6 +125,10 @@
 		9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		9008D52120D6927F00FEAC9E /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		9008D52320D6932F00FEAC9E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		9008D53320D6941B00FEAC9E /* Smart Device Developement Project-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Smart Device Developement Project-Bridging-Header.h"; sourceTree = "<group>"; };
+		9008D53420D6943300FEAC9E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		9008D53520D6943300FEAC9E /* BridgingHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
 		900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
 		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
 				4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +386,7 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9008D52320D6932F00FEAC9E /* libsqlite3.tbd */,
 				CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */,
 				353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */,
 				BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */,
@@ -392,6 +400,9 @@
 				9008D52120D6927F00FEAC9E /* SQLiteDB.swift */,
 				9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */,
 				9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */,
+				9008D53320D6941B00FEAC9E /* Smart Device Developement Project-Bridging-Header.h */,
+				9008D53420D6943300FEAC9E /* BridgingHeader.h */,
+				9008D53520D6943300FEAC9E /* BridgingHeader.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -517,6 +528,7 @@
 				TargetAttributes = {
 					5169C62020AAA4460014E15D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					5169C63620AAA4460014E15D = {
@@ -707,6 +719,7 @@
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
+				9008D53620D6943300FEAC9E /* BridgingHeader.m in Sources */,
 				69A0A47E20D3C032008E6DCC /* MealPlanViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
@@ -881,11 +894,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Smart Device Developement Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nyp.Smart-Device-Developement-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Smart Device Developement Project/Helpers/Smart Device Developement Project-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -895,11 +911,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A17DA4018283E26F6203D928 /* Pods-Smart Device Developement Project.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Smart Device Developement Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nyp.Smart-Device-Developement-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Smart Device Developement Project/Helpers/Smart Device Developement Project-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

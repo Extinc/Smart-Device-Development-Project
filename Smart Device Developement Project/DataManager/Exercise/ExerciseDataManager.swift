@@ -48,6 +48,10 @@ class ExerciseDataManager: NSObject{
 
     }
     
+    class func getExercisewCategory(){
+        
+    }
+    
     class func getExerciseCategory(onComplete: ((_ : [ExerciseCategory]) -> Void)?){
         var ecList: [ExerciseCategory] = []
         HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/exercisecategory", token: ExerciseDataManager.init().AuthorizationToken) {

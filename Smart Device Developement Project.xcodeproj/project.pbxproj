@@ -39,6 +39,13 @@
 		69E9629620B58A2F006DB2F8 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629520B58A2F006DB2F8 /* Meal.swift */; };
 		69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
+		70D4D80120D3A6FF009AC051 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */; };
+		70D4D80320D3AC2A009AC051 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */; };
+		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
+		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
+		900A3DFD20D4E60B00220298 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */; };
+		900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFB20D4E60B00220298 /* Exercise.swift */; };
+		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
 		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
@@ -47,6 +54,7 @@
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
 		90F9C7DB20D3A0CF005BA228 /* RunningStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */; };
+		90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DC20D3A579005BA228 /* Workout.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +113,15 @@
 		69D32F4C20B704F70009E2A2 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		69E9629520B58A2F006DB2F8 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP_Auth.swift; sourceTree = "<group>"; };
+		9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
+		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
 		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +130,7 @@
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningStoryboard.storyboard; sourceTree = "<group>"; };
+		90F9C7DC20D3A579005BA228 /* Workout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workout.storyboard; sourceTree = "<group>"; };
 		A17DA4018283E26F6203D928 /* Pods-Smart Device Developement Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.release.xcconfig"; sourceTree = "<group>"; };
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +203,7 @@
 		5169C62320AAA4460014E15D /* Smart Device Developement Project */ = {
 			isa = PBXGroup;
 			children = (
+				9008B30820D3EDF40096D9F2 /* Helpers */,
 				90F9C7D820D39F39005BA228 /* DataManager */,
 				90C601E820B00E87002FFF5D /* UI */,
 				5169C66620AAA99C0014E15D /* ViewController */,
@@ -253,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				5169C65F20AAA68F0014E15D /* Exercise.storyboard */,
+				90F9C7DC20D3A579005BA228 /* Workout.storyboard */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -268,6 +286,7 @@
 		5169C66620AAA99C0014E15D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				70D4D7FF20D3A6BA009AC051 /* Running */,
 				90C601EB20B01549002FFF5D /* Login */,
 				909ED72B20AFD1A80092D385 /* Register */,
 				5169C66D20AAA9ED0014E15D /* HRA */,
@@ -343,6 +362,15 @@
 			path = DietaryDiary;
 			sourceTree = "<group>";
 		};
+		70D4D7FF20D3A6BA009AC051 /* Running */ = {
+			isa = PBXGroup;
+			children = (
+				70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */,
+				70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */,
+			);
+			path = Running;
+			sourceTree = "<group>";
+		};
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +379,15 @@
 				BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9008B30820D3EDF40096D9F2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */,
+				9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9054824F20CF699400BDF5D7 /* Running */ = {
@@ -395,6 +432,9 @@
 		90F9C7D920D39F45005BA228 /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				900A3DFB20D4E60B00220298 /* Exercise.swift */,
+				900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */,
+				900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -514,6 +554,7 @@
 				5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */,
 				9030ED8220C0305600D28D92 /* acc.rtf in Resources */,
 				906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */,
+				90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */,
 				5169C63120AAA4460014E15D /* LaunchScreen.storyboard in Resources */,
 				5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */,
 				5169C65920AAA5440014E15D /* Home.storyboard in Resources */,
@@ -634,11 +675,17 @@
 			files = (
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
+				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
+				900A3DFD20D4E60B00220298 /* ExerciseCategory.swift in Sources */,
+				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				6925CF7720CF7E4400EC86CC /* MealType.swift in Sources */,
+				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
 				5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
 				69E9629620B58A2F006DB2F8 /* Meal.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
+				70D4D80120D3A6FF009AC051 /* ScheduleViewController.swift in Sources */,
+				70D4D80320D3AC2A009AC051 /* RunningTimerViewController.swift in Sources */,
 				69D32F4D20B704F70009E2A2 /* Details.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				69AFF8BD20D626910066B2E1 /* MealOptionsTableViewController.swift in Sources */,
@@ -649,6 +696,7 @@
 				51A9CB0D20B51C9600BD18BB /* DietaryViewController.swift in Sources */,
 				69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */,
 				51A9CB1020B51C9600BD18BB /* DisplayMealViewController.swift in Sources */,
+				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				69A0A47E20D3C032008E6DCC /* MealPlanViewController.swift in Sources */,

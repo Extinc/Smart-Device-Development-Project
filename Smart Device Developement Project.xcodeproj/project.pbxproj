@@ -32,7 +32,7 @@
 		6925CF7720CF7E4400EC86CC /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7620CF7E4400EC86CC /* MealType.swift */; };
 		694E8E6920B71E4B00E55AE0 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E8E6820B71E4B00E55AE0 /* SuggestionViewController.swift */; };
 		69A0A47E20D3C032008E6DCC /* MealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A47D20D3C032008E6DCC /* MealPlanViewController.swift */; };
-		69A0A48020D3CAAA008E6DCC /* DietaryPlanOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A47F20D3CAAA008E6DCC /* DietaryPlanOptionsViewController.swift */; };
+		69AFF8BD20D626910066B2E1 /* MealOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AFF8BC20D626910066B2E1 /* MealOptionsTableViewController.swift */; };
 		69D32F4920B700910009E2A2 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D32F4820B700910009E2A2 /* SummaryViewController.swift */; };
 		69D32F4B20B703E10009E2A2 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D32F4A20B703E10009E2A2 /* DetailsTableViewCell.swift */; };
 		69D32F4D20B704F70009E2A2 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D32F4C20B704F70009E2A2 /* Details.swift */; };
@@ -99,7 +99,7 @@
 		6925CF7620CF7E4400EC86CC /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
 		694E8E6820B71E4B00E55AE0 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		69A0A47D20D3C032008E6DCC /* MealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanViewController.swift; sourceTree = "<group>"; };
-		69A0A47F20D3CAAA008E6DCC /* DietaryPlanOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanOptionsViewController.swift; sourceTree = "<group>"; };
+		69AFF8BC20D626910066B2E1 /* MealOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOptionsTableViewController.swift; sourceTree = "<group>"; };
 		69D32F4820B700910009E2A2 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		69D32F4A20B703E10009E2A2 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		69D32F4C20B704F70009E2A2 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 				6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */,
 				6925CF7620CF7E4400EC86CC /* MealType.swift */,
 				69A0A47D20D3C032008E6DCC /* MealPlanViewController.swift */,
-				69A0A47F20D3CAAA008E6DCC /* DietaryPlanOptionsViewController.swift */,
+				69AFF8BC20D626910066B2E1 /* MealOptionsTableViewController.swift */,
 			);
 			path = DietaryPlan;
 			sourceTree = "<group>";
@@ -641,6 +641,7 @@
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				69D32F4D20B704F70009E2A2 /* Details.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
+				69AFF8BD20D626910066B2E1 /* MealOptionsTableViewController.swift in Sources */,
 				69D32F4B20B703E10009E2A2 /* DetailsTableViewCell.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
@@ -649,7 +650,6 @@
 				69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */,
 				51A9CB1020B51C9600BD18BB /* DisplayMealViewController.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
-				69A0A48020D3CAAA008E6DCC /* DietaryPlanOptionsViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				69A0A47E20D3C032008E6DCC /* MealPlanViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,

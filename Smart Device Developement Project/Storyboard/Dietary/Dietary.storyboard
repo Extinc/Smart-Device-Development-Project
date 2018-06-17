@@ -268,7 +268,7 @@
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.78873239439999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Meal Plan"/>
                                 <connections>
-                                    <action selector="goToMealPlan:" destination="TKO-Po-pwv" eventType="touchUpInside" id="PLm-YS-gQI"/>
+                                    <segue destination="f1W-Cu-aZT" kind="show" id="aQE-hn-3tk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -300,6 +300,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWb-xH-x5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44.927536231884062" y="133.28804347826087"/>
+        </scene>
+        <!--DietaryPlan-->
+        <scene sceneID="1OY-d1-G2M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DietaryPlan" id="f1W-Cu-aZT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ym7-y4-TlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="706" y="172"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Sf9-ak-3oA">

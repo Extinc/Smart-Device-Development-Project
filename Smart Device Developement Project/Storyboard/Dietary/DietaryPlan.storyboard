@@ -11,6 +11,7 @@
     </dependencies>
     <scenes>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <!--Meal Plan View Controller-->
         <scene sceneID="Lof-Yi-YPP">
             <objects>
@@ -75,6 +76,8 @@
             </objects>
             <point key="canvasLocation" x="-1013" y="155"/>
         </scene>
+=======
+>>>>>>> b9e99801fe2c5539a980fbf8ab9a88c3b3b114c3
 =======
 >>>>>>> b9e99801fe2c5539a980fbf8ab9a88c3b3b114c3
         <!--Dietary Plan View Controller-->

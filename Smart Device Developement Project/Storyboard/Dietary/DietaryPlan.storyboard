@@ -249,7 +249,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="Cn1-xn-6XC" kind="show" identifier="segue" id="Xqf-jI-rbZ"/>
+                        <segue destination="Cn1-xn-6XC" kind="show" identifier="optionsSegue" id="Xqf-jI-rbZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Co2-Jk-z3h" userLabel="First Responder" sceneMemberID="firstResponder"/>

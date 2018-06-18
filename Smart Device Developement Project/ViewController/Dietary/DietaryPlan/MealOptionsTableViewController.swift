@@ -49,6 +49,15 @@ class MealOptionsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        if segue.identifier == "optionsSegue"
+        {
+            let mealOptions2 = segue.destination as! MealOptionsTableViewController
+            
+            let myIndexPath = self.tableView.indexPathForSelectedRow
+            if myIndexPath != nil {
+                //let movie = data[myIndexPath!.section][myIndexPath!.row]
+                //detailViewController.movieItem = movie
+            }
+        }
     }
 }

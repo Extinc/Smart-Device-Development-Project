@@ -10,7 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-<<<<<<< HEAD
         <!--Meal Plan View Controller-->
         <scene sceneID="Lof-Yi-YPP">
             <objects>
@@ -75,8 +74,6 @@
             </objects>
             <point key="canvasLocation" x="-1013" y="155"/>
         </scene>
-=======
->>>>>>> b9e99801fe2c5539a980fbf8ab9a88c3b3b114c3
         <!--Dietary Plan View Controller-->
         <scene sceneID="ke1-5f-B4q">
             <objects>

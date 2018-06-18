@@ -17,6 +17,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self

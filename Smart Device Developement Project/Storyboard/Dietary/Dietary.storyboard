@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-713" y="134"/>
         </scene>
-        <!--Dietary View Controller-->
+        <!--Dietary-->
         <scene sceneID="fPP-t8-Xh5">
             <objects>
                 <viewController id="ZRX-KN-u4F" customClass="DietaryViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,35 +62,137 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eoD-Fz-3pL">
-                                <rect key="frame" x="0.0" y="64" width="414" height="69"/>
-                                <date key="date" timeIntervalSinceReferenceDate="551002643.54240501">
-                                    <!--2018-06-18 08:17:23 +0000-->
-                                </date>
-                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PM2-WB-HrZ">
+                                <rect key="frame" x="18" y="85" width="378" height="118"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VKv-fj-55X">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="551013319.85766602">
+                                            <!--2018-06-18 11:15:19 +0000-->
+                                        </date>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="7V8-8L-D3f"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="408-Oh-uHT" customClass="KDCircularProgress" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
+                                <rect key="frame" x="244" y="371" width="150" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FZ-El-bcD">
+                                        <rect key="frame" x="45" y="60" width="64" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="SCS-6Q-8qn"/>
+                                    <constraint firstAttribute="height" constant="150" id="oR2-L3-98D"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.15105825397343978" green="0.96620899438858032" blue="0.31035991154712905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzI-4i-5oz" customClass="KDCircularProgress" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
+                                <rect key="frame" x="20" y="371" width="150" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqw-zA-Ag0">
+                                        <rect key="frame" x="31" y="60" width="89" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="1pX-9R-wAc"/>
+                                    <constraint firstAttribute="width" constant="150" id="ucZ-Pv-5Hz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="120"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.151058254" green="0.96620899439999997" blue="0.31035991149999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4j-NF-DHm">
+                                <rect key="frame" x="350" y="271" width="46" height="51"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="f1W-Cu-aZT" kind="show" id="Pg3-44-Vvj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eoD-Fz-3pL" firstAttribute="trailing" secondItem="hwr-gG-SCu" secondAttribute="trailing" id="Khq-0F-eEN"/>
-                            <constraint firstItem="eoD-Fz-3pL" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" id="beC-wk-ayV"/>
-                            <constraint firstItem="hwr-gG-SCu" firstAttribute="bottom" secondItem="eoD-Fz-3pL" secondAttribute="bottom" constant="485" id="cjR-yj-XT2"/>
-                            <constraint firstItem="eoD-Fz-3pL" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" id="m1g-2l-Q0i"/>
+                            <constraint firstItem="hwr-gG-SCu" firstAttribute="trailing" secondItem="z4j-NF-DHm" secondAttribute="trailing" constant="18" id="0Jo-13-pj5"/>
+                            <constraint firstItem="z4j-NF-DHm" firstAttribute="top" secondItem="PM2-WB-HrZ" secondAttribute="bottom" constant="68" id="282-dQ-mjU"/>
+                            <constraint firstItem="PM2-WB-HrZ" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" constant="21" id="4BN-iP-06y"/>
+                            <constraint firstItem="hwr-gG-SCu" firstAttribute="trailing" secondItem="408-Oh-uHT" secondAttribute="trailing" constant="20" id="68L-Qa-uK9"/>
+                            <constraint firstItem="hwr-gG-SCu" firstAttribute="bottom" secondItem="408-Oh-uHT" secondAttribute="bottom" constant="97" id="LaA-T9-JNW"/>
+                            <constraint firstItem="FzI-4i-5oz" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="20" id="Q6X-iX-P3W"/>
+                            <constraint firstItem="hwr-gG-SCu" firstAttribute="bottom" secondItem="FzI-4i-5oz" secondAttribute="bottom" constant="97" id="aBE-hW-Qzz"/>
+                            <constraint firstItem="PM2-WB-HrZ" firstAttribute="centerX" secondItem="AoY-OV-tyP" secondAttribute="centerX" id="aqQ-pG-eSp"/>
+                            <constraint firstItem="408-Oh-uHT" firstAttribute="top" secondItem="z4j-NF-DHm" secondAttribute="bottom" constant="49" id="gCR-AI-hwz"/>
+                            <constraint firstItem="PM2-WB-HrZ" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="18" id="mDs-OD-OWE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hwr-gG-SCu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="r7R-1h-Diy"/>
+                    <navigationItem key="navigationItem" title="Dietary" id="r7R-1h-Diy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk2-8g-38b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="133"/>
+            <point key="canvasLocation" x="44.927536231884062" y="132.47282608695653"/>
         </scene>
         <!--DietaryPlan-->
         <scene sceneID="1OY-d1-G2M">
             <objects>
-                <viewControllerPlaceholder storyboardName="DietaryPlan" id="f1W-Cu-aZT" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="DietaryPlan" id="f1W-Cu-aZT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YRD-6h-0dU"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ym7-y4-TlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="172"/>
+            <point key="canvasLocation" x="605" y="-20"/>
         </scene>
     </scenes>
     <resources>

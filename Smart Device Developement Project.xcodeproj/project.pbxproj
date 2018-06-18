@@ -59,6 +59,7 @@
 		90F9C7DB20D3A0CF005BA228 /* RunningStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */; };
 		90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DC20D3A579005BA228 /* Workout.storyboard */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
+		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F147301820D7A4B700C63470 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
+		F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				F147301820D7A4B700C63470 /* DietaryViewController.swift */,
+				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
 			);
 			path = DietaryDiary;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
+				F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,

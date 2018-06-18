@@ -25,13 +25,6 @@ class DisplayMealViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        mealNameTextField.text = mealItem?.mealName
-        mealImage.image = UIImage(named: mealItem!.imagePath)
-        self.navigationItem.title = mealItem?.mealName
-    }
 
     /*
     // MARK: - Navigation

@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3XM-mI-ccy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="21"/>
+            <point key="canvasLocation" x="39" y="22"/>
         </scene>
         <!--Exercise-->
         <scene sceneID="NbA-SU-knU">
@@ -84,7 +84,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button" image="barbell_hero_curl"/>
                                                 <connections>
-                                                    <segue destination="WFl-Eh-x92" kind="show" id="kob-fw-qDh"/>
+                                                    <segue destination="WFl-Eh-x92" kind="show" id="6WL-Xz-Xjk"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Running" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teS-Ie-lut">
@@ -127,7 +127,7 @@
                 <viewControllerPlaceholder storyboardName="Workout" referencedIdentifier="workout" id="WFl-Eh-x92" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBx-y3-4yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="483"/>
+            <point key="canvasLocation" x="909" y="665"/>
         </scene>
         <!--running-->
         <scene sceneID="zuH-gV-YtR">
@@ -135,7 +135,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="running" storyboardName="RunningStoryboard" referencedIdentifier="running" id="xab-ss-VI1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioa-b9-HOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="-158"/>
+            <point key="canvasLocation" x="1405" y="20"/>
         </scene>
     </scenes>
     <resources>

@@ -15,7 +15,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         print(Auth.auth().currentUser?.email!)
+        DataManager.createTable(sql:
+            "CREATE TABLE IF NOT EXISTS " +
+            "WorkoutCategory( " +
+            "   catID int primary key, " +
+            "   catName text )")
+        
+        ExerciseDataManager.addExerciseCategoryToDB()
     }
 
     override func didReceiveMemoryWarning() {

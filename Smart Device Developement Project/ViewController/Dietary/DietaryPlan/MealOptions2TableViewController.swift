@@ -1,5 +1,5 @@
 //
-//  MealOptionsTableViewController.swift
+//  MealOptions2TableViewController.swift
 //  Smart Device Developement Project
 //
 //  Created by Guan Wei on 17/6/18.
@@ -8,14 +8,7 @@
 
 import UIKit
 
-var mealPlan = ["", "", "", ""]
-var goals = ["Lose weight", "Gain weight", "Maintain weight"]
-var duration = ["1 Week", "2 Weeks", "3 Weeks", "1 Month", "3 Months", "6 Months", "1 Year"]
-
-var mealsPerDay = ["1", "2", "3", "4", "5", "6"]
-var reminders = ["Yes", "No"]
-
-class MealOptionsTableViewController: UITableViewController {
+class MealOptions2TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

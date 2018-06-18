@@ -28,8 +28,14 @@
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
 		6925CF7720CF7E4400EC86CC /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7620CF7E4400EC86CC /* MealType.swift */; };
-		69A0A47E20D3C032008E6DCC /* MealPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A0A47D20D3C032008E6DCC /* MealPlanViewController.swift */; };
+		694E8E6920B71E4B00E55AE0 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694E8E6820B71E4B00E55AE0 /* SuggestionViewController.swift */; };
 		69AFF8BD20D626910066B2E1 /* MealOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AFF8BC20D626910066B2E1 /* MealOptionsTableViewController.swift */; };
+		69D32F4920B700910009E2A2 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D32F4820B700910009E2A2 /* SummaryViewController.swift */; };
+		69D32F4B20B703E10009E2A2 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D32F4A20B703E10009E2A2 /* DetailsTableViewCell.swift */; };
+		69D32F4D20B704F70009E2A2 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D32F4C20B704F70009E2A2 /* Details.swift */; };
+		69E4173320D688C70031F6C9 /* MealOptions2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4173220D688C70031F6C9 /* MealOptions2TableViewController.swift */; };
+		69E9629620B58A2F006DB2F8 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629520B58A2F006DB2F8 /* Meal.swift */; };
+		69E9629820B58BED006DB2F8 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
 		70D4D80120D3A6FF009AC051 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */; };
 		70D4D80320D3AC2A009AC051 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */; };
@@ -46,12 +52,14 @@
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
 		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 906FA74420B92B9E0061C953 /* GoogleService-Info.plist */; };
+		90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90726C0E20D797B700FCFB28 /* DataManager.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
 		90F9C7DB20D3A0CF005BA228 /* RunningStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */; };
 		90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DC20D3A579005BA228 /* Workout.storyboard */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
+		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +108,14 @@
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
 		6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanViewController.swift; sourceTree = "<group>"; };
 		6925CF7620CF7E4400EC86CC /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
-		69A0A47D20D3C032008E6DCC /* MealPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanViewController.swift; sourceTree = "<group>"; };
+		694E8E6820B71E4B00E55AE0 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		69AFF8BC20D626910066B2E1 /* MealOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOptionsTableViewController.swift; sourceTree = "<group>"; };
+		69D32F4820B700910009E2A2 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		69D32F4A20B703E10009E2A2 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		69D32F4C20B704F70009E2A2 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		69E4173220D688C70031F6C9 /* MealOptions2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealOptions2TableViewController.swift; sourceTree = "<group>"; };
+		69E9629520B58A2F006DB2F8 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		69E9629720B58BED006DB2F8 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +135,7 @@
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
 		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
 		906FA74420B92B9E0061C953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		90726C0E20D797B700FCFB28 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +146,7 @@
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F147301820D7A4B700C63470 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
+		F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,8 +355,8 @@
 			children = (
 				6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */,
 				6925CF7620CF7E4400EC86CC /* MealType.swift */,
-				69A0A47D20D3C032008E6DCC /* MealPlanViewController.swift */,
 				69AFF8BC20D626910066B2E1 /* MealOptionsTableViewController.swift */,
+				69E4173220D688C70031F6C9 /* MealOptions2TableViewController.swift */,
 			);
 			path = DietaryPlan;
 			sourceTree = "<group>";
@@ -349,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				F147301820D7A4B700C63470 /* DietaryViewController.swift */,
+				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
 			);
 			path = DietaryDiary;
 			sourceTree = "<group>";
@@ -421,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				90F9C7D920D39F45005BA228 /* Exercise */,
+				90726C0E20D797B700FCFB28 /* DataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -671,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
+				69E4173320D688C70031F6C9 /* MealOptions2TableViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				900A3DFD20D4E60B00220298 /* ExerciseCategory.swift in Sources */,
@@ -689,12 +708,12 @@
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
+				F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
-				9008D53620D6943300FEAC9E /* BridgingHeader.m in Sources */,
-				69A0A47E20D3C032008E6DCC /* MealPlanViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);

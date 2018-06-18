@@ -60,11 +60,12 @@ class ExerciseDataManager: NSObject{
                 return
             }
             let numResults: Int = json!["results"].count
-            
+            var sql = ""
             for j in 0...numResults{
                 if json!["results"][j]["id"].int != nil{
                     let id: Int = json!["results"][j]["id"].int!
                     let name: String = json!["results"][j]["name"].string!
+   
                     ecList.append(ExerciseCategory(id: id, name: name))
                 }
             }
@@ -74,5 +75,32 @@ class ExerciseDataManager: NSObject{
     }
     
     
+    class func addExerciseCategoryToDB(){
+        var ecList: [ExerciseCategory] = []
+        HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/exercisecategory", token: ExerciseDataManager.init().AuthorizationToken) {
+            (json, response, error) in
+            if error != nil{
+                return
+            }
+            let numResults: Int = json!["results"].count
+            var sql = ""
+            for j in 0...numResults{
+                if json!["results"][j]["id"].int != nil{
+                    let id: Int = json!["results"][j]["id"].int!
+                    let name: String = json!["results"][j]["name"].string!
+                    insertOrReplace(tableName: "WorkoutCategory", tableCols: " catID, catName ", valuesql: "?,?", params: [id,name])
+                }
+            }
+        }
+    }
+    
+    //
+    //  Below is Code for Database
+    //
+    
+    static func insertOrReplace(tableName: String, tableCols: String,valuesql: String, params: [Any]?){
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO \(tableName) (\(tableCols)) VALUES (\(valuesql))",
+                                        parameters: params!)
+    }
 }
 

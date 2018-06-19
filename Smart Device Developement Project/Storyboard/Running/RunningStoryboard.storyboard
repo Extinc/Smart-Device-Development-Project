@@ -72,6 +72,9 @@
                                                         <integer key="value" value="100"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="start:" destination="v5b-1c-Dmf" eventType="touchUpInside" id="wiR-lU-SWJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,6 +172,9 @@
                                                         <state key="normal" title="Pause">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pause:" destination="v5b-1c-Dmf" eventType="touchUpInside" id="aJB-VA-gmD"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="10" left="0.0" bottom="0.0" right="0.0"/>
@@ -200,6 +206,9 @@
                         <viewLayoutGuide key="safeArea" id="m2e-kA-JlC"/>
                     </view>
                     <connections>
+                        <outlet property="btnStart" destination="B2o-bs-ker" id="oFv-1V-taJ"/>
+                        <outlet property="lblDistance" destination="RQe-ZW-ENj" id="Ba4-VP-2gI"/>
+                        <outlet property="lblTime" destination="N6N-Sm-dY4" id="tRO-dj-ccn"/>
                         <outlet property="mapView" destination="bvC-mt-Tce" id="ale-LQ-gN7"/>
                     </connections>
                 </viewController>
@@ -225,13 +234,13 @@
                                                 <rect key="frame" x="20" y="10" width="374" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Distance : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tk5-iQ-x4G">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-ea-Wec">
-                                                        <rect key="frame" x="91" y="0.0" width="283" height="24"/>
+                                                        <rect key="frame" x="364" y="0.0" width="10" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

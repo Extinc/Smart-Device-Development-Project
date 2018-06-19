@@ -13,7 +13,10 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let userID = Auth.auth().currentUser!.uid
+        let email = Auth.auth().currentUser!.email!
+        print(email)
+        
         // Do any additional setup after loading the view.
         
         // Below is Database code
@@ -34,8 +37,6 @@ class HomeViewController: UIViewController {
         //
         // For User Info
         //
-        let userID : String = (Auth.auth().currentUser?.uid)!
-        let email : String = (Auth.auth().currentUser?.email!)!
         
         if DataManager.checkUserExist(params: [userID, email]) == false {
             DataManager.insertUserInfo(uid: userID, email: email)

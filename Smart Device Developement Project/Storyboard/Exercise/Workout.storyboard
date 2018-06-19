@@ -18,12 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0ob-0Z-61O">
-                                <rect key="frame" x="132" y="244" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0ob-0Z-61O">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0ob-0Z-61O" firstAttribute="leading" secondItem="Mca-JZ-kAI" secondAttribute="leading" id="CPY-UV-q1d"/>
+                            <constraint firstItem="Mca-JZ-kAI" firstAttribute="trailing" secondItem="0ob-0Z-61O" secondAttribute="trailing" id="hig-qd-YK0"/>
+                            <constraint firstItem="0ob-0Z-61O" firstAttribute="top" secondItem="Mca-JZ-kAI" secondAttribute="top" id="kP0-MD-Ntx"/>
+                            <constraint firstItem="Mca-JZ-kAI" firstAttribute="bottom" secondItem="0ob-0Z-61O" secondAttribute="bottom" id="uZ2-UV-ceE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Mca-JZ-kAI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Workout" id="Njy-c7-tjV">
@@ -37,7 +42,6 @@
         <!--Navigation Controller-->
         <scene sceneID="jac-tA-dDd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HkB-tT-QNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PCU-wm-SEh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vGV-gV-455">
@@ -49,6 +53,7 @@
                         <segue destination="WOK-cH-1Yc" kind="relationship" relationship="rootViewController" id="zix-m8-Mev"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HkB-tT-QNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2100" y="-87.706146926536732"/>
         </scene>

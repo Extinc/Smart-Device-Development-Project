@@ -76,14 +76,12 @@ class ExerciseDataManager: NSObject{
     
     
     class func addExerciseCategoryToDB(){
-        var ecList: [ExerciseCategory] = []
         HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/exercisecategory", token: ExerciseDataManager.init().AuthorizationToken) {
             (json, response, error) in
             if error != nil{
                 return
             }
             let numResults: Int = json!["results"].count
-            var sql = ""
             for j in 0...numResults{
                 if json!["results"][j]["id"].int != nil{
                     let id: Int = json!["results"][j]["id"].int!
@@ -94,6 +92,10 @@ class ExerciseDataManager: NSObject{
         }
     }
     
+    static func getdb(){
+        
+    }
+    
     //
     //  Below is Code for Database
     //
@@ -101,6 +103,22 @@ class ExerciseDataManager: NSObject{
     static func insertOrReplace(tableName: String, tableCols: String,valuesql: String, params: [Any]?){
         SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO \(tableName) (\(tableCols)) VALUES (\(valuesql))",
                                         parameters: params!)
+    }
+    
+    static func loadCategory() -> [ExerciseCategory]
+    {
+        let categoryRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT catID, catName " +
+            "FROM WorkoutCategory")
+        
+        var category : [ExerciseCategory] = []
+        for row in categoryRows
+        {
+            category.append(ExerciseCategory(
+                id: row["catID"] as! Int,
+                name: row["catName"] as! String))
+        }
+        return category;
     }
 }
 

@@ -17,9 +17,7 @@ class WorkoutViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        ExerciseDataManager.getExerciseCategory { (ec) in
-            self.exerciseCat = ec
-        }
+        exerciseCat = ExerciseDataManager.loadCategory()
     }
     
     override func viewDidLoad() {

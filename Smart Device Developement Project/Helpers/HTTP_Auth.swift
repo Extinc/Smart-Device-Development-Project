@@ -35,7 +35,7 @@ class HTTP_Auth: NSObject {
             data, response, error in
             
             onComplete?(data, response, error)
-            }.resume()
+        }.resume()
     }
     
     

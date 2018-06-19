@@ -1,31 +1,41 @@
 //
-//  DisplayMealViewController.swift
+//  WorkoutViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by Guan Wei on 22/5/18.
+//  Created by lim kei yiang on 15/6/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
 
-class DisplayMealViewController: UIViewController {
+class WorkoutViewController: UIViewController {
 
-    @IBOutlet weak var mealImage: UIImageView!
-    @IBOutlet weak var mealNameTextField: UITextField!
+    @IBOutlet weak var sv: UIStackView!
     
-    var mealItem: Meal?
+    var exerciseCat: [ExerciseCategory] = [];
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ExerciseDataManager.getExerciseCategory { (ec) in
+            self.exerciseCat = ec
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(exerciseCat)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+    
     /*
     // MARK: - Navigation
 

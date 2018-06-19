@@ -1,30 +1,26 @@
 //
-//  DisplayMealViewController.swift
+//  InitialPlanViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by Guan Wei on 22/5/18.
+//  Created by Guan Wei on 17/6/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
 
-class DisplayMealViewController: UIViewController {
+class InitialPlanViewController: UIViewController {
 
-    @IBOutlet weak var mealImage: UIImageView!
-    @IBOutlet weak var mealNameTextField: UITextField!
-    
-    var mealItem: Meal?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let plansVC: DietaryViewController? = storyboard?.instantiateViewController(withIdentifier: "DietaryViewController") as! DietaryViewController
+        self.navigationController?.pushViewController(plansVC!, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation

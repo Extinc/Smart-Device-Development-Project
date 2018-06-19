@@ -12,19 +12,20 @@ class WorkoutViewController: UIViewController {
 
     @IBOutlet weak var sv: UIStackView!
     
-    var exerciseCat: [ExerciseCategory] = [];
+    var exerciseCat: [ExerciseCategory]?;
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        exerciseCat = ExerciseDataManager.loadCategory()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(exerciseCat)
+        exerciseCat = ExerciseDataManager.loadCategory()
+        print(exerciseCat!)
     }
 
     override func didReceiveMemoryWarning() {

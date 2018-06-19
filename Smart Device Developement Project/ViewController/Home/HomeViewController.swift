@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
         
         ExerciseDataManager.addExerciseCategoryToDB()
         
-        var userID : String = (Auth.auth().currentUser?.uid)!
-        var email : String = (Auth.auth().currentUser?.email!)!
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        let email : String = (Auth.auth().currentUser?.email!)!
         
         if DataManager.checkUserExist(params: [userID, email]) == false {
             DataManager.insertUserInfo(uid: userID, email: email)

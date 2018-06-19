@@ -15,6 +15,8 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     @IBOutlet weak var datePickerTxt: UITextField!
     @IBOutlet weak var lblProgress: UITextField!
     @IBOutlet weak var lblNumber: UITextField!
+    var mainevents:EKEvent!
+    var maineventStore: EKEventStore!
     
     let picker = UIDatePicker()
     //Get slider value
@@ -33,6 +35,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    //Creating DatePicker
     func createDatePicker(){
         
         let toolbar = UIToolbar()
@@ -46,13 +49,14 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         
      
     }
-    
+    //DatePicker done button
     @objc func donePressed(){
         
         datePickerTxt.text = "\(picker.date)"
         view.endEditing(true)
     }
     
+    //Creating Alert
     func createAlert (title:String, message:String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -64,11 +68,30 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    func deleteAlert ( title:String, message:String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+            self.deleteEvent(event: self.mainevents, eventstore: self.maineventStore)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "NO", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+         self.present(alert, animated: true, completion: nil)
+        
+    }
+  
     //Create Event in Calendar
     @IBAction func btnCreate(_ sender: Any) {
         
        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let startdate: Date = dateFormatter.date(from: self.datePickerTxt.text!)!
         
       
         let eventStore:EKEventStore = EKEventStore()
@@ -81,8 +104,8 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 //Create Event on the Calendar
                 let event:EKEvent = EKEvent(eventStore: eventStore)
                 event.title = self.lblDistance.text! + "KM Run/Jogging"
-                event.startDate = Date()
-                event.endDate = Date()
+                event.startDate = startdate
+                event.endDate = startdate
                 event.notes = "Weekly Run/Joggin Training"
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 
@@ -102,7 +125,9 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 
                 
                 do{
-                    try eventStore.save(event, span: .thisEvent)  
+                    try eventStore.save(event, span: .thisEvent)
+                   self.mainevents = event
+                   self.maineventStore = eventStore
                 }catch let error as NSError{
                     print("error : \(error)")
                 }
@@ -114,7 +139,22 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             }
         })
     }
-    // Add alarm to event
+    // Delete Event from calendar
+    
+    @IBAction func btnDelete(_ sender: Any) {
+        deleteAlert(title: "Delete Schedule", message: "Are u going to forfeit this schedule!?")
+        
+    }
+    
+    
+    
+    func deleteEvent(event: EKEvent,eventstore: EKEventStore){
+        do{
+            try eventstore.remove(event,span:EKSpan.thisEvent,commit:true)
+        }catch{
+            print("Error while deleting event: \(error.localizedDescription)")
+        }
+    }
     
     
     

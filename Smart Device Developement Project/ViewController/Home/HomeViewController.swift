@@ -16,14 +16,31 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        print(Auth.auth().currentUser?.email!)
+        // Below is Database code
+        
+        //
+        // For workout
+        //
         DataManager.createTable(sql:
             "CREATE TABLE IF NOT EXISTS " +
             "WorkoutCategory( " +
             "   catID int primary key, " +
             "   catName text )")
         
+        // To insert data from api/json into sqlite for quicker access.
         ExerciseDataManager.addExerciseCategoryToDB()
+        //
+        
+        //
+        // For User Info
+        //
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        let email : String = (Auth.auth().currentUser?.email!)!
+        
+        if DataManager.checkUserExist(params: [userID, email]) == false {
+            DataManager.insertUserInfo(uid: userID, email: email)
+        }
+        //
     }
 
     override func didReceiveMemoryWarning() {

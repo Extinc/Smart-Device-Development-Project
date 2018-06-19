@@ -84,6 +84,8 @@ class LoginViewController: UIViewController {
 
         lifestyleTheme.styleBtn(btn: loginBtn, title: "Login", pColor: colors.secondaryDarkColor)
         lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.secondaryDarkColor)
+        
+        DataManager.createUserInfoTable()
     }
     
 

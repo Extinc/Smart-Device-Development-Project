@@ -23,19 +23,7 @@ class DataManager: NSObject {
                 "   email text )")
         
     }
-    static func createScheduleTable(){
-        DataManager.createTable(sql: "CREATE TABLE IF NOT EXIST " +
-            "trainingschedule( " +
-            " scheduleID int primary key autoincrement, " +
-            " startdate text " +
-            " numberoftimes double " +
-            " progress int ," +
-            " forfeit int default 0 ," +
-            " complete int default 0 ," +
-            " userID text, " +
-            " foreign key(userID) REFERENCES User(userID) )")
-        
-    }
+  
     
     static func insertUserInfo(uid: String, email: String){
         insertOrReplace(tableName: "User", tableCols: " userID, email ", valuesql: "?,?", params: [uid,email])

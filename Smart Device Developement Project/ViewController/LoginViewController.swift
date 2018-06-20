@@ -56,7 +56,11 @@ class LoginViewController: UIViewController {
         else{
             Auth.auth().signIn(withEmail: loginUser.text!, password: loginPwd.text!) { (user, error) in
                 if error == nil {
-                    
+                    let userID: String? = user?.user.uid
+                    let email: String? = user?.user.email
+                    if DataManager.checkUserExist(params: [userID!, email!]) == false {
+                        DataManager.insertUserInfo(uid: userID!, email: email!)
+                    }
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

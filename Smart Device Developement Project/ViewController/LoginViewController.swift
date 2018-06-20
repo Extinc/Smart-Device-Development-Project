@@ -59,6 +59,7 @@ class LoginViewController: UIViewController {
                     let userID: String? = user?.user.uid
                     let email: String? = user?.user.email
                     if DataManager.checkUserExist(params: [userID!, email!]) == false {
+                        print(DataManager.checkUserExist(params: [userID!, email!]))
                         DataManager.insertUserInfo(uid: userID!, email: email!)
                     }
                 } else {

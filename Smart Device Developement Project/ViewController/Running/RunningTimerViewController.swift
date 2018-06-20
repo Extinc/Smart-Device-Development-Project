@@ -13,22 +13,65 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var btnStart: UIButton!
+    
+    @IBOutlet weak var lblDistance: UILabel!
+    
+    @IBOutlet weak var lblTime: UILabel!
+    
+    
+    
+    
+    
+    var time = 0
+    
+    //timer
+    var timer = Timer()
+    
+    
+    
     var locationManager = CLLocationManager()
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         updateMapRegion(rangeSpan: 100)
 
         // Do any additional setup after loading the view.
+        RunningDataManager.createScheduleTable()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //Start Timer
+
+    @IBAction func start(_ sender: UIButton) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
+        
+    }
+    
+    
+    @objc func action()
+    {
+      time += 1
+    lblTime.text = String(time)
+    
+    }
+    
+    //Pause Timer
+    
+    @IBAction func pause(_ sender: UIButton) {
+        
+        timer.invalidate()
+    }
+    
     
     @IBAction func findHere(_ sender: UIButton)
     {

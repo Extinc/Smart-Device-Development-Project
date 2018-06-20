@@ -22,6 +22,7 @@ class DataManager: NSObject {
                 "   email text )")
         
     }
+
     
     static func insertUserInfo(uid: String, email: String){
         insertOrReplace(tableName: "User", tableCols: " userID, email ", valuesql: "?,?", params: [uid,email])

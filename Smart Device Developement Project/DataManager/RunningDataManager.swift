@@ -71,7 +71,7 @@ class RunningDataManager: NSObject {
     static func checkUserExist(_ user:String) -> Bool{
         var exist = false
         let ScheduleRows = SQLiteDB.sharedInstance.query(sql:
-            "Select count(scheduleID) FROM schedule where forfeit = 0 AND complete = 0 AND userID = "+ user +")
+            "Select count(scheduleID) FROM schedule where forfeit = 0 AND complete = 0 AND userID = "+ user +"")
         
         if ScheduleRows.count >= 1 {
             exist = true

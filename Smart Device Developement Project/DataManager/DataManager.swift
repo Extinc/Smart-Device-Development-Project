@@ -12,6 +12,7 @@ class DataManager: NSObject {
     static func createTable(sql: String){
         SQLiteDB.sharedInstance.execute(sql: sql)
     }
+
     
     // for login
     static func createUserInfoTable(){
@@ -32,7 +33,7 @@ class DataManager: NSObject {
             " forfeit int default 0 ," +
             " complete int default 0 ," +
             " userID text, " +
-            " foreign key(userID) REFERENCES User(userID)")
+            " foreign key(userID) REFERENCES User(userID) )")
         
     }
     

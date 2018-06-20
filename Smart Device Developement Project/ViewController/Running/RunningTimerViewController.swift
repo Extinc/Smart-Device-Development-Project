@@ -37,6 +37,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         updateMapRegion(rangeSpan: 100)
 

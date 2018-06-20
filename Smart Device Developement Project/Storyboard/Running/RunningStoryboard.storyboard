@@ -173,7 +173,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="pause:" destination="v5b-1c-Dmf" eventType="touchUpInside" id="aJB-VA-gmD"/>
+                                                            <action selector="pause:" destination="v5b-1c-Dmf" eventType="touchUpInside" id="RXH-cg-LQJ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

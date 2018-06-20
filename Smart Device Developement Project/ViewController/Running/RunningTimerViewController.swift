@@ -20,6 +20,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     @IBOutlet weak var lblTime: UILabel!
     
     
+    
+    
+    
     var time = 0
     
     //timer
@@ -51,6 +54,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
         
     }
+    
     
     @objc func action()
     {

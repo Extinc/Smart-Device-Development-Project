@@ -47,9 +47,8 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         datePickerTxt.inputAccessoryView = toolbar
         datePickerTxt.inputView = picker
         
-     
-    }
-    //DatePicker done button
+        
+    }    //DatePicker done button
     @objc func donePressed(){
         
         datePickerTxt.text = "\(picker.date)"
@@ -89,9 +88,12 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     //Create Event in Calendar
     @IBAction func btnCreate(_ sender: Any) {
         
-       let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let startdate: Date = dateFormatter.date(from: self.datePickerTxt.text!)!
+      //  let dateFormatter = DateFormatter()
+      //  dateFormatter.date(from: "yyyy-MM-dd'T'HH:mm:ssZ")
+     //   let dateString: Date = dateFormatter.date(from: self.datePickerTxt.text!)!
+     //  let dateFormatter = DateFormatter()
+      //  dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+      //  let startdate: Date = dateFormatter.date(from: self.datePickerTxt.text!)!
         
       
         let eventStore:EKEventStore = EKEventStore()
@@ -104,8 +106,8 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 //Create Event on the Calendar
                 let event:EKEvent = EKEvent(eventStore: eventStore)
                 event.title = self.lblDistance.text! + "KM Run/Jogging"
-                event.startDate = startdate
-                event.endDate = startdate
+                event.startDate = Date()
+                event.endDate = Date()
                 event.notes = "Weekly Run/Joggin Training"
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 

@@ -41,6 +41,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         updateMapRegion(rangeSpan: 100)
 
         // Do any additional setup after loading the view.
+        RunningDataManager.createScheduleTable()
+
     }
 
     override func didReceiveMemoryWarning() {

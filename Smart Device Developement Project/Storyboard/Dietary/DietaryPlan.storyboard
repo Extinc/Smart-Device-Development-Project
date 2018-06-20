@@ -39,13 +39,36 @@
                                                         <constraint firstAttribute="width" constant="80" id="UkR-AF-vjK"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-j8-ZUN">
+                                                    <rect key="frame" x="130" y="52" width="264" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-VW-I6j">
+                                                    <rect key="frame" x="130" y="23" width="264" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eRe-oC-8MK" firstAttribute="leading" secondItem="PdC-qI-zxa" secondAttribute="leading" constant="20" id="0BP-KX-wfL"/>
                                                 <constraint firstItem="eRe-oC-8MK" firstAttribute="bottom" secondItem="PdC-qI-zxa" secondAttribute="bottomMargin" id="4ya-C4-UPW"/>
+                                                <constraint firstItem="Oiv-j8-ZUN" firstAttribute="leading" secondItem="Dha-VW-I6j" secondAttribute="leading" id="95e-sc-Cdi"/>
                                                 <constraint firstItem="eRe-oC-8MK" firstAttribute="centerY" secondItem="PdC-qI-zxa" secondAttribute="centerY" id="TLm-C8-MRM"/>
+                                                <constraint firstItem="Oiv-j8-ZUN" firstAttribute="top" secondItem="Dha-VW-I6j" secondAttribute="bottom" constant="8" symbolic="YES" id="UHf-Bd-Cq2"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dha-VW-I6j" secondAttribute="trailing" constant="20" id="WhR-NX-JCn"/>
+                                                <constraint firstItem="Oiv-j8-ZUN" firstAttribute="leading" secondItem="eRe-oC-8MK" secondAttribute="trailing" constant="30" id="Xrw-0n-YOP"/>
+                                                <constraint firstItem="Dha-VW-I6j" firstAttribute="top" secondItem="PdC-qI-zxa" secondAttribute="top" constant="23" id="oBl-uw-xQG"/>
+                                                <constraint firstAttribute="trailing" secondItem="Oiv-j8-ZUN" secondAttribute="trailing" constant="20" id="ypE-m7-VSq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mealCalories" destination="Oiv-j8-ZUN" id="all-W3-MXJ"/>
+                                            <outlet property="mealImage" destination="eRe-oC-8MK" id="uv4-PW-dHH"/>
+                                            <outlet property="mealName" destination="Dha-VW-I6j" id="a31-69-Pue"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

@@ -13,8 +13,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var mealPlanTypeLabel: UILabel!
-    @IBOutlet weak var goalsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     private var datePicker: UIDatePicker?
@@ -53,8 +51,17 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         }
         
         //load meal plan type and goals
-        mealPlanTypeLabel.text = mealplantype
-        goalsLabel.text = goals
+      /*  if (mealplantype == ""){
+            mptlabel.text = ""
+            glabel.text = ""
+            mealPlanTypeLabel.text = ""
+            goalsLabel.text = ""
+        }
+        else {
+            mealPlanTypeLabel.text = mealplantype
+            goalsLabel.text = goals
+        }*/
+        
         
     }
     
@@ -84,7 +91,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
         return cell
     }
     

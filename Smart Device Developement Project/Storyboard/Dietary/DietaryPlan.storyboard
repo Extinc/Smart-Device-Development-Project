@@ -19,6 +19,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-60-21W">
+                                <rect key="frame" x="20" y="54" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktH-q7-DGE">
+                                <rect key="frame" x="20" y="92" width="374" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oZh-9X-YeT">
                                 <rect key="frame" x="0.0" y="259" width="414" height="477"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,84 +88,27 @@
                                     <outlet property="delegate" destination="RH4-Sf-Dwc" id="ccu-Cm-cmT"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-60-21W">
-                                <rect key="frame" x="20" y="54" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktH-q7-DGE">
-                                <rect key="frame" x="186" y="92" width="42" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BBT-Tz-dzZ">
-                                <rect key="frame" x="20" y="128.33333333333334" width="374" height="109.66666666666666"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yKF-GC-3uN">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Plan Type:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuo-rV-hNS">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="55"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zif-gc-EbZ">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="55"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DQQ-a2-u3m">
-                                        <rect key="frame" x="0.0" y="55" width="374" height="54.666666666666657"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goals:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR3-DF-cKX">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="54.666666666666664"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bza-DM-X9q">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="54.666666666666664"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="109.67" id="65b-0e-pkr"/>
-                                    <constraint firstAttribute="width" constant="374" id="ZkH-ZT-YVR"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oZh-9X-YeT" firstAttribute="centerX" secondItem="BBT-Tz-dzZ" secondAttribute="centerX" id="1SU-TC-HTT"/>
-                            <constraint firstItem="oZh-9X-YeT" firstAttribute="top" secondItem="BBT-Tz-dzZ" secondAttribute="bottom" constant="21" id="6Cc-Xf-QJ8"/>
-                            <constraint firstItem="ktH-q7-DGE" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" constant="186" id="7DH-XL-C8J"/>
-                            <constraint firstItem="BBT-Tz-dzZ" firstAttribute="top" secondItem="ktH-q7-DGE" secondAttribute="bottom" constant="15.67" id="AVK-sX-a0A"/>
+                            <constraint firstItem="ktH-q7-DGE" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" constant="20" id="7DH-XL-C8J"/>
                             <constraint firstItem="BVd-YT-BGP" firstAttribute="trailing" secondItem="Qrd-60-21W" secondAttribute="trailing" constant="20" id="E8S-qx-d2g"/>
                             <constraint firstItem="ktH-q7-DGE" firstAttribute="top" secondItem="Qrd-60-21W" secondAttribute="bottom" constant="8" id="FY4-Qe-dgW"/>
                             <constraint firstItem="Qrd-60-21W" firstAttribute="top" secondItem="BVd-YT-BGP" secondAttribute="top" constant="34" id="Q6M-he-TBN"/>
                             <constraint firstItem="oZh-9X-YeT" firstAttribute="leading" secondItem="jMZ-ga-j9a" secondAttribute="leading" id="UzM-ie-HXh"/>
-                            <constraint firstItem="BVd-YT-BGP" firstAttribute="trailing" secondItem="BBT-Tz-dzZ" secondAttribute="trailing" constant="20" id="VUu-1o-N67"/>
-                            <constraint firstItem="BVd-YT-BGP" firstAttribute="trailing" secondItem="ktH-q7-DGE" secondAttribute="trailing" constant="186" id="c2z-eC-qgk"/>
+                            <constraint firstItem="ktH-q7-DGE" firstAttribute="top" secondItem="Qrd-60-21W" secondAttribute="bottom" constant="8" id="W6e-T4-sLf"/>
+                            <constraint firstItem="BVd-YT-BGP" firstAttribute="trailing" secondItem="ktH-q7-DGE" secondAttribute="trailing" constant="20" id="c2z-eC-qgk"/>
+                            <constraint firstItem="ktH-q7-DGE" firstAttribute="top" secondItem="Qrd-60-21W" secondAttribute="bottom" constant="8" id="de4-Ea-RDi"/>
                             <constraint firstItem="Qrd-60-21W" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" constant="20" id="dyV-hf-dtf"/>
-                            <constraint firstItem="BBT-Tz-dzZ" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" constant="20" id="mLX-es-svp"/>
+                            <constraint firstItem="oZh-9X-YeT" firstAttribute="centerX" secondItem="ktH-q7-DGE" secondAttribute="centerX" id="fDR-YP-f0a"/>
+                            <constraint firstItem="ktH-q7-DGE" firstAttribute="top" secondItem="Qrd-60-21W" secondAttribute="bottom" constant="8" id="q0A-PW-onT"/>
+                            <constraint firstItem="Qrd-60-21W" firstAttribute="top" secondItem="BVd-YT-BGP" secondAttribute="top" constant="34" id="tKh-ZV-X8Z"/>
                             <constraint firstItem="oZh-9X-YeT" firstAttribute="bottom" secondItem="BVd-YT-BGP" secondAttribute="bottom" id="v5J-Ds-anD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BVd-YT-BGP"/>
                     </view>
                     <connections>
                         <outlet property="dateTextField" destination="Qrd-60-21W" id="xFi-a7-dmy"/>
-                        <outlet property="goalsLabel" destination="bza-DM-X9q" id="WPY-oE-u05"/>
-                        <outlet property="mealPlanTypeLabel" destination="zif-gc-EbZ" id="9Fg-Zo-Jno"/>
                         <outlet property="tableView" destination="oZh-9X-YeT" id="HaK-g7-fMc"/>
                         <outlet property="textLabel" destination="ktH-q7-DGE" id="i26-en-zQB"/>
                     </connections>

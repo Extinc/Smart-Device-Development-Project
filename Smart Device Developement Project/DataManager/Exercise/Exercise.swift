@@ -14,14 +14,16 @@ class Exercise: NSObject {
     var musclesPri: [Int] = []
     var musclesSec: [Int] = []
     var equipId: [Int] = []
+    var desc: String?
     var category: Int?
     
-    init(id:Int, name: String, musclesPri: [Int], musclesSec: [Int], equipId: [Int], category: Int) {
+    init(id:Int, name: String, musclesPri: [Int], musclesSec: [Int], equipId: [Int], desc: String,category: Int) {
         self.id = id
         self.name = name
         self.musclesPri = musclesPri
         self.musclesSec = musclesSec
         self.equipId = equipId
+        self.desc = desc
         self.category = category
     }
 }

@@ -16,21 +16,7 @@ class HomeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        // Below is Database code
-        
-        //
-        // For workout
-        //
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-            "WorkoutCategory( " +
-            "   catID int primary key, " +
-            "   catName text )")
-        
-        // To insert data from api/json into sqlite for quicker access.
-        ExerciseDataManager.addExerciseCategoryToDB()
-        //
-        
+
         //
         // For User Info
         //

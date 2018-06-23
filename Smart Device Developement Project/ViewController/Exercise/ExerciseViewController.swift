@@ -10,6 +10,25 @@ import UIKit
 
 class ExerciseViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Below is Database code
+        
+        //
+        // For workout
+        //
+        
+        ExerciseDataManager.createWorkoutCatTable()
+        ExerciseDataManager.createWorkoutTable()
+        
+        // To insert data from api/json into sqlite for quicker access.
+        ExerciseDataManager.addExerciseCategoryToDB()
+        ExerciseDataManager.insertExerciseToDB()
+        print(ExerciseDataManager.getCatID(name: "arms"))
+        //
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

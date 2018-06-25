@@ -19,8 +19,9 @@ class WorkoutViewController: UIViewController, UITableViewDataSource {
     var exercise: [Exercise]?
     
     @IBAction func workoutSegment(_ sender: Any) {
-        catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
+
         DispatchQueue.main.async {
+            self.catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: self.workoutSegmentControl.selectedSegmentIndex)!)
             self.workouttable.reloadData()
         }
     }
@@ -54,7 +55,18 @@ class WorkoutViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        /*
+        if indexPath.row > 1 {
+            var x1 : Int = indexPath.row + 1
+            var x2 : Int = indexPath.row - 1
+            if (exercise![indexPath.row].name!. && exercise![indexPath.row].name! != exercise![x2].name!){
+                
+            }
+        } else {
+             cell.textLabel?.text = exercise![indexPath.row].name!
+        }*/
         cell.textLabel?.text = exercise![indexPath.row].name!
+
         return cell
     }
     

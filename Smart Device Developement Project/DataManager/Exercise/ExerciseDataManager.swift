@@ -75,8 +75,8 @@ class ExerciseDataManager: NSObject{
     static func loadExerciseOfCat(catID: Int) -> [Exercise]{
         var exercise : [Exercise] = []
         let exRows = SQLiteDB.sharedInstance.query(sql:
-            "SELECT workoutID, name, muscPri, muscSec, equipment, description, category " +
-            "FROM Workout WHERE category = \(catID)")
+            "SELECT * " +
+            "FROM Workout WHERE category = \(catID) GROUP BY Workout.name")
         
         for row in exRows {
             var muscPri = row["muscPri"] as! String
@@ -186,15 +186,17 @@ class ExerciseDataManager: NSObject{
                             let equipment : [Int] = json!["results"][j]["equipment"].arrayObject as! [Int]
                             let description : String = json!["results"][j]["description"].string!
                             let category : Int = json!["results"][j]["category"].int!
-                            if (( (name.isEmpty == false || name != "teste" || name != "Awesome" || name != "Test" || name != "Arms" || name != "Wyciskanie Skos") && muscPri.count >= 1 && muscSec.count >= 1) ||
-                                (muscPri.count >= 1 && muscSec.count >= 1)){
-                                print("Count: \(muscPri.count)")
-                                insertOrReplace(
-                                    tableName: "Workout",
-                                    tableCols: " workoutID, name, muscPri, muscSec, equipment, description, category ",
-                                    valuesql: "?,?,?,?,?,?,?",
-                                    params: [id, name, "\(muscPri)", "\(muscSec)", "\(equipment)", description, category])
-                                
+                            if (name.isEmpty == false && name != "teste" && name != "Awesome" && name != "Test" && name != "Arms" && name != "Wyciskanie Skos" ) {
+                                if ((muscPri.count >= 1 && muscSec.count >= 1) ||
+                                    (muscPri.count >= 1 && muscSec.count >= 1)){
+                                    print("Count: \(muscPri.count)")
+                                    insertOrReplace(
+                                        tableName: "Workout",
+                                        tableCols: " workoutID, name, muscPri, muscSec, equipment, description, category ",
+                                        valuesql: "?,?,?,?,?,?,?",
+                                        params: [id, name, "\(muscPri)", "\(muscSec)", "\(equipment)", description, category])
+                                    
+                                }
                             }
                         }
                     }

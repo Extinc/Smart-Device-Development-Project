@@ -233,6 +233,29 @@ class ExerciseDataManager: NSObject{
     
     /* ********************************************************************************** */
     
+    static func insertEquipmentListToTable(){
+        if checkIfTableHasRows(tableName: "Equipment") {
+            HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/equipment/?language=2&limit=300", token: ExerciseDataManager.init().AuthorizationToken) {
+                (json, response, error) in
+                if error != nil{
+                    return
+                }
+                let numResults: Int = json!["results"].count
+                for j in 0...numResults{
+                    if json!["results"][j]["id"].int != nil{
+                        let id : Int = json!["results"][j]["id"].int!
+                        let name : String = json!["results"][j]["name"].string!
+                        insertOrReplace(
+                            tableName: "Equipment",
+                            tableCols: " id, name ",
+                            valuesql: "?,?",
+                            params: [id, name])
+                    }
+                }
+            }
+        }
+    }
+    
     //
     
     // *************************************************************************************
@@ -277,6 +300,16 @@ class ExerciseDataManager: NSObject{
     
     /* ********************************************************************************** */
     
+    static func createEquipmentTable(){
+        DataManager.createTable(sql:
+            "CREATE TABLE IF NOT EXISTS " +
+                "Equipment( " +
+                "   id int primary key, " +
+                "   name text )")
+    }
+    
+    /* ********************************************************************************** */
+    
     // *************************************************************************************
     //  Check if database table have any rows
     // *************************************************************************************
@@ -301,6 +334,7 @@ class ExerciseDataManager: NSObject{
     //  Convert Methods
     // *************************************************************************************
     
+    // Below is to Convert Array inside string into Int Array
     static func convertArrInStringToIntArr(sArray: String) -> [Int]{
         var array1 = sArray
         

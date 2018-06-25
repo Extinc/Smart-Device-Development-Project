@@ -53,3 +53,14 @@ class Equipment: NSObject {
         self.name = name
     }
 }
+
+class ExerciseCategory: NSObject {
+    var id: Int?
+    var name: String?
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
+

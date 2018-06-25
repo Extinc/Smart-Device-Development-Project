@@ -27,6 +27,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8X8-3c-EPi">
                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
                                                 <state key="normal" title="View Graph"/>
+                                                <connections>
+                                                    <segue destination="EEX-FZ-arL" kind="show" id="GZC-E4-Tss"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTS-L6-qWs">
                                                 <rect key="frame" x="207" y="0.0" width="207" height="50"/>
@@ -122,7 +125,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z1M-7f-okD">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="100"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6E-F6-rFD">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Calories Burnt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6E-F6-rFD">
                                                                 <rect key="frame" x="30" y="10" width="147" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <nil key="textColor"/>
@@ -229,6 +232,7 @@
                         <outlet property="btnStart" destination="lIN-2n-StH" id="JKa-94-m3E"/>
                         <outlet property="btncontinue" destination="kFU-EK-cjj" id="pIA-A6-KBY"/>
                         <outlet property="buttonPause" destination="n3w-ut-Ld2" id="WSs-Cn-CDs"/>
+                        <outlet property="lblCalories" destination="gPv-03-rxN" id="XIU-q4-eq0"/>
                         <outlet property="lblDistance" destination="RQe-ZW-ENj" id="Ba4-VP-2gI"/>
                         <outlet property="lblNumberofProgress" destination="0ay-ke-OVo" id="Cf7-rD-SXk"/>
                         <outlet property="lblProgress" destination="0HA-KI-l4X" id="Dhc-ii-Ch7"/>
@@ -259,13 +263,13 @@
                                                 <rect key="frame" x="20" y="10" width="374" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Distance : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tk5-iQ-x4G">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-ea-Wec">
-                                                        <rect key="frame" x="91" y="0.0" width="283" height="24"/>
+                                                        <rect key="frame" x="364" y="0.0" width="10" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -471,6 +475,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btd-fj-oiv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2992.753623188406" y="-11.413043478260871"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Dhv-KE-9XN">
+            <objects>
+                <viewController id="EEX-FZ-arL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XD8-4d-aTM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iHI-ai-LLS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Iv-C9-7MI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="835"/>
         </scene>
     </scenes>
 </document>

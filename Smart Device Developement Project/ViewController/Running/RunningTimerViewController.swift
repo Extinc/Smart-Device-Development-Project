@@ -27,14 +27,19 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var buttonPause: UIButton!
     
+    @IBOutlet weak var lblCalories: UILabel!
+    
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
     var startlocation: CLLocation!
     var lastLocation: CLLocation!
     var travelledDistance: Double = 0
-    var time = 0
-      var resumeTapped = false
+    var time : Double = 0
+    var calorie : Double = 0
+    var weight : Double = 60
+    var resumeTapped = false
+    var seconds = 60
     
     @IBOutlet weak var lblspeed: UILabel!
     //timer
@@ -149,7 +154,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
       @objc func action()
     {
       time += 1
-    lblTime.text = String(time)
+        lblTime.text = timeString(time: (TimeInterval(time)))
     
     }
     
@@ -230,21 +235,27 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
           
         
             travelledDistance += lastLocation.distance(from: location)
+       
+            // Convert Meter to KiloMeters
+            var distanceInkiloMeter = travelledDistance/1000
             
-            let distanceInkiloMeter = travelledDistance/1000
-         //   let distanceMeters = Measurement(value: distanceMeters, unit: UnitLength.meters)
-          
             
-         //   let kilometer = distanceMeters.converted(to: UnitLength.kilometers).value
+            calorie = distanceInkiloMeter * weight * 1.036
+            var calorieString = String(calorie)
             
             print("Traveled Distance:", travelledDistance)
             print("Straight Distance:", startlocation.distance(from: locations.last!))
             self.lblDistance.text! = String(format : "%.2f",distanceInkiloMeter) + " Km "
+            self.lblCalories.text! = String(format : "%.2f",calorie) + " cal"
+            
         }
             lastLocation = locations.last
-            var timerun = Double(lblTime.text!)
-            var speed = travelledDistance/timerun!
-        self.lblspeed.text = String(format :"%.3f",speed)
+        
+            var speed = travelledDistance/time
+        //Convert time to meter/second
+        self.lblspeed.text = String(format :"%.2f",speed) + " m/s"
+        
+        
         
         if(mylocations.count > 1)
         {
@@ -274,6 +285,16 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
        return MKOverlayRenderer(overlay: overlay)
     }
+    
+    func timeString(time:TimeInterval) -> String{
+        let hour = Int(time) / 3600
+        let minute = Int(time) / 60 % 60
+        let second = Int(time) % 60
+        
+        return String(format:"%02i:%02i:%02i", hour, minute, second)
+    }
+    
+    
     
    
  

@@ -110,7 +110,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
      
         // Do any additional setup after loading the view.
-        RunningDataManager.createScheduleTable()
+       // RunningDataManager.createScheduleTable()
 
     }
 

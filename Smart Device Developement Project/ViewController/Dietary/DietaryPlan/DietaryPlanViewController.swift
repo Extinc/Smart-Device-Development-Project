@@ -8,45 +8,72 @@
 
 import UIKit
 
-class DietaryPlanViewController: UIViewController, UIScrollViewDelegate {
+class DietaryPlanViewController: UIViewController, UITableViewDataSource {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var pageControl: UIPageControl!
+
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
-    let mealType = [[MealType("Vegan", "No animal products", "vegan")],
+    private var datePicker: UIDatePicker?
+    
+    
+    /*let mealType = [[MealType("Vegan", "No animal products", "vegan")],
                 [MealType("Clean Eating", "Ideal if you are looking to make a healthy change in your eating habits", "cleaneating")],
                 [MealType("High Protein", "High Protein", "highprotein")],
-                [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]
+                [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
+    let mealplantype = "Vegan"
+    let goals = "Maintain weight"
 
     var contentWidth:CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Meal Plan Types images to load
-        for i in 0...mealType.count-1{
         
-            //button to let user select diet type
-            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-            button.setTitle("Select this meal plan type", for: .normal)
-            
-            //food image to display
-            let imageToDisplay = UIImage(named:"\(mealType[i][2].image)")!
-            let imageView = UIImageView(image: imageToDisplay)
-             
-            //x coordinate of image
-            let xCoordinate = view.frame.midX + view.frame.width * CGFloat(i)
-            //Set x,y coordinates and height and width of image
-            imageView.frame = CGRect(x: xCoordinate - 150, y: (view.frame.height / 2) -  100, width: 300, height: 200)
-             
-             
-            //add to scroll view horizontally, so need to + wdith every time it loops
-            contentWidth += view.frame.width
-            scrollView.addSubview(imageView)
+        //Date picker
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(DietaryPlanViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
+        //when user taps, usually keyboard comes up, disables the keyboard coming up
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DietaryPlanViewController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        //set input type to datepicker
+        dateTextField.inputView = datePicker
+        
+        //check if today's date has a meal plan
+        if(dateTextField.text == ""){
+            textLabel.text = "You do not have a meal plan for today, select a date or start a new meal plan."
+        }
+        else{
+            textLabel.text = ""
         }
         
-        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(mealType.count)), height: scrollView.frame.size.height)
-        scrollView.delegate = self
+        //load meal plan type and goals
+      /*  if (mealplantype == ""){
+            mptlabel.text = ""
+            glabel.text = ""
+            mealPlanTypeLabel.text = ""
+            goalsLabel.text = ""
+        }
+        else {
+            mealPlanTypeLabel.text = mealplantype
+            goalsLabel.text = goals
+        }*/
+        
+        
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateTextField.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,12 +81,20 @@ class DietaryPlanViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(scrollView.contentOffset.x / CGFloat(414))
+    // MARK: - Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 

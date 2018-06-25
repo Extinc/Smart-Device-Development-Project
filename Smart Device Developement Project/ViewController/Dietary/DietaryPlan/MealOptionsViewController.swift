@@ -1,8 +1,8 @@
 //
-//  MealOptionsTableViewController.swift
+//  MealOptionsViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by Guan Wei on 17/6/18.
+//  Created by Guan Wei on 20/6/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
@@ -15,51 +15,47 @@ var duration = ["1 Week", "2 Weeks", "3 Weeks", "1 Month", "3 Months", "6 Months
 var mealsPerDay = ["1", "2", "3", "4", "5", "6"]
 var reminders = ["Yes", "No"]
 
-class MealOptionsTableViewController: UITableViewController {
+class MealOptionsViewController: UIViewController, UITableViewDataSource {
+
+    @IBOutlet weak var tableView: UITableView!
     
     var headers:[String] = ["Basic", "Advanced"]
     var tableData=[["Type of Meal Plan", "Goals of Diet", "Duration of Diet"],["Meals per day","Meal Timings", "Reminders before Meals"]]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
- 
+        // Dispose of any resources that can be recreated.
     }
+    
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        cell.label.text = tableData[indexPath.section][indexPath.row]
+        cell.label?.text = tableData[indexPath.section][indexPath.row]
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headers[section]
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "optionsSegue"
         {
-            let mealOptions2 = segue.destination as! MealOptionsTableViewController
+           // let mealOptions2 = segue.destination as!
             
             let myIndexPath = self.tableView.indexPathForSelectedRow
             if myIndexPath != nil {
@@ -67,5 +63,6 @@ class MealOptionsTableViewController: UITableViewController {
                 //detailViewController.movieItem = movie
             }
         }
-    }
+    }*/
+
 }

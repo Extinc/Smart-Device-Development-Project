@@ -20,6 +20,41 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0ob-0Z-61O">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y84-ka-KXC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                                        <segments>
+                                            <segment title="Abs"/>
+                                            <segment title="Arms"/>
+                                            <segment title="Back"/>
+                                            <segment title="Calves"/>
+                                            <segment title="Chest"/>
+                                            <segment title="Legs"/>
+                                            <segment title="Shoulder"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="workoutSegment:" destination="WOK-cH-1Yc" eventType="valueChanged" id="S7D-Rm-fdr"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aTc-Zj-bYe">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="575"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Bfe-Pk-77d">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bfe-Pk-77d" id="KMP-LO-j4n">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="WOK-cH-1Yc" id="9Rq-24-jfN"/>
+                                            <outlet property="delegate" destination="WOK-cH-1Yc" id="tWZ-Md-2HC"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,6 +69,10 @@
                     <navigationItem key="navigationItem" title="Workout" id="Njy-c7-tjV">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="la2-vK-jv9"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="workoutSegmentControl" destination="y84-ka-KXC" id="99O-oI-nS4"/>
+                        <outlet property="workouttable" destination="aTc-Zj-bYe" id="oMa-2F-Ql9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1U-A7-laE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

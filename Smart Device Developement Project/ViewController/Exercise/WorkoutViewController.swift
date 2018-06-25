@@ -8,15 +8,22 @@
 
 import UIKit
 
-class WorkoutViewController: UIViewController {
+class WorkoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var workoutSegmentControl: UISegmentedControl!
+    @IBOutlet weak var workouttable: UITableView!
     @IBOutlet weak var sv: UIStackView!
     
-    var exerciseCat: [ExerciseCategory]?;
+    var exerciseCat: [ExerciseCategory]?
+    var catID : Int = 0
+    var exercise: [Exercise]?
     
+    @IBAction func workoutSegment(_ sender: Any) {
+        self.catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: self.workoutSegmentControl.selectedSegmentIndex)!)
+        self.workouttable.reloadData()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         
     }
     
@@ -25,15 +32,44 @@ class WorkoutViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         exerciseCat = ExerciseDataManager.loadCategory()
-        print(exerciseCat!)
+
+        catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
+
+        exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
+        for ex in exercise!{
+            print(ex.name!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (exercise?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        /*
+        if indexPath.row > 1 {
+            var x1 : Int = indexPath.row + 1
+            var x2 : Int = indexPath.row - 1
+            if (exercise![indexPath.row].name!. && exercise![indexPath.row].name! != exercise![x2].name!){
+                
+            }
+        } else {
+             cell.textLabel?.text = exercise![indexPath.row].name!
+        }*/
+        cell.textLabel?.text = exercise![indexPath.row].name!
+
+        return cell
+    }
     
     /*
     // MARK: - Navigation

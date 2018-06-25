@@ -14,10 +14,12 @@ class RunningDataManager: NSObject {
             "trainingschedule( " +
             "scheduleID INTEGER primary key autoincrement, " +
             "startdate TEXT ," +
-            "trainingdistance TEXT ," +
-            "numberoftimes INTEGER ," +
-            "progress INTEGER ," +
+            "distance TEXT ," +
+            "numberoftimes TEXT ," +
+            "progress TEXT ," +
             "day TEXT ," +
+            "eventstoresaved TEXT ," +
+            "eventsaved TEXT ," +
             "forfeit INTEGER default 0 ," +
             "complete INTEGER default 0 ," +
             "userID TEXT, " +
@@ -51,35 +53,55 @@ class RunningDataManager: NSObject {
         
     }
     
-    static func loadSchedule(_ user:String) -> Schedule{
-        let schedulerow =
-        SQLiteDB.sharedInstance.query(sql: "SELECT scheduleID, startdate, " +
-            "trainingdistance, numberoftimes, progress, forfeit, complete, userID FROM schedule WHERE forfeit = 0 AND complete = 0 AND userID = "+ user +"")
+    //static func loadSchedule(_ user:String) -> Schedule{
+     //   let schedulerow =
+     //   SQLiteDB.sharedInstance.query(sql: "SELECT scheduleID, startdate, " +
+     //       "trainingdistance, numberoftimes, progress, forfeit, complete, userID FROM schedule WHERE forfeit = 0 AND complete = 0 AND userID = \(user)")
         
-       let selectedSchedules = Schedule( ["scheduleID"] as! Int,["startdate"] as! String,["trainingdistance"] as! String,["numberoftimes"] as! Int,["progress"] as! String,["forfeit"] as! Int,["complete"] as! Int,["userID"] as! String)
+     //  let selectedSchedules = Schedule(["scheduleID"] as! Int, ["startdate"] as! String, ["day"] as! String, ["distance"] as! String, ["numberoftimes"] as! Int, ["progress"] as! String, ["forfeit"] as! Int, ["complete"] as! Int, ["userID"] as! String)
        
     
-        return selectedSchedules
-    }
+    //    return selectedSchedules
+  //  }
     static func insertOrReplaceSchedule(schedule: Schedule)
     {
-        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Schedule ( startdate, trainingdistance, numberoftimes, progress, userID) " +
-        "Values (? , ? , ? , ? , ?)", parameters: [schedule.startDate , schedule.trainingdistance, schedule.numberoftimes, schedule.progress, schedule.userID]
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO trainingschedule ( startdate, day, distance, numberoftimes, progress, userID, eventstoresaved, eventsaved) " +
+        "Values (? , ? , ? , ? , ?, ?, ?, ?)", parameters: [schedule.startDate , schedule.day, schedule.trainingdistance, schedule.numberoftimes, schedule.progress, schedule.userID, schedule.eventstoresaved, schedule.eventsaved]
         )
     }
     
-    static func checkUserExist(_ user:String) -> Bool{
+    static func checkUserScheduleExist(_ user:String) -> Bool{
         var exist = false
         let ScheduleRows = SQLiteDB.sharedInstance.query(sql:
-            "Select count(scheduleID) FROM schedule where forfeit = 0 AND complete = 0 AND userID = "+ user +"")
+            "Select scheduleID FROM trainingschedule where forfeit = 0 AND complete = 0 AND userID =  \"\(user)\"" )
         
         if ScheduleRows.count >= 1 {
-            exist = true
+            exist = true                // Means there is an existing schedule
         } else {
-            exist = false
+            exist = false               // No exi/Users/angbryan/Documents/Smart-Device-Development-Project/Smart Device Developement Projectsting schedule
         }
         return exist
     }
+    
+    static func forfeitSchedule(_ user:String) -> Bool{
+        SQLiteDB.sharedInstance.query(sql: "Update trainingschedule SET forfeit = 1 where complete = 0 AND forfeit = 0")
+        return true
+    }
+    
+    static func loadScheduleInformation(_ user:String) -> Schedule{
+        let currentSchedulerow = SQLiteDB.sharedInstance.query(sql: "Select scheduleID,startdate,day,distance,numberoftimes, progress,eventstoresaved, eventsaved, userID from trainingschedule where forfeit = 0 AND complete = 0 AND userID= \"\(user)\"" )
+        
+        var currentschedule = Schedule("","","","","","","","")
+        for row in currentSchedulerow
+        {
+          currentschedule = Schedule(row["startdate"] as! String,row["day"] as! String,row["distance"] as! String,row["numberoftimes"] as! String,row["progress"] as! String,row["userID"] as! String,row["eventstoresaved"] as! String, row["eventsaved"] as! String)
+        }
+        
+       return currentschedule
+    }
+    
+    
+   
     
     
 }

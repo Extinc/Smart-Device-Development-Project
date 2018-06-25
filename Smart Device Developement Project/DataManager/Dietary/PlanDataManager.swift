@@ -12,7 +12,7 @@ class PlanDataManager: NSObject {
     
     // MARK: - MEAL
     
-    //Create Meal Table
+    /*//Create Meal Table
     static func createMealTable() {
         SQLiteDB.sharedInstance.execute(sql:
             "CREATE TABLE IF NOT EXISTS " +
@@ -25,7 +25,7 @@ class PlanDataManager: NSObject {
                 "fat real, " +
             "sodium real "
         )
-    }
+    }*/
     
     // MARK: - MEAL PLAN
     
@@ -100,18 +100,70 @@ class PlanDataManager: NSObject {
             "CREATE TABLE IF NOT EXISTS " +
                 "UserPlanPreferences (" +
                 "username text primary key, " +
-                "mealplan text, " +
+                "mealplantype text, " +
                 "goals text, " +
                 "duration text, " +
                 "mealsperday int, " +
-                "mealtiming int, " +
+                "mealtiming text, " +
             "reminders text"
         )
     }
     
+    //Retrieve
+    static func loadPlanPreferences(username: String) -> [UserPlanPreferences]{
+        let preferencesRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT mealplantype, goals, duration, mealsperday, mealtiming, reminders" +
+                "FROM UserPlanPreferences" +
+                "WHERE username = ?",
+                parameters: [username]
+        )
+        
+        var preferences : [UserPlanPreferences] = []
+        if (preferencesRows.isEmpty == false){
+            for row in preferencesRows
+            {
+                preferences.append(
+                    UserPlanPreferences(row["username"] as! String,
+                                        row["mealplantype"] as! String,
+                                        row["goals"] as! String,
+                                        row["duration"] as! String,
+                                        row["mealsperday"] as! Int,
+                                        row["mealtiming"] as! String,
+                                        row["reminders"] as! String)
+                )
+            }
+        }
+        else {
+            preferences.append(UserPlanPreferences("","","","",0,"",""))
+        }
+        
+        return preferences
+    }
+    
+    //Create/Update
+    static func insertOrReplacePreferences(userPlanPreferences: UserPlanPreferences)
+    {
+        SQLiteDB.sharedInstance.execute(sql:
+            "INSERT OR REPLACE INTO userPlanPreferences(username, mealplantype, goals, duration, mealsperday, mealtiming, reminders)" +
+            "VALUE (?, ?, ?, ?, ?, ?, ?)",
+                                        parameters: [
+                                            userPlanPreferences.username,
+                                            userPlanPreferences.mealPlanType,
+                                            userPlanPreferences.goals,
+                                            userPlanPreferences.duration,
+                                            userPlanPreferences.mealsperday,
+                                            userPlanPreferences.mealtiming,
+                                            userPlanPreferences.reminders
+                                            
+            ]
+        )
+        
+    }
+    
+    
     // MARK: - RECIPE
     
-    //Create Recipe Table
+    /*//Create Recipe Table
     static func createRecipeTable() {
         SQLiteDB.sharedInstance.execute(sql:
             "CREATE TABLE IF NOT EXISTS " +
@@ -122,5 +174,5 @@ class PlanDataManager: NSObject {
                 "ingredients text, " +
             "servingsize text"
         )
-    }
+    }*/
 }

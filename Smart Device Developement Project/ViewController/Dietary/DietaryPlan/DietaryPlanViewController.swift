@@ -18,10 +18,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     private var datePicker: UIDatePicker?
     
     
-    let mealType = [[MealType("Vegan", "No animal products", "vegan")],
+    /*let mealType = [[MealType("Vegan", "No animal products", "vegan")],
                 [MealType("Clean Eating", "Ideal if you are looking to make a healthy change in your eating habits", "cleaneating")],
                 [MealType("High Protein", "High Protein", "highprotein")],
-                [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]
+                [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
 

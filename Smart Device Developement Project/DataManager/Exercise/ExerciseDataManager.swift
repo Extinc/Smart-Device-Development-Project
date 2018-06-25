@@ -126,6 +126,19 @@ class ExerciseDataManager: NSObject{
         return category;
     }
     
+    static func getEquipmentById(id: Int) -> Equipment{
+        let categoryRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT * " +
+            "FROM Equipment WHERE id = \(id) COLLATE NOCASE")
+        
+        var category : Equipment?
+        for row in categoryRows
+        {
+            category = Equipment(id: row["id"] as! Int, name: row["name"] as! String)
+        }
+        return category!;
+    }
+    
     static func getCatID(name: String) -> Int{
         let categoryRows = SQLiteDB.sharedInstance.query(sql:
             "SELECT catID " +
@@ -234,7 +247,7 @@ class ExerciseDataManager: NSObject{
     /* ********************************************************************************** */
     
     static func insertEquipmentListToTable(){
-        if checkIfTableHasRows(tableName: "Equipment") {
+        if checkIfTableHasRows(tableName: "Equipment") == false {
             HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/equipment/?language=2&limit=300", token: ExerciseDataManager.init().AuthorizationToken) {
                 (json, response, error) in
                 if error != nil{

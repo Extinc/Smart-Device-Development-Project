@@ -53,6 +53,7 @@
 		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 906FA74420B92B9E0061C953 /* GoogleService-Info.plist */; };
 		90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90726C0E20D797B700FCFB28 /* DataManager.swift */; };
+		9084B1E320E12A2200B49038 /* RunningDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084B1E220E12A2200B49038 /* RunningDataManager.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
@@ -137,6 +138,7 @@
 		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
 		906FA74420B92B9E0061C953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90726C0E20D797B700FCFB28 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9084B1E220E12A2200B49038 /* RunningDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningDataManager.swift; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -435,6 +437,14 @@
 			path = Running;
 			sourceTree = "<group>";
 		};
+		9084B1E420E12A3100B49038 /* Running */ = {
+			isa = PBXGroup;
+			children = (
+				9084B1E220E12A2200B49038 /* RunningDataManager.swift */,
+			);
+			path = Running;
+			sourceTree = "<group>";
+		};
 		909ED72B20AFD1A80092D385 /* Register */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +471,7 @@
 		90F9C7D820D39F39005BA228 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				9084B1E420E12A3100B49038 /* Running */,
 				6939311B20DA8F6F00C8775F /* Dietary */,
 				90F9C7D920D39F45005BA228 /* Exercise */,
 				90726C0E20D797B700FCFB28 /* DataManager.swift */,
@@ -715,7 +726,6 @@
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
-				900A3DFD20D4E60B00220298 /* ExerciseCategory.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
@@ -749,6 +759,7 @@
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
+				9084B1E320E12A2200B49038 /* RunningDataManager.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

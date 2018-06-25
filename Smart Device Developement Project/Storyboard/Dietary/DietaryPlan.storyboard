@@ -93,14 +93,15 @@
                                 <rect key="frame" x="0.0" y="291" width="414" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-Zx-tcd">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
-                                        <state key="normal" title="Edit Plan"/>
-                                        <connections>
-                                            <segue destination="DUt-rP-HKx" kind="show" id="tRc-I6-t2u"/>
-                                        </connections>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Edit Meals"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j44-Ve-oH2">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="End Plan"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moO-fo-4s6">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Choose A New Plan"/>
                                         <connections>
                                             <segue destination="2z4-X2-tjR" kind="show" id="43s-IX-PH9"/>
@@ -372,9 +373,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azz-5r-PRr">
-                                <rect key="frame" x="161" y="627" width="86" height="30"/>
+                                <rect key="frame" x="154" y="627" width="100" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Choose Plan"/>
+                                <state key="normal" title="Choose A Plan"/>
                                 <connections>
                                     <segue destination="DUt-rP-HKx" kind="show" id="k7E-Fk-BVW"/>
                                 </connections>
@@ -509,7 +510,4 @@
             <point key="canvasLocation" x="637.68115942028987" y="940.76086956521749"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="tRc-I6-t2u"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -45,7 +45,6 @@
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
 		9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D52120D6927F00FEAC9E /* SQLiteDB.swift */; };
 		9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008D52320D6932F00FEAC9E /* libsqlite3.tbd */; };
-		900A3DFD20D4E60B00220298 /* ExerciseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */; };
 		900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFB20D4E60B00220298 /* Exercise.swift */; };
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
@@ -129,7 +128,6 @@
 		9008D53320D6941B00FEAC9E /* Smart Device Developement Project-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Smart Device Developement Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		9008D53420D6943300FEAC9E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		9008D53520D6943300FEAC9E /* BridgingHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
-		900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCategory.swift; sourceTree = "<group>"; };
 		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -463,7 +461,6 @@
 			isa = PBXGroup;
 			children = (
 				900A3DFB20D4E60B00220298 /* Exercise.swift */,
-				900A3DFA20D4E60B00220298 /* ExerciseCategory.swift */,
 				900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */,
 			);
 			path = Exercise;

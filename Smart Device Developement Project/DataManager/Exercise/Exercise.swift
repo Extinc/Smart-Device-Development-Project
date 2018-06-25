@@ -28,4 +28,39 @@ class Exercise: NSObject {
     }
 }
 
+class ExerciseInfo: NSObject {
+    
+}
+
+class ExerciseImage: NSObject {
+    var id: Int?
+    var imageurl: String?
+    var exerciseID: Int?
+    
+    init(id: Int, imageurl: String, exerciseID: Int) {
+        self.id = id
+        self.imageurl = imageurl
+        self.exerciseID = exerciseID
+    }
+}
+
+class Equipment: NSObject {
+    var id: Int?
+    var name: String?
+    
+    init(id: Int, name: String){
+        self.id = id
+        self.name = name
+    }
+}
+
+class ExerciseCategory: NSObject {
+    var id: Int?
+    var name: String?
+    
+    init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
+}
 

@@ -17,6 +17,7 @@
 		513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D820E2019D009806D8 /* RunningTimerViewController.swift */; };
 		513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D920E2019D009806D8 /* ScheduleViewController.swift */; };
 		513F09DF20E20418009806D8 /* RunningStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513F09DE20E20418009806D8 /* RunningStoryboard.storyboard */; };
+		513F09E120E209E2009806D8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09E020E209E2009806D8 /* Session.swift */; };
 		5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154F67F20B78838000C9E29 /* LifestyleTheme.swift */; };
 		5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C62420AAA4460014E15D /* AppDelegate.swift */; };
 		5169C62C20AAA4460014E15D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62A20AAA4460014E15D /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		513F09D820E2019D009806D8 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
 		513F09D920E2019D009806D8 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		513F09DE20E20418009806D8 /* RunningStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RunningStoryboard.storyboard; sourceTree = "<group>"; };
+		513F09E020E209E2009806D8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5154F67F20B78838000C9E29 /* LifestyleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleTheme.swift; sourceTree = "<group>"; };
 		5169C62120AAA4460014E15D /* Smart Device Developement Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Device Developement Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5169C62420AAA4460014E15D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -362,8 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
-				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
+				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -438,6 +440,7 @@
 			children = (
 				513F09D620E2016B009806D8 /* Schedule.swift */,
 				513F09D420E20156009806D8 /* RunningDataManager.swift */,
+				513F09E020E209E2009806D8 /* Session.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				692E473120E0E035009519C4 /* PlanOptions2ViewController.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
+				513F09E120E209E2009806D8 /* Session.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,

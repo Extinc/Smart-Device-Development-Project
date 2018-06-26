@@ -29,25 +29,26 @@ class RunningDataManager: NSObject {
         DataManager.createTable(sql: "CREATE TABLE IF NOT EXISTS " +
             "Session( " +
             "sessionID INTEGER primary key autoincrement, " +
-            "currentdistance INTEGER ," +
-            "totaldistnace INTEGER ," +
-            "finishdate TEXT ," +
-            "lap1speed TEXT ," +
-            "lap2speed TEXT ," +
-            "lap3speed TEXT ," +
-            "lap4speed TEXT ," +
-            "lap5speed TEXT ," +
-            "lap1estimateddistance TEXT ," +
-            "lap2estimateddistance TEXT ," +
-            "lap3estimateddistance TEXT ," +
-            "lap4estimateddistance TEXT ," +
-            "lap5estimateddistance TEXT ," +
-            "lap1distance TEXT ," +
-            "lap2distance TEXT ," +
-            "lap3distance TEXT ," +
-            "lap4distance TEXT ," +
-            "lap5distance TEXT ," +
-            "totalcaloriesburnt TEXT ," +
+            "currentdistance Double DEFAULT 0," +
+            "totaldistnace Double ," +
+            "progress INTEGER ," +
+            "finishdate TEXT DEFAULT '0'," +
+            "lap1speed TEXT DEFAULT '0'," +
+            "lap2speed TEXT DEFAULT '0'," +
+            "lap3speed TEXT DEFAULT '0'," +
+            "lap4speed TEXT DEFAULT '0'," +
+            "lap5speed TEXT DEFAULT '0'," +
+            "lap1estimateddistance TEXT DEFAULT '0'," +
+            "lap2estimateddistance TEXT DEFAULT '0'," +
+            "lap3estimateddistance TEXT DEFAULT '0'," +
+            "lap4estimateddistance TEXT DEFAULT '0'," +
+            "lap5estimateddistance TEXT DEFAULT '0'," +
+            "lap1distance TEXT DEFAULT '0'," +
+            "lap2distance TEXT DEFAULT '0'," +
+            "lap3distance TEXT DEFAULT '0'," +
+            "lap4distance TEXT DEFAULT '0'," +
+            "lap5distance TEXT DEFAULT '0'," +
+            "totalcaloriesburnt TEXT DEFAULT '0'," +
             "scheduleID INTEGER, " +
             "foreign key(scheduleID) REFERENCES trainingschedule(scheduleID))")
         
@@ -99,9 +100,33 @@ class RunningDataManager: NSObject {
         
        return currentschedule
     }
+    static func insertOrReplaceSession(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(currentdistance,totaldistance,finishdate,totalcaloriesburnt,progress) " + "Values (?,?,?,?,?)", parameters: [session.currentdistance, session.totaldistance, session.finishdate, session.totalcaloriesburnt, session.progress])
+    }
+    static func UpdateSessionSpeed(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1speed = ?, lap2speed = ?, lap3speed = ?, lap4speed = ?, lap5speed = ? Where sessionID = ?", parameters: [session.lap1speed, session.lap2speed, session.lap3speed, session.lap4speed, session.lap5speed])
+    }
+    static func UpdateSessionEstimatedDistance(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1estimateddistance = ?, lap2estimateddistance = ?, lap3estimateddistance = ?, lap4estimateddistance = ?, lap5estimateddistance = ? Where sessionID = ?", parameters: [session.lap1estimateddistance, session.lap2estimateddistance, session.lap3estimateddistance, session.lap4estimateddistance, session.lap5estimateddistance])
+    }
+    static func UpdateSessionDistance(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1distance = ?, lap2distance = ?, lap3distance = ?, lap4distance = ?, lap5distance = ? Where sessionID = ?", parameters: [session.lap1distance, session.lap2distance, session.lap3distance, session.lap4distance, session.lap5distance])
+    }
+    static func UpdateSession(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET currentdistance = ?,totaldistance = ?,finishdate = ?,totalcaloriesburnt = ? Where sessionID = ? ", parameters: [session.currentdistance, session.totaldistance, session.finishdate, session.totalcaloriesburnt, session.sessionID])
+    }
+    
+    
+    
+}
     
     
    
     
     
-}
+

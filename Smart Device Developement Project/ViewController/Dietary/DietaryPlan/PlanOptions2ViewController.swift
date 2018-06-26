@@ -13,7 +13,8 @@ class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var tableData = [String]()
-  
+    var choice = ""
+    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,23 @@ class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlanOptions2TableViewCell
         cell.optionsLabel.text = tableData[indexPath.section]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            
+        }
+        else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            choice = tableData[indexPath.section]
+        }
+        
+        
+        print("\(choice)")
+        
     }
     
     

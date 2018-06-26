@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlanOptions2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     

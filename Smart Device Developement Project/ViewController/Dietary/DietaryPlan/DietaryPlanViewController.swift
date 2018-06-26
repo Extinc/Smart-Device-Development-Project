@@ -85,9 +85,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
-        cell.mealImage.image = UIImage()
-        cell.mealName.text = ""
-        cell.mealCalories.text = ""
         return cell
     }
 
@@ -95,7 +92,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     // MARK: - Navigation
 
-    // MARK: -
+   
  
 
 }

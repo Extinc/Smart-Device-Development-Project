@@ -10,6 +10,7 @@
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
 		51160FFC20C0E0EE007DBB74 /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */; };
+		513A291120E203460076A221 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513A291020E203460076A221 /* Meal.swift */; };
 		5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154F67F20B78838000C9E29 /* LifestyleTheme.swift */; };
 		5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C62420AAA4460014E15D /* AppDelegate.swift */; };
 		5169C62C20AAA4460014E15D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62A20AAA4460014E15D /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
+		513A291020E203460076A221 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		5154F67F20B78838000C9E29 /* LifestyleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleTheme.swift; sourceTree = "<group>"; };
 		5169C62120AAA4460014E15D /* Smart Device Developement Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Device Developement Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5169C62420AAA4460014E15D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
 				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
+				513A291020E203460076A221 /* Meal.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
+				513A291120E203460076A221 /* Meal.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,

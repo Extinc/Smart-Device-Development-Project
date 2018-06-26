@@ -92,13 +92,26 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
+        cell.mealImage.image = UIImage()
+        cell.mealName.text = ""
+        cell.mealCalories.text = ""
         return cell
     }
+    
+    @IBAction func editTable(_ sender: Any) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        
+        if tableView.isEditing
+        {
+            
+        }
+    }
+    
     
     
     // MARK: - Navigation
 
-   
+    // MARK: -
  
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
+class PlanOptions2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,6 +39,17 @@ class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlanOptions2TableViewCell
         cell.optionsLabel.text = tableData[indexPath.section]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        }
+        else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        
     }
     
     

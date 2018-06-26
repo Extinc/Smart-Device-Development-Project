@@ -107,6 +107,13 @@
                                             <segue destination="2z4-X2-tjR" kind="show" id="43s-IX-PH9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-Zx-tcd">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                        <state key="normal" title="Add Meal"/>
+                                        <connections>
+                                            <segue destination="jOM-fY-TxS" kind="show" id="VkM-BU-fqP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -134,7 +141,6 @@
                     <connections>
                         <outlet property="dateTextField" destination="Qrd-60-21W" id="xFi-a7-dmy"/>
                         <outlet property="tableView" destination="oZh-9X-YeT" id="HaK-g7-fMc"/>
-                        <outlet property="textLabel" destination="ktH-q7-DGE" id="i26-en-zQB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaY-BO-cNH" userLabel="First Responder" sceneMemberID="firstResponder"/>

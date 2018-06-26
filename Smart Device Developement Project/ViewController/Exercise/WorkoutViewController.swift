@@ -12,19 +12,17 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBOutlet weak var workoutSegmentControl: UISegmentedControl!
     @IBOutlet weak var workouttable: UITableView!
-    @IBOutlet weak var sv: UIStackView!
-    
+
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
     var exercise: [Exercise]?
     
     @IBAction func workoutSegment(_ sender: Any) {
-        self.catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: self.workoutSegmentControl.selectedSegmentIndex)!)
-        self.workouttable.reloadData()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+        catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
+        exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
+        DispatchQueue.main.async {
+            self.workouttable.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -56,18 +54,9 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        /*
-        if indexPath.row > 1 {
-            var x1 : Int = indexPath.row + 1
-            var x2 : Int = indexPath.row - 1
-            if (exercise![indexPath.row].name!. && exercise![indexPath.row].name! != exercise![x2].name!){
-                
-            }
-        } else {
-             cell.textLabel?.text = exercise![indexPath.row].name!
-        }*/
-        cell.textLabel?.text = exercise![indexPath.row].name!
 
+        cell.textLabel?.text = exercise![indexPath.row].name!
+        
         return cell
     }
     

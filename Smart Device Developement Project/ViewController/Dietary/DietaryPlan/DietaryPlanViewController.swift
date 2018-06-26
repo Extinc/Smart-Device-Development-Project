@@ -12,7 +12,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
 
 
     @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     private var datePicker: UIDatePicker?
@@ -42,13 +41,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         //set input type to datepicker
         dateTextField.inputView = datePicker
         
-        //check if today's date has a meal plan
-        if(dateTextField.text == ""){
-            textLabel.text = "You do not have a meal plan for today, select a date or start a new meal plan."
-        }
-        else{
-            textLabel.text = ""
-        }
+        
         
         //load meal plan type and goals
       /*  if (mealplantype == ""){
@@ -94,6 +87,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
         return cell
     }
+
     
     
     // MARK: - Navigation

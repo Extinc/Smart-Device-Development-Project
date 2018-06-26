@@ -164,9 +164,9 @@ class PlanDataManager: NSObject {
     // MARK: - RECIPE
     
     //Create Recipe Table
-    class func getMealByCalories(onComplete: ((_ : [Meal]) -> Void)?){
+    /*class func //getMealByCalories(onComplete: ((_ : [Meal]) -> Void)?){
         
-    }
+    }*/
     
     /*static func createRecipeTable() {
         SQLiteDB.sharedInstance.execute(sql:

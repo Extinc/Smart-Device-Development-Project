@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
-		51160FFC20C0E0EE007DBB74 /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */; };
 		5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */; };
 		5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755820E222AF00DC20FA /* FoodScanner.storyboard */; };
+		5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755A20E2256400DC20FA /* DietaryPlan.storyboard */; };
 		513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D420E20156009806D8 /* RunningDataManager.swift */; };
 		513F09D720E2016B009806D8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D620E2016B009806D8 /* Schedule.swift */; };
 		513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D820E2019D009806D8 /* RunningTimerViewController.swift */; };
@@ -86,9 +86,9 @@
 /* Begin PBXFileReference section */
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
 		5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCreateDataManager.swift; sourceTree = "<group>"; };
 		5137755820E222AF00DC20FA /* FoodScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FoodScanner.storyboard; sourceTree = "<group>"; };
+		5137755A20E2256400DC20FA /* DietaryPlan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
 		513F09D420E20156009806D8 /* RunningDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningDataManager.swift; sourceTree = "<group>"; };
 		513F09D620E2016B009806D8 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		513F09D820E2019D009806D8 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 			children = (
 				5137755820E222AF00DC20FA /* FoodScanner.storyboard */,
 				5169C65B20AAA6100014E15D /* Dietary.storyboard */,
-				51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */,
+				5137755A20E2256400DC20FA /* DietaryPlan.storyboard */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -602,6 +602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */,
+				5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */,
 				5169C66020AAA68F0014E15D /* Exercise.storyboard in Resources */,
 				5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */,
 				9030ED8220C0305600D28D92 /* acc.rtf in Resources */,
@@ -612,7 +613,6 @@
 				5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */,
 				5169C65920AAA5440014E15D /* Home.storyboard in Resources */,
 				5169C65C20AAA6100014E15D /* Dietary.storyboard in Resources */,
-				51160FFC20C0E0EE007DBB74 /* DietaryPlan.storyboard in Resources */,
 				5169C62C20AAA4460014E15D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

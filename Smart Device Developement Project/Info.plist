@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We&apos;d like to know where you are to track your running speed</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location are currently being tracked</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This application require your calendar</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

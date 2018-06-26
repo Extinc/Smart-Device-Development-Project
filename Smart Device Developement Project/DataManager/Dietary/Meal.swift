@@ -17,12 +17,14 @@ class Meal: NSObject {
     var fat: Float?
     var sodium: Float?
     
-    /*init(_ mealid:) {
-        self.username = username
-        self.date = date
-        self.mealID = mealID
-        self.mealNo = mealNo
-        self.planID = planID
+    init(_ mealid: Int, _ name: String, _ calories: Float, _ carbohydrates: Float, _ protein: Float, _ fat: Float, _ sodium: Float ) {
+        self.mealid = mealid
+        self.name = name
+        self.calories = calories
+        self.carbohydrates = carbohydrates
+        self.protein = protein
+        self.fat = fat
+        self.sodium = sodium
         
-    }*/
+    }
 }

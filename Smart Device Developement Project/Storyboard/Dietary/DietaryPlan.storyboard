@@ -135,7 +135,7 @@
                                             <outlet property="mealCalories" destination="Oiv-j8-ZUN" id="all-W3-MXJ"/>
                                             <outlet property="mealImage" destination="eRe-oC-8MK" id="uv4-PW-dHH"/>
                                             <outlet property="mealName" destination="Dha-VW-I6j" id="a31-69-Pue"/>
-                                            <segue destination="qBs-vc-JN2" kind="show" id="B7l-Ue-Dli"/>
+                                            <segue destination="qBs-vc-JN2" kind="show" id="fet-XM-54D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -408,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="072-Nh-P6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-952" y="930"/>
+            <point key="canvasLocation" x="-952" y="946"/>
         </scene>
         <!--Meal Types View Controller-->
         <scene sceneID="rq1-GT-hnF">

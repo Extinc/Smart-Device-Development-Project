@@ -163,7 +163,10 @@ class PlanDataManager: NSObject {
     
     // MARK: - RECIPE
     
-    /*//Create Recipe Table
+    //Create Recipe Table
+    class func getMealByCalories(onComplete: ((_ : [Meal]) -> Void)?){
+        
+    }
     static func createRecipeTable() {
         SQLiteDB.sharedInstance.execute(sql:
             "CREATE TABLE IF NOT EXISTS " +
@@ -174,5 +177,5 @@ class PlanDataManager: NSObject {
                 "ingredients text, " +
             "servingsize text"
         )
-    }*/
+    }
 }

@@ -190,7 +190,6 @@
                     <connections>
                         <outlet property="dateTextField" destination="Qrd-60-21W" id="xFi-a7-dmy"/>
                         <outlet property="tableView" destination="oZh-9X-YeT" id="HaK-g7-fMc"/>
-                        <outlet property="textLabel" destination="ktH-q7-DGE" id="i26-en-zQB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaY-BO-cNH" userLabel="First Responder" sceneMemberID="firstResponder"/>

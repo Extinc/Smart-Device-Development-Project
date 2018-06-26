@@ -241,7 +241,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             
             calorie = distanceInkiloMeter * weight * 1.036
-            var calorieString = String(calorie)
+         
             
             print("Traveled Distance:", travelledDistance)
             print("Straight Distance:", startlocation.distance(from: locations.last!))

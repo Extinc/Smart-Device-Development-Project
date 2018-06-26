@@ -91,7 +91,7 @@ class ExerciseDataManager: NSObject{
                                      category: row["category"] as! Int))
         }
         
-        return exercise
+        return exercise	
     }
     
     static func loadCategory() -> [ExerciseCategory]

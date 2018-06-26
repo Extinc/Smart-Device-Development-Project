@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="wc3-ft-hFk">
+            <objects>
+                <navigationController storyboardIdentifier="FoodScan" id="EP1-SA-V1F" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PfJ-14-no4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vtq-fB-qv4" kind="relationship" relationship="rootViewController" id="ppX-EU-E5x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Avx-Sc-zlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1111" y="153"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IDm-ay-vqo">
+            <objects>
+                <viewController id="vtq-fB-qv4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rxh-4w-TZL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Y9C-AG-9OJ">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR6-iI-y9w">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                                        <state key="normal" title="Take Pic"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUj-j2-zoj">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
+                                        <state key="normal" title="Select Pic"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9ja-9S-ADc"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pkj-dc-xwF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pkj-dc-xwF" firstAttribute="trailing" secondItem="slN-1g-uSz" secondAttribute="trailing" id="1x2-nD-MQT"/>
+                            <constraint firstItem="Pkj-dc-xwF" firstAttribute="leading" secondItem="slN-1g-uSz" secondAttribute="leading" id="97H-JD-sxi"/>
+                            <constraint firstItem="slN-1g-uSz" firstAttribute="bottom" secondItem="Y9C-AG-9OJ" secondAttribute="bottom" id="BzG-Gk-Rfo"/>
+                            <constraint firstItem="Pkj-dc-xwF" firstAttribute="top" secondItem="slN-1g-uSz" secondAttribute="top" id="h8O-AL-aOr"/>
+                            <constraint firstItem="slN-1g-uSz" firstAttribute="trailing" secondItem="Y9C-AG-9OJ" secondAttribute="trailing" id="nds-Qe-07w"/>
+                            <constraint firstItem="Y9C-AG-9OJ" firstAttribute="leading" secondItem="slN-1g-uSz" secondAttribute="leading" id="rCX-zA-Oc2"/>
+                            <constraint firstItem="Y9C-AG-9OJ" firstAttribute="top" secondItem="Pkj-dc-xwF" secondAttribute="bottom" id="zA2-5f-7eR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="slN-1g-uSz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="24a-5g-iE0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhy-4q-2Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="151.57421289355324"/>
+        </scene>
+    </scenes>
+</document>

@@ -9,7 +9,16 @@
 /* Begin PBXBuildFile section */
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
-		51160FFC20C0E0EE007DBB74 /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */; };
+		5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */; };
+		5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755820E222AF00DC20FA /* FoodScanner.storyboard */; };
+		5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755A20E2256400DC20FA /* DietaryPlan.storyboard */; };
+		5137755D20E2261200DC20FA /* Dietary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755C20E2261200DC20FA /* Dietary.storyboard */; };
+		513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D420E20156009806D8 /* RunningDataManager.swift */; };
+		513F09D720E2016B009806D8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D620E2016B009806D8 /* Schedule.swift */; };
+		513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D820E2019D009806D8 /* RunningTimerViewController.swift */; };
+		513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D920E2019D009806D8 /* ScheduleViewController.swift */; };
+		513F09DF20E20418009806D8 /* RunningStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513F09DE20E20418009806D8 /* RunningStoryboard.storyboard */; };
+		513F09E120E209E2009806D8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09E020E209E2009806D8 /* Session.swift */; };
 		5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5154F67F20B78838000C9E29 /* LifestyleTheme.swift */; };
 		5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C62420AAA4460014E15D /* AppDelegate.swift */; };
 		5169C62C20AAA4460014E15D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C62A20AAA4460014E15D /* Main.storyboard */; };
@@ -18,7 +27,6 @@
 		5169C63C20AAA4460014E15D /* Smart_Device_Developement_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C63B20AAA4460014E15D /* Smart_Device_Developement_ProjectTests.swift */; };
 		5169C64720AAA4460014E15D /* Smart_Device_Developement_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C64620AAA4460014E15D /* Smart_Device_Developement_ProjectUITests.swift */; };
 		5169C65920AAA5440014E15D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C65820AAA5440014E15D /* Home.storyboard */; };
-		5169C65C20AAA6100014E15D /* Dietary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C65B20AAA6100014E15D /* Dietary.storyboard */; };
 		5169C66020AAA68F0014E15D /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C65F20AAA68F0014E15D /* Exercise.storyboard */; };
 		5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */; };
 		5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C66720AAA9D00014E15D /* HomeViewController.swift */; };
@@ -38,9 +46,6 @@
 		69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761820DFCBE900688C7A /* ViewMealViewController.swift */; };
 		69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
-		70D4D80120D3A6FF009AC051 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */; };
-		70D4D80320D3AC2A009AC051 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */; };
-		70FC70E520DA5C9000DC965B /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FC70E420DA5C9000DC965B /* Schedule.swift */; };
 		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
@@ -53,11 +58,9 @@
 		90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */; };
 		906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 906FA74420B92B9E0061C953 /* GoogleService-Info.plist */; };
 		90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90726C0E20D797B700FCFB28 /* DataManager.swift */; };
-		9084B1E320E12A2200B49038 /* RunningDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084B1E220E12A2200B49038 /* RunningDataManager.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
-		90F9C7DB20D3A0CF005BA228 /* RunningStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */; };
 		90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F9C7DC20D3A579005BA228 /* Workout.storyboard */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
@@ -83,7 +86,16 @@
 /* Begin PBXFileReference section */
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
+		5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCreateDataManager.swift; sourceTree = "<group>"; };
+		5137755820E222AF00DC20FA /* FoodScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FoodScanner.storyboard; sourceTree = "<group>"; };
+		5137755A20E2256400DC20FA /* DietaryPlan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
+		5137755C20E2261200DC20FA /* Dietary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dietary.storyboard; sourceTree = "<group>"; };
+		513F09D420E20156009806D8 /* RunningDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningDataManager.swift; sourceTree = "<group>"; };
+		513F09D620E2016B009806D8 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		513F09D820E2019D009806D8 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
+		513F09D920E2019D009806D8 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		513F09DE20E20418009806D8 /* RunningStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RunningStoryboard.storyboard; sourceTree = "<group>"; };
+		513F09E020E209E2009806D8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5154F67F20B78838000C9E29 /* LifestyleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifestyleTheme.swift; sourceTree = "<group>"; };
 		5169C62120AAA4460014E15D /* Smart Device Developement Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Device Developement Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5169C62420AAA4460014E15D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +110,6 @@
 		5169C64620AAA4460014E15D /* Smart_Device_Developement_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_Device_Developement_ProjectUITests.swift; sourceTree = "<group>"; };
 		5169C64820AAA4460014E15D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5169C65820AAA5440014E15D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		5169C65B20AAA6100014E15D /* Dietary.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dietary.storyboard; sourceTree = "<group>"; };
 		5169C65F20AAA68F0014E15D /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthyRestAdvisor.storyboard; sourceTree = "<group>"; };
 		5169C66720AAA9D00014E15D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -118,9 +129,6 @@
 		69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataManager.swift; sourceTree = "<group>"; };
 		69F9761820DFCBE900688C7A /* ViewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
 		69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypesViewController.swift; sourceTree = "<group>"; };
-		70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
-		70FC70E420DA5C9000DC965B /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP_Auth.swift; sourceTree = "<group>"; };
@@ -138,11 +146,9 @@
 		90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSpeechViewController.swift; sourceTree = "<group>"; };
 		906FA74420B92B9E0061C953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90726C0E20D797B700FCFB28 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		9084B1E220E12A2200B49038 /* RunningDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningDataManager.swift; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunningStoryboard.storyboard; sourceTree = "<group>"; };
 		90F9C7DC20D3A579005BA228 /* Workout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workout.storyboard; sourceTree = "<group>"; };
 		A17DA4018283E26F6203D928 /* Pods-Smart Device Developement Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.release.xcconfig"; sourceTree = "<group>"; };
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +209,6 @@
 				5169C62220AAA4460014E15D /* Products */,
 				479C890342300736434A6A7C /* Pods */,
 				8F1373C9382ED93377F91585 /* Frameworks */,
-				700F4C2520E1CB190000AEC6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,8 +282,9 @@
 		5169C65A20AAA5F90014E15D /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
-				5169C65B20AAA6100014E15D /* Dietary.storyboard */,
-				51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */,
+				5137755C20E2261200DC20FA /* Dietary.storyboard */,
+				5137755820E222AF00DC20FA /* FoodScanner.storyboard */,
+				5137755A20E2256400DC20FA /* DietaryPlan.storyboard */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -329,8 +335,8 @@
 		5169C66A20AAA9DC0014E15D /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
-				69D65C7720CE3D18004DD12B /* DietaryDiary */,
 				69D65C7620CE3D08004DD12B /* DietaryPlan */,
+				69D65C7720CE3D18004DD12B /* DietaryDiary */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -358,8 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
-				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
+				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -388,19 +394,11 @@
 			path = DietaryDiary;
 			sourceTree = "<group>";
 		};
-		700F4C2520E1CB190000AEC6 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				70FC70E420DA5C9000DC965B /* Schedule.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		70D4D7FF20D3A6BA009AC051 /* Running */ = {
 			isa = PBXGroup;
 			children = (
-				70D4D80020D3A6FF009AC051 /* ScheduleViewController.swift */,
-				70D4D80220D3AC2A009AC051 /* RunningTimerViewController.swift */,
+				513F09D820E2019D009806D8 /* RunningTimerViewController.swift */,
+				513F09D920E2019D009806D8 /* ScheduleViewController.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -432,7 +430,7 @@
 		9054824F20CF699400BDF5D7 /* Running */ = {
 			isa = PBXGroup;
 			children = (
-				90F9C7DA20D3A0CF005BA228 /* RunningStoryboard.storyboard */,
+				513F09DE20E20418009806D8 /* RunningStoryboard.storyboard */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -440,7 +438,9 @@
 		9084B1E420E12A3100B49038 /* Running */ = {
 			isa = PBXGroup;
 			children = (
-				9084B1E220E12A2200B49038 /* RunningDataManager.swift */,
+				513F09D620E2016B009806D8 /* Schedule.swift */,
+				513F09D420E20156009806D8 /* RunningDataManager.swift */,
+				513F09E020E209E2009806D8 /* Session.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -484,6 +484,7 @@
 			children = (
 				900A3DFB20D4E60B00220298 /* Exercise.swift */,
 				900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */,
+				5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -600,17 +601,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */,
+				5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */,
 				5169C66020AAA68F0014E15D /* Exercise.storyboard in Resources */,
 				5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */,
+				5137755D20E2261200DC20FA /* Dietary.storyboard in Resources */,
 				9030ED8220C0305600D28D92 /* acc.rtf in Resources */,
 				906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */,
 				90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */,
+				513F09DF20E20418009806D8 /* RunningStoryboard.storyboard in Resources */,
 				5169C63120AAA4460014E15D /* LaunchScreen.storyboard in Resources */,
 				5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */,
 				5169C65920AAA5440014E15D /* Home.storyboard in Resources */,
-				5169C65C20AAA6100014E15D /* Dietary.storyboard in Resources */,
-				51160FFC20C0E0EE007DBB74 /* DietaryPlan.storyboard in Resources */,
-				90F9C7DB20D3A0CF005BA228 /* RunningStoryboard.storyboard in Resources */,
 				5169C62C20AAA4460014E15D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -726,6 +728,7 @@
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
+				513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
@@ -737,14 +740,12 @@
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
 				9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
-				70D4D80120D3A6FF009AC051 /* ScheduleViewController.swift in Sources */,
-				70D4D80320D3AC2A009AC051 /* RunningTimerViewController.swift in Sources */,
 				692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
-				70FC70E520DA5C9000DC965B /* Schedule.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
+				5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */,
 				692E473520E100F7009519C4 /* PlanOptions2TableViewCell.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
 				69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */,
@@ -753,11 +754,14 @@
 				692E473120E0E035009519C4 /* PlanOptions2ViewController.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
+				513F09E120E209E2009806D8 /* Session.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
+				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
+				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
-				9084B1E320E12A2200B49038 /* RunningDataManager.swift in Sources */,
+				513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

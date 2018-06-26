@@ -110,7 +110,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
      
         // Do any additional setup after loading the view.
-       // RunningDataManager.createScheduleTable()
+        RunningDataManager.createScheduleTable()
 
     }
 
@@ -121,7 +121,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     //Start Timer
 
     @IBAction func start(_ sender: UIButton) {
-      /*  setupCoreLocation()
+        setupCoreLocation()
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
         //Hide redundant data
@@ -132,23 +132,20 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lblNumberofProgress.isHidden = true
             buttonPause.isHidden = false
         }
-        */
+        
     }
     
     @IBAction func btnContinue(_ sender: Any) {
-       /*
         if self.resumeTapped == true{
          timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
             enableLocationServices()
             self.resumeTapped = false
             buttonPause.isHidden = false
             btncontinue.isHidden = true
-        
-        
-        
+            
         }
         
-        */
+        
     }
     
 
@@ -242,7 +239,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             
             calorie = distanceInkiloMeter * weight * 1.036
-         
+            var calorieString = String(calorie)
             
             print("Traveled Distance:", travelledDistance)
             print("Straight Distance:", startlocation.distance(from: locations.last!))
@@ -261,24 +258,22 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if(mylocations.count > 1)
         {
             var sourceIndex = mylocations.count - 1
-            var destinationIndex = mylocations.count - 2
-            
-            let c1 = mylocations[sourceIndex].coordinate
-            let c2 = mylocations[destinationIndex].coordinate
+            var destinationIndex = mylocations.count - 2            
+            let c1 = startlocation.coordinate
+            let c2 = lastLocation.coordinate
             var a = [c1,c2]
             var polyline = MKPolyline(coordinates: &a, count: a.count)
             mapView.add(polyline)
         }
+        if travelledDistance == targetDistance {
+            
+        }
  
-        
-       
-        
         }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
     
         if overlay is MKPolyline{
-            
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.black
             polylineRenderer.lineWidth = 4

@@ -12,7 +12,6 @@ class DataManager: NSObject {
     static func createTable(sql: String){
         SQLiteDB.sharedInstance.execute(sql: sql)
     }
-
     
     // for login
     static func createUserInfoTable(){
@@ -23,7 +22,7 @@ class DataManager: NSObject {
                 "   email text )")
         
     }
-  
+
     
     static func insertUserInfo(uid: String, email: String){
         insertOrReplace(tableName: "User", tableCols: " userID, email ", valuesql: "?,?", params: [uid,email])

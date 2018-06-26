@@ -142,9 +142,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             self.resumeTapped = false
             buttonPause.isHidden = false
             btncontinue.isHidden = true
-        
-        
-        
+            
         }
         
         
@@ -260,24 +258,22 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if(mylocations.count > 1)
         {
             var sourceIndex = mylocations.count - 1
-            var destinationIndex = mylocations.count - 2
-            
-            let c1 = mylocations[sourceIndex].coordinate
-            let c2 = mylocations[destinationIndex].coordinate
+            var destinationIndex = mylocations.count - 2            
+            let c1 = startlocation.coordinate
+            let c2 = lastLocation.coordinate
             var a = [c1,c2]
             var polyline = MKPolyline(coordinates: &a, count: a.count)
             mapView.add(polyline)
         }
+        if travelledDistance == targetDistance {
+            
+        }
  
-        
-       
-        
         }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
     
         if overlay is MKPolyline{
-            
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.black
             polylineRenderer.lineWidth = 4

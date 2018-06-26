@@ -253,7 +253,12 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 let newSchedule = Schedule(self.datePickerTxt.text!,self.lblday.text!,self.lblDistance.text!,self.lblNumber.text!,self.lblProgress.text!,self.username,self.savedevevntstore,self.savedevent)
                 RunningDataManager.insertOrReplaceSchedule(schedule: newSchedule)
                 
-            //	 self.CheckCurrentSchedule()
+                
+                DispatchQueue.main.async {
+                    self.CheckCurrentSchedule()
+    
+                }
+            	
                
                 
             }

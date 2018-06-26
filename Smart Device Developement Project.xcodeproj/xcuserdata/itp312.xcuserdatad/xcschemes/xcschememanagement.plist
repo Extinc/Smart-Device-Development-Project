@@ -7,7 +7,11 @@
 		<key>Smart Device Developement Project.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>9</integer>
+=======
+			<integer>8</integer>
+>>>>>>> b000be904b4de2908e7f342c4cc5906af50a2ce6
 		</dict>
 	</dict>
 </dict>

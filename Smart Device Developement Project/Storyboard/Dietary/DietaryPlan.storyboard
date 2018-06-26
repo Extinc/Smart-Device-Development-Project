@@ -158,7 +158,6 @@
                                         <rect key="frame" x="207" y="0.0" width="207" height="30"/>
                                         <state key="normal" title="Add Meal"/>
                                         <connections>
-                                            <action selector="editTable:" destination="RH4-Sf-Dwc" eventType="touchUpInside" id="EgD-rw-Wom"/>
                                             <segue destination="jOM-fY-TxS" kind="show" id="VkM-BU-fqP"/>
                                         </connections>
                                     </button>
@@ -190,7 +189,6 @@
                     <connections>
                         <outlet property="dateTextField" destination="Qrd-60-21W" id="xFi-a7-dmy"/>
                         <outlet property="tableView" destination="oZh-9X-YeT" id="HaK-g7-fMc"/>
-                        <outlet property="textLabel" destination="ktH-q7-DGE" id="i26-en-zQB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaY-BO-cNH" userLabel="First Responder" sceneMemberID="firstResponder"/>

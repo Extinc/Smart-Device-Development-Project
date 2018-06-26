@@ -121,7 +121,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     //Start Timer
 
     @IBAction func start(_ sender: UIButton) {
-        setupCoreLocation()
+      /*  setupCoreLocation()
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
         //Hide redundant data
@@ -132,10 +132,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lblNumberofProgress.isHidden = true
             buttonPause.isHidden = false
         }
-        
+        */
     }
     
     @IBAction func btnContinue(_ sender: Any) {
+       /*
         if self.resumeTapped == true{
          timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
             enableLocationServices()
@@ -147,7 +148,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         }
         
-        
+        */
     }
     
 

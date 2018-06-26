@@ -41,7 +41,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         createDatePicker()
         // Do any additional setup after loading the view.
     }
-    
+    /*
     func CheckCurrentSchedule()
     {
         if(RunningDataManager.checkUserScheduleExist(username) == true)
@@ -87,7 +87,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             distanceslider.isUserInteractionEnabled = true
         }
     }
-    
+    */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -250,8 +250,8 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 self.createAlert(title: "Schedule Created", message: "Check Your Calendar for created events")
                 
                 
-                let newSchedule = Schedule(self.datePickerTxt.text!,self.lblday.text!,self.lblDistance.text!,self.lblNumber.text!,self.lblProgress.text!,self.username,self.savedevevntstore,self.savedevent)
-                RunningDataManager.insertOrReplaceSchedule(schedule: newSchedule)
+                //let newSchedule = Schedule(self.datePickerTxt.text!,self.lblday.text!,self.lblDistance.text!,self.lblNumber.text!,self.lblProgress.text!,self.username,self.savedevevntstore,self.savedevent)
+                //RunningDataManager.insertOrReplaceSchedule(schedule: newSchedule)
                 
             //	 self.CheckCurrentSchedule()
                

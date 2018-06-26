@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="-1793" y="180"/>
         </scene>
-        <!--Dietary-->
+        <!--dietary-->
         <scene sceneID="5wL-UY-v19">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dietary" id="jOM-fY-TxS" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Dietary" referencedIdentifier="dietary" id="jOM-fY-TxS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLG-pw-INe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-430" y="-263"/>

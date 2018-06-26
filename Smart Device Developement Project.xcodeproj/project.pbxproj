@@ -10,6 +10,7 @@
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
 		51160FFC20C0E0EE007DBB74 /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */; };
+		5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */; };
 		513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D420E20156009806D8 /* RunningDataManager.swift */; };
 		513F09D720E2016B009806D8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D620E2016B009806D8 /* Schedule.swift */; };
 		513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513F09D820E2019D009806D8 /* RunningTimerViewController.swift */; };
@@ -84,6 +85,7 @@
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		51160FFB20C0E0EE007DBB74 /* DietaryPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
+		5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCreateDataManager.swift; sourceTree = "<group>"; };
 		513F09D420E20156009806D8 /* RunningDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningDataManager.swift; sourceTree = "<group>"; };
 		513F09D620E2016B009806D8 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		513F09D820E2019D009806D8 /* RunningTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningTimerViewController.swift; sourceTree = "<group>"; };
@@ -328,8 +330,8 @@
 		5169C66A20AAA9DC0014E15D /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
-				69D65C7720CE3D18004DD12B /* DietaryDiary */,
 				69D65C7620CE3D08004DD12B /* DietaryPlan */,
+				69D65C7720CE3D18004DD12B /* DietaryDiary */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -476,6 +478,7 @@
 			children = (
 				900A3DFB20D4E60B00220298 /* Exercise.swift */,
 				900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */,
+				5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
+				5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */,
 				692E473520E100F7009519C4 /* PlanOptions2TableViewCell.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
 				69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */,

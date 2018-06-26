@@ -41,7 +41,7 @@ class ExerciseDataManager: NSObject{
     
     
     // *************************************************************************************
-    //  Below is Code for Database
+    //  Below is Code for SQLite Database
     // *************************************************************************************
     
     static func insertOrReplace(tableName: String, tableCols: String,valuesql: String, params: [Any]?){
@@ -199,7 +199,7 @@ class ExerciseDataManager: NSObject{
                             let equipment : [Int] = json!["results"][j]["equipment"].arrayObject as! [Int]
                             let description : String = json!["results"][j]["description"].string!
                             let category : Int = json!["results"][j]["category"].int!
-                            if (name.isEmpty == false && name != "teste" && name != "Awesome" && name != "Test" && name != "Arms" && name != "Wyciskanie Skos" ) {
+                            if (name.isEmpty == false && name != "teste" && name != "Awesome" && name != "Test" && name != "Arms" && name != "Wyciskanie Skos" && name != "ExerA" && name != "Developpé Couché" && name != "Upper Body") {
                                 if ((muscPri.count >= 1 && muscSec.count >= 1) ||
                                     (muscPri.count >= 1 && muscSec.count >= 1)){
                                     print("Count: \(muscPri.count)")
@@ -269,59 +269,36 @@ class ExerciseDataManager: NSObject{
         }
     }
     
+    /* ********************************************************************************** */
+    
+    static func insertWorkoutCommentToTable(){
+        if checkIfTableHasRows(tableName: "WorkoutComment") == false {
+            HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/exercisecomment/?language=2&limit=300", token: ExerciseDataManager.init().AuthorizationToken) {
+                (json, response, error) in
+                if error != nil{
+                    return
+                }
+                let numResults: Int = json!["results"].count
+                for j in 0...numResults{
+                    if json!["results"][j]["id"].int != nil{
+                        let id : Int = json!["results"][j]["id"].int!
+                        let comment : String = json!["results"][j]["comment"].string!
+                        let exid : Int = json!["results"][j]["exercise"].int!
+                        insertOrReplace(
+                            tableName: "WorkoutComment",
+                            tableCols: " id, comment, exercise ",
+                            valuesql: "?,?,?",
+                            params: [id, comment, exid])
+                    }
+                }
+            }
+        }
+    }
+    
+    
     //
     
-    // *************************************************************************************
-    //  Creating Table for Database
-    // *************************************************************************************
     
-    static func createWorkoutTable(){
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-            "Workout( " +
-            "   workoutID int primary key, " +
-            "   name text, " +
-            "   muscPri text, " +
-            "   muscSec text, " +
-            "   equipment text, " +
-            "   description text, " +
-            "   category int, " +
-            "   FOREIGN KEY(category) REFERENCES WorkoutCategory(catID))")
-    }
-    
-    /* ********************************************************************************** */
-    
-    static func createWorkoutCatTable(){
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-                "WorkoutCategory( " +
-                "   catID int primary key, " +
-                "   catName text )")
-    }
-    
-    /* ********************************************************************************** */
-    
-    static func createWorkoutImgTable(){
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-                "WorkoutImg( " +
-                "   id int primary key, " +
-                "   imgurl text, " +
-                "   exerciseID int, " +
-                "   FOREIGN KEY(exerciseID) REFERENCES Workout(workoutID))")
-    }
-    
-    /* ********************************************************************************** */
-    
-    static func createEquipmentTable(){
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-                "Equipment( " +
-                "   id int primary key, " +
-                "   name text )")
-    }
-    
-    /* ********************************************************************************** */
     
     // *************************************************************************************
     //  Check if database table have any rows

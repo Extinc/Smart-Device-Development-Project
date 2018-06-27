@@ -199,6 +199,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - RapidAPISDK (0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -226,6 +227,7 @@ DEPENDENCIES:
   - "MaterialComponents/Tabs+TypographyThemer"
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
+  - RapidAPISDK (~> 0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -243,6 +245,7 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - nanopb
+    - RapidAPISDK
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -259,7 +262,8 @@ SPEC CHECKSUMS:
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
 
-PODFILE CHECKSUM: 904d3c6df713f7409b16b76c9a1bee62e8f62048
+PODFILE CHECKSUM: d7e2ede037e75271cacaf97b8eaf783ed245c52d
 
 COCOAPODS: 1.5.2

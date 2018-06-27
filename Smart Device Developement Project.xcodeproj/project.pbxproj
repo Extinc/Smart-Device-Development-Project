@@ -34,6 +34,8 @@
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
+		51E9593B20E3428B00B14EDC /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9593A20E3428B00B14EDC /* Recipe.swift */; };
+		51E9593D20E3459700B14EDC /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9593C20E3459700B14EDC /* Meal.swift */; };
 		6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
 		692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D5D0720DAA253007A31D3 /* MealPlanTableViewCell.swift */; };
 		692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E472E20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift */; };
@@ -117,6 +119,8 @@
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		51E9593A20E3428B00B14EDC /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		51E9593C20E3459700B14EDC /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
 		6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanViewController.swift; sourceTree = "<group>"; };
 		692D5D0720DAA253007A31D3 /* MealPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanTableViewCell.swift; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
 				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
+				51E9593A20E3428B00B14EDC /* Recipe.swift */,
+				51E9593C20E3459700B14EDC /* Meal.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -745,6 +751,7 @@
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
+				51E9593D20E3459700B14EDC /* Meal.swift in Sources */,
 				5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */,
 				692E473520E100F7009519C4 /* PlanOptions2TableViewCell.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
@@ -761,6 +768,7 @@
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				90390C6C20B5B27900F5F212 /* ExerciseSpeechViewController.swift in Sources */,
+				51E9593B20E3428B00B14EDC /* Recipe.swift in Sources */,
 				513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */,
 				5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */,
 			);

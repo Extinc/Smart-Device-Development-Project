@@ -23,6 +23,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
+    let headers = ["Planned Meals", "a"]
 
     var contentWidth:CGFloat = 0.0
     

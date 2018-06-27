@@ -12,12 +12,12 @@ class PlanDataManager: NSObject {
     
     // MARK: - MEAL
     
-    /*//Create Meal Table
+    //Create Meal Table
     static func createMealTable() {
         SQLiteDB.sharedInstance.execute(sql:
             "CREATE TABLE IF NOT EXISTS " +
                 "Meal (" +
-                "mealid int primary key, " +
+                "mealID int primary key, " +
                 "name text, " +
                 "calories real, " +
                 "carbohydrates real, " +
@@ -25,7 +25,7 @@ class PlanDataManager: NSObject {
                 "fat real, " +
             "sodium real "
         )
-    }*/
+    }
     
     // MARK: - MEAL PLAN
     
@@ -37,7 +37,8 @@ class PlanDataManager: NSObject {
         "username text, " +
         "date text, " +
         "mealID int, " +
-        "planID int primary key"
+        "planID int primary key, " +
+        "FOREIGN KEY(mealID) REFERENCES Meal(mealID))"
         )
     }
 
@@ -105,7 +106,8 @@ class PlanDataManager: NSObject {
                 "duration text, " +
                 "mealsperday int, " +
                 "mealtiming text, " +
-            "reminders text"
+                "reminders text, " +
+                "FOREIGN KEY(username) REFERENCES User(username))"
         )
     }
     
@@ -164,19 +166,47 @@ class PlanDataManager: NSObject {
     // MARK: - RECIPE
     
     //Create Recipe Table
-    /*class func //getMealByCalories(onComplete: ((_ : [Meal]) -> Void)?){
-        
-    }*/
     
-    /*static func createRecipeTable() {
+    static func createRecipeTable() {
         SQLiteDB.sharedInstance.execute(sql:
             "CREATE TABLE IF NOT EXISTS " +
                 "Recipe (" +
-                "mealid int, " +
-                "recipeid int primary key, " +
+                "mealID int, " +
+                "recipeID int primary key, " +
                 "directions text, " +
                 "ingredients text, " +
-            "servingsize text"
+                "servingsize text, " +
+                "FOREIGN KEY(mealID) REFERENCES Meal(mealID))"
         )
-    }*/
+    }
+    
+    //Retrieve
+    static func loadRecipe(mealid: Int) -> [Recipe]{
+        let recipeRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT mealID, recipeID, directions, ingredients, servingSize" +
+            "FROM UserPlanPreferences" +
+            "WHERE username = ?",
+            parameters: [mealid]
+        )
+        
+        var recipe : [Recipe] = []
+        if (recipeRows.isEmpty == false){
+            for row in recipeRows
+            {
+                recipe.append(
+                    Recipe(row["mealID"] as! Int,
+                           row["recipeID"] as! Int,
+                           row["directions"] as! String,
+                           row["ingredients"] as! String,
+                           row["servingSize"] as! String)
+                )
+            }
+        }
+        else {
+            recipe.append(Recipe(0,0,"","",""))
+        }
+        
+        return recipe
+    }
+
 }

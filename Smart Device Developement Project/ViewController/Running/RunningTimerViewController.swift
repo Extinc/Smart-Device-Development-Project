@@ -5,7 +5,7 @@
 //  Created by Ang Bryan on 15/6/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
-
+// THIS VERSION EDITUR CONSTRUCTOR COZ U ADD 1 MORE COLUMN IN DB TOTALTIME COLUMN
 import UIKit
 import MapKit
 
@@ -40,6 +40,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var weight : Double = 60
     var resumeTapped = false
     var seconds = 60
+    
+    
+    
+    
     
     @IBOutlet weak var lblspeed: UILabel!
     //timer
@@ -99,6 +103,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         {
             let currentschedule = RunningDataManager.loadScheduleInformation(username)
             let title : String = currentschedule.trainingdistance!
+            targetDistance = Double(currentschedule.trainingdistance!)!
             let progress : String = currentschedule.progress!
             let totalTime : String = currentschedule.numberoftimes!
             lblProgress.text = "\(title)Km Run/Jog"
@@ -124,6 +129,27 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         setupCoreLocation()
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date / server String
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let myString = formatter.string(from: Date()) // string purpose I add here
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        formatter.dateFormat = "dd-MMM-yyyy"
+        // again convert your date to string
+        let myStringafd = formatter.string(from: yourDate!)
+        
+      
+        let currentSession = Session(0.0,targetDistance,myStringafd,lblCalories.text!,1,lblTime.text!,1)
+        RunningDataManager.insertOrReplaceSession(session: currentSession)
+        
+        var estimateddistance = String(targetDistance/5)
+        var currentSessionDistance = Session(firstdistance: estimateddistance,seconddistance: estimateddistance, thirddistance: estimateddistance,fourthdistance: estimateddistance,fifthdistance: estimateddistance)
+
+        RunningDataManager.UpdateSession(session: currentSessionDistance)
+        
         //Hide redundant data
         if(timer!.isValid == true)
         {
@@ -175,6 +201,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             break
         case .authorizedAlways:
             enableLocationServices()
+        case .authorizedWhenInUse:
+            enableLocationServices()
         default:
             break
         }
@@ -216,11 +244,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             print(displayString)
             updateMapRegion(rangeSpan: 200)
         
-        if(btncontinue.isHidden == false || btnStart.isHidden == false)
-        {
-            startlocation = nil
-        }
-        
         if startDate == nil{
             startDate = Date()
         } else {
@@ -258,17 +281,15 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if(mylocations.count > 1)
         {
             var sourceIndex = mylocations.count - 1
-            var destinationIndex = mylocations.count - 2            
-            let c1 = startlocation.coordinate
-            let c2 = lastLocation.coordinate
+            var destinationIndex = mylocations.count - 2
+            
+            let c1 = mylocations[sourceIndex].coordinate
+            let c2 = mylocations[destinationIndex].coordinate
             var a = [c1,c2]
             var polyline = MKPolyline(coordinates: &a, count: a.count)
             mapView.add(polyline)
         }
-        if travelledDistance == targetDistance {
-            
-        }
- 
+        
         }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         

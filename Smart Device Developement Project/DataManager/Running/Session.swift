@@ -34,15 +34,15 @@ class Session: NSObject {
     var progress: Int?
     var scheduleID: Int?
     
-    init(_ sessionID:Int,_ currentdistance:Double,_ totaldistance:Double,_ finishdate:String,_ totalcaloriesburnt: String,_ progress:Int,_ totaltime:String)
+    init(_ currentdistance:Double,_ totaldistance:Double,_ finishdate:String,_ totalcaloriesburnt: String,_ progress:Int,_ totaltime:String,_ scheduleID:Int)
     {
-        self.sessionID = sessionID
         self.currentdistance = currentdistance
         self.totaldistance = totaldistance
         self.finishdate = finishdate
         self.totalcaloriesburnt = totalcaloriesburnt
         self.progress = progress
         self.totaltime = totaltime
+        self.scheduleID = scheduleID
     }
     
     init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fivespeed lap5speed:String)

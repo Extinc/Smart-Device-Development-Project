@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -97,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Su2-6L-pe7" id="PdC-qI-zxa">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="101.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="101.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-oC-8MK">
@@ -107,13 +107,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-j8-ZUN">
-                                                    <rect key="frame" x="130" y="52" width="231" height="21"/>
+                                                    <rect key="frame" x="130" y="52" width="226" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-VW-I6j">
-                                                    <rect key="frame" x="130" y="23" width="231" height="21"/>
+                                                    <rect key="frame" x="130" y="23" width="226" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -135,7 +135,7 @@
                                             <outlet property="mealCalories" destination="Oiv-j8-ZUN" id="all-W3-MXJ"/>
                                             <outlet property="mealImage" destination="eRe-oC-8MK" id="uv4-PW-dHH"/>
                                             <outlet property="mealName" destination="Dha-VW-I6j" id="a31-69-Pue"/>
-                                            <segue destination="qBs-vc-JN2" kind="show" id="fet-XM-54D"/>
+                                            <segue destination="qBs-vc-JN2" kind="show" identifier="mealSegue" id="fet-XM-54D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -196,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="-952.17391304347836" y="180.57065217391306"/>
         </scene>
-        <!--View Meal View Controller-->
+        <!--Recipe-->
         <scene sceneID="J58-JY-eme">
             <objects>
                 <viewController id="qBs-vc-JN2" customClass="ViewMealViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -393,6 +393,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TBE-cP-xep"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Recipe" id="Zmb-Jr-Ufz">
+                        <barButtonItem key="rightBarButtonItem" title="Change Meal" id="SxV-vG-cY3"/>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="850"/>
                     <connections>
                         <outlet property="caloriesLabel" destination="EVe-Ko-8M5" id="IzG-JR-u5z"/>
@@ -444,7 +447,7 @@
             </objects>
             <point key="canvasLocation" x="-128.98550724637681" y="180.97826086956522"/>
         </scene>
-        <!--Plan Options View Controller-->
+        <!--Options-->
         <scene sceneID="1fi-G5-ecI">
             <objects>
                 <viewController id="DUt-rP-HKx" customClass="PlanOptionsViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -461,7 +464,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LFj-z6-7NS" id="xmb-gm-aYR">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-08-PNS">
@@ -496,6 +499,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hEi-wD-g3P"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Options" id="j7r-tq-0YU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OIv-SY-zZ8"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="VX8-F8-Dft" id="OWn-2X-Zw3"/>
                     </connections>
@@ -504,7 +510,7 @@
             </objects>
             <point key="canvasLocation" x="-168.11594202898553" y="947.28260869565224"/>
         </scene>
-        <!--Plan Options2 View Controller-->
+        <!--Options-->
         <scene sceneID="WZG-Ok-YxO">
             <objects>
                 <viewController id="iO5-yC-6hl" customClass="PlanOptions2ViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -524,7 +530,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmc-Sw-F5m">
-                                                    <rect key="frame" x="20" y="12" width="347" height="21"/>
+                                                    <rect key="frame" x="20" y="12" width="342" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -556,6 +562,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aUM-VT-NI5"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Options" id="L0d-uQ-sea">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Tpu-wR-lpf">
+                            <connections>
+                                <action selector="saveOptions:" destination="iO5-yC-6hl" id="iWI-XE-KTV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="06u-eR-gbA" id="fu5-PF-8xn"/>
                     </connections>

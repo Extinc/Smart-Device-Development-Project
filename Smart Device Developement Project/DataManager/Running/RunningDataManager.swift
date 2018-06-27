@@ -30,7 +30,8 @@ class RunningDataManager: NSObject {
             "Session( " +
             "sessionID INTEGER primary key autoincrement, " +
             "currentdistance Double DEFAULT 0," +
-            "totaldistnace Double ," +
+            "totaldistance Double ," +
+            "totaltime String ," +
             "progress INTEGER ," +
             "finishdate TEXT DEFAULT '0'," +
             "lap1speed TEXT DEFAULT '0'," +

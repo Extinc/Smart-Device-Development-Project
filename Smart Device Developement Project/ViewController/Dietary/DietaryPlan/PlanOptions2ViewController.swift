@@ -14,7 +14,6 @@ class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
     
     var tableData = [String]()
     var choice = ""
-    var selectedIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +42,8 @@ class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        let section = indexPath.section
+        let numberOfRows = tableView.numberOfRows(inSection: section)
         
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
@@ -55,16 +55,18 @@ class PlanOptions2ViewController: UIViewController, UITableViewDataSource {
         }
         
         
+        
         print("\(choice)")
         
     }
     
-    
-    
-    
 
-    
     // MARK: - Navigation
+    
+    @IBAction func saveOptions(_ sender: Any) {
+        
+    }
+    
 
  
 }

@@ -59,7 +59,7 @@ class PlanDataManager: NSObject {
             //change to json thingy to get from api
             let mealName = "Chicken rice"
             let mealimage = "chickenrice"
-            let calories: Float = 450.00
+            let calories = "450.00"
             
             plan.append(
                 MealPlan(row["username"] as! String,
@@ -92,7 +92,7 @@ class PlanDataManager: NSObject {
             //change to json thingy to get from api
             let mealName = "Chicken rice"
             let mealimage = "chickenrice"
-            let calories: Float = 450.00
+            let calories = "450.00"
             
             plan.append(
                 MealPlan(row["username"] as! String,

@@ -96,7 +96,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aOq-et-hUx">
-                                <rect key="frame" x="137" y="633" width="165" height="54"/>
+                                <rect key="frame" x="125" y="633" width="165" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="9hf-NX-Moo"/>
                                     <constraint firstAttribute="width" constant="165" id="DUA-By-Mmy"/>
@@ -113,7 +113,7 @@
                             <constraint firstItem="rBE-BT-q8W" firstAttribute="leading" secondItem="AEi-dd-1sC" secondAttribute="trailing" constant="8" id="GlL-S5-WZg"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="baseline" secondItem="hcG-mx-Fdi" secondAttribute="baseline" id="L65-jK-wiO"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="125" id="NAI-yq-WHk"/>
-                            <constraint firstItem="aOq-et-hUx" firstAttribute="leading" secondItem="qab-hY-LIC" secondAttribute="trailing" constant="-155" id="P8l-LK-qm4"/>
+                            <constraint firstItem="aOq-et-hUx" firstAttribute="leading" secondItem="qab-hY-LIC" secondAttribute="trailing" constant="-167" id="P8l-LK-qm4"/>
                             <constraint firstItem="AEi-dd-1sC" firstAttribute="baseline" secondItem="rBE-BT-q8W" secondAttribute="baseline" id="WmO-59-EMR"/>
                             <constraint firstItem="hcG-mx-Fdi" firstAttribute="leading" secondItem="UD5-9E-F2b" secondAttribute="trailing" constant="8" id="XFi-Vy-syE"/>
                             <constraint firstItem="qab-hY-LIC" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" id="gv4-Ro-e75"/>

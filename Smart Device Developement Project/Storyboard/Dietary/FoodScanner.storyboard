@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1111" y="153"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="IDm-ay-vqo">
             <objects>
-                <viewController id="vtq-fB-qv4" sceneMemberID="viewController">
+                <viewController id="vtq-fB-qv4" customClass="CameraViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rxh-4w-TZL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +67,11 @@
                         <viewLayoutGuide key="safeArea" id="slN-1g-uSz"/>
                     </view>
                     <navigationItem key="navigationItem" id="24a-5g-iE0"/>
+                    <connections>
+                        <outlet property="imageView" destination="Pkj-dc-xwF" id="myX-qb-ePZ"/>
+                        <outlet property="selectPicture" destination="gUj-j2-zoj" id="aAV-uB-MhO"/>
+                        <outlet property="takePicture" destination="MR6-iI-y9w" id="VyP-0K-Tng"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhy-4q-2Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

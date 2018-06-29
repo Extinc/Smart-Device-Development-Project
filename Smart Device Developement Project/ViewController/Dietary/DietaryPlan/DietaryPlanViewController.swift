@@ -23,10 +23,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
-    let headers = ["Planned Meals", "a"]
-    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "", 340.5)],
-                     [MealPlan("", "", 2, 2, 1, "Aglio Olio", "", 450)],
-                     [MealPlan("", "", 3, 3, 1, "Porridge", "", 300)]
+    let headers = ["Planned Meals", "A"]
+    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "", 340.5),
+                     MealPlan("", "", 2, 2, 1, "Aglio Olio", "", 450),
+                     MealPlan("", "", 3, 3, 1, "Porridge", "", 300)],
+                     
                     ]
 
     var contentWidth:CGFloat = 0.0
@@ -85,7 +86,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return mealPlans.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

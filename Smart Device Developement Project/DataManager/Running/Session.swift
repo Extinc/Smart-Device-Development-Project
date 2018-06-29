@@ -34,7 +34,7 @@ class Session: NSObject {
     var progress: Int?
     var scheduleID: Int?
     
-    init(_ currentdistance:Double,_ totaldistance:Double,_ finishdate:String,_ totalcaloriesburnt: String,_ progress:Int,_ totaltime:String,_ scheduleID:Int)
+    init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: String,_ progress:Int)
     {
         self.currentdistance = currentdistance
         self.totaldistance = totaldistance
@@ -61,7 +61,30 @@ class Session: NSObject {
         self.lap4estimateddistance = lap4estimateddistance
         self.lap5estimateddistance = lap5estimateddistance
     }
-    
+    init(firstspeed lap1speed:String)
+    {
+        self.lap1speed = lap1speed
+    }
+    init(secondspeed lap2speed:String)
+    {
+        self.lap2speed = lap2speed
+    }
+    init(thirdspeed lap3speed:String)
+    {
+        self.lap3speed = lap3speed
+    }
+    init(fourthspeed lap4speed:String)
+    {
+        self.lap4speed = lap4speed
+    }
+    init(fivespeed lap5speed:String)
+    {
+        self.lap5speed = lap5speed
+    }
+    init(time totaltime:String)
+    {
+        self.totaltime = totaltime
+    }
     init(firstdistance lap1distance:String,seconddistance lap2distance:String,thirddistance lap3distance:String,fourthdistance lap4distance:String,fifthdistance lap5distance:String)
     {
         self.lap1distance = lap1distance

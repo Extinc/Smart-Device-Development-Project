@@ -101,9 +101,10 @@ class RunningDataManager: NSObject {
         
        return currentschedule
     }
+    
     static func insertOrReplaceSession(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(currentdistance,totaldistance,finishdate,totalcaloriesburnt,progress) " + "Values (?,?,?,?,?)", parameters: [session.currentdistance, session.totaldistance, session.finishdate, session.totalcaloriesburnt, session.progress])
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt,progress) " + "Values (?,?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt, session.progress])
     }
     static func UpdateSessionSpeed(session: Session)
     {
@@ -121,8 +122,10 @@ class RunningDataManager: NSObject {
     {
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET currentdistance = ?,totaldistance = ?,finishdate = ?,totalcaloriesburnt = ? Where sessionID = ? ", parameters: [session.currentdistance, session.totaldistance, session.finishdate, session.totalcaloriesburnt, session.sessionID])
     }
-    
-    
+    static func UpdateTotalTime(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET totaltime = ? Where sessionID = ? ", parameters: [session.totaltime])
+    }
     
 }
     

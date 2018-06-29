@@ -142,7 +142,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         let myStringafd = formatter.string(from: yourDate!)
         
       
-        let currentSession = Session(0.0,targetDistance,myStringafd,lblCalories.text!,1,lblTime.text!,1)
+        let currentSession = Session(1,0.0,targetDistance,lblTime.text!,myStringafd,lblCalories.text!,1)
         RunningDataManager.insertOrReplaceSession(session: currentSession)
         
         var estimateddistance = String(targetDistance/5)
@@ -290,6 +290,27 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             mapView.add(polyline)
         }
         
+         var estimateddistance :Double = targetDistance/5
+        var finishingtime: String = lblDistance.text!
+        
+      /*  if((Double(lblDistance.text!)!) >= estimateddistance){
+            
+        }
+        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 2)){}
+        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 3)){}
+        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 4)){}
+        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 5)){}
+        */
+        if(targetDistance != 0)
+        {
+        if(Double(lblDistance.text!)! >= targetDistance)
+        {
+            var currentFinishTime = Session(time: finishingtime)
+            RunningDataManager.UpdateTotalTime(session: currentFinishTime)
+        }
+        }
+            
+        
         }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
@@ -309,6 +330,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         let second = Int(time) % 60
         
         return String(format:"%02i:%02i:%02i", hour, minute, second)
+        
+       
+        
     }
     
     
@@ -349,5 +373,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         // Pass the selected object to the new view controller.
     }
     */
+           
 
 }

@@ -39,6 +39,7 @@
 		51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B7BB6120E39ADF002677A2 /* MealInfo.swift */; };
 		51B7BB6420E3A1C3002677A2 /* FoodAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B7BB6320E3A1C3002677A2 /* FoodAPI.m */; };
 		51FC308D20E6247400A5E685 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC308C20E6247400A5E685 /* CameraViewController.swift */; };
+		51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC308E20E62A5900A5E685 /* SummaryViewController.swift */; };
 		6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
 		692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D5D0720DAA253007A31D3 /* MealPlanTableViewCell.swift */; };
 		692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E472E20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift */; };
@@ -128,6 +129,7 @@
 		51B7BB6320E3A1C3002677A2 /* FoodAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodAPI.m; sourceTree = "<group>"; };
 		51B7BB6520E3A22B002677A2 /* FoodAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoodAPI.h; sourceTree = "<group>"; };
 		51FC308C20E6247400A5E685 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		51FC308E20E62A5900A5E685 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
 		6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanViewController.swift; sourceTree = "<group>"; };
 		692D5D0720DAA253007A31D3 /* MealPlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanTableViewCell.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				51FC308C20E6247400A5E685 /* CameraViewController.swift */,
 				F147301820D7A4B700C63470 /* DietaryViewController.swift */,
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
+				51FC308E20E62A5900A5E685 /* SummaryViewController.swift */,
 			);
 			path = DietaryDiary;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
 				9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */,
+				51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,

@@ -64,7 +64,7 @@
                 <viewControllerPlaceholder storyboardName="Dietary" id="xGh-5y-frg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mN9-kI-ZzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-620" y="-298"/>
+            <point key="canvasLocation" x="-498" y="-308"/>
         </scene>
         <!--dietary-->
         <scene sceneID="5wL-UY-v19">
@@ -195,7 +195,11 @@
                         <viewLayoutGuide key="safeArea" id="BVd-YT-BGP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dietary Planner" id="ExF-6e-RMC">
-                        <barButtonItem key="rightBarButtonItem" title="Summary" id="VKL-ch-Hc8"/>
+                        <barButtonItem key="rightBarButtonItem" title="Summary" id="VKL-ch-Hc8">
+                            <connections>
+                                <segue destination="xGh-5y-frg" kind="show" id="23A-xZ-DdK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateTextField" destination="Qrd-60-21W" id="xFi-a7-dmy"/>

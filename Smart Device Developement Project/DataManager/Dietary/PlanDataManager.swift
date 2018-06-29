@@ -42,7 +42,7 @@ class PlanDataManager: NSObject {
         )
     }
 
-    //Retrieve
+    //Retrieve ALL plans
     static func loadPlans(username: String) -> [MealPlan]{
         let planRows = SQLiteDB.sharedInstance.query(sql:
         "SELECT date, mealID, mealNo, planID" +
@@ -54,12 +54,55 @@ class PlanDataManager: NSObject {
         var plan : [MealPlan] = []
         for row in planRows
         {
+            //JSON stuff
+            let mealID = row["mealID"] as! Int
+            //change to json thingy to get from api
+            let mealName = "Chicken rice"
+            let mealimage = "chickenrice"
+            let calories: Float = 450.00
+            
             plan.append(
-                MealPlan(username: row["username"] as! String,
-                         date: row["date"] as! String,
-                         mealID: row["mealID"] as! Int,
-                         mealNo: row["mealNo"] as! Int,
-                         planID:row["planID"] as! Int)
+                MealPlan(row["username"] as! String,
+                         row["date"] as! String,
+                         row["mealID"] as! Int,
+                         row["mealNo"] as! Int,
+                         row["planID"] as! Int,
+                         mealName,
+                         mealimage,
+                         calories)
+            )
+        }
+        return plan
+    }
+    
+    //Retrieve plans by date
+    static func loadPlans(username: String, date: String) -> [MealPlan]{
+        let planRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT date, mealID, mealNo, planID" +
+            "FROM MealPlan" +
+            "WHERE username = ?, date = ?",
+            parameters: [username, date]
+        )
+        
+        var plan : [MealPlan] = []
+        for row in planRows
+        {
+            //JSON stuff
+            let mealID = row["mealID"] as! Int
+            //change to json thingy to get from api
+            let mealName = "Chicken rice"
+            let mealimage = "chickenrice"
+            let calories: Float = 450.00
+            
+            plan.append(
+                MealPlan(row["username"] as! String,
+                         row["date"] as! String,
+                         row["mealID"] as! Int,
+                         row["mealNo"] as! Int,
+                         row["planID"] as! Int,
+                         mealName,
+                         mealimage,
+                         calories)
             )
         }
         return plan

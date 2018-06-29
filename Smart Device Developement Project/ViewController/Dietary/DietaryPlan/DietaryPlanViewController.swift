@@ -24,6 +24,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
     let headers = ["Planned Meals", "a"]
+    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "", 340.5)],
+                     [MealPlan("", "", 2, 2, 1, "Aglio Olio", "", 450)],
+                     [MealPlan("", "", 3, 3, 1, "Porridge", "", 300)]
+                    ]
 
     var contentWidth:CGFloat = 0.0
     
@@ -86,6 +90,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
+        cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
+        cell.mealCalories.text = String(describing: mealPlans[indexPath.section][indexPath.row].calories)
         return cell
     }
 

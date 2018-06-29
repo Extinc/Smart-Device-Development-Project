@@ -32,6 +32,8 @@
 		5169C66820AAA9D00014E15D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C66720AAA9D00014E15D /* HomeViewController.swift */; };
 		5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67020AAAA210014E15D /* ExerciseViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
+		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
+		51860C0020E5CF6200DF498A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFE20E5CF6200DF498A /* Recipe.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B7BB6120E39ADF002677A2 /* MealInfo.swift */; };
@@ -117,6 +119,8 @@
 		5169C66720AAA9D00014E15D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5169C67020AAAA210014E15D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
+		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		51860BFE20E5CF6200DF498A /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51B7BB6120E39ADF002677A2 /* MealInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfo.swift; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 		6939311B20DA8F6F00C8775F /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
+				51860BFD20E5CF6200DF498A /* Meal.swift */,
+				51860BFE20E5CF6200DF498A /* Recipe.swift */,
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
 				69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */,
@@ -744,6 +750,7 @@
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
+				51860C0020E5CF6200DF498A /* Recipe.swift in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
 				5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */,
 				69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */,
@@ -767,6 +774,7 @@
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				51B7BB6420E3A1C3002677A2 /* FoodAPI.m in Sources */,
 				513F09E120E209E2009806D8 /* Session.swift in Sources */,
+				51860BFF20E5CF6200DF498A /* Meal.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,

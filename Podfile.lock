@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.2)
   - Firebase/Auth (5.0.1):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.0)
@@ -198,8 +199,10 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - RapidAPISDK (0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -224,9 +227,11 @@ DEPENDENCIES:
   - "MaterialComponents/Tabs+TypographyThemer"
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
+  - RapidAPISDK (~> 0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -240,8 +245,10 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - nanopb
+    - RapidAPISDK
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
   FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
   FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
@@ -255,7 +262,8 @@ SPEC CHECKSUMS:
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
 
-PODFILE CHECKSUM: b432d3817553fd994d3b4b90c710177ca039ebcf
+PODFILE CHECKSUM: d7e2ede037e75271cacaf97b8eaf783ed245c52d
 
 COCOAPODS: 1.5.2

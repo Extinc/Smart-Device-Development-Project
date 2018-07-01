@@ -4,32 +4,17 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="YUR-Z3-QFP">
-            <objects>
-                <navigationController id="LHu-UJ-W08" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fnv-h3-KV7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Bc4-d8-QrW" kind="relationship" relationship="rootViewController" id="VAM-Pd-ffw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jWn-VA-1JA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1383" y="-80"/>
-        </scene>
-        <!--Workout View Controller-->
+        <!--WorkoutMDC View Controller-->
         <scene sceneID="uc4-Bc-yeC">
             <objects>
-                <viewController storyboardIdentifier="workout" id="Bc4-d8-QrW" customClass="WorkoutViewController" customModule="Smart_Device_Developement_Project" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3fT-Db-dwA">
+                <viewController storyboardIdentifier="workout" id="Bc4-d8-QrW" customClass="WorkoutMDCViewController" customModule="Smart_Device_Developement_Project" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3fT-Db-dwA" customClass="MDCTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

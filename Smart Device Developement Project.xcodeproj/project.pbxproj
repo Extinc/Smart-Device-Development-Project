@@ -68,6 +68,10 @@
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
+		90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */; };
+		90F1EE6020E8EBED004353F7 /* WorkoutMDCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1EE5F20E8EBED004353F7 /* WorkoutMDCViewController.swift */; };
+		90F1EE6220E8ED5D004353F7 /* WorkoutTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1EE6120E8ED5D004353F7 /* WorkoutTabBarViewController.swift */; };
+		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
 /* End PBXBuildFile section */
@@ -163,6 +167,10 @@
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Workout.storyboard; sourceTree = "<group>"; };
+		90F1EE5F20E8EBED004353F7 /* WorkoutMDCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMDCViewController.swift; sourceTree = "<group>"; };
+		90F1EE6120E8ED5D004353F7 /* WorkoutTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTabBarViewController.swift; sourceTree = "<group>"; };
+		90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17DA4018283E26F6203D928 /* Pods-Smart Device Developement Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.release.xcconfig"; sourceTree = "<group>"; };
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
 				4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */,
 			);
@@ -305,6 +314,7 @@
 		5169C65D20AAA6710014E15D /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */,
 				5169C65F20AAA68F0014E15D /* Exercise.storyboard */,
 			);
 			path = Exercise;
@@ -359,6 +369,8 @@
 				9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */,
 				5169C67020AAAA210014E15D /* ExerciseViewController.swift */,
 				90390C6B20B5B27900F5F212 /* ExerciseSpeechViewController.swift */,
+				90F1EE5F20E8EBED004353F7 /* WorkoutMDCViewController.swift */,
+				90F1EE6120E8ED5D004353F7 /* WorkoutTabBarViewController.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -426,6 +438,7 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */,
 				9008D52320D6932F00FEAC9E /* libsqlite3.tbd */,
 				CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */,
 				353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */,
@@ -630,6 +643,7 @@
 				906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */,
 				513F09DF20E20418009806D8 /* RunningStoryboard.storyboard in Resources */,
 				5169C63120AAA4460014E15D /* LaunchScreen.storyboard in Resources */,
+				90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */,
 				5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */,
 				5169C65920AAA5440014E15D /* Home.storyboard in Resources */,
 				5169C62C20AAA4460014E15D /* Main.storyboard in Resources */,
@@ -757,6 +771,7 @@
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				51860C0020E5CF6200DF498A /* Recipe.swift in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
+				90F1EE6020E8EBED004353F7 /* WorkoutMDCViewController.swift in Sources */,
 				5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */,
 				69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
@@ -779,6 +794,7 @@
 				51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
+				90F1EE6220E8ED5D004353F7 /* WorkoutTabBarViewController.swift in Sources */,
 				51B7BB6420E3A1C3002677A2 /* FoodAPI.m in Sources */,
 				513F09E120E209E2009806D8 /* Session.swift in Sources */,
 				51860BFF20E5CF6200DF498A /* Meal.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ExerciseDataManager: NSObject{
     // *************************************************************************************
@@ -39,6 +40,180 @@ class ExerciseDataManager: NSObject{
         }
     }
     
+    // Get from firebase
+    
+    static func getExercise(onComplete: ((_ : [Exercise]) -> Void)?) {
+        var eqList : [Exercise] = []
+        
+        let ref = FirebaseDatabase.Database.database().reference().child("Exercise/")
+        
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // This is the "with" closure that
+            // executes only when the retrieval
+            // of data from Firebase is complete.
+            // Meanwhile, before the download is complete,
+            // the user can still interact with the user
+            // interface.
+            //
+            
+
+            for record in snapshot.children
+            {
+                let r = record as! DataSnapshot
+                let imglistcount = Int(r.childSnapshot(forPath: "Img").childrenCount)
+                var imgList: [String] = []
+                for i in 0...imglistcount-1{
+                    imgList.append(r.childSnapshot(forPath: "Img").childSnapshot(forPath: "\(i)").childSnapshot(forPath: "image").value as! String)
+                }
+                
+                let name = r.childSnapshot(forPath: "Title").value as! String
+                var equipment: Int = getEquipID(name: r.childSnapshot(forPath: "Equipment").value as! String)
+                let desc = r.childSnapshot(forPath: "Instructions").value as! String
+                var category: Int = getCatID(name: r.childSnapshot(forPath: "Muscle").value as! String)
+                var videoLink = ""
+                let type = r.childSnapshot(forPath: "Type").value as! String
+                let muscleImgLink = r.childSnapshot(forPath: "ImgMuscle").value as! String
+                
+                if  r.childSnapshot(forPath: "Video").exists() {
+                    videoLink = r.childSnapshot(forPath: "Video").value as! String
+                } else {
+                    videoLink = ""
+                }
+                
+                eqList.append(Exercise(id: Int(r.key)!, name: name, equipment: equipment, desc: desc, category: category, videoLink: videoLink as! String, imageLink: imgList, type: type, muscleImg: muscleImgLink
+                ))
+                print(imgList)
+            }
+            onComplete?(eqList)
+        })
+    }
+    
+    // TODO: For testing purpose
+    static func testGetFirebase(){
+        var eqList : [Exercise] = []
+        
+        let ref = FirebaseDatabase.Database.database().reference().child("Exercise/")
+        
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            // This is the "with" closure that
+            // executes only when the retrieval
+            // of data from Firebase is complete.
+            // Meanwhile, before the download is complete,
+            // the user can still interact with the user
+            // interface.
+            //
+            for record in snapshot.children
+            {
+                let r = record as! DataSnapshot
+                let imglistcount = Int(r.childSnapshot(forPath: "Img").childrenCount)
+                var imgList: [String] = []
+                for i in 0...imglistcount-1{
+                    imgList.append(r.childSnapshot(forPath: "Img").childSnapshot(forPath: "\(i)").childSnapshot(forPath: "image").value as! String)
+                    
+                }
+                
+                
+                
+            }
+        })
+    }
+    
+    static func testgetExercise(catID: Int){
+        var exercise : [Exercise] = []
+        let exRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT * " +
+            "FROM Workout WHERE category = \(catID) GROUP BY Workout.name")
+        
+        for row in exRows {
+             var muscPri = row["imgurls"] as! String
+            muscPri.removeFirst()
+            muscPri.removeLast()
+            print("YO: \(convertArrInStringToStrArr(sArray: muscPri))")
+            /*exercise.append(Exercise(id: row["workoutID"] as! Int,
+                                     name: row["name"] as! String,
+                                     equipment: row["equipment"] as! Int,
+                                     desc: row["description"] as! String,
+                                     category: row["category"] as! Int,
+                                     videoLink: row["videolink"] as! String,
+                                     imageLink: <#T##[String]#>,
+                                     type: row["type"] as! String,
+                                     muscleImg: row["muscleimgurls"] as! String))*/
+        }
+    }
+    
+    static func getEquipment(onComplete: ((_ : [Equipment]) -> Void)?){
+    // create an empty list.
+        var eqList : [Equipment] = []
+    
+        let ref = FirebaseDatabase.Database.database().reference().child("Equipment/")
+    
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+    
+        // This is the "with" closure that
+        // executes only when the retrieval
+        // of data from Firebase is complete.
+        // Meanwhile, before the download is complete,
+        // the user can still interact with the user
+        // interface.
+        //
+            for record in snapshot.children
+            {
+                let r = record as! DataSnapshot
+    
+                eqList.append(Equipment(id: Int(r.key)!, name:  r.childSnapshot(forPath: "name").value as! String))
+            }
+            onComplete?(eqList)
+        })
+        
+    }
+    
+    static func getCategory(onComplete: ((_ : [ExerciseCategory]) -> Void)?){
+        // create an empty list.
+        var eqList : [ExerciseCategory] = []
+        
+        let ref = FirebaseDatabase.Database.database().reference().child("Muscles/")
+        
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // This is the "with" closure that
+            // executes only when the retrieval
+            // of data from Firebase is complete.
+            // Meanwhile, before the download is complete,
+            // the user can still interact with the user
+            // interface.
+            //
+            for record in snapshot.children
+            {
+                let r = record as! DataSnapshot
+                
+                eqList.append(ExerciseCategory(id: Int(r.key)!, name:  r.childSnapshot(forPath: "name").value as! String))
+            }
+            onComplete?(eqList)
+        })
+        
+    }
+    
     
     // *************************************************************************************
     //  Below is Code for SQLite Database
@@ -53,20 +228,23 @@ class ExerciseDataManager: NSObject{
     static func loadExercise()->[Exercise]{
         var exercise : [Exercise] = []
         let exRows = SQLiteDB.sharedInstance.query(sql:
-            "SELECT workoutID, name, muscPri, muscSec, equipment, description, category " +
+            "SELECT * " +
             "FROM Workout")
         
         for row in exRows {
-            var muscPri = row["muscPri"] as! String
-            muscPri.removeFirst()
-            muscPri.removeLast()
+            var imgurls = row["imgurls"] as! String
+            imgurls.removeFirst()
+            imgurls.removeLast()
+            
             exercise.append(Exercise(id: row["workoutID"] as! Int,
                                      name: row["name"] as! String,
-                                     musclesPri: convertArrInStringToIntArr(sArray: row["muscPri"] as! String),
-                                     musclesSec: convertArrInStringToIntArr(sArray: row["muscSec"] as! String),
-                                     equipId: convertArrInStringToIntArr(sArray: row["equipment"] as! String),
+                                     equipment: row["equipment"] as! Int,
                                      desc: row["description"] as! String,
-                                     category: row["category"] as! Int))
+                                     category: row["category"] as! Int,
+                                     videoLink: row["videolink"] as! String,
+                                     imageLink: convertArrInStringToStrArr(sArray: imgurls),
+                                     type: row["type"] as! String,
+                                     muscleImg: row["muscleimgurls"] as! String))
         }
         
         return exercise
@@ -79,16 +257,19 @@ class ExerciseDataManager: NSObject{
             "FROM Workout WHERE category = \(catID) GROUP BY Workout.name")
         
         for row in exRows {
-            var muscPri = row["muscPri"] as! String
-            muscPri.removeFirst()
-            muscPri.removeLast()
+           var imgurls = row["imgurls"] as! String
+            imgurls.removeFirst()
+            imgurls.removeLast()
+            
             exercise.append(Exercise(id: row["workoutID"] as! Int,
                                      name: row["name"] as! String,
-                                     musclesPri: convertArrInStringToIntArr(sArray: row["muscPri"] as! String),
-                                     musclesSec: convertArrInStringToIntArr(sArray: row["muscSec"] as! String),
-                                     equipId: convertArrInStringToIntArr(sArray: row["equipment"] as! String),
+                                     equipment: row["equipment"] as! Int,
                                      desc: row["description"] as! String,
-                                     category: row["category"] as! Int))
+                                     category: row["category"] as! Int,
+                                     videoLink: row["videolink"] as! String,
+                                     imageLink: convertArrInStringToStrArr(sArray: imgurls),
+                                     type: row["type"] as! String,
+                                     muscleImg: row["muscleimgurls"] as! String))
         }
         
         return exercise
@@ -139,6 +320,19 @@ class ExerciseDataManager: NSObject{
         return category!;
     }
     
+    static func getEquipID(name: String) -> Int{
+        let categoryRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT id " +
+            "FROM Equipment WHERE name = '\(name)' COLLATE NOCASE")
+        
+        var category : Int = 0
+        for row in categoryRows
+        {
+            category = row["id"] as! Int
+        }
+        return category;
+    }
+    
     static func getCatID(name: String) -> Int{
         let categoryRows = SQLiteDB.sharedInstance.query(sql:
             "SELECT catID " +
@@ -158,18 +352,15 @@ class ExerciseDataManager: NSObject{
     
     static func addExerciseCategoryToDB(){
         if checkIfTableHasRows(tableName: "WorkoutCategory") == false {
-            HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/exercisecategory", token: ExerciseDataManager.init().AuthorizationToken) {
-                (json, response, error) in
-                if error != nil{
-                    return
-                }
-                let numResults: Int = json!["results"].count
-                for j in 0...numResults{
-                    if json!["results"][j]["id"].int != nil{
-                        let id: Int = json!["results"][j]["id"].int!
-                        let name: String = json!["results"][j]["name"].string!
-                        insertOrReplace(tableName: "WorkoutCategory", tableCols: " catID, catName ", valuesql: "?,?", params: [id,name])
-                    }
+            getCategory{ (cat) in
+                for i in cat {
+                    let id : Int = i.id!
+                    let name : String = i.name!
+                    insertOrReplace(
+                        tableName: "WorkoutCategory",
+                        tableCols: " catID, catName ",
+                        valuesql: "?,?",
+                        params: [id, name])
                 }
             }
         }
@@ -178,41 +369,14 @@ class ExerciseDataManager: NSObject{
     /* ********************************************************************************** */
     
     static func insertExerciseToDB(){
-        let eCat = loadCategory()
-        let eCatID = eCat.map { (e) -> Int in
-            e.id!
-        }
         if checkIfTableHasRows(tableName: "Workout") == false {
-            for i in eCatID {
-                HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/exercise/?category=\(i)&limit=200&language=2", token: ExerciseDataManager.init().AuthorizationToken) {
-                    (json, response, error) in
-                    if error != nil{
-                        return
-                    }
-                    let numResults: Int = json!["results"].count
-                    for j in 0...numResults{
-                        if json!["results"][j]["id"].int != nil{
-                            let id : Int = json!["results"][j]["id"].int!
-                            let name : String = json!["results"][j]["name"].string!
-                            let muscPri : [Int] = json!["results"][j]["muscles"].arrayObject as! [Int]
-                            let muscSec : [Int] = json!["results"][j]["muscles_secondary"].arrayObject as! [Int]
-                            let equipment : [Int] = json!["results"][j]["equipment"].arrayObject as! [Int]
-                            let description : String = json!["results"][j]["description"].string!
-                            let category : Int = json!["results"][j]["category"].int!
-                            if (name.isEmpty == false && name != "teste" && name != "Awesome" && name != "Test" && name != "Arms" && name != "Wyciskanie Skos" && name != "ExerA" && name != "Developpé Couché" && name != "Upper Body") {
-                                if ((muscPri.count >= 1 && muscSec.count >= 1) ||
-                                    (muscPri.count >= 1 && muscSec.count >= 1)){
-                                    print("Count: \(muscPri.count)")
-                                    insertOrReplace(
-                                        tableName: "Workout",
-                                        tableCols: " workoutID, name, muscPri, muscSec, equipment, description, category ",
-                                        valuesql: "?,?,?,?,?,?,?",
-                                        params: [id, name, "\(muscPri)", "\(muscSec)", "\(equipment)", description, category])
-                                    
-                                }
-                            }
-                        }
-                    }
+            getExercise { (exercise) in
+                for e in exercise {
+                    insertOrReplace(
+                        tableName: "Workout",
+                        tableCols: " workoutID, name, equipment, description, category, type, videolink, imgurls, muscleimgurls ",
+                        valuesql: "?,?,?,?,?,?,?,?,?",
+                        params: [e.id, e.name, e.equipment, e.desc!, e.category!, e.type!, e.videoLink!, "\(e.imageLink)", e.muscleImg!])
                 }
             }
         }
@@ -248,22 +412,15 @@ class ExerciseDataManager: NSObject{
     
     static func insertEquipmentListToTable(){
         if checkIfTableHasRows(tableName: "Equipment") == false {
-            HTTP_Auth.getJSON(url: "\(ExerciseDataManager.init().apiLink)/equipment/?language=2&limit=300", token: ExerciseDataManager.init().AuthorizationToken) {
-                (json, response, error) in
-                if error != nil{
-                    return
-                }
-                let numResults: Int = json!["results"].count
-                for j in 0...numResults{
-                    if json!["results"][j]["id"].int != nil{
-                        let id : Int = json!["results"][j]["id"].int!
-                        let name : String = json!["results"][j]["name"].string!
-                        insertOrReplace(
-                            tableName: "Equipment",
-                            tableCols: " id, name ",
-                            valuesql: "?,?",
-                            params: [id, name])
-                    }
+            getEquipment { (equip) in
+                for i in equip {
+                    let id : Int = i.id!
+                    let name : String = i.name!
+                    insertOrReplace(
+                        tableName: "Equipment",
+                        tableCols: " id, name ",
+                        valuesql: "?,?",
+                        params: [id, name])
                 }
             }
         }
@@ -337,5 +494,20 @@ class ExerciseDataManager: NSObject{
         return intArray
     }
     
+    // Below is to Convert Array inside string into String Array
+   
+    static func convertArrInStringToStrArr(sArray: String) -> [String]{
+        var array1 = sArray
+        
+        array1.removeFirst()
+        array1.removeLast()
+        array1 = array1.replacingOccurrences(of: ",", with: "")
+        array1 = array1.replacingOccurrences(of: "\"", with: "")
+        let sArray1 = array1.split(separator: " ")
+        let intArray = sArray1.map {String($0)}
+        
+        return intArray
+    }
+ 
 }
 

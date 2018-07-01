@@ -10,21 +10,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--WorkoutMDC View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="hPh-Dn-LWJ">
+            <objects>
+                <navigationController id="ufS-pB-qdE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6Xs-d8-5H6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bc4-d8-QrW" kind="relationship" relationship="rootViewController" id="Qf6-rY-T3g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNp-HB-c8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1223" y="-80"/>
+        </scene>
+        <!--Workout View Controller-->
         <scene sceneID="uc4-Bc-yeC">
             <objects>
-                <viewController storyboardIdentifier="workout" id="Bc4-d8-QrW" customClass="WorkoutMDCViewController" customModule="Smart_Device_Developement_Project" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3fT-Db-dwA" customClass="MDCTabBar">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="workout" id="Bc4-d8-QrW" customClass="WorkoutViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3fT-Db-dwA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-U6-Vkp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-Wu-R2M">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-ns-suc">
+                                        <rect key="frame" x="0.0" y="101" width="375" height="502"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="leading" secondItem="8OJ-IF-HoC" secondAttribute="leading" id="9Xt-aO-AOU"/>
+                            <constraint firstItem="8OJ-IF-HoC" firstAttribute="bottom" secondItem="SbU-U6-Vkp" secondAttribute="bottom" id="TzY-14-Uu5"/>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="top" secondItem="8OJ-IF-HoC" secondAttribute="top" id="jJW-yF-y3Z"/>
+                            <constraint firstItem="8OJ-IF-HoC" firstAttribute="trailing" secondItem="SbU-U6-Vkp" secondAttribute="trailing" id="qIS-sq-ygI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8OJ-IF-HoC"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="displaysUppercaseTitles" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="gGp-J7-8Vh"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzQ-Ei-SkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-468" y="-79"/>
+            <point key="canvasLocation" x="-468" y="-79.610194902548727"/>
         </scene>
     </scenes>
 </document>

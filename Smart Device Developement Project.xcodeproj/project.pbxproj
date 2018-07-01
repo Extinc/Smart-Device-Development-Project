@@ -71,7 +71,7 @@
 		90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */; };
 		90F1EE6020E8EBED004353F7 /* WorkoutMDCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1EE5F20E8EBED004353F7 /* WorkoutMDCViewController.swift */; };
 		90F1EE6220E8ED5D004353F7 /* WorkoutTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1EE6120E8ED5D004353F7 /* WorkoutTabBarViewController.swift */; };
-		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; };
+		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
 /* End PBXBuildFile section */

@@ -13,21 +13,8 @@ class ExerciseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Below is Database code
-        
-        //
-        // For workout
-        //
-        
-        ExerciseCreateDataManager.createWorkoutCatTable()
-        ExerciseCreateDataManager.createWorkoutTable()
-        ExerciseCreateDataManager.createWorkoutImgTable()
-        ExerciseCreateDataManager.createEquipmentTable()
-        
-        // To insert data from api/json into sqlite for quicker access.
-        ExerciseDataManager.addExerciseCategoryToDB()
-        ExerciseDataManager.insertExerciseToDB()
-        ExerciseDataManager.insertWorkoutImgUrlToTable()
-        ExerciseDataManager.insertEquipmentListToTable()
+    
+    
         print(ExerciseDataManager.checkIfTableHasRows(tableName: "Workout"))
         //
         
@@ -37,6 +24,10 @@ class ExerciseViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        ExerciseDataManager.insertExerciseToDB()
+        
+        ExerciseDataManager.testgetExercise(catID: 10)
     }
 
     override func didReceiveMemoryWarning() {

@@ -23,12 +23,16 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
         DispatchQueue.main.async {
             self.workouttable.reloadData()
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
+
         exerciseCat = ExerciseDataManager.loadCategory()
 
         catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)

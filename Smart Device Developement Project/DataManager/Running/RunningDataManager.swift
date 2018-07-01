@@ -32,7 +32,6 @@ class RunningDataManager: NSObject {
             "currentdistance Double DEFAULT 0," +
             "totaldistance Double ," +
             "totaltime String ," +
-            "progress INTEGER ," +
             "finishdate TEXT DEFAULT '0'," +
             "lap1speed TEXT DEFAULT '0'," +
             "lap2speed TEXT DEFAULT '0'," +
@@ -49,7 +48,7 @@ class RunningDataManager: NSObject {
             "lap3distance TEXT DEFAULT '0'," +
             "lap4distance TEXT DEFAULT '0'," +
             "lap5distance TEXT DEFAULT '0'," +
-            "totalcaloriesburnt TEXT DEFAULT '0'," +
+            "totalcaloriesburnt DOUBLE DEFAULT '0'," +
             "scheduleID INTEGER, " +
             "foreign key(scheduleID) REFERENCES trainingschedule(scheduleID))")
         
@@ -84,6 +83,18 @@ class RunningDataManager: NSObject {
         }
         return exist
     }
+    static func checkUserScheduleFinished(_ scheduleId:Int) -> Bool{
+        var exist = false
+        let ScheduleRows = SQLiteDB.sharedInstance.query(sql:
+            "Select scheduleID FROM trainingschedule where forfeit = 0 AND complete = 1 AND scheduleId =  \(scheduleId)")
+        
+        if ScheduleRows.count >= 1 {
+            exist = true                // Means there is an existing schedule
+        } else {
+            exist = false               // No exi/Users/angbryan/Documents/Smart-Device-Development-Project/Smart Device Developement Projectsting schedule
+        }
+        return exist
+    }
     
     static func forfeitSchedule(_ user:String) -> Bool{
         SQLiteDB.sharedInstance.query(sql: "Update trainingschedule SET forfeit = 1 where complete = 0 AND forfeit = 0")
@@ -93,22 +104,45 @@ class RunningDataManager: NSObject {
     static func loadScheduleInformation(_ user:String) -> Schedule{
         let currentSchedulerow = SQLiteDB.sharedInstance.query(sql: "Select scheduleID,startdate,day,distance,numberoftimes, progress,eventstoresaved, eventsaved, userID from trainingschedule where forfeit = 0 AND complete = 0 AND userID= \"\(user)\"" )
         
-        var currentschedule = Schedule("","","","","","","","")
+        var currentschedule = Schedule(0,"","","","","","","","")
         for row in currentSchedulerow
         {
-          currentschedule = Schedule(row["startdate"] as! String,row["day"] as! String,row["distance"] as! String,row["numberoftimes"] as! String,row["progress"] as! String,row["userID"] as! String,row["eventstoresaved"] as! String, row["eventsaved"] as! String)
+          currentschedule = Schedule(row["scheduleID"] as! Int,row["startdate"] as! String,row["day"] as! String,row["distance"] as! String,row["numberoftimes"] as! String,row["progress"] as! String,row["userID"] as! String,row["eventstoresaved"] as! String, row["eventsaved"] as! String)
         }
         
        return currentschedule
     }
+    static func selectlastSessionTableId() -> Int{
+        let currentid = SQLiteDB.sharedInstance.query(sql: "Select Max(SessionID) from Session")
+        var id : Int = 0
+        for row in currentid{
+         id = row["Max(SessionID)"] as! Int
+        }
+        return id
+    }
+    static func selectlastScheduleTableId() -> Int{
+        let currentid = SQLiteDB.sharedInstance.query(sql: "Select Max(scheduleID) from trainingschedule")
+        var id : Int = 0
+        for row in currentid{
+            if(row["Max(scheduleID"] == nil)
+            {
+                id = 0
+            }
+            else
+            {
+            id = row["Max(scheduleID)"] as! Int
+            }
+        }
+        return id
+    }
     
     static func insertOrReplaceSession(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt,progress) " + "Values (?,?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt, session.progress])
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt) " + "Values (?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt	])
     }
     static func UpdateSessionSpeed(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1speed = ?, lap2speed = ?, lap3speed = ?, lap4speed = ?, lap5speed = ? Where sessionID = ?", parameters: [session.lap1speed, session.lap2speed, session.lap3speed, session.lap4speed, session.lap5speed])
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1speed = ?, lap2speed = ?, lap3speed = ?, lap4speed = ?, lap5speed = ? Where sessionID = ?", parameters: [session.lap1speed, session.lap2speed, session.lap3speed, session.lap4speed, session.lap5speed,session.sessionID])
     }
     static func UpdateSessionEstimatedDistance(session: Session)
     {
@@ -116,7 +150,7 @@ class RunningDataManager: NSObject {
     }
     static func UpdateSessionDistance(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1distance = ?, lap2distance = ?, lap3distance = ?, lap4distance = ?, lap5distance = ? Where sessionID = ?", parameters: [session.lap1distance, session.lap2distance, session.lap3distance, session.lap4distance, session.lap5distance])
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1distance = ?, lap2distance = ?, lap3distance = ?, lap4distance = ?, lap5distance = ? Where sessionID = ?", parameters: [session.lap1distance, session.lap2distance, session.lap3distance, session.lap4distance, session.lap5distance, session.scheduleID])
     }
     static func UpdateSession(session: Session)
     {
@@ -124,8 +158,25 @@ class RunningDataManager: NSObject {
     }
     static func UpdateTotalTime(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "Update Session SET totaltime = ? Where sessionID = ? ", parameters: [session.totaltime])
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET totaltime = ? Where sessionID = ? ", parameters: [session.totaltime,session.scheduleID])
     }
+    static func UpdateProgress(Schedule: Schedule)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update trainingschedule SET progress = ? Where scheduleID = ? ", parameters: [Schedule.progress,Schedule.scheduleId])
+    }
+    static func UpdateComplete(_ scheduleid:Int)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update trainingschedule SET complete = 1 Where scheduleID = ? ", parameters: [scheduleid])
+    }
+    static func UpdateTotalCalories(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET totalcaloriesburnt = ? Where sessionID = ? ", parameters: [session.totalcaloriesburnt,session.scheduleID])
+    }
+    static func UpdateCurrentDistance(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET currentdistance = ? Where sessionID = ? ", parameters: [session.currentdistance,session.scheduleID])
+    }
+    
     
 }
     

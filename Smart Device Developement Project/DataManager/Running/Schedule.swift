@@ -54,8 +54,27 @@ class Schedule: NSObject {
         self.userID = userID
         self.eventstoresaved = eventstoresaved
         self.eventsaved = eventsaved
-        
-        
+    }
+    init(_ progress:String,_ scheduleId:Int)
+    {
+        self.progress = progress
+        self.scheduleId = scheduleId
+    }
+    init(_ scheduleId:Int)
+    {
+        self.scheduleId = scheduleId
+    }
+    init(_ scheduleId:Int,_ startDate:String,_ day:String,_ trainingdistance:String,_ numberoftimes:String,_ progress:String,_ userID:String,_ eventstoresaved:String,_ eventsaved:String)
+    {
+    self.scheduleId = scheduleId
+    self.startDate = startDate
+    self.day = day
+    self.trainingdistance = trainingdistance
+    self.numberoftimes = numberoftimes
+    self.progress = progress
+    self.userID = userID
+    self.eventstoresaved = eventstoresaved
+    self.eventsaved = eventsaved
     }
     
 }

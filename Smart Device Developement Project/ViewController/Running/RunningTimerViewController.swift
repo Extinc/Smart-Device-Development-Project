@@ -29,6 +29,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var lblCalories: UILabel!
     
+    
+    @IBOutlet weak var btnCreateSchedules: UIButton!
+    
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
@@ -40,9 +43,19 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var weight : Double = 60
     var resumeTapped = false
     var seconds = 60
-    
-    
-    
+    var scheduleid = 0
+    var thisprogress = 0
+    var progress : String = ""
+    var lap1Speed : String = ""
+    var lap2Speed : String = ""
+    var lap3Speed : String = ""
+    var lap4Speed : String = ""
+    var lap5Speed : String  = ""
+    var lap1distance : Double = 0
+    var lap2distance : Double = 0
+    var lap3distance : Double = 0
+    var lap4distance : Double = 0
+    var lap5distance : Double = 0
     
     
     @IBOutlet weak var lblspeed: UILabel!
@@ -53,6 +66,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if self.resumeTapped == false
         {
         timer!.invalidate()
+        var thiscurrentdistance = Session(scheduleid: RunningDataManager.selectlastSessionTableId(),currentdistance: travelledDistance/1000)
+        RunningDataManager.UpdateCurrentDistance(session: thiscurrentdistance)
         self.resumeTapped = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
@@ -62,18 +77,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         mapView.setUserTrackingMode(.follow, animated: true)
         }
         
-       
-     /*   if(timer!.isValid == false)
-        {
-            buttonPause.isHidden = false
-            btncontinue.isHidden = true
-        }
-        else
-        {
-            buttonPause.isHidden = true
-            btncontinue.isHidden = false
-        }
- */
     }
     
   var username = "john"
@@ -82,19 +85,33 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
+        if(RunningDataManager.checkUserScheduleExist(username) == false)
+        {
+            btnCreateSchedules.isHidden = false
+            btnStart.isHidden = true
+            btncontinue.isHidden = true
+            buttonPause.isHidden = true
+        }
+        else
+        {
         btncontinue.isHidden = true
         buttonPause.isHidden = true
+        btnStart.isHidden = false
+        btnCreateSchedules.isHidden = true
+        }
         mapView.delegate = self
         //Create Database When entered this page
         RunningDataManager.createScheduleTable()
         RunningDataManager.createSessionTable()
         
         //Ask permission to access user location but do not start first
-        setupCoreLocation()
-        disableLocationServices()
+    
+
+        // need this for polyline
         locationManager.delegate = self
         updateMapRegion(rangeSpan: 100)
         
@@ -102,9 +119,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if(RunningDataManager.checkUserScheduleExist(username) == true)
         {
             let currentschedule = RunningDataManager.loadScheduleInformation(username)
+            scheduleid = currentschedule.scheduleId!
+            thisprogress = Int(currentschedule.progress!)!
             let title : String = currentschedule.trainingdistance!
-            targetDistance = Double(currentschedule.trainingdistance!)!
-            let progress : String = currentschedule.progress!
+            targetDistance = Double(title)!
+            progress = currentschedule.progress!
             let totalTime : String = currentschedule.numberoftimes!
             lblProgress.text = "\(title)Km Run/Jog"
             lblNumberofProgress.text = "\(progress) / \(totalTime) Times "
@@ -113,10 +132,29 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lblNumberofProgress.text = "No Schedule Created"
         }
         
+        
      
         // Do any additional setup after loading the view.
         RunningDataManager.createScheduleTable()
 
+    }
+    
+    @IBAction func btnCreate(_ sender: Any) {
+        btnCreateSchedules.isHidden = true
+        btnStart.isHidden = false
+    }
+    
+    
+    
+    func FinishAlert (title:String, message:String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,14 +179,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         
-      
-        let currentSession = Session(1,0.0,targetDistance,lblTime.text!,myStringafd,lblCalories.text!,1)
+        let currentSession = Session(1,0.0,targetDistance,lblTime.text!,myStringafd,0)
         RunningDataManager.insertOrReplaceSession(session: currentSession)
         
-        var estimateddistance = String(targetDistance/5)
-        var currentSessionDistance = Session(firstdistance: estimateddistance,seconddistance: estimateddistance, thirddistance: estimateddistance,fourthdistance: estimateddistance,fifthdistance: estimateddistance)
-
-        RunningDataManager.UpdateSession(session: currentSessionDistance)
+        let estimateddistance = String(targetDistance/5)
+        var SessionLapDistance = Session(firstdistance :estimateddistance,seconddistance :estimateddistance,thirddistance :estimateddistance,fourthdistance :estimateddistance,fifthdistance :estimateddistance,RunningDataManager.selectlastSessionTableId())
+        RunningDataManager.UpdateSessionDistance(session: SessionLapDistance)
+  
         
         //Hide redundant data
         if(timer!.isValid == true)
@@ -290,23 +327,49 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             mapView.add(polyline)
         }
         
-         var estimateddistance :Double = targetDistance/5
-        var finishingtime: String = lblDistance.text!
-        
-      /*  if((Double(lblDistance.text!)!) >= estimateddistance){
-            
+        var estimateddistance : Double = targetDistance/5
+        var finishingtime: String = lblTime.text!
+      
+        if (travelledDistance/1000 >= (estimateddistance * 5)){
+            lap5Speed = lblspeed.text!
         }
-        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 2)){}
-        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 3)){}
-        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 4)){}
-        else if ((Double(lblDistance.text!)!) >= (estimateddistance * 5)){}
-        */
+        else if (travelledDistance/1000 >= (estimateddistance * 4)){
+            lap4Speed = lblspeed.text!
+        }
+        else if (travelledDistance/1000 >= (estimateddistance * 3)){
+            lap3Speed = lblspeed.text!
+        }
+        else if (travelledDistance/1000 >= (estimateddistance * 2)){
+            lap2Speed = lblspeed.text!
+        }
+        else if(travelledDistance/1000 >= estimateddistance){
+            lap1Speed = lblspeed.text!
+        }
+        
         if(targetDistance != 0)
         {
-        if(Double(lblDistance.text!)! >= targetDistance)
+        if(travelledDistance/1000 >= targetDistance)
         {
-            var currentFinishTime = Session(time: finishingtime)
+            var currentFinishTime = Session(time: finishingtime,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateTotalTime(session: currentFinishTime)
+            FinishAlert(title:"Finish",message:"You have completed the jog/run")
+            disableLocationServices()
+            var currentprogress: String = String(thisprogress + 1)
+            var currentcomplete: Schedule = Schedule(currentprogress,scheduleid)
+            RunningDataManager.UpdateProgress(Schedule: currentcomplete)
+            
+            var thisSessionSpeed = Session(firstspeed : lap1Speed,secondspeed : lap2Speed,thirdspeed : lap3Speed,fourthspeed : lap4Speed,fivespeed : lap5Speed,RunningDataManager.selectlastSessionTableId())
+            RunningDataManager.UpdateSessionSpeed(session: thisSessionSpeed)
+            
+            var thistotalcaloriesburnt = Session(scheduleid: RunningDataManager.selectlastSessionTableId(), totalcalories:calorie)
+            RunningDataManager.UpdateTotalCalories(session: thistotalcaloriesburnt)
+            
+            var thistotaldistance = Session(scheduleid: RunningDataManager.selectlastSessionTableId(), currentdistance: travelledDistance/1000)
+            RunningDataManager.UpdateCurrentDistance(session: thistotaldistance)
+            
+            updateMapRegion(rangeSpan: 200)
+            
+            timer!.invalidate()
         }
         }
             

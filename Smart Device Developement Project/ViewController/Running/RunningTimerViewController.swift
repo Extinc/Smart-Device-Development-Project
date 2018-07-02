@@ -8,8 +8,12 @@
 // THIS VERSION EDITUR CONSTRUCTOR COZ U ADD 1 MORE COLUMN IN DB TOTALTIME COLUMN
 import UIKit
 import MapKit
+import AVFoundation
 
 class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
+    
+    let synth = AVSpeechSynthesizer()
+    var ZombieWarning = AVSpeechUtterance(string: "")
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,6 +33,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var lblCalories: UILabel!
     
+    @IBOutlet weak var btnDoneRun: UIButton!
     
     @IBOutlet weak var btnCreateSchedules: UIButton!
     
@@ -56,6 +61,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var lap3distance : Double = 0
     var lap4distance : Double = 0
     var lap5distance : Double = 0
+    var audioPlayer = AVAudioPlayer()
+    
     
     
     @IBOutlet weak var lblspeed: UILabel!
@@ -87,6 +94,16 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
+        
+        btnDoneRun.isHidden = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
         if(RunningDataManager.checkUserScheduleExist(username) == false)
@@ -143,6 +160,26 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         btnCreateSchedules.isHidden = true
         btnStart.isHidden = false
     }
+ //Incomplete
+    func ZombieAlert (){
+        var zombiespeed : Double = 4.0
+        var zombietime : Double = 0
+        var zombiedistance : Double = zombietime * zombiespeed
+        
+        if(time == 0){
+            ZombieWarning = AVSpeechUtterance(string: "Zombie is coming in awhile! Run as fast as you can!")
+            ZombieWarning.rate = 1.2
+            synth.speak(ZombieWarning)
+        }
+        if (time == 5){
+            zombietime += 1
+        }
+        
+        if (zombiedistance >= travelledDistance){
+            audioPlayer.volume = 1
+        }
+        
+    }
     
     
     
@@ -164,9 +201,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     //Start Timer
 
     @IBAction func start(_ sender: UIButton) {
-        setupCoreLocation()
+        //Ask for permission to use user location Service
+     
+        if(setupCoreLocation() == true)
+        {
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
+        
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -194,6 +235,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lblProgress.isHidden = true
             lblNumberofProgress.isHidden = true
             buttonPause.isHidden = false
+        }
+        }
+        else
+        {
+            FinishAlert(title: "Location Service Not enabled", message: "You need to Enable Location Service to use this feature")
+           
         }
         
     }
@@ -231,18 +278,23 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     
     // Mark:Location
-    func setupCoreLocation(){
+    func setupCoreLocation()->Bool{
+        var authorization = false
         switch CLLocationManager.authorizationStatus(){
         case .notDetermined:
             locationManager.requestAlwaysAuthorization()
             break
         case .authorizedAlways:
             enableLocationServices()
+           authorization = true
         case .authorizedWhenInUse:
             enableLocationServices()
+           authorization = true
         default:
+            authorization = false
             break
         }
+        return authorization
         
     }
     
@@ -352,8 +404,15 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         {
             var currentFinishTime = Session(time: finishingtime,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateTotalTime(session: currentFinishTime)
+            startlocation = nil
+            lastLocation = nil
             FinishAlert(title:"Finish",message:"You have completed the jog/run")
+            btnDoneRun.isHidden = false
+            btnDoneRun.isHidden = true
+            locationManager.stopUpdatingLocation()
+            locationManager.stopMonitoringSignificantLocationChanges()
             disableLocationServices()
+            
             var currentprogress: String = String(thisprogress + 1)
             var currentcomplete: Schedule = Schedule(currentprogress,scheduleid)
             RunningDataManager.UpdateProgress(Schedule: currentcomplete)
@@ -377,7 +436,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
-    
         if overlay is MKPolyline{
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.black
@@ -398,44 +456,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
     }
     
-    
-    
-   
- 
-
-
- /*   func addAnnotationsOnMap(locationToPoint: CLLocation)
-    {
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = locationToPoint.coordinate
-        var geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(locationToPoint, completionHandler:{(placemarks, Error) -> Void in
-        if let placemarks = placemarks as? [CLPlacemark] where placemarks.count > 0 {
-            var placemark = placemarks[0]
-            var addressDictionary = placemarks.addressDictionary;
-            annotation.title = addressDictionary["Name"] as? String
-            self.mapView.addAnnotation(annotation)
-            }
-        })
-    }
- */
-    
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         if  (error as? CLError)?.code == .denied{
             manager.stopUpdatingLocation()
             manager.stopMonitoringSignificantLocationChanges()
     }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-           
 
 }

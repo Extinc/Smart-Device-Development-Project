@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.7.2)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - Firebase/Auth (5.0.1):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.0)
@@ -203,6 +206,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Charts
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -232,6 +236,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Charts
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -249,6 +254,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
   FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
   FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
@@ -264,6 +270,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
 
-PODFILE CHECKSUM: d7e2ede037e75271cacaf97b8eaf783ed245c52d
+PODFILE CHECKSUM: ea6ccbef2d501ca22a071e7dae5ee4824ece5f25
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

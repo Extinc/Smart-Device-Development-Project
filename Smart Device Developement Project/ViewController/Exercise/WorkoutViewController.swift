@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class WorkoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -18,7 +19,7 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
     var exercise: [Exercise]?
     
     @IBAction func workoutSegment(_ sender: Any) {
-        catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
+       // catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
         DispatchQueue.main.async {
             self.workouttable.reloadData()
@@ -30,12 +31,10 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
 
         exerciseCat = ExerciseDataManager.loadCategory()
 
-        catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
+        //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
 
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
         for ex in exercise!{

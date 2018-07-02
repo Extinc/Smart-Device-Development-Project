@@ -61,20 +61,6 @@ class ExerciseCreateDataManager: NSObject {
                 "   id int primary key, " +
             "   name text )")
     }
-    
-    /* ********************************************************************************** */
-    
-    static func createWorkoutCommentTable(){
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-                "WorkoutComment( " +
-                "   id int primary key, " +
-                "   comment text, " +
-                "   exercise int, " +
-            "   FOREIGN KEY(exercise) REFERENCES Workout(workoutID) )")
-    }
-    
-    /* ********************************************************************************** */
 
     /* ********************************************************************************** */
 }

@@ -1,100 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Workout-->
-        <scene sceneID="Mla-Vm-yA3">
-            <objects>
-                <viewController storyboardIdentifier="workout" id="WOK-cH-1Yc" customClass="WorkoutViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SLd-VE-pfo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0ob-0Z-61O">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y84-ka-KXC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
-                                        <segments>
-                                            <segment title="Abs"/>
-                                            <segment title="Arms"/>
-                                            <segment title="Back"/>
-                                            <segment title="Calves"/>
-                                            <segment title="Chest"/>
-                                            <segment title="Legs"/>
-                                            <segment title="Shoulders"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="workoutSegment:" destination="WOK-cH-1Yc" eventType="valueChanged" id="S7D-Rm-fdr"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aTc-Zj-bYe">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="575"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Bfe-Pk-77d">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bfe-Pk-77d" id="KMP-LO-j4n">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="WOK-cH-1Yc" id="9Rq-24-jfN"/>
-                                            <outlet property="delegate" destination="WOK-cH-1Yc" id="tWZ-Md-2HC"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="0ob-0Z-61O" firstAttribute="leading" secondItem="Mca-JZ-kAI" secondAttribute="leading" id="CPY-UV-q1d"/>
-                            <constraint firstItem="Mca-JZ-kAI" firstAttribute="trailing" secondItem="0ob-0Z-61O" secondAttribute="trailing" id="hig-qd-YK0"/>
-                            <constraint firstItem="0ob-0Z-61O" firstAttribute="top" secondItem="Mca-JZ-kAI" secondAttribute="top" id="kP0-MD-Ntx"/>
-                            <constraint firstItem="Mca-JZ-kAI" firstAttribute="bottom" secondItem="0ob-0Z-61O" secondAttribute="bottom" id="uZ2-UV-ceE"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Mca-JZ-kAI"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Workout" id="Njy-c7-tjV">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="la2-vK-jv9"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="workoutSegmentControl" destination="y84-ka-KXC" id="99O-oI-nS4"/>
-                        <outlet property="workouttable" destination="aTc-Zj-bYe" id="oMa-2F-Ql9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q1U-A7-laE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1160.8" y="-87.706146926536732"/>
-        </scene>
         <!--Navigation Controller-->
-        <scene sceneID="jac-tA-dDd">
+        <scene sceneID="hPh-Dn-LWJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PCU-wm-SEh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vGV-gV-455">
+                <navigationController id="ufS-pB-qdE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6Xs-d8-5H6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WOK-cH-1Yc" kind="relationship" relationship="rootViewController" id="zix-m8-Mev"/>
+                        <segue destination="Bc4-d8-QrW" kind="relationship" relationship="rootViewController" id="Qf6-rY-T3g"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HkB-tT-QNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNp-HB-c8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2100" y="-87.706146926536732"/>
+            <point key="canvasLocation" x="-1223" y="-80"/>
+        </scene>
+        <!--Workout View Controller-->
+        <scene sceneID="uc4-Bc-yeC">
+            <objects>
+                <viewController storyboardIdentifier="workout" id="Bc4-d8-QrW" customClass="WorkoutViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3fT-Db-dwA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-U6-Vkp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-Wu-R2M">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-ns-suc">
+                                        <rect key="frame" x="0.0" y="101" width="375" height="502"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="leading" secondItem="8OJ-IF-HoC" secondAttribute="leading" id="9Xt-aO-AOU"/>
+                            <constraint firstItem="8OJ-IF-HoC" firstAttribute="bottom" secondItem="SbU-U6-Vkp" secondAttribute="bottom" id="TzY-14-Uu5"/>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="top" secondItem="8OJ-IF-HoC" secondAttribute="top" id="jJW-yF-y3Z"/>
+                            <constraint firstItem="8OJ-IF-HoC" firstAttribute="trailing" secondItem="SbU-U6-Vkp" secondAttribute="trailing" id="qIS-sq-ygI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8OJ-IF-HoC"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="displaysUppercaseTitles" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="gGp-J7-8Vh"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzQ-Ei-SkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468" y="-79.610194902548727"/>
         </scene>
     </scenes>
 </document>

@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FoodAPI.h"
 
-@implementation FoodAPI
-/*
+@implementation RapidConnect : NSObject
 + (BOOL)downloadAPI:(NSString *)food
 {
 RapidConnect *rapid = [[RapidConnect alloc] initWithProjectName:@"default-application_5b331072e4b03a10f2281d8f" andToken:@"5d6cbeda-6c94-4ea0-b7b5-5697ccb99107"];
@@ -20,7 +19,7 @@ RapidConnect *rapid = [[RapidConnect alloc] initWithProjectName:@"default-applic
                NSLog(@"%@",responseDict);
            }failure:^(NSError *error){
                NSLog(@"%@",[error localizedDescription]);
-           }]
-}*/
+           }];
+}
 @end
  

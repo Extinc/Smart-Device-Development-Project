@@ -13,26 +13,23 @@ class MealInfo: NSObject {
     
     func GetInfo()
     {
-        let r = RapidConnect(projectName: "", andToken: "")
+        let APPLICATION_ID = "42f9c7f2"
+        let APPLICATION_KEY = "a38a2ac0cfe3046b7a592c4723fb91ef"
+        let foodName = "Taco"
         
-        r?.callPackage("Nutritionix",
-                       block: "getFoodsNutrients",
-                       withParameters: ["applicationSecret" : "a38a2ac0cfe3046b7a592c4723fb91ef", "foodDescription" : "Chicken Rice", "applicationId" : "42f9c7f2"],
-                        success: { (data) in
-                            // returned data
-                            var d = data!
-                            var d0 = d[0] as! [String: Any]
-                            var d0_foods = d0["foods"]!
-                            print(d0_foods)
-                           // var d0_foods_0 = d0_foods[0] as! [String: Any]
-                            //var d0_nf_sodium = d0_foods_0["nf_sodium"]!
-                            //print(d0_nf_sodium)
-                            
-                            //print(d[0]["foods"][0]["nf_sodium"])
-                        },
-                        failure: { (error) in
-                            
-                        })
-    }
+        let url = "https://api.nutritionix.com/v1_1/search/\(foodName)?fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat&appId=\(APPLICATION_ID)&appKey=\(APPLICATION_KEY)"
+        HTTP.getJSON(url: url, onComplete:
+            {
+                json, response, error in
+                    
+                if error != nil
+                {
+                    return
+                }
+                let foodData = json!
 
+                let count = foodData["total_hits"]
+                print(count)
+            })
+    }
 }

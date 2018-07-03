@@ -653,7 +653,6 @@
 				9030ED8220C0305600D28D92 /* acc.rtf in Resources */,
 				906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */,
 				702B987320EA509C0098EE5F /* ZombieChase.mp3 in Resources */,
-				90F9C7DD20D3A579005BA228 /* Workout.storyboard in Resources */,
 				513F09DF20E20418009806D8 /* RunningStoryboard.storyboard in Resources */,
 				5169C63120AAA4460014E15D /* LaunchScreen.storyboard in Resources */,
 				90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */,

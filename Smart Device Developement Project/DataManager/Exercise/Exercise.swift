@@ -11,20 +11,24 @@ import UIKit
 class Exercise: NSObject {
     var id: Int?
     var name: String?
-    var musclesPri: [Int] = []
-    var musclesSec: [Int] = []
-    var equipId: [Int] = []
+    var equipment: Int
+    var imageLink: [String] = []
+    var muscleImg: String?
     var desc: String?
+    var type: String?
     var category: Int?
+    var videoLink: String?
     
-    init(id:Int, name: String, musclesPri: [Int], musclesSec: [Int], equipId: [Int], desc: String,category: Int) {
+    init(id:Int, name: String, equipment: Int, desc: String, category: Int, videoLink: String, imageLink: [String], type: String, muscleImg: String) {
         self.id = id
         self.name = name
-        self.musclesPri = musclesPri
-        self.musclesSec = musclesSec
-        self.equipId = equipId
+        self.equipment = equipment
+        self.imageLink = imageLink
         self.desc = desc
         self.category = category
+        self.videoLink = videoLink
+        self.type = type
+        self.muscleImg = muscleImg
     }
 }
 

@@ -23,7 +23,12 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
-    let headers = ["Planned Meals", "a"]
+    let headers = ["Planned Meals", "A"]
+    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "", "340.5"),
+                     MealPlan("", "", 2, 2, 1, "Aglio Olio", "", "450"),
+                     MealPlan("", "", 3, 3, 1, "Porridge", "", "300")],
+                     [MealPlan("","", 14, 4, 1, "", "", "200")]
+                    ]
 
     var contentWidth:CGFloat = 0.0
     
@@ -77,15 +82,21 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return mealPlans[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return mealPlans.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headers[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
+        cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
+        cell.mealCalories.text = mealPlans[indexPath.section][indexPath.row].calories
         return cell
     }
 

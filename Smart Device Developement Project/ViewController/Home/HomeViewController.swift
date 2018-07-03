@@ -15,13 +15,22 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        //
+        // For workout
+        //
+        ExerciseCreateDataManager.createWorkoutCatTable()
+        ExerciseCreateDataManager.createEquipmentTable()
+        ExerciseCreateDataManager.createWorkoutTable()
         
+        // To insert data from api/json into sqlite for quicker access.
+        ExerciseDataManager.addExerciseCategoryToDB()
+        ExerciseDataManager.insertEquipmentListToTable()
 
         //
         // For User Info
         //
 
-        
+        ExerciseDataManager.testGetFirebase()
         //
     }
 

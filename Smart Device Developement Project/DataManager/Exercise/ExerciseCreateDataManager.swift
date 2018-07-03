@@ -19,12 +19,15 @@ class ExerciseCreateDataManager: NSObject {
                 "Workout( " +
                 "   workoutID int primary key, " +
                 "   name text, " +
-                "   muscPri text, " +
-                "   muscSec text, " +
-                "   equipment text, " +
+                "   equipment int, " +
                 "   description text, " +
                 "   category int, " +
-            "   FOREIGN KEY(category) REFERENCES WorkoutCategory(catID))")
+                "   type text," +
+                "   videolink text, " +
+                "   imgurls text, " +
+                "   muscleimgurls text, " +
+                "   FOREIGN KEY(equipment) REFERENCES Equipment(id)," +
+                "   FOREIGN KEY(category) REFERENCES WorkoutCategory(catID))")
     }
     
     /* ********************************************************************************** */
@@ -58,20 +61,6 @@ class ExerciseCreateDataManager: NSObject {
                 "   id int primary key, " +
             "   name text )")
     }
-    
-    /* ********************************************************************************** */
-    
-    static func createWorkoutCommentTable(){
-        DataManager.createTable(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-                "WorkoutComment( " +
-                "   id int primary key, " +
-                "   comment text, " +
-                "   exercise int, " +
-            "   FOREIGN KEY(exercise) REFERENCES Workout(workoutID) )")
-    }
-    
-    /* ********************************************************************************** */
 
     /* ********************************************************************************** */
 }

@@ -30,28 +30,28 @@ class Session: NSObject {
     var lap3distance: String?
     var lap4distance: String?
     var lap5distance: String?
-    var totalcaloriesburnt: String?
+    var totalcaloriesburnt: Double?
     var progress: Int?
     var scheduleID: Int?
     
-    init(_ currentdistance:Double,_ totaldistance:Double,_ finishdate:String,_ totalcaloriesburnt: String,_ progress:Int,_ totaltime:String,_ scheduleID:Int)
+    init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double)
     {
         self.currentdistance = currentdistance
         self.totaldistance = totaldistance
         self.finishdate = finishdate
         self.totalcaloriesburnt = totalcaloriesburnt
-        self.progress = progress
         self.totaltime = totaltime
         self.scheduleID = scheduleID
     }
     
-    init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fivespeed lap5speed:String)
+    init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fivespeed lap5speed:String,_ sessionid:Int)
     {
         self.lap1speed = lap1speed
         self.lap2speed = lap2speed
         self.lap3speed = lap3speed
         self.lap4speed = lap4speed
         self.lap5speed = lap5speed
+        self.sessionID = sessionid
     }
     
     init(firstestimate lap1estimateddistance:String, secondestimate lap2estimateddistance:String,thirdestimate lap3estimateddistance:String,fourthestimate lap4estimateddistance:String,fifthestimate lap5estimateddistance:String) {
@@ -61,13 +61,48 @@ class Session: NSObject {
         self.lap4estimateddistance = lap4estimateddistance
         self.lap5estimateddistance = lap5estimateddistance
     }
-    
-    init(firstdistance lap1distance:String,seconddistance lap2distance:String,thirddistance lap3distance:String,fourthdistance lap4distance:String,fifthdistance lap5distance:String)
+    init(firstspeed lap1speed:String)
+    {
+        self.lap1speed = lap1speed
+    }
+    init(secondspeed lap2speed:String)
+    {
+        self.lap2speed = lap2speed
+    }
+    init(thirdspeed lap3speed:String)
+    {
+        self.lap3speed = lap3speed
+    }
+    init(fourthspeed lap4speed:String)
+    {
+        self.lap4speed = lap4speed
+    }
+    init(fivespeed lap5speed:String)
+    {
+        self.lap5speed = lap5speed
+    }
+    init(time totaltime:String,_ scheduleID:Int)
+    {
+        self.totaltime = totaltime
+        self.scheduleID = scheduleID
+    }
+    init(firstdistance lap1distance:String,seconddistance lap2distance:String,thirddistance lap3distance:String,fourthdistance lap4distance:String,fifthdistance lap5distance:String,_ scheduleID:Int)
     {
         self.lap1distance = lap1distance
         self.lap2distance = lap2distance
         self.lap3distance = lap3distance
         self.lap4distance = lap4distance
         self.lap5distance = lap5distance
+        self.scheduleID = scheduleID
+    }
+    init(scheduleid scheduleID:Int,totalcalories totalcaloriesburnt:Double)
+    {
+        self.scheduleID = scheduleID
+        self.totalcaloriesburnt = totalcaloriesburnt
+    }
+    init(scheduleid scheduleID:Int,currentdistance currentdistance:Double)
+    {
+        self.scheduleID = scheduleID
+        self.currentdistance = currentdistance
     }
 }

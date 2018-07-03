@@ -12,16 +12,7 @@ class MealInfo: NSObject {
     
     static func insertInfo(mealplan: MealPlan)
     {
-        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO MealPlan(mealid, name, calories, carbohydrates, protein, fat, sodium)" + "VALUE (?, ?, ?, ?, ?, ?, ?)",
-                                        parameters: [
-                                            "1",
-                                            "Chicken Rice",
-                                            "
-            ]
-        )
-        
-        
-        
+    
     }
 
 }

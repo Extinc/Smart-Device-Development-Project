@@ -45,7 +45,10 @@ target 'Smart Device Developement Project' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-
+  
+  # Pods for 'chart'
+  pod 'Charts'
+  
   #RapidConnect
   pod "RapidAPISDK", "~> 0.1"
   

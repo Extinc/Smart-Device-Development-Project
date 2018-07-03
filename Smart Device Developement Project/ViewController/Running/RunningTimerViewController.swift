@@ -8,8 +8,12 @@
 // THIS VERSION EDITUR CONSTRUCTOR COZ U ADD 1 MORE COLUMN IN DB TOTALTIME COLUMN
 import UIKit
 import MapKit
+import AVFoundation
 
 class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
+    
+    let synth = AVSpeechSynthesizer()
+    var ZombieWarning = AVSpeechUtterance(string: "")
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -29,6 +33,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var lblCalories: UILabel!
     
+    @IBOutlet weak var btnDoneRun: UIButton!
+    
+    @IBOutlet weak var btnCreateSchedules: UIButton!
+    
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
@@ -40,8 +48,20 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var weight : Double = 60
     var resumeTapped = false
     var seconds = 60
-    
-    
+    var scheduleid = 0
+    var thisprogress = 0
+    var progress : String = ""
+    var lap1Speed : String = ""
+    var lap2Speed : String = ""
+    var lap3Speed : String = ""
+    var lap4Speed : String = ""
+    var lap5Speed : String  = ""
+    var lap1distance : Double = 0
+    var lap2distance : Double = 0
+    var lap3distance : Double = 0
+    var lap4distance : Double = 0
+    var lap5distance : Double = 0
+    var audioPlayer = AVAudioPlayer()
     
     
     
@@ -53,6 +73,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if self.resumeTapped == false
         {
         timer!.invalidate()
+        var thiscurrentdistance = Session(scheduleid: RunningDataManager.selectlastSessionTableId(),currentdistance: travelledDistance/1000)
+        RunningDataManager.UpdateCurrentDistance(session: thiscurrentdistance)
         self.resumeTapped = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
@@ -62,18 +84,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         mapView.setUserTrackingMode(.follow, animated: true)
         }
         
-       
-     /*   if(timer!.isValid == false)
-        {
-            buttonPause.isHidden = false
-            btncontinue.isHidden = true
-        }
-        else
-        {
-            buttonPause.isHidden = true
-            btncontinue.isHidden = false
-        }
- */
     }
     
   var username = "john"
@@ -82,19 +92,43 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
+        
+        btnDoneRun.isHidden = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
+        if(RunningDataManager.checkUserScheduleExist(username) == false)
+        {
+            btnCreateSchedules.isHidden = false
+            btnStart.isHidden = true
+            btncontinue.isHidden = true
+            buttonPause.isHidden = true
+        }
+        else
+        {
         btncontinue.isHidden = true
         buttonPause.isHidden = true
+        btnStart.isHidden = false
+        btnCreateSchedules.isHidden = true
+        }
         mapView.delegate = self
         //Create Database When entered this page
         RunningDataManager.createScheduleTable()
         RunningDataManager.createSessionTable()
         
         //Ask permission to access user location but do not start first
-        setupCoreLocation()
-        disableLocationServices()
+    
+
+        // need this for polyline
         locationManager.delegate = self
         updateMapRegion(rangeSpan: 100)
         
@@ -102,9 +136,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if(RunningDataManager.checkUserScheduleExist(username) == true)
         {
             let currentschedule = RunningDataManager.loadScheduleInformation(username)
+            scheduleid = currentschedule.scheduleId!
+            thisprogress = Int(currentschedule.progress!)!
             let title : String = currentschedule.trainingdistance!
-            targetDistance = Double(currentschedule.trainingdistance!)!
-            let progress : String = currentschedule.progress!
+            targetDistance = Double(title)!
+            progress = currentschedule.progress!
             let totalTime : String = currentschedule.numberoftimes!
             lblProgress.text = "\(title)Km Run/Jog"
             lblNumberofProgress.text = "\(progress) / \(totalTime) Times "
@@ -113,10 +149,49 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lblNumberofProgress.text = "No Schedule Created"
         }
         
+        
      
         // Do any additional setup after loading the view.
         RunningDataManager.createScheduleTable()
 
+    }
+    
+    @IBAction func btnCreate(_ sender: Any) {
+        btnCreateSchedules.isHidden = true
+        btnStart.isHidden = false
+    }
+ //Incomplete
+    func ZombieAlert (){
+        var zombiespeed : Double = 4.0
+        var zombietime : Double = 0
+        var zombiedistance : Double = zombietime * zombiespeed
+        
+        if(time == 0){
+            ZombieWarning = AVSpeechUtterance(string: "Zombie is coming in awhile! Run as fast as you can!")
+            ZombieWarning.rate = 1.2
+            synth.speak(ZombieWarning)
+        }
+        if (time == 5){
+            zombietime += 1
+        }
+        
+        if (zombiedistance >= travelledDistance){
+            audioPlayer.volume = 1
+        }
+        
+    }
+    
+    
+    
+    func FinishAlert (title:String, message:String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,9 +201,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     //Start Timer
 
     @IBAction func start(_ sender: UIButton) {
-        setupCoreLocation()
+        //Ask for permission to use user location Service
+     
+        if(setupCoreLocation() == true)
+        {
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
+        
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -141,14 +220,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         
-      
-        let currentSession = Session(0.0,targetDistance,myStringafd,lblCalories.text!,1,lblTime.text!,1)
+        let currentSession = Session(1,0.0,targetDistance,lblTime.text!,myStringafd,0)
         RunningDataManager.insertOrReplaceSession(session: currentSession)
         
-        var estimateddistance = String(targetDistance/5)
-        var currentSessionDistance = Session(firstdistance: estimateddistance,seconddistance: estimateddistance, thirddistance: estimateddistance,fourthdistance: estimateddistance,fifthdistance: estimateddistance)
-
-        RunningDataManager.UpdateSession(session: currentSessionDistance)
+        let estimateddistance = String(targetDistance/5)
+        var SessionLapDistance = Session(firstdistance :estimateddistance,seconddistance :estimateddistance,thirddistance :estimateddistance,fourthdistance :estimateddistance,fifthdistance :estimateddistance,RunningDataManager.selectlastSessionTableId())
+        RunningDataManager.UpdateSessionDistance(session: SessionLapDistance)
+  
         
         //Hide redundant data
         if(timer!.isValid == true)
@@ -157,6 +235,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lblProgress.isHidden = true
             lblNumberofProgress.isHidden = true
             buttonPause.isHidden = false
+        }
+        }
+        else
+        {
+            FinishAlert(title: "Location Service Not enabled", message: "You need to Enable Location Service to use this feature")
+           
         }
         
     }
@@ -194,18 +278,23 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     
     // Mark:Location
-    func setupCoreLocation(){
+    func setupCoreLocation()->Bool{
+        var authorization = false
         switch CLLocationManager.authorizationStatus(){
         case .notDetermined:
             locationManager.requestAlwaysAuthorization()
             break
         case .authorizedAlways:
             enableLocationServices()
+           authorization = true
         case .authorizedWhenInUse:
             enableLocationServices()
+           authorization = true
         default:
+            authorization = false
             break
         }
+        return authorization
         
     }
     
@@ -290,10 +379,63 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             mapView.add(polyline)
         }
         
+        var estimateddistance : Double = targetDistance/5
+        var finishingtime: String = lblTime.text!
+      
+        if (travelledDistance/1000 >= (estimateddistance * 5)){
+            lap5Speed = lblspeed.text!
+        }
+        else if (travelledDistance/1000 >= (estimateddistance * 4)){
+            lap4Speed = lblspeed.text!
+        }
+        else if (travelledDistance/1000 >= (estimateddistance * 3)){
+            lap3Speed = lblspeed.text!
+        }
+        else if (travelledDistance/1000 >= (estimateddistance * 2)){
+            lap2Speed = lblspeed.text!
+        }
+        else if(travelledDistance/1000 >= estimateddistance){
+            lap1Speed = lblspeed.text!
+        }
+        
+        if(targetDistance != 0)
+        {
+        if(travelledDistance/1000 >= targetDistance)
+        {
+            var currentFinishTime = Session(time: finishingtime,RunningDataManager.selectlastSessionTableId())
+            RunningDataManager.UpdateTotalTime(session: currentFinishTime)
+            startlocation = nil
+            lastLocation = nil
+            FinishAlert(title:"Finish",message:"You have completed the jog/run")
+            btnDoneRun.isHidden = false
+            btnDoneRun.isHidden = true
+            locationManager.stopUpdatingLocation()
+            locationManager.stopMonitoringSignificantLocationChanges()
+            disableLocationServices()
+            
+            var currentprogress: String = String(thisprogress + 1)
+            var currentcomplete: Schedule = Schedule(currentprogress,scheduleid)
+            RunningDataManager.UpdateProgress(Schedule: currentcomplete)
+            
+            var thisSessionSpeed = Session(firstspeed : lap1Speed,secondspeed : lap2Speed,thirdspeed : lap3Speed,fourthspeed : lap4Speed,fivespeed : lap5Speed,RunningDataManager.selectlastSessionTableId())
+            RunningDataManager.UpdateSessionSpeed(session: thisSessionSpeed)
+            
+            var thistotalcaloriesburnt = Session(scheduleid: RunningDataManager.selectlastSessionTableId(), totalcalories:calorie)
+            RunningDataManager.UpdateTotalCalories(session: thistotalcaloriesburnt)
+            
+            var thistotaldistance = Session(scheduleid: RunningDataManager.selectlastSessionTableId(), currentdistance: travelledDistance/1000)
+            RunningDataManager.UpdateCurrentDistance(session: thistotaldistance)
+            
+            updateMapRegion(rangeSpan: 200)
+            
+            timer!.invalidate()
+        }
+        }
+            
+        
         }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
-    
         if overlay is MKPolyline{
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.black
@@ -309,30 +451,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         let second = Int(time) % 60
         
         return String(format:"%02i:%02i:%02i", hour, minute, second)
+        
+       
+        
     }
-    
-    
-    
-   
- 
-
-
- /*   func addAnnotationsOnMap(locationToPoint: CLLocation)
-    {
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = locationToPoint.coordinate
-        var geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(locationToPoint, completionHandler:{(placemarks, Error) -> Void in
-        if let placemarks = placemarks as? [CLPlacemark] where placemarks.count > 0 {
-            var placemark = placemarks[0]
-            var addressDictionary = placemarks.addressDictionary;
-            annotation.title = addressDictionary["Name"] as? String
-            self.mapView.addAnnotation(annotation)
-            }
-        })
-    }
- */
-    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         if  (error as? CLError)?.code == .denied{
@@ -340,14 +462,5 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             manager.stopMonitoringSignificantLocationChanges()
     }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

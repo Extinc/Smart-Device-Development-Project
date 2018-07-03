@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EP1-SA-V1F">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wc3-ft-hFk">
             <objects>
-                <navigationController storyboardIdentifier="FoodScan" id="EP1-SA-V1F" sceneMemberID="viewController">
+                <navigationController id="EP1-SA-V1F" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PfJ-14-no4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1111" y="153"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="IDm-ay-vqo">
             <objects>
-                <viewController id="vtq-fB-qv4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodScanner" id="vtq-fB-qv4" customClass="CameraViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rxh-4w-TZL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,8 +50,8 @@
                                     <constraint firstAttribute="height" constant="50" id="9ja-9S-ADc"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pkj-dc-xwF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pkj-dc-xwF">
+                                <rect key="frame" x="0.0" y="70" width="375" height="553"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,6 +67,11 @@
                         <viewLayoutGuide key="safeArea" id="slN-1g-uSz"/>
                     </view>
                     <navigationItem key="navigationItem" id="24a-5g-iE0"/>
+                    <connections>
+                        <outlet property="imageView" destination="Pkj-dc-xwF" id="myX-qb-ePZ"/>
+                        <outlet property="selectPicture" destination="gUj-j2-zoj" id="aAV-uB-MhO"/>
+                        <outlet property="takePicture" destination="MR6-iI-y9w" id="VyP-0K-Tng"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhy-4q-2Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

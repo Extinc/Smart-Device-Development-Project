@@ -22,11 +22,13 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     @IBOutlet weak var buttonCreate: UIButton!
     @IBOutlet weak var buttonDelete: UIButton!
     @IBOutlet weak var distanceslider: UISlider!
+    @IBOutlet weak var lbldaydescript: UILabel!
     var savedevent = ""
     var savedevevntstore =  ""
     var username = "john"
     let picker = UIDatePicker()
     //Get slider value
+    
     @IBAction func slider(_ sender: UISlider) {
         
         lblDistance.text = String(String(format : "%.1f",sender.value))
@@ -35,13 +37,29 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
  let day : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        lbldaydescript.isHidden = false
+        FinishedCurrentSchedule()
         CheckCurrentSchedule()
         
         createDatePicker()
         // Do any additional setup after loading the view.
     }
-    
+    func FinishedCurrentSchedule()
+    {
+        var currentSchedule = RunningDataManager.loadScheduleInformation(username)
+        if(currentSchedule.progress == currentSchedule.numberoftimes)
+        {
+            RunningDataManager.UpdateComplete(currentSchedule.scheduleId!)
+            if(RunningDataManager.checkUserScheduleFinished(currentSchedule.scheduleId!) == true)
+            {
+            FinishAlert(title: "Successful Completed Schedule", message: "Congratulation, you have cleared your schedule , time to create a new schedule!")
+            }
+            
+            
+        }
+    }
     func CheckCurrentSchedule()
     {
         if(RunningDataManager.checkUserScheduleExist(username) == true)
@@ -50,7 +68,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             let CurrentSchedule = RunningDataManager.loadScheduleInformation(username)
             self.buttonCreate.isHidden = true
             self.buttonDelete.isHidden = false
-            
+            self.lblday.isHidden = false
             self.lblday.text = CurrentSchedule.day!
             
             
@@ -77,6 +95,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             self.buttonCreate.isHidden = false
             self.buttonDelete.isHidden = true
             self.datePickerTxt.isHidden = false
+            lblday.isHidden = true
             
             lblNumber.isEnabled = true
             
@@ -100,6 +119,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         return day[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        lblday.isHidden = false
         lblday.text = day[row]
     }
     
@@ -122,7 +142,17 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         datePickerTxt.text = "\(picker.date)"
         view.endEditing(true)
     }
-    
+    //Finish Alert
+    func FinishAlert (title:String, message:String)
+    {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     //Creating Alert
     func createAlert (title:String, message:String)
     {

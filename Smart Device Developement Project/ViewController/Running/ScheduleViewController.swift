@@ -188,13 +188,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     //Create Event in Calendar
     @IBAction func btnCreate(_ sender: Any) {
         
-      //  let dateFormatter = DateFormatter()
-      //  dateFormatter.date(from: "yyyy-MM-dd'T'HH:mm:ssZ")
-     //   let dateString: Date = dateFormatter.date(from: self.datePickerTxt.text!)!
-     //  let dateFormatter = DateFormatter()
-      //  dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-      //  let startdate: Date = dateFormatter.date(from: self.datePickerTxt.text!)!
-        
+     
       
         let eventStore:EKEventStore = EKEventStore()
         eventStore.requestAccess(to: .event, completion:{(granted, error) in

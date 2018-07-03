@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,55 +38,65 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-U6-Vkp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-Wu-R2M">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NAc-Wu-R2M">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4J-7E-RD7" customClass="MDCCard">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11E-Cm-3FT" customClass="MDCCard">
-                                                <rect key="frame" x="240" y="0.0" width="135" height="128"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4J-7E-RD7" customClass="MDCCard">
+                                                <rect key="frame" x="10" y="10" width="169" height="108"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRX-4C-qpL">
-                                                        <rect key="frame" x="46" y="54" width="42" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xR6-qs-NQL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="108"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="xR6-qs-NQL" firstAttribute="top" secondItem="h4J-7E-RD7" secondAttribute="top" id="11G-g5-RJf"/>
+                                                    <constraint firstItem="xR6-qs-NQL" firstAttribute="leading" secondItem="h4J-7E-RD7" secondAttribute="leading" id="IhT-As-jeG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xR6-qs-NQL" secondAttribute="trailing" id="q8m-u6-O6J"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xR6-qs-NQL" secondAttribute="bottom" id="vBj-Pd-m3F"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11E-Cm-3FT" customClass="MDCCard">
+                                                <rect key="frame" x="189" y="10" width="176" height="108"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zss-PT-mFf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="176" height="108"/>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="zss-PT-mFf" firstAttribute="top" secondItem="11E-Cm-3FT" secondAttribute="top" id="AIp-Tv-fQE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zss-PT-mFf" secondAttribute="trailing" id="Lco-ua-Wt8"/>
+                                                    <constraint firstItem="zss-PT-mFf" firstAttribute="leading" secondItem="11E-Cm-3FT" secondAttribute="leading" id="Ti1-fF-6k8"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="11E-Cm-3FT" firstAttribute="width" secondItem="NAc-Wu-R2M" secondAttribute="width" multiplier="0.45" id="1kB-MD-CvF"/>
+                                            <constraint firstAttribute="height" constant="128" id="OpN-w0-HOz"/>
+                                            <constraint firstItem="h4J-7E-RD7" firstAttribute="width" secondItem="NAc-Wu-R2M" secondAttribute="width" multiplier="0.45" id="epT-jN-BS9"/>
+                                            <constraint firstItem="11E-Cm-3FT" firstAttribute="height" secondItem="NAc-Wu-R2M" secondAttribute="height" multiplier="0.8" id="sOb-e9-D7b"/>
+                                            <constraint firstItem="h4J-7E-RD7" firstAttribute="height" secondItem="NAc-Wu-R2M" secondAttribute="height" multiplier="0.8" id="twN-SC-aJZ"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-ns-suc">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-ns-suc">
                                         <rect key="frame" x="0.0" y="128" width="375" height="475"/>
-                                        <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hAi-ea-5ub">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="475"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4sE-jX-HCW">
-                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4sE-jX-HCW" id="3M9-U2-iVg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
-                                        </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="N6J-ns-suc" secondAttribute="bottom" constant="20" symbolic="YES" id="1Kz-W7-Rdj"/>
+                                    <constraint firstItem="NAc-Wu-R2M" firstAttribute="top" secondItem="SbU-U6-Vkp" secondAttribute="top" id="SpT-dn-5hK"/>
+                                    <constraint firstAttribute="trailing" secondItem="NAc-Wu-R2M" secondAttribute="trailing" id="ZdH-A0-U55"/>
+                                    <constraint firstItem="NAc-Wu-R2M" firstAttribute="leading" secondItem="SbU-U6-Vkp" secondAttribute="leading" id="ofV-sV-sy6"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="leading" secondItem="8OJ-IF-HoC" secondAttribute="leading" id="9Xt-aO-AOU"/>
-                            <constraint firstItem="8OJ-IF-HoC" firstAttribute="bottom" secondItem="SbU-U6-Vkp" secondAttribute="bottom" id="TzY-14-Uu5"/>
-                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="top" secondItem="8OJ-IF-HoC" secondAttribute="top" id="jJW-yF-y3Z"/>
-                            <constraint firstItem="8OJ-IF-HoC" firstAttribute="trailing" secondItem="SbU-U6-Vkp" secondAttribute="trailing" id="qIS-sq-ygI"/>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="leading" secondItem="8OJ-IF-HoC" secondAttribute="leading" id="2BC-z2-f7M"/>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="trailing" secondItem="8OJ-IF-HoC" secondAttribute="trailing" id="Vom-jC-ixH"/>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="bottom" secondItem="8OJ-IF-HoC" secondAttribute="bottom" id="oTn-kc-fCi"/>
+                            <constraint firstItem="SbU-U6-Vkp" firstAttribute="top" secondItem="8OJ-IF-HoC" secondAttribute="top" id="w8H-eh-LZQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8OJ-IF-HoC"/>
                         <userDefinedRuntimeAttributes>
@@ -97,6 +108,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cardView1" destination="h4J-7E-RD7" id="39Y-7e-UFI"/>
+                        <outlet property="cardView1ImageView" destination="xR6-qs-NQL" id="Fpy-Gy-Zf5"/>
+                        <outlet property="cardView2" destination="11E-Cm-3FT" id="FBH-Qa-MEW"/>
+                        <outlet property="cardView2ImageView" destination="zss-PT-mFf" id="jPD-eS-MA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzQ-Ei-SkM" userLabel="First Responder" sceneMemberID="firstResponder"/>

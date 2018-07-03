@@ -11,7 +11,7 @@ import UIKit
 
 class MealInfo: NSObject {
     
-    static func GetInfo()
+    func GetInfo()
     {
         let r = RapidConnect(projectName: "", andToken: "")
         

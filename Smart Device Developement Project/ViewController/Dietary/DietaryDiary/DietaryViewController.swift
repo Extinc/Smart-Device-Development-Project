@@ -10,6 +10,9 @@ import UIKit
 
 class DietaryViewController: UIViewController {
 
+    @IBAction func Test(_ sender: Any) {
+        _ = MealInfo().GetInfo()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

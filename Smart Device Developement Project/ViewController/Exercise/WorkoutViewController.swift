@@ -18,6 +18,8 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
     var catID : Int = 0
     var exercise: [Exercise]?
     
+    @IBOutlet weak var cardView1: MDCCard!
+
     @IBAction func workoutSegment(_ sender: Any) {
        // catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
@@ -31,7 +33,15 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        /*
+        let cardScheme = MDCCard
+        MDCContainedButtonThemer.applyScheme(cardScheme, to: btn)
+        let btncolorScheme = MDCSemanticColorScheme()
+        btncolorScheme.primaryColor = pColor
+        btn.setTitle(title, for: UIControlState())
+        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
+        btn.titleLabel?.textColor = colors.secondaryTextColor
+         ßß*/
         exerciseCat = ExerciseDataManager.loadCategory()
 
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)

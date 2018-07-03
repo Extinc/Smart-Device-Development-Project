@@ -24,9 +24,9 @@ class MealInfo: NSObject {
                             var d0 = d[0] as! [String: Any]
                             var d0_foods = d0["foods"]!
                             print(d0_foods)
-                            var d0_foods_0 = d0_foods[0] as! [String: Any]
-                            var d0_nf_sodium = d0_foods_0["nf_sodium"]!
-                            print(d0_nf_sodium)
+                           // var d0_foods_0 = d0_foods[0] as! [String: Any]
+                            //var d0_nf_sodium = d0_foods_0["nf_sodium"]!
+                            //print(d0_nf_sodium)
                             
                             //print(d[0]["foods"][0]["nf_sodium"])
                         },

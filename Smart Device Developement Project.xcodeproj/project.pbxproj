@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
+		510E2C4720EB51CE00E0E767 /* RapidAPISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */; };
 		5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */; };
 		5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755820E222AF00DC20FA /* FoodScanner.storyboard */; };
 		5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755A20E2256400DC20FA /* DietaryPlan.storyboard */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RapidAPISDK.framework; path = Pods/RapidAPISDK.framework; sourceTree = "<group>"; };
 		5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCreateDataManager.swift; sourceTree = "<group>"; };
 		5137755820E222AF00DC20FA /* FoodScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FoodScanner.storyboard; sourceTree = "<group>"; };
 		5137755A20E2256400DC20FA /* DietaryPlan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				510E2C4720EB51CE00E0E767 /* RapidAPISDK.framework in Frameworks */,
 				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
 				4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */,
@@ -436,6 +439,7 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */,
 				90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */,
 				9008D52320D6932F00FEAC9E /* libsqlite3.tbd */,
 				CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */,
@@ -978,6 +982,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods",
+				);
 				INFOPLIST_FILE = "Smart Device Developement Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nyp.Smart-Device-Developement-Project";
@@ -995,6 +1003,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods",
+				);
 				INFOPLIST_FILE = "Smart Device Developement Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nyp.Smart-Device-Developement-Project";

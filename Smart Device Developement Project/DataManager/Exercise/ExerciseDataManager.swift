@@ -136,10 +136,10 @@ class ExerciseDataManager: NSObject{
             "FROM Workout WHERE category = \(catID) GROUP BY Workout.name")
         
         for row in exRows {
-             var muscPri = row["imgurls"] as! String
-            muscPri.removeFirst()
-            muscPri.removeLast()
-            print("YO: \(convertArrInStringToStrArr(sArray: muscPri))")
+             //var muscPri = row["imgurls"] as! String
+            //muscPri.removeFirst()
+           // muscPri.removeLast()
+           // print("YO: \(convertArrInStringToStrArr(sArray: muscPri))")
             /*exercise.append(Exercise(id: row["workoutID"] as! Int,
                                      name: row["name"] as! String,
                                      equipment: row["equipment"] as! Int,

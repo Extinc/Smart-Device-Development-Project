@@ -9,39 +9,23 @@
 import UIKit
 import MaterialComponents
 
-class WorkoutViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var workoutSegmentControl: UISegmentedControl!
-    @IBOutlet weak var workouttable: UITableView!
+class WorkoutViewController: UIViewController{
 
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
     var exercise: [Exercise]?
     
     @IBOutlet weak var cardView1: MDCCard!
-
-    @IBAction func workoutSegment(_ sender: Any) {
-       // catID = ExerciseDataManager.getCatID(name: self.workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
-        exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
-        DispatchQueue.main.async {
-            self.workouttable.reloadData()
-        }
-        
-    }
+    @IBOutlet weak var cardView2: MDCCard!
+    @IBOutlet weak var cardView1ImageView: UIImageView!
+    @IBOutlet weak var cardView2ImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        /*
-        let cardScheme = MDCCard
-        MDCContainedButtonThemer.applyScheme(cardScheme, to: btn)
-        let btncolorScheme = MDCSemanticColorScheme()
-        btncolorScheme.primaryColor = pColor
-        btn.setTitle(title, for: UIControlState())
-        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
-        btn.titleLabel?.textColor = colors.secondaryTextColor
-         ßß*/
+        
+        testCardColorThemer()
         exerciseCat = ExerciseDataManager.loadCategory()
 
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
@@ -52,26 +36,22 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 
+    func testCardColorThemer() {
+        // Given
+        let colorScheme = MDCSemanticColorScheme()
+        colorScheme.surfaceColor = .white
+        cardView1.backgroundColor = .white
+        cardView1.setBorderColor(UIColor.blue, for: cardView1.state)
+        // When
+        MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cardView1)
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (exercise?.count)!
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.textLabel?.text = exercise![indexPath.row].name!
-        
-        return cell
-    }
     
     /*
     // MARK: - Navigation

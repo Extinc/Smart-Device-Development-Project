@@ -109,9 +109,17 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xHs-f4-2nT">
                                 <rect key="frame" x="0.0" y="489" width="416" height="30"/>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-MX-8lY">
+                                <rect key="frame" x="185" y="381" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Test:" destination="ZRX-KN-u4F" eventType="touchUpInside" id="aDG-1r-j1E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7fl-MX-8lY" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="185" id="0Jt-2x-gkU"/>
                             <constraint firstItem="xHs-f4-2nT" firstAttribute="trailing" secondItem="hwr-gG-SCu" secondAttribute="trailing" id="0bz-Tf-9kV"/>
                             <constraint firstItem="aOq-et-hUx" firstAttribute="top" secondItem="xHs-f4-2nT" secondAttribute="bottom" constant="115" id="5am-dI-xnN"/>
                             <constraint firstItem="aOq-et-hUx" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" constant="569" id="B1Y-CC-EDU"/>
@@ -122,6 +130,8 @@
                             <constraint firstItem="xHs-f4-2nT" firstAttribute="top" secondItem="UD5-9E-F2b" secondAttribute="bottom" constant="223" id="Pwa-2N-BXG"/>
                             <constraint firstItem="AEi-dd-1sC" firstAttribute="baseline" secondItem="rBE-BT-q8W" secondAttribute="baseline" id="WmO-59-EMR"/>
                             <constraint firstItem="hcG-mx-Fdi" firstAttribute="leading" secondItem="UD5-9E-F2b" secondAttribute="trailing" constant="8" id="XFi-Vy-syE"/>
+                            <constraint firstItem="xHs-f4-2nT" firstAttribute="top" secondItem="7fl-MX-8lY" secondAttribute="bottom" constant="78" id="bqn-JI-RQZ"/>
+                            <constraint firstItem="hwr-gG-SCu" firstAttribute="trailing" secondItem="7fl-MX-8lY" secondAttribute="trailing" constant="183" id="fzV-V2-qfm"/>
                             <constraint firstItem="qab-hY-LIC" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" id="gv4-Ro-e75"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="top" secondItem="qab-hY-LIC" secondAttribute="bottom" constant="8" id="hGo-tQ-DB4"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="firstBaseline" secondItem="hcG-mx-Fdi" secondAttribute="baseline" id="ioH-ms-F5T"/>

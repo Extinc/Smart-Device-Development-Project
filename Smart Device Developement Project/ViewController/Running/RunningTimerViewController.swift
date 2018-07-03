@@ -8,8 +8,14 @@
 // THIS VERSION EDITUR CONSTRUCTOR COZ U ADD 1 MORE COLUMN IN DB TOTALTIME COLUMN
 import UIKit
 import MapKit
+import AVFoundation
 
 class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
+    
+    var audioPlayer = AVAudioPlayer()
+    var synth = AVSpeechSynthesizer()
+    var ZombieWarning = AVSpeechUtterance(string: "")
+    
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -90,7 +96,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
     override func viewDidLoad() {
-        
+        do{
+        audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
         super.viewDidLoad()
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
@@ -148,8 +160,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         btnCreateSchedules.isHidden = true
         btnStart.isHidden = false
     }
-/*
- //Incomplete
+
+
     func ZombieAlert (){
         var zombiespeed : Double = 4.0
         var zombietime : Double = 0
@@ -183,7 +195,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         
     }
-*/
+
     
     
     @IBAction func SwitchZombie(_ sender: UISwitch) {
@@ -402,7 +414,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lap1Speed = lblspeed.text!
         }
         if ZombieModeSwitch.isOn == true{
-           // ZombieAlert()
+            ZombieAlert()
         }
         
         if(targetDistance != 0)

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
-		510E2C4720EB51CE00E0E767 /* RapidAPISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */; };
 		5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */; };
 		5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755820E222AF00DC20FA /* FoodScanner.storyboard */; };
 		5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755A20E2256400DC20FA /* DietaryPlan.storyboard */; };
@@ -186,7 +185,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				510E2C4720EB51CE00E0E767 /* RapidAPISDK.framework in Frameworks */,
 				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
 				4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */,

@@ -965,7 +965,6 @@
 		F14AF54B32A05768FB772C2487B3974F /* FirebaseAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BC4CBE8D33C821A39FDF31BCC60216 /* FirebaseAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1711D7BB8EC3D47469529726FDA6ABC /* testutil.h in Headers */ = {isa = PBXBuildFile; fileRef = E3DA78F2FECD36F05284BA43D6FD57F5 /* testutil.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F1B52C36849DBC54FF6AB7F974BB7422 /* FIRDatabaseQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = AF5B470073C4C6CB8E7DDDC1452A0AC5 /* FIRDatabaseQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F1BB71F920EB42B100F3CA1A /* RapidAPISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BB71F820EB42B100F3CA1A /* RapidAPISDK.framework */; };
 		F1BB71FA20EB42B100F3CA1A /* RapidAPISDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BB71F820EB42B100F3CA1A /* RapidAPISDK.framework */; };
 		F1FFED6692653D226C7BB7FF057ECCF4 /* MDCFeatureHighlightAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D8D239B42BC2F92F844D2CD84FDF180 /* MDCFeatureHighlightAnimationController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F215CE92BEFC96E75C521E54940EEE68 /* FIRAuthWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB297D4B7991306A13A993841B14CF /* FIRAuthWebView.m */; };
@@ -2378,7 +2377,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				834F4D9819C6010E611A7E151B8899C3 /* Foundation.framework in Frameworks */,
-				F1BB71F920EB42B100F3CA1A /* RapidAPISDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

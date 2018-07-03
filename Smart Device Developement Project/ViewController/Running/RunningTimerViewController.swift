@@ -11,6 +11,7 @@ import MapKit
 
 class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
     
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var btnStart: UIButton!
@@ -147,7 +148,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         btnCreateSchedules.isHidden = true
         btnStart.isHidden = false
     }
-<<<<<<< HEAD
+/*
  //Incomplete
     func ZombieAlert (){
         var zombiespeed : Double = 4.0
@@ -182,8 +183,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         
     }
-=======
->>>>>>> f429bee545b41eccb90a733510473429dd4bf900
+*/
     
     
     @IBAction func SwitchZombie(_ sender: UISwitch) {
@@ -402,7 +402,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lap1Speed = lblspeed.text!
         }
         if ZombieModeSwitch.isOn == true{
-            ZombieAlert()
+           // ZombieAlert()
         }
         
         if(targetDistance != 0)

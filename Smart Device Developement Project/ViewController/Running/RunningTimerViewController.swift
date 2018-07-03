@@ -37,6 +37,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var btnCreateSchedules: UIButton!
     
+    @IBOutlet weak var ZombieModeSwitch: UISwitch!
+    
+    @IBOutlet weak var lblZombie: UILabel!
+    
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
@@ -171,15 +175,43 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             ZombieWarning.rate = 1.2
             synth.speak(ZombieWarning)
         }
-        if (time == 5){
+        if (time == 8){
             zombietime += 1
         }
         
-        if (zombiedistance >= travelledDistance){
-            audioPlayer.volume = 1
+        if (zombiedistance >= travelledDistance - 15){
+            audioPlayer.play()
+            audioPlayer.volume = 0.7
+        }
+        if(zombiedistance >= travelledDistance - 10)
+        {
+            audioPlayer.volume = 0.8
+        }
+        
+        if (zombiedistance >= travelledDistance - 5)
+        {
+            audioPlayer.volume = 1.0
+        }
+        if(zombiedistance >= travelledDistance - 20)
+        {
+            audioPlayer.stop()
         }
         
     }
+    
+    
+    @IBAction func SwitchZombie(_ sender: UISwitch) {
+        
+        if (sender.isOn == true)
+        {
+            lblZombie.isHidden = true
+        }
+        else
+        {
+            lblZombie.isHidden = false
+        }
+    }
+    
     
     
     
@@ -220,7 +252,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         
-        let currentSession = Session(1,0.0,targetDistance,lblTime.text!,myStringafd,0)
+        let currentSession = Session(RunningDataManager.selectlastScheduleTableId(),0.0,targetDistance,lblTime.text!,myStringafd,0)
+            
         RunningDataManager.insertOrReplaceSession(session: currentSession)
         
         let estimateddistance = String(targetDistance/5)
@@ -396,6 +429,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         else if(travelledDistance/1000 >= estimateddistance){
             lap1Speed = lblspeed.text!
+        }
+        if ZombieModeSwitch.isOn == true{
+            ZombieAlert()
         }
         
         if(targetDistance != 0)

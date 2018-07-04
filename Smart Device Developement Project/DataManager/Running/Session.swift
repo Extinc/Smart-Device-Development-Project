@@ -33,6 +33,12 @@ class Session: NSObject {
     var totalcaloriesburnt: Double?
     var progress: Int?
     var scheduleID: Int?
+    var sessionComplete: Int?
+    var lap1time: Double?
+    var lap2time: Double?
+    var lap3time: Double?
+    var lap4time: Double?
+    var lap5time: Double?
     
     init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double)
     {
@@ -51,6 +57,15 @@ class Session: NSObject {
         self.lap3speed = lap3speed
         self.lap4speed = lap4speed
         self.lap5speed = lap5speed
+        self.sessionID = sessionid
+    }
+    init(firsttime lap1time:Double,secondtime lap2time:Double,thirdtime lap3time:Double,fourthtime lap4time:Double,fivetime lap5time:Double,_ sessionid:Int)
+    {
+        self.lap1time = lap1time
+        self.lap2time = lap2time
+        self.lap3time = lap3time
+        self.lap4time = lap4time
+        self.lap5time = lap5time
         self.sessionID = sessionid
     }
     
@@ -104,5 +119,10 @@ class Session: NSObject {
     {
         self.scheduleID = scheduleID
         self.currentdistance = currentdistance
+    }
+    init(scheduleid scheduleID:Int,sessioncomplete sessionComplete:Int)
+    {
+        self.scheduleID = scheduleID
+        self.sessionComplete = sessionComplete
     }
 }

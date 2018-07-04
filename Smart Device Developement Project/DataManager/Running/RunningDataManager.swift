@@ -37,7 +37,11 @@ class RunningDataManager: NSObject {
             "lap2speed TEXT DEFAULT '0'," +
             "lap3speed TEXT DEFAULT '0'," +
             "lap4speed TEXT DEFAULT '0'," +
-            "lap5speed TEXT DEFAULT '0'," +
+            "lap1time Double DEFAULT 0," +
+            "lap2time Double DEFAULT 0," +
+            "lap3time Double DEFAULT 0," +
+            "lap4time Double DEFAULT 0," +
+            "lap5time Double DEFAULT 0," +
             "lap1estimateddistance TEXT DEFAULT '0'," +
             "lap2estimateddistance TEXT DEFAULT '0'," +
             "lap3estimateddistance TEXT DEFAULT '0'," +
@@ -49,6 +53,7 @@ class RunningDataManager: NSObject {
             "lap4distance TEXT DEFAULT '0'," +
             "lap5distance TEXT DEFAULT '0'," +
             "totalcaloriesburnt DOUBLE DEFAULT '0'," +
+            "sessionComplete INTEGER default 0 ," +
             "scheduleID INTEGER, " +
             "foreign key(scheduleID) REFERENCES trainingschedule(scheduleID))")
         
@@ -152,10 +157,15 @@ class RunningDataManager: NSObject {
     {
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1distance = ?, lap2distance = ?, lap3distance = ?, lap4distance = ?, lap5distance = ? Where sessionID = ?", parameters: [session.lap1distance, session.lap2distance, session.lap3distance, session.lap4distance, session.lap5distance, session.scheduleID])
     }
+    static func UpdateSessiontime(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET lap1time = ?, lap2time = ?, lap3time = ?, lap4time = ?, lap5time = ? Where sessionID = ?", parameters: [session.lap1time, session.lap2time, session.lap3time, session.lap4time, session.lap5time, session.scheduleID])
+    }
     static func UpdateSession(session: Session)
     {
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET currentdistance = ?,totaldistance = ?,finishdate = ?,totalcaloriesburnt = ? Where sessionID = ? ", parameters: [session.currentdistance, session.totaldistance, session.finishdate, session.totalcaloriesburnt, session.sessionID])
     }
+   
     static func UpdateTotalTime(session: Session)
     {
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET totaltime = ? Where sessionID = ? ", parameters: [session.totaltime,session.scheduleID])
@@ -175,6 +185,14 @@ class RunningDataManager: NSObject {
     static func UpdateCurrentDistance(session: Session)
     {
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET currentdistance = ? Where sessionID = ? ", parameters: [session.currentdistance,session.scheduleID])
+    }
+    static func UpdateCurrent(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET currentdistance = ? Where sessionID = ? ", parameters: [session.currentdistance,session.scheduleID])
+    }
+    static func UpdateCurrentComplete(session: Session)
+    {
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET sessionComplete = ? Where sessionID = ? ", parameters: [session.sessionComplete,session.scheduleID])
     }
     
     

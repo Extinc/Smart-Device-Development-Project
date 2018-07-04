@@ -29,6 +29,7 @@ class MealInfo: NSObject {
                 let foodData = json!
 
                 let count = foodData["total_hits"]
+                
                 print(count)
             })
     }

@@ -12,7 +12,7 @@ class PlanDataManager: NSObject {
     
     // MARK: - MEAL
     
-    //Create Meal Table
+   /* //Create Meal Table
     static func createMealTable() {
         SQLiteDB.sharedInstance.execute(sql:
             "CREATE TABLE IF NOT EXISTS " +
@@ -251,5 +251,5 @@ class PlanDataManager: NSObject {
         
         return recipe
     }
-
+*/
 }

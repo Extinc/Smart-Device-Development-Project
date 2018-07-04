@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="-669" y="-361"/>
         </scene>
-        <!--dietary-->
+        <!--FoodScan-->
         <scene sceneID="5wL-UY-v19">
             <objects>
-                <viewControllerPlaceholder storyboardName="FoodScanner" referencedIdentifier="dietary" id="jOM-fY-TxS" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="FoodScanner" referencedIdentifier="FoodScan" id="jOM-fY-TxS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLG-pw-INe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-430" y="-263"/>

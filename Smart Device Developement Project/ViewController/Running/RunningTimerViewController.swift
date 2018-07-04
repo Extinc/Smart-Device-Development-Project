@@ -115,6 +115,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         super.viewDidLoad()
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
+        print(RunningDataManager.selectlastScheduleTableId())
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
@@ -261,6 +262,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         let myStringafd = formatter.string(from: yourDate!)
         
         let currentSession = Session(RunningDataManager.selectlastScheduleTableId(),0.0,targetDistance,lblTime.text!,myStringafd,0)
+      
             
         RunningDataManager.insertOrReplaceSession(session: currentSession)
         
@@ -462,8 +464,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             var thisSessionLapTime = Session(firsttime :lap1time,secondtime :lap2time,thirdtime :lap3time,fourthtime :lap4time,fivetime :lap5time, RunningDataManager.selectlastSessionTableId())
             
-            
             RunningDataManager.UpdateSessiontime(session: thisSessionLapTime)
+            
             updateMapRegion(rangeSpan: 200)
             
             timer!.invalidate()

@@ -334,8 +334,6 @@
 			isa = PBXGroup;
 			children = (
 				70D4D7FF20D3A6BA009AC051 /* Running */,
-				90C601EB20B01549002FFF5D /* Login */,
-				909ED72B20AFD1A80092D385 /* Register */,
 				5169C66D20AAA9ED0014E15D /* HRA */,
 				5169C66B20AAA9E20014E15D /* Exercise */,
 				5169C66A20AAA9DC0014E15D /* Dietary */,
@@ -488,13 +486,6 @@
 			path = Running;
 			sourceTree = "<group>";
 		};
-		909ED72B20AFD1A80092D385 /* Register */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Register;
-			sourceTree = "<group>";
-		};
 		90C601E820B00E87002FFF5D /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,13 +493,6 @@
 				5154F67F20B78838000C9E29 /* LifestyleTheme.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		90C601EB20B01549002FFF5D /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		90F9C7D820D39F39005BA228 /* DataManager */ = {

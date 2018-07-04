@@ -118,21 +118,27 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 {
             planTextField.text = dataPlan[row]
+            view.endEditing(true)
         }
         else if pickerView.tag == 2 {
             goalsTextField.text = dataGoals[row]
+            view.endEditing(true)
         }
         else if pickerView.tag == 3 {
             durationTextField.text = dataDuration[row]
+            view.endEditing(true)
         }
         else if pickerView.tag == 4 {
             mealsperdayTextField.text = dataMealsPD[row]
+            view.endEditing(true)
         }
         else if pickerView.tag == 5 {
             mealtimingsTextField.text = dataMealsT[row]
+            view.endEditing(true)
         }
         else if pickerView.tag == 6 {
             remindersTextField.text = dataReminders[row]
+            view.endEditing(true)
         }
     }
     

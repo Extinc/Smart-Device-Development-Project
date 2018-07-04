@@ -9,7 +9,7 @@
 import UIKit
 import MaterialComponents
 
-class WorkoutViewController: UIViewController{
+class WorkoutViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
@@ -19,6 +19,7 @@ class WorkoutViewController: UIViewController{
     @IBOutlet weak var cardView2: MDCCard!
     @IBOutlet weak var cardView1ImageView: UIImageView!
     @IBOutlet weak var cardView2ImageView: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +28,44 @@ class WorkoutViewController: UIViewController{
         
         testCardColorThemer()
         exerciseCat = ExerciseDataManager.loadCategory()
-
+        
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
 
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
         for ex in exercise!{
             print(ex.name!)
         }
+        collectionView.register(MDCCardCollectionCell.self, forCellWithReuseIdentifier: "Cell")
     }
-
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return ((exerciseCat?.count)!/numberOfSections(in: collectionView))
+    }
+  
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
+                                                      for: indexPath) as! MDCCardCollectionCell
+        // If you wanted to have the card show the selected state when tapped
+        // then you need to turn isSelectable to true, otherwise the default is false.
+        cell.isSelectable = true
+       //cell.selectedImageTintColor = .blue
+        var view: UIView = UIView()
+        var label: UILabel = UILabel()
+        label.text = "UIC"
+        
+        view.addSubview(label)
+        cell.addSubview(view)
+        cell.cornerRadius = 8
+        cell.setShadowElevation(ShadowElevation(rawValue: 6), for: .selected)
+        cell.setShadowColor(UIColor.black, for: .highlighted)
+        return cell
+    }
+    
     func testCardColorThemer() {
         // Given
         let colorScheme = MDCSemanticColorScheme()

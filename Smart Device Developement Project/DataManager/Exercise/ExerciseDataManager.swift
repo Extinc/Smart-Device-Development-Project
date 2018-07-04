@@ -139,7 +139,7 @@ class ExerciseDataManager: NSObject{
              //var muscPri = row["imgurls"] as! String
             //muscPri.removeFirst()
            // muscPri.removeLast()
-           // print("YO: \(convertArrInStringToStrArr(sArray: muscPri))")
+           //√ print("YO: \(convertArrInStringToStrArr(sArray: muscPri))")
             /*exercise.append(Exercise(id: row["workoutID"] as! Int,
                                      name: row["name"] as! String,
                                      equipment: row["equipment"] as! Int,

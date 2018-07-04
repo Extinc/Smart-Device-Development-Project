@@ -7,25 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class PlanDataManager: NSObject {
     
     // MARK: - MEAL
     
-    //Create Meal Table
-    static func createMealTable() {
-        SQLiteDB.sharedInstance.execute(sql:
-            "CREATE TABLE IF NOT EXISTS " +
-                "Meal (" +
-                "mealID int primary key, " +
-                "name text, " +
-                "calories real, " +
-                "carbohydrates real, " +
-                "protein real, " +
-                "fat real, " +
-            "sodium real "
-        )
-    }
     
     // MARK: - MEAL PLAN
     
@@ -43,95 +30,58 @@ class PlanDataManager: NSObject {
     }
 
     //Retrieve ALL plans
-    static func loadPlans(username: String) -> [MealPlan]{
-        let planRows = SQLiteDB.sharedInstance.query(sql:
-        "SELECT date, mealID, mealNo, planID" +
-        "FROM MealPlan" +
-        "WHERE username = ?",
-        parameters: [username]
-        )
+    static func loadMealPlans(username: String, date: String, onComplete: @escaping ([MealPlan]) -> Void)
+    {
+        //create empty list
+        var mealPlanList : [MealPlan] = []
+        let ref = FirebaseDatabase.Database.database().reference().child("mealPlan/")
         
-        var plan : [MealPlan] = []
-        for row in planRows
-        {
-            //JSON stuff
-            let mealID = row["mealID"] as! Int
-            //change to json thingy to get from api
-            let mealName = "Chicken rice"
-            let mealimage = "chickenrice"
-            let calories = "450.00"
-            
-            plan.append(
-                MealPlan(row["username"] as! String,
-                         row["date"] as! String,
-                         row["mealID"] as! Int,
-                         row["mealNo"] as! Int,
-                         row["planID"] as! Int,
-                         mealName,
-                         mealimage,
-                         calories)
-            )
-        }
-        return plan
+        //observeSingleEventofType tells Firebase to load the full list of Meals
+        //and execute the "with" closure once, when the download is complete
+        ref.observeSingleEvent(of: .value,
+                               with:
+            { (snapshot) in
+                // Executes the retrieval of data only when Firebase is complete
+                // Meanwhile, before the download is complete, user can still interact with user interface
+                for record in snapshot.children{
+                    let r = record as! DataSnapshot
+                    let Ddate = r.childSnapshot(forPath: "date").value as! String
+                    if Ddate == date {
+                        mealPlanList.append(MealPlan(
+                            r.childSnapshot(forPath: "username") as! String,
+                            r.childSnapshot(forPath: "date").value as! String,
+                            r.childSnapshot(forPath: "mealID").value as! Int,
+                            r.childSnapshot(forPath: "mealNo").value as! Int,
+                            r.childSnapshot(forPath: "planID").value as! Int,
+                            r.childSnapshot(forPath: "mealName").value as! String,
+                            r.childSnapshot(forPath: "mealImage").value as! String,
+                            r.childSnapshot(forPath: "calories").value as! String
+                        ))
+                    }
+                }
+                onComplete(mealPlanList)
+        })
     }
     
-    //Retrieve plans by date
-    static func loadPlans(username: String, date: String) -> [MealPlan]{
-        let planRows = SQLiteDB.sharedInstance.query(sql:
-            "SELECT date, mealID, mealNo, planID" +
-            "FROM MealPlan" +
-            "WHERE username = ?, date = ?",
-            parameters: [username, date]
-        )
-        
-        var plan : [MealPlan] = []
-        for row in planRows
-        {
-            //JSON stuff
-            let mealID = row["mealID"] as! Int
-            //change to json thingy to get from api
-            let mealName = "Chicken rice"
-            let mealimage = "chickenrice"
-            let calories = "450.00"
-            
-            plan.append(
-                MealPlan(row["username"] as! String,
-                         row["date"] as! String,
-                         row["mealID"] as! Int,
-                         row["mealNo"] as! Int,
-                         row["planID"] as! Int,
-                         mealName,
-                         mealimage,
-                         calories)
-            )
-        }
-        return plan
-    }
     
     //Create/Update
-    static func insertOrReplacePlan(mealplan: MealPlan)
-    {
-        SQLiteDB.sharedInstance.execute(sql:
-            "INSERT OR REPLACE INTO MealPlan(username, date, mealID, mealNo, planID)" +
-            "VALUE (?, ?, ?, ?, ?)",
-            parameters: [
-                mealplan.username,
-                mealplan.date,
-                mealplan.mealID,
-                mealplan.mealNo,
-                mealplan.planID
-            ]
-        )
-        
+    static func insertOrReplacePlan(mealplan: MealPlan) {
+        let ref = FirebaseDatabase.Database.database().reference().child("mealPlan/\(mealplan.planID)")
+        ref.setValue([
+            "username" : mealplan.username,
+            "date" : mealplan.date,
+            "mealID" : mealplan.mealID,
+            "mealNo" : mealplan.mealNo,
+            "mealName" : mealplan.mealName,
+            "mealImage" : mealplan.mealImage,
+            "calories" : mealplan.calories
+            
+            ])
     }
     
     //Delete
     static func deletePlan (mealPlan: MealPlan){
-        SQLiteDB.sharedInstance.execute(sql:
-        "DELETE FROM MealPlan WHERE planID = ?",
-            parameters: [mealPlan.planID]
-            
-        )
+        let ref = FirebaseDatabase.Database.database().reference().child("mealPlan/\(mealPlan.planID)")
     }
     
   
@@ -154,36 +104,7 @@ class PlanDataManager: NSObject {
         )
     }
     
-    //Retrieve
-    static func loadPlanPreferences(username: String) -> [UserPlanPreferences]{
-        let preferencesRows = SQLiteDB.sharedInstance.query(sql:
-            "SELECT mealplantype, goals, duration, mealsperday, mealtiming, reminders" +
-                "FROM UserPlanPreferences" +
-                "WHERE username = ?",
-                parameters: [username]
-        )
-        
-        var preferences : [UserPlanPreferences] = []
-        if (preferencesRows.isEmpty == false){
-            for row in preferencesRows
-            {
-                preferences.append(
-                    UserPlanPreferences(row["username"] as! String,
-                                        row["mealplantype"] as! String,
-                                        row["goals"] as! String,
-                                        row["duration"] as! String,
-                                        row["mealsperday"] as! Int,
-                                        row["mealtiming"] as! String,
-                                        row["reminders"] as! String)
-                )
-            }
-        }
-        else {
-            preferences.append(UserPlanPreferences("","","","",0,"",""))
-        }
-        
-        return preferences
-    }
+    
     
     //Create/Update
     static func insertOrReplacePreferences(userPlanPreferences: UserPlanPreferences)

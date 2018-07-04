@@ -64,6 +64,12 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //Tap Gestures
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
@@ -75,10 +81,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         view.endEditing(true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // Segue unwind
+    @IBAction func unwindToDietaryPlanController(segue: UIStoryboardSegue) {}
+   
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

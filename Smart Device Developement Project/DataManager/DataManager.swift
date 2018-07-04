@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DataManager: NSObject {
     static func createTable(sql: String){
@@ -47,4 +48,12 @@ class DataManager: NSObject {
         return exist
     }
     
+    static func insertHWIntoDB(uid: String, height: String, weight: String){
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("Profile").child(uid).child("height").setValue(height)
+        ref.child("Profile").child(uid).child("weight").setValue(weight)
+    }
 }

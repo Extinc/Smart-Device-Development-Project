@@ -58,10 +58,12 @@
             </objects>
             <point key="canvasLocation" x="-1793" y="180"/>
         </scene>
-        <!--Dietary-->
+        <!--dietary-->
         <scene sceneID="08M-n2-GJd">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dietary" id="xGh-5y-frg" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Dietary" referencedIdentifier="dietary" id="xGh-5y-frg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rGo-ut-FYg"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mN9-kI-ZzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-489" y="-360"/>
@@ -69,7 +71,9 @@
         <!--FoodScan-->
         <scene sceneID="5wL-UY-v19">
             <objects>
-                <viewControllerPlaceholder storyboardName="FoodScanner" referencedIdentifier="FoodScan" id="jOM-fY-TxS" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="FoodScanner" referencedIdentifier="FoodScan" id="jOM-fY-TxS" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="X7P-DC-EZU"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLG-pw-INe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-293" y="-329"/>
@@ -84,6 +88,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-60-21W">
                                 <rect key="frame" x="20" y="95" width="374" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -160,7 +165,7 @@
                                         <rect key="frame" x="207" y="0.0" width="207" height="30"/>
                                         <state key="normal" title="Add Meal"/>
                                         <connections>
-                                            <segue destination="jOM-fY-TxS" kind="show" id="VkM-BU-fqP"/>
+                                            <segue destination="jOM-fY-TxS" kind="show" id="caT-9B-PbL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -172,7 +177,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99966859819999998" green="0.93340075970275294" blue="0.90237413346784168" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="WP9-Md-aqS" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" id="7Bv-eJ-mKU"/>
                             <constraint firstItem="ktH-q7-DGE" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" constant="20" id="7DH-XL-C8J"/>
@@ -196,7 +200,7 @@
                     <navigationItem key="navigationItem" title="Dietary Planner" id="ExF-6e-RMC">
                         <barButtonItem key="rightBarButtonItem" title="Summary" id="VKL-ch-Hc8">
                             <connections>
-                                <segue destination="xGh-5y-frg" kind="show" id="23A-xZ-DdK"/>
+                                <segue destination="xGh-5y-frg" kind="show" id="cob-LP-DpX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -463,6 +467,8 @@
                         <viewLayoutGuide key="safeArea" id="BL6-WO-M5j"/>
                     </view>
                     <connections>
+                        <outlet property="pageControl" destination="b3B-4s-nuf" id="CzI-K7-leu"/>
+                        <outlet property="scrollView" destination="L3p-6t-ZAY" id="dRz-5W-Yx3"/>
                         <segue destination="oBU-0m-biu" kind="show" identifier="moreInfoSegue" id="77n-LJ-ABe"/>
                     </connections>
                 </viewController>

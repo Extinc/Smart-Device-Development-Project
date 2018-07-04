@@ -68,6 +68,10 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         mealtimingsTextField.inputView = picker5
         remindersTextField.inputView = picker6
         
+        //when user taps, usually keyboard comes up, disables the keyboard coming up
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PlanOptionsViewController.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
         //loadPreferences()
         
     }
@@ -75,6 +79,11 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Tap Gestures
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
     }
     
     // MARK: - UIPickerViews

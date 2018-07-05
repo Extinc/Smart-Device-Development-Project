@@ -9,17 +9,26 @@
 import UIKit
 import MaterialComponents
 
-class WorkoutViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+
 
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
     var exercise: [Exercise]?
     
+    @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
     @IBOutlet weak var cardView2: MDCCard!
     @IBOutlet weak var cardView1ImageView: UIImageView!
     @IBOutlet weak var cardView2ImageView: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        exerciseCat = ExerciseDataManager.loadCategory()
+        setUpCustomView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,37 +36,26 @@ class WorkoutViewController: UIViewController, UICollectionViewDataSource, UICol
         // Do any additional setup after loading the view.
         
         testCardColorThemer()
-        exerciseCat = ExerciseDataManager.loadCategory()
-        
+
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
 
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
         for ex in exercise!{
             print(ex.name!)
         }
-        collectionView.register(WorkoutCustomCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ((exerciseCat?.count)!/numberOfSections(in: collectionView))
-    }
-  
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
-                                                      for: indexPath) as! WorkoutCustomCollectionViewCell
-        // If you wanted to have the card show the selected state when tapped
-        // then you need to turn isSelectable to true, otherwise the default is false.
-        cell.isSelectable = false
-       //cell.selectedImageTintColor = .blue
-        cell.cornerRadius = 8
-        cell.setShadowElevation(ShadowElevation(rawValue: 6), for: .selected)
-        cell.setShadowColor(UIColor.black, for: .highlighted)
-        return cell
+    func setUpCustomView(){
+        for i in 0...(exerciseCat?.count)!{
+            let card = MDCCard()
+            
+            // Create, position, and add content views:
+            let imageView = UIImageView()
+            card.addSubview(imageView)
+        }
+        
+
     }
     
     func testCardColorThemer() {
@@ -75,7 +73,23 @@ class WorkoutViewController: UIViewController, UICollectionViewDataSource, UICol
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (exerciseCat?.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCustomViewCell
+        
+        cell.cellLabel.text = exerciseCat?[indexPath.row].name
+        
+        return cell
+    }
+    
     
     /*
     // MARK: - Navigation

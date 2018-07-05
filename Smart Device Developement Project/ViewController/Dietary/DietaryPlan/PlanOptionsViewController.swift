@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
@@ -169,35 +170,20 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     
-   /* // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "optionsSegue") {
-            let secondOptions = segue.destination as! PlanOptions2ViewController
-            let myIndexPath = self.tableView.indexPathForSelectedRow
-            let chosenRow = tableData[(myIndexPath?.section)!]
-            var optionsTableData = [String]()
-            switch chosenRow{
-                case "Type of Meal Plan":
-                    optionsTableData = ["Vegan", "Gluten Free", "Clean Eating", "Muscle Builder", "Keto", "Dash"]
-                case "Goals of Diet":
-                    optionsTableData = ["Gain Weight", "Lose Weight", "Maintain Weight"]
-                case "Duration of Diet":
-                    optionsTableData = ["1 Week", "2 Weeks", "1 Month", "3 Months", "6 Months"]
-                case "Meals per day":
-                    optionsTableData = ["1", "2", "3", "4", "5", "6"]
-                case "Meal Timings":
-                    optionsTableData = ["2 Hours","3 Hours", "4 Hours", "5 Hours", "6 Hours"]
-                case "Reminders before Meals":
-                    optionsTableData = ["Yes", "No"]
-                default:
-                    optionsTableData = [ ""]
-            }
-            secondOptions.tableData = optionsTableData
+    // MARK: - Navigation
 
-        }
-        
-    }*/
-
-    // MARK: - Functions
+    @IBAction func goBackToDPC(_ sender: Any) {
+        let username = "1"
+        let dietplan = planTextField.text
+        let goals = goalsTextField.text
+        let duration = durationTextField.text
+        let mpd = mealsperdayTextField.text as! Int
+        let mti = mealtimingsTextField.text
+        let reminders = remindersTextField.text
+        let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd, mti!, reminders! )
+    PlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
+        performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
+    }
     
+     // MARK: - Functions
 }

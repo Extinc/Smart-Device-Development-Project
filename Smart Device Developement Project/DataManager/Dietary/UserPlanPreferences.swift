@@ -16,9 +16,9 @@ class UserPlanPreferences: NSObject {
     var mealsperday: Int?
     var mealtiming: String?
     var reminders: String?
-    var totalCaloriesPerDay: Float?
     
-    init(_ username: String,_ mealPlanType: String,_ goals: String,_ duration: String, _ mealsperday: Int,_ mealtiming: String,_ reminders: String, _ totalCaloriesPerDay: Float ){
+    
+    init(_ username: String,_ mealPlanType: String,_ goals: String,_ duration: String, _ mealsperday: Int,_ mealtiming: String,_ reminders: String ){
         self.username = username
         self.mealPlanType = mealPlanType
         self.goals = goals
@@ -26,7 +26,6 @@ class UserPlanPreferences: NSObject {
         self.mealsperday = mealsperday
         self.mealtiming = mealtiming
         self.reminders = reminders
-        self.totalCaloriesPerDay = totalCaloriesPerDay
         
     }
 }

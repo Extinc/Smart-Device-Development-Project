@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,7 +104,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Su2-6L-pe7" id="PdC-qI-zxa">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="101.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="101.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-oC-8MK">
@@ -114,13 +114,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-j8-ZUN">
-                                                    <rect key="frame" x="130" y="52" width="231" height="21"/>
+                                                    <rect key="frame" x="130" y="52" width="226" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-VW-I6j">
-                                                    <rect key="frame" x="130" y="23" width="231" height="21"/>
+                                                    <rect key="frame" x="130" y="23" width="226" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -584,7 +584,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-iO-f0Z">
                                         <rect key="frame" x="0.0" y="344.66666666666669" width="414" height="86"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Timings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ee-k1-4nu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Timings Interval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ee-k1-4nu">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -638,7 +638,11 @@
                         <viewLayoutGuide key="safeArea" id="hEi-wD-g3P"/>
                     </view>
                     <navigationItem key="navigationItem" title="Options" id="j7r-tq-0YU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OIv-SY-zZ8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OIv-SY-zZ8">
+                            <connections>
+                                <action selector="goBackToDPC:" destination="DUt-rP-HKx" id="FMx-FV-UvM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="durationTextField" destination="P0w-Bl-Hxr" id="GxQ-Ri-Dg9"/>
@@ -647,9 +651,11 @@
                         <outlet property="mealtimingsTextField" destination="mU0-kd-d4f" id="NNW-AR-waF"/>
                         <outlet property="planTextField" destination="TwI-kE-d50" id="arw-Dl-AxK"/>
                         <outlet property="remindersTextField" destination="CBT-bZ-7JN" id="vwe-um-4yn"/>
+                        <segue destination="Cjv-Dy-B1G" kind="unwind" identifier="unwindSegueToDPC" unwindAction="unwindToDietaryPlanControllerWithSegue:" id="Qtk-YI-pw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg7-35-7Cl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Cjv-Dy-B1G" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-167" y="953"/>
         </scene>

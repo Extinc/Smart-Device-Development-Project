@@ -23,11 +23,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
-    let headers = ["Planned Meals", "A"]
-    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "", "340.5"),
-                     MealPlan("", "", 2, 2, 1, "Aglio Olio", "", "450"),
-                     MealPlan("", "", 3, 3, 1, "Porridge", "", "300")],
-                     [MealPlan("","", 14, 4, 1, "", "", "200")]
+    let headers = ["Planned Meals", "Dietary Diary"]
+    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "chickenrice", 340.5),
+                     MealPlan("", "", 2, 2, 1, "Aglio Olio", "", 450),
+                     MealPlan("", "", 3, 3, 1, "Porridge", "", 300)],
+                     [MealPlan("","", 14, 4, 1, "", "", 200)]
                     ]
 
     var contentWidth:CGFloat = 0.0
@@ -47,7 +47,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         //set input type to datepicker
         dateTextField.inputView = datePicker
         
-        
+        // Create tables
+        PlanDataManager.createUPTable()
         
         //load meal plan type and goals
       /*  if (mealplantype == ""){
@@ -101,7 +102,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
         cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
-        cell.mealCalories.text = mealPlans[indexPath.section][indexPath.row].calories
+        cell.mealCalories.text = mealPlans[indexPath.section][indexPath.row].calories as! String
+        cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
+        
         return cell
     }
 
@@ -109,7 +112,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     // MARK: - Navigation
 
-   
+
  
 
 }

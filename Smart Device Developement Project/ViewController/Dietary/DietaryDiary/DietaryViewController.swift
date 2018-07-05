@@ -11,8 +11,23 @@ import UIKit
 class DietaryViewController: UIViewController {
 
     @IBAction func Test(_ sender: Any) {
-        _ = MealInfo().GetInfo(food: "chicken")
+        MealInfo().GetInfo(food: "chicken",
+                           onComplete:
+            {
+                (listofFoodData) in
+                // Set the news list downloaded from Reddit
+                // to our own newsList variable.
+                //
+                self.fd = listofFoodData
+                
+                /*DispatchQueue.main.async{
+                 
+                 }*/
+        })
     }
+    
+    var fd : [foodData] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -23,18 +23,12 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var cardView2ImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        exerciseCat = ExerciseDataManager.loadCategory()
-        setUpCustomView()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        exerciseCat = ExerciseDataManager.loadCategory()
         testCardColorThemer()
 
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
@@ -43,18 +37,6 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         for ex in exercise!{
             print(ex.name!)
         }
-
-    }
-    
-    func setUpCustomView(){
-        for i in 0...(exerciseCat?.count)!{
-            let card = MDCCard()
-            
-            // Create, position, and add content views:
-            let imageView = UIImageView()
-            card.addSubview(imageView)
-        }
-        
 
     }
     

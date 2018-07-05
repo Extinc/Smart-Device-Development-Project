@@ -21,12 +21,13 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Do any additional setup after loading the view, typically from a nib.
         
         // we check if this device has a camera
-        //
+        /*
         if !(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
             // If not, we will just hide the takePicture button
             //
             takePicture.isHidden = true
         }
+        */
     }
     
     override func didReceiveMemoryWarning() {

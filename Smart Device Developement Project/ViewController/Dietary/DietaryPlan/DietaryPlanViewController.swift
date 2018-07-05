@@ -35,6 +35,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //DietaryCreateData.createData()
+        
         //Date picker
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
@@ -101,9 +103,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
-        cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
-        cell.mealCalories.text = mealPlans[indexPath.section][indexPath.row].calories as! String
-        cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
+        //cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
+        //cell.mealCalories.text = mealPlans[indexPath.section][indexPath.row].calories as! String
+        //cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
         
         return cell
     }

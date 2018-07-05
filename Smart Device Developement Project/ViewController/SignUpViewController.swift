@@ -78,11 +78,11 @@ class SignUpViewController: UIViewController {
             regRepeatPass.isSecureTextEntry = true
             allTextFieldControllers.append(regRepeatPassController)
         
-            let regHeightController = MDCTextInputControllerOutlined(textInput: regRepeatPass)
+            let regHeightController = MDCTextInputControllerOutlined(textInput: regHeightTF)
             regHeightController.placeholderText = "Height"
             allTextFieldControllers.append(regHeightController)
         
-            let regWeightController = MDCTextInputControllerOutlined(textInput: regRepeatPass)
+            let regWeightController = MDCTextInputControllerOutlined(textInput: regWeightTF)
             regWeightController.placeholderText = "Weight"
             allTextFieldControllers.append(regWeightController)
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
-class WorkoutCustomCollectionViewCell:  MDCCardCollectionCell{
+class WorkoutCustomViewCell: UITableViewCell{
     @IBOutlet weak var cellLabel: UILabel!
+    
 }

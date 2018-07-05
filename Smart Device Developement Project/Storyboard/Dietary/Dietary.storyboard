@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fiC-Qn-9nL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JjH-Lc-1fc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Calories-->
+        <scene sceneID="YC5-jP-i3K">
+            <objects>
+                <viewController id="JjH-Lc-1fc" sceneMemberID="viewController">
+                    <containerView key="view" opaque="NO" contentMode="scaleToFill" id="2uD-lT-g03">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <segue destination="fiC-Qn-9nL" kind="embed" id="JIe-6t-QfN"/>
+                        </connections>
+                    </containerView>
+                    <tabBarItem key="tabBarItem" title="Calories" selectedImage="icons8-tripadvisor-24" id="roH-RF-lY2"/>
+                    <navigationItem key="navigationItem" title="Calories" id="StU-cv-LlN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="glS-mz-Z2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1606" y="134"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XaF-ua-ShI">
             <objects>
@@ -27,7 +46,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ks3-J7-C4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-713" y="134"/>
+            <point key="canvasLocation" x="-642" y="134"/>
         </scene>
         <!--Dietary Summary-->
         <scene sceneID="fPP-t8-Xh5">
@@ -62,10 +81,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qab-hY-LIC" customClass="KDCircularProgress" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
-                                <rect key="frame" x="122" y="64" width="170" height="170"/>
+                                <rect key="frame" x="122" y="64.333333333333329" width="170" height="169.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3h-4H-Mhk">
-                                        <rect key="frame" x="50" y="50" width="70" height="70"/>
+                                        <rect key="frame" x="50" y="50.000000000000007" width="70" height="69.666666666666686"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -96,7 +115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aOq-et-hUx">
-                                <rect key="frame" x="125" y="633" width="165" height="54"/>
+                                <rect key="frame" x="125" y="633.33333333333337" width="165" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="9hf-NX-Moo"/>
                                     <constraint firstAttribute="width" constant="165" id="DUA-By-Mmy"/>
@@ -107,7 +126,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.5" maxValue="4.5" translatesAutoresizingMaskIntoConstraints="NO" id="xHs-f4-2nT">
-                                <rect key="frame" x="0.0" y="489" width="416" height="30"/>
+                                <rect key="frame" x="0.0" y="489" width="416" height="30.333333333333371"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-MX-8lY">
                                 <rect key="frame" x="185" y="381" width="46" height="30"/>
@@ -486,4 +505,7 @@
             <point key="canvasLocation" x="224.63768115942031" y="922.82608695652186"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-tripadvisor-24" width="24" height="24"/>
+    </resources>
 </document>

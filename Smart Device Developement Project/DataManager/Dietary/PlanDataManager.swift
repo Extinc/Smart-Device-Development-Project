@@ -11,9 +11,6 @@ import FirebaseDatabase
 
 class PlanDataManager: NSObject {
     
-    // MARK: - MEAL
-    
-    
     // MARK: - MEAL PLAN
     
     //Create Meal Plan Table
@@ -66,7 +63,23 @@ class PlanDataManager: NSObject {
     
     
     //Create/Update
-   
+    static func insertOrReplaceMealPlan(mealPlan : MealPlan)
+    {
+        SQLiteDB.sharedInstance.execute(sql:
+            "INSERT OR REPLACE INTO MealPlan(username, date, mealID, mealNo, planID)" +
+            "VALUE (?, ?, ?, ?, ?)",
+            parameters: [
+                mealPlan.username,
+                mealPlan.date,
+                mealPlan.mealID,
+                mealPlan.mealNo,
+                mealPlan.planID
+            ]
+        )
+        
+    }
+    
+    
     //Delete
  
   
@@ -124,8 +137,7 @@ class PlanDataManager: NSObject {
                 "recipeID int primary key, " +
                 "directions text, " +
                 "ingredients text, " +
-                "servingsize text, " +
-                "FOREIGN KEY(mealID) REFERENCES Meal(mealID))"
+                "servingsize text) "
         )
     }
     

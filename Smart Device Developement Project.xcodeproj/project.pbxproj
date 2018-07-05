@@ -48,6 +48,7 @@
 		69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B42A2B20DA4FA4008925D0 /* PlanOptionsViewController.swift */; };
 		69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BE096B20DB6E980008BF25 /* MealPlan.swift */; };
 		69BE096E20DB6EEE0008BF25 /* PlanDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */; };
+		69D026D920EE65FB008E450E /* RecommendMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D026D820EE65FA008E450E /* RecommendMeal.swift */; };
 		69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761820DFCBE900688C7A /* ViewMealViewController.swift */; };
 		69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
@@ -145,6 +146,7 @@
 		69B42A2B20DA4FA4008925D0 /* PlanOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionsViewController.swift; sourceTree = "<group>"; };
 		69BE096B20DB6E980008BF25 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
 		69BE096D20DB6EED0008BF25 /* PlanDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDataManager.swift; sourceTree = "<group>"; };
+		69D026D820EE65FA008E450E /* RecommendMeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendMeal.swift; sourceTree = "<group>"; };
 		69F9761820DFCBE900688C7A /* ViewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
 		69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypesViewController.swift; sourceTree = "<group>"; };
 		702864F320E8BA8800C75702 /* RunningGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGraphViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		6939311B20DA8F6F00C8775F /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
+				69D026D820EE65FA008E450E /* RecommendMeal.swift */,
 				51860BFD20E5CF6200DF498A /* Meal.swift */,
 				51860BFE20E5CF6200DF498A /* Recipe.swift */,
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
@@ -775,6 +778,7 @@
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */,
+				69D026D920EE65FB008E450E /* RecommendMeal.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,

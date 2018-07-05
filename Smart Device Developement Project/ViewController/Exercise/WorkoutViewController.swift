@@ -35,7 +35,7 @@ class WorkoutViewController: UIViewController, UICollectionViewDataSource, UICol
         for ex in exercise!{
             print(ex.name!)
         }
-        collectionView.register(MDCCardCollectionCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(WorkoutCustomCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -49,17 +49,11 @@ class WorkoutViewController: UIViewController, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",
-                                                      for: indexPath) as! MDCCardCollectionCell
+                                                      for: indexPath) as! WorkoutCustomCollectionViewCell
         // If you wanted to have the card show the selected state when tapped
         // then you need to turn isSelectable to true, otherwise the default is false.
-        cell.isSelectable = true
+        cell.isSelectable = false
        //cell.selectedImageTintColor = .blue
-        var view: UIView = UIView()
-        var label: UILabel = UILabel()
-        label.text = "UIC"
-        
-        view.addSubview(label)
-        cell.addSubview(view)
         cell.cornerRadius = 8
         cell.setShadowElevation(ShadowElevation(rawValue: 6), for: .selected)
         cell.setShadowColor(UIColor.black, for: .highlighted)

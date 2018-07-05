@@ -363,7 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				69D65C7620CE3D08004DD12B /* DietaryPlan */,
-				69D65C7720CE3D18004DD12B /* DietaryDiary */,
+				69D65C7720CE3D18004DD12B /* Dietary */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -419,7 +419,7 @@
 			path = DietaryPlan;
 			sourceTree = "<group>";
 		};
-		69D65C7720CE3D18004DD12B /* DietaryDiary */ = {
+		69D65C7720CE3D18004DD12B /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
 				51FC308C20E6247400A5E685 /* CameraViewController.swift */,
@@ -427,7 +427,7 @@
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
 				51FC308E20E62A5900A5E685 /* SummaryViewController.swift */,
 			);
-			path = DietaryDiary;
+			path = Dietary;
 			sourceTree = "<group>";
 		};
 		70A3D92820EB96CB003392C0 /* Music */ = {

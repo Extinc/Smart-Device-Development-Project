@@ -14,7 +14,7 @@
         <!--Calories-->
         <scene sceneID="YC5-jP-i3K">
             <objects>
-                <viewController id="JjH-Lc-1fc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dietary" id="JjH-Lc-1fc" sceneMemberID="viewController">
                     <containerView key="view" opaque="NO" contentMode="scaleToFill" id="2uD-lT-g03">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -51,7 +51,7 @@
         <!--Dietary Summary-->
         <scene sceneID="fPP-t8-Xh5">
             <objects>
-                <viewController storyboardIdentifier="dietary" id="ZRX-KN-u4F" customClass="DietaryViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZRX-KN-u4F" customClass="DietaryViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AoY-OV-tyP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,10 +81,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qab-hY-LIC" customClass="KDCircularProgress" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
-                                <rect key="frame" x="122" y="64.333333333333329" width="170" height="169.66666666666669"/>
+                                <rect key="frame" x="122" y="64" width="170" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Calories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3h-4H-Mhk">
-                                        <rect key="frame" x="50" y="50.000000000000007" width="70" height="69.666666666666686"/>
+                                        <rect key="frame" x="50" y="50" width="70" height="70"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aOq-et-hUx">
-                                <rect key="frame" x="125" y="633.33333333333337" width="165" height="54"/>
+                                <rect key="frame" x="125" y="633" width="165" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="9hf-NX-Moo"/>
                                     <constraint firstAttribute="width" constant="165" id="DUA-By-Mmy"/>
@@ -125,9 +125,6 @@
                                     <segue destination="YI1-WS-qfU" kind="show" id="BQb-kz-bC7"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.5" maxValue="4.5" translatesAutoresizingMaskIntoConstraints="NO" id="xHs-f4-2nT">
-                                <rect key="frame" x="0.0" y="489" width="416" height="30.333333333333371"/>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-MX-8lY">
                                 <rect key="frame" x="185" y="381" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
@@ -139,17 +136,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7fl-MX-8lY" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="185" id="0Jt-2x-gkU"/>
-                            <constraint firstItem="xHs-f4-2nT" firstAttribute="trailing" secondItem="hwr-gG-SCu" secondAttribute="trailing" id="0bz-Tf-9kV"/>
-                            <constraint firstItem="aOq-et-hUx" firstAttribute="top" secondItem="xHs-f4-2nT" secondAttribute="bottom" constant="115" id="5am-dI-xnN"/>
                             <constraint firstItem="aOq-et-hUx" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" constant="569" id="B1Y-CC-EDU"/>
                             <constraint firstItem="rBE-BT-q8W" firstAttribute="leading" secondItem="AEi-dd-1sC" secondAttribute="trailing" constant="8" id="GlL-S5-WZg"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="baseline" secondItem="hcG-mx-Fdi" secondAttribute="baseline" id="L65-jK-wiO"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="125" id="NAI-yq-WHk"/>
                             <constraint firstItem="aOq-et-hUx" firstAttribute="leading" secondItem="qab-hY-LIC" secondAttribute="trailing" constant="-167" id="P8l-LK-qm4"/>
-                            <constraint firstItem="xHs-f4-2nT" firstAttribute="top" secondItem="UD5-9E-F2b" secondAttribute="bottom" constant="223" id="Pwa-2N-BXG"/>
                             <constraint firstItem="AEi-dd-1sC" firstAttribute="baseline" secondItem="rBE-BT-q8W" secondAttribute="baseline" id="WmO-59-EMR"/>
                             <constraint firstItem="hcG-mx-Fdi" firstAttribute="leading" secondItem="UD5-9E-F2b" secondAttribute="trailing" constant="8" id="XFi-Vy-syE"/>
-                            <constraint firstItem="xHs-f4-2nT" firstAttribute="top" secondItem="7fl-MX-8lY" secondAttribute="bottom" constant="78" id="bqn-JI-RQZ"/>
                             <constraint firstItem="hwr-gG-SCu" firstAttribute="trailing" secondItem="7fl-MX-8lY" secondAttribute="trailing" constant="183" id="fzV-V2-qfm"/>
                             <constraint firstItem="qab-hY-LIC" firstAttribute="top" secondItem="hwr-gG-SCu" secondAttribute="top" id="gv4-Ro-e75"/>
                             <constraint firstItem="UD5-9E-F2b" firstAttribute="top" secondItem="qab-hY-LIC" secondAttribute="bottom" constant="8" id="hGo-tQ-DB4"/>
@@ -159,8 +152,8 @@
                             <constraint firstItem="hwr-gG-SCu" firstAttribute="trailing" secondItem="rBE-BT-q8W" secondAttribute="trailing" constant="124" id="v4i-hT-agA"/>
                             <constraint firstItem="hwr-gG-SCu" firstAttribute="bottom" secondItem="UD5-9E-F2b" secondAttribute="bottom" constant="421" id="vLd-bl-n5d"/>
                             <constraint firstItem="qab-hY-LIC" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="122" id="wZG-gs-603"/>
+                            <constraint firstAttribute="bottom" secondItem="7fl-MX-8lY" secondAttribute="bottom" constant="325" id="xbN-Hd-iHm"/>
                             <constraint firstItem="AEi-dd-1sC" firstAttribute="baseline" secondItem="hcG-mx-Fdi" secondAttribute="baseline" id="yQf-se-bMN"/>
-                            <constraint firstItem="xHs-f4-2nT" firstAttribute="leading" secondItem="hwr-gG-SCu" secondAttribute="leading" constant="2" id="zsU-go-Pdu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hwr-gG-SCu"/>
                     </view>
@@ -171,6 +164,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reccCal" destination="AEi-dd-1sC" id="8dC-UR-6J2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk2-8g-38b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -28,7 +28,7 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-       // exercise = ExerciseDataManager.loadExerciseOfCat(catID: i)
+        exercise = ExerciseDataManager.loadExerciseOfCat(catID: passedId!)
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {

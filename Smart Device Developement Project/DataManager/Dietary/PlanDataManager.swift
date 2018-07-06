@@ -109,7 +109,7 @@ class PlanDataManager: NSObject {
     {
         SQLiteDB.sharedInstance.execute(sql:
             "INSERT OR REPLACE INTO userPlanPreferences(username, mealplantype, goals, duration, mealsperday, mealtiming, reminders)" +
-            "VALUE (?, ?, ?, ?, ?, ?, ?)",
+            "VALUES(?, ?, ?, ?, ?, ?, ?)",
                                         parameters: [
                                             userPlanPreferences.username,
                                             userPlanPreferences.mealPlanType,
@@ -117,9 +117,7 @@ class PlanDataManager: NSObject {
                                             userPlanPreferences.duration,
                                             userPlanPreferences.mealsperday,
                                             userPlanPreferences.mealtiming,
-                                            userPlanPreferences.reminders
-                                            
-            ]
+                                            userPlanPreferences.reminders]
         )
                 
     }

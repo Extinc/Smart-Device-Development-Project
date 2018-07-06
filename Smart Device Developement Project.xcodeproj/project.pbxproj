@@ -76,6 +76,7 @@
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
+		F189888F20EF0CB00079BD5C /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F189888E20EF0CB00079BD5C /* food.mlmodel */; };
 		F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B6D020EB60190026A962 /* HTTP.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,7 @@
 		F12F23EB20EDEEB900836A83 /* foodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodData.swift; sourceTree = "<group>"; };
 		F147301820D7A4B700C63470 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
 		F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarViewController.swift; sourceTree = "<group>"; };
+		F189888E20EF0CB00079BD5C /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
 		F1A1B6D020EB60190026A962 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -430,6 +432,7 @@
 		69D65C7720CE3D18004DD12B /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
+				F189888E20EF0CB00079BD5C /* food.mlmodel */,
 				51FC308C20E6247400A5E685 /* CameraViewController.swift */,
 				F147301820D7A4B700C63470 /* DietaryViewController.swift */,
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,

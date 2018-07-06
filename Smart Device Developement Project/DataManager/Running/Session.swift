@@ -64,6 +64,15 @@ class Session: NSObject {
         self.sessionID = sessionid
     }
     
+    init(firsttime lap1time:Double,secondtime lap2time:Double,thirdtime lap3time:Double,fourthtime lap4time:Double,fivetime lap5time:Double)
+    {
+        self.lap1time = lap1time
+        self.lap2time = lap2time
+        self.lap3time = lap3time
+        self.lap4time = lap4time
+        self.lap5time = lap5time
+    }
+    
     init(firstspeed lap1speed:String)
     {
         self.lap1speed = lap1speed
@@ -83,6 +92,10 @@ class Session: NSObject {
     init(fivespeed lap5speed:String)
     {
         self.lap5speed = lap5speed
+    }
+    init(firstdistance lap1distance:String)
+    {
+        self.lap1distance = lap1distance
     }
     init(time totaltime:String,_ scheduleID:Int)
     {

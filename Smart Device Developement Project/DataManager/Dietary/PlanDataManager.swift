@@ -11,9 +11,6 @@ import FirebaseDatabase
 
 class PlanDataManager: NSObject {
     
-    // MARK: - MEAL
-    
-    
     // MARK: - MEAL PLAN
     
     //Create Meal Plan Table
@@ -30,60 +27,61 @@ class PlanDataManager: NSObject {
     }
 
     //Retrieve ALL plans
-    static func loadMealPlans(username: String, date: String, onComplete: @escaping ([MealPlan]) -> Void)
+    static func loadMealPlans(username: String, date: String) -> [MealPlan]
     {
-        //create empty list
-        var mealPlanList : [MealPlan] = []
-        let ref = FirebaseDatabase.Database.database().reference().child("mealPlan/")
+        var mealPlanRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT username, date, mealID, mealNo, planID" +
+            "FROM MealPlan" +
+            "WHERE username = ?, date = ?",
+                    parameters: [username, date]
+        )
         
-        //observeSingleEventofType tells Firebase to load the full list of Meals
-        //and execute the "with" closure once, when the download is complete
-        ref.observeSingleEvent(of: .value,
-                               with:
-            { (snapshot) in
-                // Executes the retrieval of data only when Firebase is complete
-                // Meanwhile, before the download is complete, user can still interact with user interface
-                for record in snapshot.children{
-                    let r = record as! DataSnapshot
-                    let Ddate = r.childSnapshot(forPath: "date").value as! String
-                    if Ddate == date {
-                        mealPlanList.append(MealPlan(
-                            r.childSnapshot(forPath: "username") as! String,
-                            r.childSnapshot(forPath: "date").value as! String,
-                            r.childSnapshot(forPath: "mealID").value as! Int,
-                            r.childSnapshot(forPath: "mealNo").value as! Int,
-                            r.childSnapshot(forPath: "planID").value as! Int,
-                            r.childSnapshot(forPath: "mealName").value as! String,
-                            r.childSnapshot(forPath: "mealImage").value as! String,
-                            r.childSnapshot(forPath: "calories").value as! String
-                        ))
-                    }
-                }
-                onComplete(mealPlanList)
-        })
+        let mName = "Chicken Rice"
+        let mealImage = "Chicken Rice"
+        let calories: Float = 0.0
+        
+        var mealplan : [MealPlan] = []
+        if (mealPlanRows.isEmpty == false){
+            for row in mealPlanRows
+            {
+                mealplan.append(MealPlan(row["username"] as! String,
+                                             row["date"] as! String,
+                                             row["mealID"] as! Int,
+                                             row["mealNo"] as! Int,
+                                             row["planID"] as! Int,
+                                             mName,
+                                             mealImage,
+                                             calories))
+            }
+        }
+        else {
+            mealplan.append(MealPlan("","",0,0,0, "", "", 0))
+        }
+        
+        return mealplan
     }
     
     
     //Create/Update
-    static func insertOrReplacePlan(mealplan: MealPlan) {
-        let ref = FirebaseDatabase.Database.database().reference().child("mealPlan/\(mealplan.planID)")
-        ref.setValue([
-            "username" : mealplan.username,
-            "date" : mealplan.date,
-            "mealID" : mealplan.mealID,
-            "mealNo" : mealplan.mealNo,
-            "mealName" : mealplan.mealName,
-            "mealImage" : mealplan.mealImage,
-            "calories" : mealplan.calories
-            
-            ])
+    static func insertOrReplaceMealPlan(mealPlan : MealPlan)
+    {
+        SQLiteDB.sharedInstance.execute(sql:
+            "INSERT OR REPLACE INTO MealPlan(username, date, mealID, mealNo, planID)" +
+            "VALUE (?, ?, ?, ?, ?)",
+            parameters: [
+                mealPlan.username,
+                mealPlan.date,
+                mealPlan.mealID,
+                mealPlan.mealNo,
+                mealPlan.planID
+            ]
+        )
+        
     }
+    
     
     //Delete
-    static func deletePlan (mealPlan: MealPlan){
-        let ref = FirebaseDatabase.Database.database().reference().child("mealPlan/\(mealPlan.planID)")
-    }
-    
+ 
   
     
     // MARK: - USER PLAN PREFERENCES
@@ -123,7 +121,7 @@ class PlanDataManager: NSObject {
                                             
             ]
         )
-        
+                
     }
     
     
@@ -139,8 +137,7 @@ class PlanDataManager: NSObject {
                 "recipeID int primary key, " +
                 "directions text, " +
                 "ingredients text, " +
-                "servingsize text, " +
-                "FOREIGN KEY(mealID) REFERENCES Meal(mealID))"
+                "servingsize text) "
         )
     }
     

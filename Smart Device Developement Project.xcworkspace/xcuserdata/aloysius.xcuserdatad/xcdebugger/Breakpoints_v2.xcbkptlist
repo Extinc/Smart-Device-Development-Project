@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smart Device Developement Project/DataManager/Dietary/MealInfo.swift"
-            timestampString = "552297896.594274"
+            timestampString = "552494075.55854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "GetInfo()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "GetInfo(food:onComplete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smart Device Developement Project/DataManager/Dietary/MealInfo.swift"
-            timestampString = "552297896.594413"
+            timestampString = "552494075.558619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "GetInfo()"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "GetInfo(food:onComplete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smart Device Developement Project/DataManager/Dietary/MealInfo.swift"
-            timestampString = "552297978.696618"
+            timestampString = "552494075.558676"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "GetInfo()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "GetInfo(food:onComplete:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

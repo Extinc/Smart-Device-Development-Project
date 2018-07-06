@@ -18,6 +18,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var ZombieSafe = AVSpeechUtterance(string: "")
     var ZombieDangerous = AVSpeechUtterance(string: "")
     var ZombieNotTooDangerous = AVSpeechUtterance(string: "")
+    var DistanceNotification = AVSpeechUtterance(string: "")
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -77,7 +78,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var lap3time : Double = 0
     var lap4time : Double = 0
     var lap5time : Double = 0
-    var shortimer : Double = 0
+    var ZombieDangerousshortimer : Double = 0
+    var ZombieNotTooDangerousTime : Double = 0
+    var ZombieSafeTimer = 0
+    var lastSessionID = 0
+    var lapdistance: Double = 0
 
     @IBOutlet weak var lblspeed: UILabel!
     //timer
@@ -159,9 +164,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         else{
             lblNumberofProgress.text = "No Schedule Created"
         }
+        lastSessionID = RunningDataManager.selectlastSessionTableId() - 1
         
         
-     
+        
+
         // Do any additional setup after loading the view.
         RunningDataManager.createScheduleTable()
 
@@ -170,6 +177,49 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     @IBAction func btnCreate(_ sender: Any) {
         btnCreateSchedules.isHidden = true
         btnStart.isHidden = false
+    }
+    func distanceAlert(){
+        
+      
+        
+        let hour = Int(time) / 3600
+        let minute = Int(time) / 60 % 60
+        let second = Int(time) % 60
+        
+       
+        
+        
+        if (travelledDistance >= lapdistance * 5)
+        {
+            DistanceNotification = AVSpeechUtterance(string: "During the last session , this lap u took ")
+            
+        }
+        else if (travelledDistance >= lapdistance * 4)
+        {
+            
+        }
+        else if (travelledDistance >= lapdistance * 3)
+        {
+            
+        }
+        else if (travelledDistance >= lapdistance * 2)
+        {
+            
+        }
+        else if (travelledDistance >= lapdistance * 2){
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
 
@@ -180,7 +230,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         if(time == 0){
             
-            ZombieDangerous = AVSpeechUtterance(string: "Behind you")
+            ZombieDangerous = AVSpeechUtterance(string: "Zombie is Behind you")
             ZombieDangerous.rate = 0.5
             ZombieSafe = AVSpeechUtterance(string: "Zombie is still far")
             ZombieSafe.rate = 0.5
@@ -188,40 +238,41 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             ZombieSafe.rate = 0.5
           
         }
-        if (time >= 5){
+        if (time >= 3){
             zombietime += 1
             audioPlayer.play()
         }
         
         if (zombiedistance > travelledDistance - 10)
         {
-            shortimer += 1
+            ZombieDangerousshortimer += 1
             audioPlayer.volume = 1.0
-            if(self.shortimer == 10 && zombiedistance > travelledDistance - 10)
+            if(self.ZombieDangerousshortimer == 10 && zombiedistance > travelledDistance - 10)
             {
                 synth.speak(ZombieDangerous)
-                shortimer = 0
+                ZombieDangerousshortimer = 0
             }
+        
         }
         else if ( travelledDistance - 10 <= zombiedistance && zombiedistance >= travelledDistance - 30)
         {
             audioPlayer.volume = 0.7
-            shortimer += 1
-            if(self.shortimer == 10 && travelledDistance - 10 <= zombiedistance && zombiedistance >= travelledDistance - 30)
+            ZombieNotTooDangerousTime += 1
+            if(self.ZombieNotTooDangerousTime == 10 && travelledDistance - 10 <= zombiedistance && zombiedistance >= travelledDistance - 30)
             {
                 synth.speak(ZombieNotTooDangerous)
-                shortimer = 0
+                ZombieNotTooDangerousTime = 0
             }
             
         }
         else if (travelledDistance - 30 <= zombiedistance && zombiedistance >= travelledDistance - 50)
         {
             audioPlayer.volume = 0.5
-            shortimer += 1
-            if(self.shortimer == 10 && travelledDistance - 30 <= zombiedistance && zombiedistance >= travelledDistance - 50)
+            ZombieSafeTimer += 1
+            if(self.ZombieSafeTimer == 10 && travelledDistance - 30 <= zombiedistance && zombiedistance >= travelledDistance - 50)
             {
                 synth.speak(ZombieNotTooDangerous)
-                shortimer = 0
+                ZombieSafeTimer = 0
             }
         }
         
@@ -284,6 +335,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         RunningDataManager.insertOrReplaceSession(session: currentSession)
         
         let estimateddistance = String(targetDistance/5)
+        lapdistance = Double(estimateddistance)!
         var SessionLapDistance = Session(firstdistance :estimateddistance,seconddistance :estimateddistance,thirddistance :estimateddistance,fourthdistance :estimateddistance,fifthdistance :estimateddistance,RunningDataManager.selectlastSessionTableId())
         RunningDataManager.UpdateSessionDistance(session: SessionLapDistance)
         
@@ -436,23 +488,23 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         var estimateddistance : Double = targetDistance/5
         var finishingtime: String = lblTime.text!
       
-        if (travelledDistance/1000 == (estimateddistance * 5)){
+        if (travelledDistance/1000 >= (estimateddistance * 5)){
             lap5Speed = lblspeed.text!
             lap5time = time
         }
-        else if (travelledDistance/1000 == (estimateddistance * 4)){
+        else if (travelledDistance/1000 >= (estimateddistance * 4)){
             lap4Speed = lblspeed.text!
             lap4time = time
         }
-        else if (travelledDistance/1000 == (estimateddistance * 3)){
+        else if (travelledDistance/1000 >= (estimateddistance * 3)){
             lap3Speed = lblspeed.text!
             lap3time = time
         }
-        else if (travelledDistance/1000 == (estimateddistance * 2)){
+        else if (travelledDistance/1000 >= (estimateddistance * 2)){
             lap2Speed = lblspeed.text!
             lap2time = time
         }
-        else if(travelledDistance/1000 == estimateddistance){
+        else if(travelledDistance/1000 >= estimateddistance){
             lap1Speed = lblspeed.text!
             lap1time = time
         }
@@ -516,6 +568,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         return String(format:"%02i:%02i:%02i", hour, minute, second)
         
     }
+    
+   
     
     
     

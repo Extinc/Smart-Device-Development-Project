@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Select a picture from gallery</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save a picture into gallery</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take picture</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>This application will always require infromation from your application</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

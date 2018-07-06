@@ -9,14 +9,9 @@
 import UIKit
 
 class ViewMealViewController: UIViewController {
-    @IBOutlet weak var mealImage: UIImageView!
-    @IBOutlet weak var caloriesLabel: UILabel!
-    @IBOutlet weak var carbsLabel: UILabel!
-    @IBOutlet weak var proteinLabel: UILabel!
-    @IBOutlet weak var fatsLabel: UILabel!
-    @IBOutlet weak var sodiumLabel: UILabel!
-    @IBOutlet weak var ingredientsLabel: UILabel!
-    @IBOutlet weak var instructionsLabel: UILabel!
+  
+
+    var RecipeItem : Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -74,6 +74,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let chosenImage : UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
         self.imageView!.image = chosenImage
         
+        /*
         let model = try VNCoreMLModel(for: food().model)
         let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
             guard let results = request.results as? [VNClassificationObservation],
@@ -86,6 +87,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
             }
         })
+ 
         
         let handler = VNImageRequestHandler(cgImage: chosenImage.cgImage!, options: [:])
         DispatchQueue.global(qos: .userInteractive).async {
@@ -95,7 +97,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 print(error)
             }
         }
-        
+        */
         // This saves the image selected / shot by the user
         //
         UIImageWriteToSavedPhotosAlbum(chosenImage, nil, nil, nil)
@@ -113,6 +115,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func detect(image: UIImage) throws {
+        /*
         let model = try VNCoreMLModel(for: food().model)
         let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
             guard let results = request.results as? [VNClassificationObservation],
@@ -125,7 +128,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
             }
         })
-        
+ 
         let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
         DispatchQueue.global(qos: .userInteractive).async {
             do {
@@ -134,6 +137,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 print(error)
             }
         }
+         */
     }
 
 }

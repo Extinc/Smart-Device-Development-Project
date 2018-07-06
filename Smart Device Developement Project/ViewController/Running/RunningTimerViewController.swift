@@ -77,6 +77,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var lap3time : Double = 0
     var lap4time : Double = 0
     var lap5time : Double = 0
+    var shortimer : Double = 0
 
     @IBOutlet weak var lblspeed: UILabel!
     //timer
@@ -178,9 +179,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         if(time == 0){
             
-            ZombieWarning = AVSpeechUtterance(string: "Zombie is coming! Run!")
-            ZombieWarning.rate = 0.5
-            synth.speak(ZombieWarning)
             ZombieDangerous = AVSpeechUtterance(string: "Behind you")
             ZombieDangerous.rate = 0.5
             ZombieSafe = AVSpeechUtterance(string: "Zombie is still far")
@@ -196,15 +194,34 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         if (zombiedistance > travelledDistance - 10)
         {
+            shortimer += 1
             audioPlayer.volume = 1.0
+            if(self.shortimer == 10 && zombiedistance > travelledDistance - 10)
+            {
+                synth.speak(ZombieDangerous)
+                shortimer = 0
+            }
         }
         else if ( travelledDistance - 10 <= zombiedistance && zombiedistance >= travelledDistance - 30)
         {
             audioPlayer.volume = 0.7
+            shortimer += 1
+            if(self.shortimer == 10 && travelledDistance - 10 <= zombiedistance && zombiedistance >= travelledDistance - 30)
+            {
+                synth.speak(ZombieNotTooDangerous)
+                shortimer = 0
+            }
+            
         }
         else if (travelledDistance - 30 <= zombiedistance && zombiedistance >= travelledDistance - 50)
         {
             audioPlayer.volume = 0.5
+            shortimer += 1
+            if(self.shortimer == 10 && travelledDistance - 30 <= zombiedistance && zombiedistance >= travelledDistance - 50)
+            {
+                synth.speak(ZombieNotTooDangerous)
+                shortimer = 0
+            }
         }
         
         
@@ -267,6 +284,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         let estimateddistance = String(targetDistance/5)
         var SessionLapDistance = Session(firstdistance :estimateddistance,seconddistance :estimateddistance,thirddistance :estimateddistance,fourthdistance :estimateddistance,fifthdistance :estimateddistance,RunningDataManager.selectlastSessionTableId())
         RunningDataManager.UpdateSessionDistance(session: SessionLapDistance)
+        
+        //Alert Zombie Mode started
+        ZombieWarning = AVSpeechUtterance(string: "Zombie is coming! Run!")
+        ZombieWarning.rate = 0.5
+        synth.speak(ZombieWarning)
   
         
         //Hide redundant data
@@ -412,23 +434,23 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         var estimateddistance : Double = targetDistance/5
         var finishingtime: String = lblTime.text!
       
-        if (travelledDistance/1000 >= (estimateddistance * 5)){
+        if (travelledDistance/1000 == (estimateddistance * 5)){
             lap5Speed = lblspeed.text!
             lap5time = time
         }
-        else if (travelledDistance/1000 >= (estimateddistance * 4)){
+        else if (travelledDistance/1000 == (estimateddistance * 4)){
             lap4Speed = lblspeed.text!
             lap4time = time
         }
-        else if (travelledDistance/1000 >= (estimateddistance * 3)){
+        else if (travelledDistance/1000 == (estimateddistance * 3)){
             lap3Speed = lblspeed.text!
             lap3time = time
         }
-        else if (travelledDistance/1000 >= (estimateddistance * 2)){
+        else if (travelledDistance/1000 == (estimateddistance * 2)){
             lap2Speed = lblspeed.text!
             lap2time = time
         }
-        else if(travelledDistance/1000 >= estimateddistance){
+        else if(travelledDistance/1000 == estimateddistance){
             lap1Speed = lblspeed.text!
             lap1time = time
         }

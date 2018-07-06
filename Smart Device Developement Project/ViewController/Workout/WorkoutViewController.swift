@@ -16,7 +16,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var catID : Int = 0
     var exercise: [Exercise]?
     var nameToPass: String?
-    var idToPass: String?
+    var idToPass: Int?
     
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
@@ -58,6 +58,9 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // ****************************************************************************
+    // For table
+    // ****************************************************************************
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -82,27 +85,35 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Get Cell Label
-        let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: indexPath)! as! WorkoutCustomViewCell
-        
-        idToPass = ((currentCell.idLabel)!.text)!
-        nameToPass = ((currentCell.cellLabel)!.text)!
-        idToPass = (idToPass!)
-        print("Test: \((idToPass!))")
-        performSegue(withIdentifier: "catCellClick", sender: self)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
+    
+    // ****************************************************************************
+    
+    
+    
+    
+    // ****************************************************************************
+    //
+    // ****************************************************************************
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "catCellClick" {
             // initialize new view controller and cast it as your view controller
             var viewController = segue.destination as! WorkoutOfCatViewController
-            // your new view controller should have property that will store passed value
-            viewController.passedId = idToPass
-            viewController.passedName = nameToPass
+            if let cell = sender as? WorkoutCustomViewCell {
+                
+                idToPass = exerciseCat?[(tableView.indexPath(for: cell)?.row)!].id
+                nameToPass = ((cell.cellLabel)!.text)!
+                // your new view controller should have property that will store passed value
+                viewController.passedId = idToPass
+                viewController.passedName = nameToPass
+            }
         }
     }
+    
+    
     
     
     /*

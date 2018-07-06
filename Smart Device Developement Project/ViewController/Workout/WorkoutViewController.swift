@@ -68,7 +68,13 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCustomViewCell
         
         cell.cellLabel.text = exerciseCat?[indexPath.row].name
-        
+        cell.idLabel.text = "\(exerciseCat?[indexPath.row].id)"
+        let colorScheme = MDCSemanticColorScheme()
+        colorScheme.surfaceColor = .white
+        cell.card.backgroundColor = .gray
+        cell.card.setBorderColor(UIColor.blue, for: cell.card.state)
+        // When
+        MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
         return cell
     }
     

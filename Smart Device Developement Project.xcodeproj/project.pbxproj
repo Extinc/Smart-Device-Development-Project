@@ -799,11 +799,6 @@
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				51860C0020E5CF6200DF498A /* Recipe.swift in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
-<<<<<<< HEAD
-				90F1EE6020E8EBED004353F7 /* WorkoutMDCViewController.swift in Sources */,
-				F189888F20EF0CB00079BD5C /* food.mlmodel in Sources */,
-=======
->>>>>>> e6231feaee97e0798c9a4eb82f582e5b419b2716
 				5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */,
 				69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,

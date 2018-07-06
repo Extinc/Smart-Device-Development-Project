@@ -15,6 +15,8 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
     var exercise: [Exercise]?
+    var nameToPass: String?
+    var idToPass: String?
     
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
@@ -22,6 +24,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var cardView1ImageView: UIImageView!
     @IBOutlet weak var cardView2ImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     
     
     override func viewDidLoad() {
@@ -73,9 +76,32 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         colorScheme.surfaceColor = .white
         cell.card.backgroundColor = .gray
         cell.card.setBorderColor(UIColor.blue, for: cell.card.state)
+        
         // When
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get Cell Label
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRow(at: indexPath)! as! WorkoutCustomViewCell
+        
+        idToPass = ((currentCell.idLabel)!.text)!
+        nameToPass = ((currentCell.cellLabel)!.text)!
+        idToPass = (idToPass!)
+        print("Test: \((idToPass!))")
+        performSegue(withIdentifier: "catCellClick", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "catCellClick" {
+            // initialize new view controller and cast it as your view controller
+            var viewController = segue.destination as! WorkoutOfCatViewController
+            // your new view controller should have property that will store passed value
+            viewController.passedId = idToPass
+            viewController.passedName = nameToPass
+        }
     }
     
     

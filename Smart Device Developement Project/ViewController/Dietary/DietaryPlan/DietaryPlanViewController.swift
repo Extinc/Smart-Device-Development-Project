@@ -79,7 +79,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
     }
@@ -103,9 +103,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
-        //cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
-        //cell.mealCalories.text = mealPlans[indexPath.section][indexPath.row].calories as! String
-        //cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
+        cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
+        cell.mealCalories.text = String(describing: mealPlans[indexPath.section][indexPath.row].calories!)
+        cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
         
         return cell
     }
@@ -113,7 +113,31 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     
     
     // MARK: - Navigation
-
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?)
+    {
+        if(segue.identifier == "mealSegue")
+        {
+            let ViewMealViewController =
+                segue.destination as! ViewMealViewController
+            
+            let myIndexPath = self.tableView.indexPathForSelectedRow
+            
+            if(myIndexPath != nil)
+            {
+                // Set the movieItem field with the movie
+                // object selected by the user.
+                //
+                let meal = mealPlans[myIndexPath!.row]
+                let recipe = Recipe(1, 1, "", "", "")
+                
+                ViewMealViewController.RecipeItem = recipe
+                
+            }
+        }
+        
+        
+    }
 
  
 

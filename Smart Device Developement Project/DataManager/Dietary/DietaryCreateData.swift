@@ -80,4 +80,8 @@ class DietaryCreateData: NSObject {
         
     }
     
+    static func uploadPDF() {
+        
+    }
+    
 }

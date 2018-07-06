@@ -200,6 +200,9 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - RapidAPISDK (0.1)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -228,6 +231,7 @@ DEPENDENCIES:
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
   - RapidAPISDK (~> 0.1)
+  - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -246,6 +250,7 @@ SPEC REPOS:
     - MDFTextAccessibility
     - nanopb
     - RapidAPISDK
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -263,7 +268,8 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: d7e2ede037e75271cacaf97b8eaf783ed245c52d
+PODFILE CHECKSUM: 86421a10b306c9952bd96074210b56e97bb1d967
 
 COCOAPODS: 1.5.2

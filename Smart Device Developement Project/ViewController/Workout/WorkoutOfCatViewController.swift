@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -31,25 +32,31 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: passedId!)
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.tableView.reloadData()
     }
 
@@ -75,27 +82,16 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutListCustomCell
-        if let url = URL.init(string: exercise[indexPath.row].imageLink[0]) {
-            getDataFromUrl(url: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                print(response?.suggestedFilename ?? url.lastPathComponent)
-                print("Download Finished")
-                DispatchQueue.main.async() {
-                    cell.imageView?.image = UIImage(data: data)
+        if let url = URL.init(string: exercise[indexPath.row].imageLink[1]) {
+            cell.imageView?.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                if error != nil {
+                    print("Image View Error: \(error.debugDescription)")
                 }
-            }
+            })
         }
+        cell.exerciseLabel.text = exercise[indexPath.row].name
         return cell
     }
-    
-    
-
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
-    
     /*
     // MARK: - Navigation
 

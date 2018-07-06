@@ -26,7 +26,7 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/Slider'
   pod 'MaterialComponents/FeatureHighlight'
   pod 'MaterialComponents/Chips'
-  pod ‘MaterialComponents/Buttons’
+  pod 'MaterialComponents/Buttons'
   pod 'MaterialComponents/Palettes'
   pod 'MaterialComponents/schemes/Color'
   pod 'MaterialComponents/schemes/Typography'
@@ -40,6 +40,7 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
   pod 'Alamofire', '~> 4.7'
+  pod 'SDWebImage', '~> 4.0'
   
   # Firebase
   pod 'Firebase/Core'
@@ -47,6 +48,6 @@ target 'Smart Device Developement Project' do
   pod 'Firebase/Database'
 
   #RapidConnect
-  pod "RapidAPISDK", "~> 0.1"
+  pod 'RapidAPISDK', '~> 0.1'
   
 end

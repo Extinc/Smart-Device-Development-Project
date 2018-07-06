@@ -30,6 +30,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5169C62020AAA4460014E15D"
+            BuildableName = "Smart Device Developement Project.app"
+            BlueprintName = "Smart Device Developement Project"
+            ReferencedContainer = "container:../Smart Device Developement Project.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -44,15 +53,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "90E490C8FB3696B8720704BB99EE4396"
-            BuildableName = "MaterialComponents.framework"
-            BlueprintName = "MaterialComponents"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "5169C62020AAA4460014E15D"
+            BuildableName = "Smart Device Developement Project.app"
+            BlueprintName = "Smart Device Developement Project"
+            ReferencedContainer = "container:../Smart Device Developement Project.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -62,6 +72,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "90E490C8FB3696B8720704BB99EE4396"
+            BuildableName = "MaterialComponents.framework"
+            BlueprintName = "MaterialComponents"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

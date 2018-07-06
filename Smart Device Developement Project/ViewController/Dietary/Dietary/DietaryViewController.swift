@@ -12,25 +12,13 @@ import FirebaseDatabase
 class DietaryViewController: UIViewController {
     @IBOutlet weak var reccCal: UILabel!
     
+    @IBOutlet weak var progressBar: KDCircularProgress!
     @IBAction func Test(_ sender: Any) {
-        /*MealInfo().GetInfo(food: "chicken",
-                           onComplete:
-            {
-                (listofFoodData) in
-                // Set the news list downloaded from Reddit
-                // to our own newsList variable.
-                //
-                self.fd = listofFoodData
-                
-                /*DispatchQueue.main.async{
-                 
-                 }*/
-        })*/
+        progressBar.animate(fromAngle: progressBar.angle, toAngle: 90, duration: 0.5, completion: nil)
     }
-    
-    //var fd : [foodData] = []
-    var height = 1.71
-    var weight = 90.0
+
+    var height = 1.71 //: Double?
+    var weight = 80.0 //: Double?
     var BMI: Float?
     var ref:DatabaseReference?
     
@@ -46,10 +34,12 @@ class DietaryViewController: UIViewController {
                                 {
                                     let r = record as! DataSnapshot
                                     // Do any additional setup after loading the view.
-                                    self.height = 171 //r.childSnapshot(forPath: "height").value as? Float
-                                    self.weight = 90 //r.childSnapshot(forPath: "weight").value as? Float
+                                    //self.height = r.childSnapshot(forPath: "height").value as? Double)!
+                                    //self.weight = (r.childSnapshot(forPath: "weight").value as? Double)!
                                 }
         })
+        print(height)
+        print(weight)
         let BMI = weight / (height * height)
         let x = Double(BMI * 100).rounded() / 100
         print("BMI:",x)
@@ -60,7 +50,7 @@ class DietaryViewController: UIViewController {
         let y = Int(recc.rounded())
         print(y)
         reccCal.text = y.description
-        //circularProgressView.animate(fromAngle: circularProgressView.angle, toAngle: 0, duration: 0.5, completion: nil)
+        progressBar.animate(fromAngle: progressBar.angle, toAngle: 0, duration: 0.5, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

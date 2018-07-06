@@ -9,6 +9,9 @@
 import UIKit
 import MaterialComponents
 class WorkoutCustomViewCell: UITableViewCell{
+    @IBOutlet weak var idLabel: UILabel!
+    
     @IBOutlet weak var cellLabel: UILabel!
     
+    @IBOutlet weak var card: MDCCard!
 }

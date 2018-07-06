@@ -126,7 +126,7 @@ class RunningDataManager: NSObject {
         }
         return id
     }
-
+  
    
     
     static func insertOrReplaceSession(session: Session)

@@ -39,6 +39,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var lblCalories: UILabel!
     
+    @IBOutlet weak var btnComplete: UIButton!
     
     @IBOutlet weak var btnCreateSchedules: UIButton!
     
@@ -83,6 +84,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var ZombieSafeTimer = 0
     var lastSessionID = 0
     var lapdistance: Double = 0
+    var callfirst : Int = 1
+    var callsecond : Int = 1
+    var callthird : Int = 1
+    var callfourth : Int = 1
+    var callfifth : Int = 1
 
     @IBOutlet weak var lblspeed: UILabel!
     //timer
@@ -119,6 +125,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             print(error)
         }
         super.viewDidLoad()
+        btnComplete.isHidden = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
         print(RunningDataManager.selectlastScheduleTableId())
@@ -180,46 +187,109 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     }
     func distanceAlert(){
         
+        var Prevspeed : Double = 0
+        var speeddiff : Double = 0
+        var thissessionspeed : Double = time
+        
       
+        var LastSessionSpeed = RunningDataManager.loadPreviousSession(lastSessionID)
         
-        let hour = Int(time) / 3600
-        let minute = Int(time) / 60 % 60
-        let second = Int(time) % 60
         
+        
+        if (travelledDistance/1000 >= lapdistance * 5 )
+        {
+            
+            Prevspeed = LastSessionSpeed.lap1time!
+            speeddiff = thissessionspeed - Prevspeed
+            var stringspeeddiff = String(speeddiff)
+            if speeddiff < 0{
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+            }
+            else {
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+            }
+            if(callfirst == 1)
+            {
+                synth.speak(DistanceNotification)
+                callfirst = 0
+            }
+        
+        }
+        else if (travelledDistance/1000 >= lapdistance * 4 )
+        {
+            Prevspeed = LastSessionSpeed.lap2time!
+            speeddiff = thissessionspeed - Prevspeed
+            var stringspeeddiff = String(speeddiff)
+            if speeddiff < 0{
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+            }
+            else {
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+            }
+            
+            if(callsecond == 1)
+            {
+                synth.speak(DistanceNotification)
+                callsecond = 0
+            }
+            
+            
+   
+        }
+        else if (travelledDistance/1000 >= lapdistance * 3 )
+        {
+            Prevspeed = LastSessionSpeed.lap3time!
+            speeddiff = thissessionspeed - Prevspeed
+            var stringspeeddiff = String(speeddiff)
+            if speeddiff < 0{
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+            }
+            else {
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+            }
+            if(callthird == 1)
+            {
+                synth.speak(DistanceNotification)
+                callthird = 0
+            }
+            
        
-        
-        
-        if (travelledDistance >= lapdistance * 5)
+        }
+        else if (travelledDistance/1000 >= lapdistance * 2 )
         {
-            DistanceNotification = AVSpeechUtterance(string: "During the last session , this lap u took ")
-            
+            Prevspeed = LastSessionSpeed.lap4time!
+            speeddiff = thissessionspeed - Prevspeed
+            var stringspeeddiff = String(speeddiff)
+            if speeddiff < 0{
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+            }
+            else {
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+            }
+            if(callfourth == 1)
+            {
+                synth.speak(DistanceNotification)
+                callfourth = 0
+            }
         }
-        else if (travelledDistance >= lapdistance * 4)
+        else if (travelledDistance/1000 >= lapdistance)
         {
-            
+            Prevspeed = LastSessionSpeed.lap5time!
+            speeddiff = thissessionspeed - Prevspeed
+            var stringspeeddiff = String(speeddiff)
+            if speeddiff < 0{
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+            }
+            else {
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+            }
+            if(callfifth == 1)
+            {
+                synth.speak(DistanceNotification)
+                callfifth = 0
+            }
+        
         }
-        else if (travelledDistance >= lapdistance * 3)
-        {
-            
-        }
-        else if (travelledDistance >= lapdistance * 2)
-        {
-            
-        }
-        else if (travelledDistance >= lapdistance * 2){
-            
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
 
@@ -336,13 +406,17 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         let estimateddistance = String(targetDistance/5)
         lapdistance = Double(estimateddistance)!
+        print(lapdistance)
         var SessionLapDistance = Session(firstdistance :estimateddistance,seconddistance :estimateddistance,thirddistance :estimateddistance,fourthdistance :estimateddistance,fifthdistance :estimateddistance,RunningDataManager.selectlastSessionTableId())
         RunningDataManager.UpdateSessionDistance(session: SessionLapDistance)
         
         //Alert Zombie Mode started
+        if(ZombieModeSwitch.isOn == true)
+        {
         ZombieWarning = AVSpeechUtterance(string: "Zombie is coming! Run!")
         ZombieWarning.rate = 0.5
         synth.speak(ZombieWarning)
+        }
   
         
         //Hide redundant data
@@ -511,6 +585,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if ZombieModeSwitch.isOn == true{
             ZombieAlert()
         }
+        if ZombieModeSwitch.isOn == false{
+            distanceAlert()
+        }
+        btnComplete.isHidden == false
         
         if(targetDistance != 0)
         {
@@ -567,6 +645,14 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         return String(format:"%02i:%02i:%02i", hour, minute, second)
         
+    }
+    
+    func PrevtimeString(timing: Double) ->String{
+
+        let minute = Int(timing) / 60 % 60
+        let second = Int(timing) % 60
+        
+        return String(format: "%02i:%02i",minute,second)
     }
     
    

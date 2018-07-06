@@ -103,11 +103,29 @@ class RunningDataManager: NSObject {
         
        return currentschedule
     }
+    static func loadPreviousSession(_ sessionID:Int) -> Session{
+        let previousScheduleTime = SQLiteDB.sharedInstance.query(sql: "Select lap1time,lap2time,lap3time,lap4time,lap5time from Session where sessionID = \(sessionID)")
+        var previousScheduleLapTime = Session(firsttime : 0, secondtime: 0, thirdtime: 0, fourthtime: 0, fivetime: 0)
+        for row in previousScheduleTime
+        {
+            previousScheduleLapTime = Session(firsttime: row["lap1time"] as! Double,secondtime: row["lap2time"] as! Double,thirdtime: row["lap3time"] as! Double,fourthtime: row["lap4time"] as! Double,fivetime: row["lap5time"] as! Double)
+        }
+        
+        return previousScheduleLapTime
+        
+    }
     static func selectlastSessionTableId() -> Int{
         let currentid = SQLiteDB.sharedInstance.query(sql: "Select Max(SessionID) from Session")
         var id : Int = 0
         for row in currentid{
-         id = row["Max(SessionID)"] as! Int
+            if(row["Max(SessionID)"] == nil)
+            {
+                id = 0
+            }
+            else
+            {
+                id = row["Max(SessionID)"] as! Int
+            }
         }
         return id
     }

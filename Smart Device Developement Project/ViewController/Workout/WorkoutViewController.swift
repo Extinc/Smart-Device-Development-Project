@@ -15,6 +15,8 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
     var exercise: [Exercise]?
+    var nameToPass: String?
+    var idToPass: Int?
     
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
@@ -22,6 +24,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var cardView1ImageView: UIImageView!
     @IBOutlet weak var cardView2ImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     
     
     override func viewDidLoad() {
@@ -55,6 +58,9 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // ****************************************************************************
+    // For table
+    // ****************************************************************************
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -73,10 +79,41 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         colorScheme.surfaceColor = .white
         cell.card.backgroundColor = .gray
         cell.card.setBorderColor(UIColor.blue, for: cell.card.state)
+        
         // When
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    // ****************************************************************************
+    
+    
+    
+    
+    // ****************************************************************************
+    //
+    // ****************************************************************************
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "catCellClick" {
+            // initialize new view controller and cast it as your view controller
+            var viewController = segue.destination as! WorkoutOfCatViewController
+            if let cell = sender as? WorkoutCustomViewCell {
+                
+                idToPass = exerciseCat?[(tableView.indexPath(for: cell)?.row)!].id
+                nameToPass = ((cell.cellLabel)!.text)!
+                // your new view controller should have property that will store passed value
+                viewController.passedId = idToPass
+                viewController.passedName = nameToPass
+            }
+        }
+    }
+    
+    
     
     
     /*

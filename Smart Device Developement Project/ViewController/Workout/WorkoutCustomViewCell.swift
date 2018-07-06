@@ -15,3 +15,11 @@ class WorkoutCustomViewCell: UITableViewCell{
     
     @IBOutlet weak var card: MDCCard!
 }
+
+class WorkoutListCustomCell: UITableViewCell {
+    
+    @IBOutlet weak var exerciseimageView: UIImageView!
+    
+    @IBOutlet weak var exerciseLabel: UILabel!
+    
+}

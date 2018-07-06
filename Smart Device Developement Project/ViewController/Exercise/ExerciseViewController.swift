@@ -27,6 +27,17 @@ class ExerciseViewController: UIViewController {
         
         ExerciseDataManager.insertExerciseToDB()
         
+        //
+        // For workout
+        //
+        ExerciseCreateDataManager.createWorkoutCatTable()
+        ExerciseCreateDataManager.createEquipmentTable()
+        ExerciseCreateDataManager.createWorkoutTable()
+        
+        // To insert data from api/json into sqlite for quicker access.
+        ExerciseDataManager.addExerciseCategoryToDB()
+        ExerciseDataManager.insertEquipmentListToTable()
+        
         ExerciseDataManager.testgetExercise(catID: 10)
     }
 

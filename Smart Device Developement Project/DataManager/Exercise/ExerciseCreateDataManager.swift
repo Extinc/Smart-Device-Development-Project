@@ -23,6 +23,7 @@ class ExerciseCreateDataManager: NSObject {
                 "   description text, " +
                 "   category int, " +
                 "   type text," +
+                "   level text," +
                 "   videolink text, " +
                 "   imgurls text, " +
                 "   muscleimgurls text, " +

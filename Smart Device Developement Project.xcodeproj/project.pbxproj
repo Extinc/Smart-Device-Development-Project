@@ -528,10 +528,10 @@
 		90F9C7D820D39F39005BA228 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				90726C0E20D797B700FCFB28 /* DataManager.swift */,
 				9084B1E420E12A3100B49038 /* Running */,
 				6939311B20DA8F6F00C8775F /* Dietary */,
 				90F9C7D920D39F45005BA228 /* Exercise */,
-				90726C0E20D797B700FCFB28 /* DataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";

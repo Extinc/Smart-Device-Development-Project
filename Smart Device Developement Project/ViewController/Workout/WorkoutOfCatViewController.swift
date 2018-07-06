@@ -92,6 +92,11 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         cell.exerciseLabel.text = exercise[indexPath.row].name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     /*
     // MARK: - Navigation
 

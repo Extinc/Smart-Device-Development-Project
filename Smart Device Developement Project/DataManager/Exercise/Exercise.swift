@@ -16,10 +16,11 @@ class Exercise: NSObject {
     var muscleImg: String?
     var desc: String?
     var type: String?
+    var level: String?
     var category: Int?
     var videoLink: String?
     
-    init(id:Int, name: String, equipment: Int, desc: String, category: Int, videoLink: String, imageLink: [String], type: String, muscleImg: String) {
+    init(id:Int, name: String, equipment: Int, desc: String, category: Int, videoLink: String, imageLink: [String], type: String, muscleImg: String, level: String) {
         self.id = id
         self.name = name
         self.equipment = equipment
@@ -29,6 +30,7 @@ class Exercise: NSObject {
         self.videoLink = videoLink
         self.type = type
         self.muscleImg = muscleImg
+        self.level = level
     }
 }
 

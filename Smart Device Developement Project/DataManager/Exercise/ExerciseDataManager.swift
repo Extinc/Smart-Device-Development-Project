@@ -79,6 +79,7 @@ class ExerciseDataManager: NSObject{
                 var videoLink = ""
                 let type = r.childSnapshot(forPath: "Type").value as! String
                 let muscleImgLink = r.childSnapshot(forPath: "ImgMuscle").value as! String
+                let Level = r.childSnapshot(forPath: "Level").value as! String
                 
                 if  r.childSnapshot(forPath: "Video").exists() {
                     videoLink = r.childSnapshot(forPath: "Video").value as! String
@@ -86,7 +87,7 @@ class ExerciseDataManager: NSObject{
                     videoLink = ""
                 }
                 
-                eqList.append(Exercise(id: Int(r.key)!, name: name, equipment: equipment, desc: desc, category: category, videoLink: videoLink as! String, imageLink: imgList, type: type, muscleImg: muscleImgLink
+                eqList.append(Exercise(id: Int(r.key)!, name: name, equipment: equipment, desc: desc, category: category, videoLink: videoLink as! String, imageLink: imgList, type: type, muscleImg: muscleImgLink, level: Level
                 ))
                 print(imgList)
             }
@@ -244,7 +245,8 @@ class ExerciseDataManager: NSObject{
                                      videoLink: row["videolink"] as! String,
                                      imageLink: convertArrInStringToStrArr(sArray: imgurls),
                                      type: row["type"] as! String,
-                                     muscleImg: row["muscleimgurls"] as! String))
+                                     muscleImg: row["muscleimgurls"] as! String,
+                                     level: row["level"] as! String))
         }
         
         return exercise
@@ -269,7 +271,8 @@ class ExerciseDataManager: NSObject{
                                      videoLink: row["videolink"] as! String,
                                      imageLink: convertArrInStringToStrArr(sArray: imgurls),
                                      type: row["type"] as! String,
-                                     muscleImg: row["muscleimgurls"] as! String))
+                                     muscleImg: row["muscleimgurls"] as! String,
+                                     level: row["level"] as! String))
         }
         
         return exercise
@@ -374,9 +377,9 @@ class ExerciseDataManager: NSObject{
                 for e in exercise {
                     insertOrReplace(
                         tableName: "Workout",
-                        tableCols: " workoutID, name, equipment, description, category, type, videolink, imgurls, muscleimgurls ",
-                        valuesql: "?,?,?,?,?,?,?,?,?",
-                        params: [e.id, e.name, e.equipment, e.desc!, e.category!, e.type!, e.videoLink!, "\(e.imageLink)", e.muscleImg!])
+                        tableCols: " workoutID, name, equipment, description, category, type, level, videolink, imgurls, muscleimgurls ",
+                        valuesql: "?,?,?,?,?,?,?,?,?,?",
+                        params: [e.id, e.name, e.equipment, e.desc!, e.category!, e.type!, e.level!, e.videoLink!, "\(e.imageLink)", e.muscleImg!])
                 }
             }
         }

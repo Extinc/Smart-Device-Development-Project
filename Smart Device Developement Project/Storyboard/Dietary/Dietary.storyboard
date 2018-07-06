@@ -165,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="progressBar" destination="qab-hY-LIC" id="T9r-DZ-ToU"/>
                         <outlet property="reccCal" destination="AEi-dd-1sC" id="8dC-UR-6J2"/>
                     </connections>
                 </viewController>

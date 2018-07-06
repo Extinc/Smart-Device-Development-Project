@@ -177,10 +177,10 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let dietplan = planTextField.text
         let goals = goalsTextField.text
         let duration = durationTextField.text
-        let mpd = mealsperdayTextField.text as! Int
+        let mpd = Int(mealsperdayTextField.text!)
         let mti = mealtimingsTextField.text
         let reminders = remindersTextField.text
-        let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd, mti!, reminders! )
+        let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd!, mti!, reminders! )
     PlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
         performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
     }

@@ -11,7 +11,7 @@ import UIKit
 class ViewMealViewController: UIViewController {
   
 
-    var RecipeItem : Recipe?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

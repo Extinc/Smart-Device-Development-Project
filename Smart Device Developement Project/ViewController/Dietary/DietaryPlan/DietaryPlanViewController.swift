@@ -24,18 +24,21 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
     let headers = ["Planned Meals", "Dietary Diary"]
-    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "chickenrice", 340.5),
-                     MealPlan("", "", 2, 2, 1, "Aglio Olio", "", 450),
-                     MealPlan("", "", 3, 3, 1, "Porridge", "", 300)],
-                     [MealPlan("","", 14, 4, 1, "", "", 200)]
+    var meal : [Meal] = []
+    var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"No"),
+                     MealPlan(2,"", "", 2, "Aglio Olio", "", 450, "No"),
+                     MealPlan(3,"", "", 3, "Porridge", "", 300,"No")],
+                     [MealPlan(4,"","", 14, "", "", 200, "Yes")]
                     ]
 
     var contentWidth:CGFloat = 0.0
+    var username = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //DietaryCreateData.createData()
+        //Load meals
+        loadMeals()
         
         //Date picker
         datePicker = UIDatePicker()
@@ -50,7 +53,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         dateTextField.inputView = datePicker
         
         // Create tables
-        PlanDataManager.createUPTable()
+        DietaryPlanDataManager.createUPTable()
         
         //load meal plan type and goals
       /*  if (mealplantype == ""){
@@ -129,12 +132,33 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 // object selected by the user.
                 //
                 let meal = mealPlans[myIndexPath!.row]
-                let recipe = Recipe(1, 1, "", "", "")
-                
-                ViewMealViewController.RecipeItem = recipe
+
                 
             }
         }
+        
+        
+    }
+    
+    // MARK: - Functions
+    func loadMeals() {
+        DietaryPlanDataManagerFirebase.loadMeals(){
+            mealListFromFirebase in
+            self.meal = mealListFromFirebase
+        }
+    }
+    
+    func getMealPlans(){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let actualDate = formatter.string(from: date)
+        let preferences = DietaryPlanDataManager.loadPreferences(username: username)
+        
+        //get meals that are planned
+        let plannedMeals = RecommendMeal.mealPlanTypeSelect(planType: preferences[0].mealPlanType!, meals: meal, planPreferences: preferences[0], date: actualDate)
+        
+        //get all meals
         
         
     }

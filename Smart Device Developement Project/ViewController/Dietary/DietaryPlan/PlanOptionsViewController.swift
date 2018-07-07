@@ -17,6 +17,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var mealsperdayTextField: UITextField!
     @IBOutlet weak var mealtimingsTextField: UITextField!
     @IBOutlet weak var remindersTextField: UITextField!
+    @IBOutlet weak var startDateTextField: UITextField!
     
     var picker1 = UIPickerView()
     var picker2 = UIPickerView()
@@ -36,7 +37,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var planpreferences = [UserPlanPreferences]()
     
     var preferences = ["test", "Vegan", "Lose Weight", "2 Weeks", "3", "2 Hours", "Yes"]
-    var username = "test"
+    var username = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,17 +174,20 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     // MARK: - Navigation
 
     @IBAction func goBackToDPC(_ sender: Any) {
-        let username = "1"
         let dietplan = planTextField.text
         let goals = goalsTextField.text
         let duration = durationTextField.text
         let mpd = Int(mealsperdayTextField.text!)
         let mti = mealtimingsTextField.text
         let reminders = remindersTextField.text
-        let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd!, mti!, reminders! )
-    PlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
+        let startDate = startDateTextField.text
+
+        let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd!, mti!, reminders!, startDate!)
+        DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
+        
         performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
     }
     
      // MARK: - Functions
+    
 }

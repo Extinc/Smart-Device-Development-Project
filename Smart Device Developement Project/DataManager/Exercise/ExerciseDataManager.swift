@@ -79,7 +79,8 @@ class ExerciseDataManager: NSObject{
                 var videoLink = ""
                 let type = r.childSnapshot(forPath: "Type").value as! String
                 let muscleImgLink = r.childSnapshot(forPath: "ImgMuscle").value as! String
-                let Level = r.childSnapshot(forPath: "Level").value as! String
+                var level = r.childSnapshot(forPath: "Level").value as! String
+                level = substringLevel(level: level)
                 
                 if  r.childSnapshot(forPath: "Video").exists() {
                     videoLink = r.childSnapshot(forPath: "Video").value as! String
@@ -87,7 +88,7 @@ class ExerciseDataManager: NSObject{
                     videoLink = ""
                 }
                 
-                eqList.append(Exercise(id: Int(r.key)!, name: name, equipment: equipment, desc: desc, category: category, videoLink: videoLink as! String, imageLink: imgList, type: type, muscleImg: muscleImgLink, level: Level
+                eqList.append(Exercise(id: Int(r.key)!, name: name, equipment: equipment, desc: desc, category: category, videoLink: videoLink as! String, imageLink: imgList, type: type, muscleImg: muscleImgLink, level: level
                 ))
                 print(imgList)
             }
@@ -512,5 +513,12 @@ class ExerciseDataManager: NSObject{
         return intArray
     }
  
+    static func substringLevel(level: String) -> String{
+        let str = "level:"
+        let index = level.index(after: str.endIndex)
+        let sub = level[index...]
+        
+        return String(sub)
+    }
 }
 

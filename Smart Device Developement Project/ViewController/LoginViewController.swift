@@ -91,6 +91,17 @@ class LoginViewController: UIViewController {
         lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.secondaryDarkColor)
         
         DataManager.createUserInfoTable()
+        
+        //
+        // For workout
+        //
+        ExerciseCreateDataManager.createWorkoutCatTable()
+        ExerciseCreateDataManager.createEquipmentTable()
+        ExerciseCreateDataManager.createWorkoutTable()
+        
+        // To insert data from api/json into sqlite for quicker access.
+        ExerciseDataManager.addExerciseCategoryToDB()
+        ExerciseDataManager.insertEquipmentListToTable()
     }
     
 

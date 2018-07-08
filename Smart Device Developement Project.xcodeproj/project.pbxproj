@@ -76,6 +76,8 @@
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
+		F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192FE7420F2162B005C76E8 /* BMIViewController.swift */; };
+		F192FE7720F25801005C76E8 /* NutrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192FE7620F25801005C76E8 /* NutrInfo.swift */; };
 		F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B6D020EB60190026A962 /* HTTP.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +182,8 @@
 		F12F23EB20EDEEB900836A83 /* foodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodData.swift; sourceTree = "<group>"; };
 		F147301820D7A4B700C63470 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
 		F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarViewController.swift; sourceTree = "<group>"; };
+		F192FE7420F2162B005C76E8 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
+		F192FE7620F25801005C76E8 /* NutrInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrInfo.swift; sourceTree = "<group>"; };
 		F1A1B6D020EB60190026A962 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -407,6 +411,7 @@
 				F12F23EB20EDEEB900836A83 /* foodData.swift */,
 				69D026DA20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift */,
 				69E22A2120F0E4F40054D552 /* RecommendMeal.swift */,
+				F192FE7620F25801005C76E8 /* NutrInfo.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				F147301820D7A4B700C63470 /* DietaryViewController.swift */,
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
 				51FC308E20E62A5900A5E685 /* SummaryViewController.swift */,
+				F192FE7420F2162B005C76E8 /* BMIViewController.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5112D5CA20EF0DD100212972 /* WorkoutOfCatViewController.swift in Sources */,
+				F192FE7720F25801005C76E8 /* NutrInfo.swift in Sources */,
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				69D026DB20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift in Sources */,
@@ -827,6 +834,7 @@
 				702864F420E8BA8800C75702 /* RunningGraphViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
+				F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */,

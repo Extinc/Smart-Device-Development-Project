@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JjH-Lc-1fc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JjH-Lc-1fc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="-642" y="134"/>
         </scene>
-        <!--Dietary Summary-->
+        <!--Summary-->
         <scene sceneID="fPP-t8-Xh5">
             <objects>
                 <viewController id="ZRX-KN-u4F" customClass="DietaryViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                        <real key="value" value="130"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
@@ -111,6 +111,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
                                         <color key="value" red="0.151058254" green="0.96620899439999997" blue="0.31035991149999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="0.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -130,6 +133,14 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="Test:" destination="ZRX-KN-u4F" eventType="touchUpInside" id="aDG-1r-j1E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVX-rq-qfU">
+                                <rect key="frame" x="192" y="551" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BMI"/>
+                                <connections>
+                                    <segue destination="swl-K2-d29" kind="show" id="0aI-lC-0W7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,13 +168,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hwr-gG-SCu"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dietary Summary" id="r7R-1h-Diy">
-                        <barButtonItem key="rightBarButtonItem" title="BMI" id="8lj-qR-ZsC">
-                            <connections>
-                                <segue destination="swl-K2-d29" kind="show" id="HFG-DP-Gbn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Summary" id="r7R-1h-Diy"/>
                     <connections>
                         <outlet property="progressBar" destination="qab-hY-LIC" id="T9r-DZ-ToU"/>
                         <outlet property="reccCal" destination="AEi-dd-1sC" id="8dC-UR-6J2"/>
@@ -389,7 +394,7 @@
         <!--View Controller-->
         <scene sceneID="7Ji-IF-8DO">
             <objects>
-                <viewController id="swl-K2-d29" sceneMemberID="viewController">
+                <viewController id="swl-K2-d29" customClass="BMIViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="swu-6n-iFE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -496,6 +501,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="l5Q-Iv-Hfk"/>
                     </view>
+                    <connections>
+                        <outlet property="Normal" destination="Hjw-IF-Jer" id="Wlg-E4-Ap9"/>
+                        <outlet property="OverWeight" destination="jmE-KE-akk" id="1AD-mH-x4n"/>
+                        <outlet property="ServerlyOverWeight" destination="MkY-BD-3gd" id="qQ8-Il-Vhj"/>
+                        <outlet property="ServerlyUnderWeight" destination="U2A-dM-ui8" id="Whm-G3-g9u"/>
+                        <outlet property="SlightlyOverWeight" destination="PAK-6e-2Mr" id="Bpx-v1-KHl"/>
+                        <outlet property="SlightlyUnderWeight" destination="vZR-dc-RE1" id="S3o-qx-eQM"/>
+                        <outlet property="UnderWeight" destination="gNX-Io-U1t" id="htr-GY-DhB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ccj-sv-o1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

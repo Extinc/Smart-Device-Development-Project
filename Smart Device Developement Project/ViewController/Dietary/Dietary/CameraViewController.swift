@@ -80,8 +80,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
             
             DispatchQueue.main.async {
-                self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
-                print(self?.test.text as Any)
+                if ((topResult.confidence * 100) < 80)
+                {
+                    self?.test.text = "Invalid Image/Take Again"
+                    print(self?.test.text as Any)
+                }else{
+                    self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
+                    print(self?.test.text as Any)
+                }
             }
         })
         

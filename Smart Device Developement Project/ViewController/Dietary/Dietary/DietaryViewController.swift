@@ -13,20 +13,19 @@ class DietaryViewController: UIViewController {
     @IBOutlet weak var reccCal: UILabel!
     
     @IBOutlet weak var progressBar: KDCircularProgress!
+    
     @IBAction func Test(_ sender: Any) {
         let angle = progressBar.angle + 80
         progressBar.animate(fromAngle: progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
     }
-    var ref:DatabaseReference?
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let y = NutrInfo().calcBMI()
+        /*let y = NutrInfo().calcBMI()
         print(y)
         
         let x = NutrInfo().calReccCalories()
-        reccCal.text = x.description
+        reccCal.text = x.description */
         progressBar.animate(fromAngle: progressBar.angle, toAngle: 0, duration: 0.5, completion: nil)
     }
 

@@ -216,6 +216,35 @@
             </objects>
             <point key="canvasLocation" x="-952.17391304347836" y="180.57065217391306"/>
         </scene>
+        <!--Change Meal View Controller-->
+        <scene sceneID="a35-k7-32k">
+            <objects>
+                <viewController id="E0T-N9-N1b" customClass="ChangeMealViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iy8-da-Ogs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBN-OG-Rnm">
+                                <rect key="frame" x="42" y="117" width="330" height="498"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTA-tO-Nll">
+                                        <rect key="frame" x="8" y="8" width="314" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Remove Meal From Plan"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.82400726394604917" green="0.82400726394604917" blue="0.82400726394604917" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Axz-sh-IkU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hsj-eT-CxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1920.289855072464" y="981.929347826087"/>
+        </scene>
         <!--Recipe-->
         <scene sceneID="J58-JY-eme">
             <objects>
@@ -224,7 +253,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kn9-GY-Wfw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kn9-GY-Wfw">
                                 <rect key="frame" x="0.0" y="64" width="414" height="603"/>
                             </imageView>
                         </subviews>
@@ -238,12 +267,19 @@
                         <viewLayoutGuide key="safeArea" id="TBE-cP-xep"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" id="Zmb-Jr-Ufz">
-                        <barButtonItem key="rightBarButtonItem" title="Change Meal" id="SxV-vG-cY3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Change Meal" id="SxV-vG-cY3">
+                            <connections>
+                                <segue destination="E0T-N9-N1b" kind="show" identifier="changeMealSegue" id="l0h-Sr-nFh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="recipeImage" destination="Kn9-GY-Wfw" id="T3P-mu-wS8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="072-Nh-P6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1057" y="933"/>
+            <point key="canvasLocation" x="-1142" y="931"/>
         </scene>
         <!--Meal Types View Controller-->
         <scene sceneID="rq1-GT-hnF">

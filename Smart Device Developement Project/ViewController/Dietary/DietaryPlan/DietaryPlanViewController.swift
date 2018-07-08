@@ -13,6 +13,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var generatePlanButton: UIButton!
     
     private var datePicker: UIDatePicker?
     
@@ -23,8 +24,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
-    let headers = ["Planned Meals", "Dietary Diary"]
+    let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
+    var mealplan: [MealPlan] = []
     var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"No"),
                      MealPlan(2,"", "", 2, "Aglio Olio", "", 450, "No"),
                      MealPlan(3,"", "", 3, "Porridge", "", 300,"No")],
@@ -34,11 +36,54 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     var contentWidth:CGFloat = 0.0
     var username = "1"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        var actualDate = formatter.string(from: date)
+        dateTextField.text = actualDate
+        
+        
+       /* //Create user preferences table
+        DietaryPlanDataManager.createUPTable()
+        
+        var preferences : [UserPlanPreferences] = DietaryPlanDataManager.loadPreferences(username: username)
         //Load meals
         loadMeals()
+        
+        //Load meal plans
+        loadPlanMeals(date: actualDate, username: username)
+        if (mealplan[0].planID == 0){
+            if(preferences[0].duration == "") {
+                
+            }
+            else {
+                generatePlanButton.isEnabled = false
+                RecommendMeal.createMealPlans(username: username, meal: meal, date: dateTextField.text!)
+            }
+            
+        }
+        else
+        {
+         generatePlanButton.isEnabled = false
+            //Append meal inside mealPlans to display at table
+            for i in 0...1 {
+                for j in 0...mealplan.count {
+                    if (mealplan[j].isDiary == "No") {
+                        mealPlans[0].append(mealplan[j])
+                    }
+                    else {
+                        mealPlans[1].append(mealplan[j])
+                    }
+                }
+            }
+            
+        }*/
+        
+        
         
         //Date picker
         datePicker = UIDatePicker()
@@ -148,20 +193,13 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    func getMealPlans(){
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        let actualDate = formatter.string(from: date)
-        let preferences = DietaryPlanDataManager.loadPreferences(username: username)
-        
-        //get meals that are planned
-        let plannedMeals = RecommendMeal.mealPlanTypeSelect(planType: preferences[0].mealPlanType!, meals: meal, planPreferences: preferences[0], date: actualDate)
-        
-        //get all meals
-        
-        
+    func loadPlanMeals (date: String, username: String) {
+        DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
+            mealPlanListFromFirebase in
+            self.mealplan = mealPlanListFromFirebase
+        }
     }
+   
 
  
 

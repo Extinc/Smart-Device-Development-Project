@@ -60,8 +60,8 @@ class DietaryPlanDataManager: NSObject {
             parameters: [username]
         )
         
-        for row in userpreferences {
-            if (row["username"] as! String != "") {
+        var count = preferences.count
+            for row in userpreferences {
                 preferences.append(UserPlanPreferences(
                     row["username"] as! String,
                     row["mealplantype"] as! String,
@@ -71,15 +71,33 @@ class DietaryPlanDataManager: NSObject {
                     row["mealtiming"] as! String,
                     row["reminders"] as! String,
                     row["startDate"] as! String
-                    
                 ))
             }
-            else {
-                preferences.append(UserPlanPreferences("", "","","", 0, "", "", ""))
-            }
-            
+        
+        if (count < 1) {
+            preferences.append(UserPlanPreferences("", "","","", 0, "", "", ""))
         }
+        
+           
+            
+        
       return preferences
     }
     
+    static func countPreferences(userName: String) -> Int {
+        var preferences : [UserPlanPreferences] = []
+        let userpreferences = SQLiteDB.sharedInstance.query(sql:
+            "SELECT username, mealplantype, goals, duration, mealsperday, mealtiming, reminders, startDate" +
+            " FROM userPlanPreferences" +
+            " WHERE username = ?",
+            parameters: [userName]
+        )
+        
+        var count = 0
+        for row in userpreferences {
+            count += 1
+        }
+        
+        return count
+    }
 }

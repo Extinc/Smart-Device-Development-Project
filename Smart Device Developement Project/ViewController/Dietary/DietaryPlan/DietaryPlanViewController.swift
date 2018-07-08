@@ -35,6 +35,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
 
     var contentWidth:CGFloat = 0.0
     var username = "1"
+    var totalCalories:Float = 1800.0
     
     
     override func viewDidLoad() {
@@ -46,43 +47,31 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         var actualDate = formatter.string(from: date)
         dateTextField.text = actualDate
         
-        
-       /* //Create user preferences table
-        DietaryPlanDataManager.createUPTable()
-        
         var preferences : [UserPlanPreferences] = DietaryPlanDataManager.loadPreferences(username: username)
         //Load meals
         loadMeals()
         
         //Load meal plans
         loadPlanMeals(date: actualDate, username: username)
-        if (mealplan[0].planID == 0){
-            if(preferences[0].duration == "") {
-                
+        
+           if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+                generatePlanButton.isEnabled = true
             }
             else {
                 generatePlanButton.isEnabled = false
-                RecommendMeal.createMealPlans(username: username, meal: meal, date: dateTextField.text!)
-            }
-            
-        }
-        else
-        {
-         generatePlanButton.isEnabled = false
-            //Append meal inside mealPlans to display at table
-            for i in 0...1 {
-                for j in 0...mealplan.count {
-                    if (mealplan[j].isDiary == "No") {
-                        mealPlans[0].append(mealplan[j])
-                    }
-                    else {
-                        mealPlans[1].append(mealplan[j])
+                RecommendMeal.createMealPlans(username: username, meal: meal, date: dateTextField.text!, totalCalories: totalCalories)
+                //Append meal inside mealPlans to display at table
+                for i in 0...1 {
+                    for j in 0...mealplan.count {
+                        if (mealplan[j].isDiary == "No") {
+                            mealPlans[0].append(mealplan[j])
+                        }
+                        else {
+                            mealPlans[1].append(mealplan[j])
+                        }
                     }
                 }
             }
-            
-        }*/
-        
         
         
         //Date picker
@@ -99,19 +88,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         
         // Create tables
         DietaryPlanDataManager.createUPTable()
-        
-        //load meal plan type and goals
-      /*  if (mealplantype == ""){
-            mptlabel.text = ""
-            glabel.text = ""
-            mealPlanTypeLabel.text = ""
-            goalsLabel.text = ""
-        }
-        else {
-            mealPlanTypeLabel.text = mealplantype
-            goalsLabel.text = goals
-        }*/
-        
         
     }
     
@@ -173,7 +149,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
             
             if(myIndexPath != nil)
             {
-                // Set the movieItem field with the movie
+                // Set the mealItem field with the meal
                 // object selected by the user.
                 //
                 let meal = mealPlans[myIndexPath!.row]

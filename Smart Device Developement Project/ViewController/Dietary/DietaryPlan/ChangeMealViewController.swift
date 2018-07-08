@@ -1,23 +1,18 @@
 //
-//  ViewMealViewController.swift
+//  ChangeMealViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by Guan Wei on 24/6/18.
+//  Created by Guan Wei on 8/7/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
 
-class ViewMealViewController: UIViewController {
-  
+class ChangeMealViewController: UIViewController {
 
-    @IBOutlet weak var recipeImage: UIImageView!
-    var imageName: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        recipeImage.image = UIImage(named: imageName)
+
         // Do any additional setup after loading the view.
     }
 

@@ -14,13 +14,12 @@ class DietaryPlanDataManagerFirebase: NSObject {
 
     //MARK: - Meal
     //Load Meal "table"
-    static func loadMeals(onComplete: @escaping ([Meal]) -> Void) {
+    static func loadMeals(onComplete: @escaping ([Meal]) -> Void){
         //Create empty list
         var mealList : [Meal] = []
         let ref = FirebaseDatabase.Database.database().reference().child("Meal/")
         // Load full list of movies and execute "with" closure once, when download is complete
-        ref.observeSingleEvent(of: .value, with:
-            {(snapshot) in
+        ref.observeSingleEvent(of: .value, with:{(snapshot) in
                 for record in snapshot.children {
                     let r = record as! DataSnapshot
                     mealList.append(Meal(Int(r.key)!,
@@ -31,11 +30,13 @@ class DietaryPlanDataManagerFirebase: NSObject {
                                          r.childSnapshot(forPath: "protein").value as! Float,
                                          r.childSnapshot(forPath: "fat").value as! Float,
                                          r.childSnapshot(forPath: "sodium").value as! Float,
-                                         r.childSnapshot(forPath: "ingredients").value as! String
+                                         r.childSnapshot(forPath: "ingredients").value as? String
                                          ))
                 }
-              onComplete(mealList)
+            onComplete(mealList)
         })
+        
+        
     }
     
     //Create / Update
@@ -165,20 +166,6 @@ class DietaryPlanDataManagerFirebase: NSObject {
         
     }
     
-    static func deleteMeal(){
-        let ref = FirebaseDatabase.Database.database().reference().child("Meal/\(1)/")
-        ref.removeValue()
-        
-        let ref1 = FirebaseDatabase.Database.database().reference().child("Meal/\(2)/")
-        ref1.removeValue()
-        
-        let ref3 = FirebaseDatabase.Database.database().reference().child("Meal/\(3)/")
-        ref3.removeValue()
-        
-        let ref4 = FirebaseDatabase.Database.database().reference().child("Meal/\(4)/")
-        ref4.removeValue()
-    }
-    
     //MARK: - Meal Plan
     
     //Load Meal Plan "table"
@@ -189,15 +176,9 @@ class DietaryPlanDataManagerFirebase: NSObject {
         // Load full list of movies and execute "with" closure once, when download is complete
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
-                
-                if snapshot.hasChild("1"){
+                if (snapshot.hasChild("1")){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                        let uName = r.childSnapshot(forPath: "username").value as! String
-                        let aDate = r.childSnapshot(forPath: "date").value as! String
-                        
-                        if(uName == username && aDate == date){
-                            
                             mealPlanList.append(MealPlan(Int(r.key)!,
                                                          r.childSnapshot(forPath: "username").value as! String,
                                                          r.childSnapshot(forPath: "date").value as! String,
@@ -207,11 +188,10 @@ class DietaryPlanDataManagerFirebase: NSObject {
                                                          r.childSnapshot(forPath: "calories").value as! Float,
                                                          r.childSnapshot(forPath: "isDiary").value as! String
                             ))
-                        }
                     }
                 }
                 else {
-                    mealPlanList.append(MealPlan(0, "", "", 0, "", "", 0, ""))
+                    mealPlanList.append(MealPlan(0, "", "", 0, "", "", 0, "No"))
                 }
              
                 onComplete(mealPlanList)
@@ -236,7 +216,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     //Delete
-    static func deleteMovie(_ mealPlan: MealPlan){
+    static func deleteMealPlan(_ mealPlan: MealPlan){
         let ref = FirebaseDatabase.Database.database().reference().child("Meal/\(mealPlan.planID)/")
         ref.removeValue()
     }

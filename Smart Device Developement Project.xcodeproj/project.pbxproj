@@ -46,6 +46,7 @@
 		692E473120E0E035009519C4 /* PlanOptions2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E473020E0E035009519C4 /* PlanOptions2ViewController.swift */; };
 		692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */; };
 		692E473520E100F7009519C4 /* PlanOptions2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E473420E100F7009519C4 /* PlanOptions2TableViewCell.swift */; };
+		693F6ACB20F25C7600F3FA95 /* ChangeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F6ACA20F25C7600F3FA95 /* ChangeMealViewController.swift */; };
 		69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B42A2B20DA4FA4008925D0 /* PlanOptionsViewController.swift */; };
 		69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BE096B20DB6E980008BF25 /* MealPlan.swift */; };
 		69BE096E20DB6EEE0008BF25 /* DietaryPlanDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BE096D20DB6EED0008BF25 /* DietaryPlanDataManager.swift */; };
@@ -148,6 +149,7 @@
 		692E473020E0E035009519C4 /* PlanOptions2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptions2ViewController.swift; sourceTree = "<group>"; };
 		692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlanPreferences.swift; sourceTree = "<group>"; };
 		692E473420E100F7009519C4 /* PlanOptions2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptions2TableViewCell.swift; sourceTree = "<group>"; };
+		693F6ACA20F25C7600F3FA95 /* ChangeMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMealViewController.swift; sourceTree = "<group>"; };
 		69B42A2B20DA4FA4008925D0 /* PlanOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionsViewController.swift; sourceTree = "<group>"; };
 		69BE096B20DB6E980008BF25 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
 		69BE096D20DB6EED0008BF25 /* DietaryPlanDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanDataManager.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				692E472E20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift */,
 				692E473020E0E035009519C4 /* PlanOptions2ViewController.swift */,
 				692E473420E100F7009519C4 /* PlanOptions2TableViewCell.swift */,
+				693F6ACA20F25C7600F3FA95 /* ChangeMealViewController.swift */,
 			);
 			path = DietaryPlan;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				69D026DB20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift in Sources */,
+				693F6ACB20F25C7600F3FA95 /* ChangeMealViewController.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,

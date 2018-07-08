@@ -121,6 +121,14 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         return 100
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWorkoutDetail" {
+            var viewController = segue.destination as! WorkoutDetailViewController
+            if let cell = sender as? WorkoutListCustomCell {
+                viewController.passedExercise = exercise[(tableView.indexPath(for: cell)?.row)!]
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

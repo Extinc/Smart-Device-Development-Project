@@ -40,7 +40,10 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
   pod 'Alamofire', '~> 4.7'
+  
   pod 'SDWebImage', '~> 4.0'
+  
+  pod 'JBChartView'
   
   # Firebase
   pod 'Firebase/Core'

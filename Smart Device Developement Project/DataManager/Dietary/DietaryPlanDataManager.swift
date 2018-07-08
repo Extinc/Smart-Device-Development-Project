@@ -25,8 +25,7 @@ class DietaryPlanDataManager: NSObject {
                 "mealsperday int, " +
                 "mealtiming text, " +
                 "reminders text, " +
-                "startDate text" +
-                "FOREIGN KEY(username) REFERENCES User(username))"
+                "startDate text) "
         )
     }
     
@@ -56,23 +55,29 @@ class DietaryPlanDataManager: NSObject {
         var preferences : [UserPlanPreferences] = []
         let userpreferences = SQLiteDB.sharedInstance.query(sql:
         "SELECT username, mealplantype, goals, duration, mealsperday, mealtiming, reminders, startDate" +
-        "FROM userPlanPreferences" +
-        "WHERE username = ?",
+        " FROM userPlanPreferences" +
+        " WHERE username = ?",
             parameters: [username]
         )
         
         for row in userpreferences {
-            preferences.append(UserPlanPreferences(
-                row["username"] as! String,
-                row["mealplanyype"] as! String,
-                row["goals"] as! String,
-                row["duration"] as! String,
-                row["mealsperday"] as! Int,
-                row["mealtiming"] as! String,
-                row["reminders"] as! String,
-                row["startDate"] as! String
-                
-            ))
+            if (row["username"] as! String != "") {
+                preferences.append(UserPlanPreferences(
+                    row["username"] as! String,
+                    row["mealplantype"] as! String,
+                    row["goals"] as! String,
+                    row["duration"] as! String,
+                    row["mealsperday"] as! Int,
+                    row["mealtiming"] as! String,
+                    row["reminders"] as! String,
+                    row["startDate"] as! String
+                    
+                ))
+            }
+            else {
+                preferences.append(UserPlanPreferences("", "","","", 0, "", "", ""))
+            }
+            
         }
       return preferences
     }

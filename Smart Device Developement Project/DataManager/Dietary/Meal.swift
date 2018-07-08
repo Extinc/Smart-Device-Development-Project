@@ -10,7 +10,7 @@ import UIKit
 
 class Meal: NSObject {
     var mealID: Int?
-    var image: String?
+    var mealImage: String?
     var name: String?
     var calories: Float?
     var carbohydrates: Float?
@@ -19,9 +19,9 @@ class Meal: NSObject {
     var sodium: Float?
     var ingredients: String?
     
-    init(_ mealID: Int, _ image: String ,_ name: String, _ calories: Float, _ carbohydrates: Float, _ protein: Float, _ fat: Float, _ sodium: Float, _ ingredients: String? ){
+    init(_ mealID: Int,_ mealImage: String, _ name: String, _ calories: Float, _ carbohydrates: Float, _ protein: Float, _ fat: Float, _ sodium: Float, _ ingredients: String? ){
         self.mealID = mealID
-        self.image = image
+        self.mealImage = mealImage
         self.name = name
         self.calories = calories
         self.carbohydrates = carbohydrates

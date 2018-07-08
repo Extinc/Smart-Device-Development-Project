@@ -9,18 +9,20 @@
 import UIKit
 
 class WorkoutDetailViewController: UIViewController {
+    
 
     var passedExercise: Exercise!
     
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        descLabel.text = passedExercise.desc
-        print(descLabel.text)
+        print()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +30,13 @@ class WorkoutDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "workoutDetailContainer" {
+            var viewController = segue.destination as! WorkoutDetailTableViewController
+            
+            viewController.exerciseFromDetail = passedExercise
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -7,35 +7,82 @@
 //
 
 import UIKit
+import MaterialComponents
+import SDWebImage
 
-class WorkoutDetailViewController: UIViewController {
+class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
     
 
     var passedExercise: Exercise!
+    var newText: [String] = []
+    var imageurl: [URL] = []
+    var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
+    @IBOutlet weak var cardDesc: MDCCard!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        print()
+        scrollView.delegate = self
+        prefetchCurrExerciseImage()
+        descLabel.lineBreakMode = .byWordWrapping
+        descLabel.numberOfLines = 100
+        descLabel.text = passedExercise.desc!
+        newText = passedExercise.desc!.components(separatedBy: "\n")
+        descLabel.text = ""
+        for val in newText {
+            
+            if val.contains(". ") {
+                newText = val.components(separatedBy: ". ")
+                
+                for val1 in newText {
+                    descLabel.text?.append(" • \(val1) \n\n")
+                }
+
+            } else if val.contains("Caution") {
+                descLabel.text?.append("\(val) \n\n")
+            } else {
+                descLabel.text?.append(" • \(val) \n\n")
+            }
+        }
+
+        for count in 0..<passedExercise.imageLink.count {
+            frame.origin.x = scrollView.frame.size.width * CGFloat(count)
+            frame.size = scrollView.frame.size
+            var imageView = UIImageView(frame: frame)
+            imageView.contentMode = .scaleToFill
+            if let url = URL.init(string: passedExercise.imageLink[count]) {
+                imageView.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                    if error != nil {
+                        print("Image View Error: \(error.debugDescription)")
+                    }
+                })
+            }
+            scrollView.addSubview(imageView)
+            print("Scrollview subcviews ", scrollView.subviews)
+        }
+        
+        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(passedExercise.imageLink.count)), height: scrollView.frame.size.height)
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "workoutDetailContainer" {
-            var viewController = segue.destination as! WorkoutDetailTableViewController
-            
-            viewController.exerciseFromDetail = passedExercise
-        }
     }
 
     /*
@@ -48,8 +95,18 @@ class WorkoutDetailViewController: UIViewController {
     }
     */
     
-    func splitStringToMultiLine(str: String){
+    func prefetchCurrExerciseImage(){
+        for il in passedExercise.imageLink {
+            if let url = URL.init(string: il) {
+                imageurl.append(url)
+            }
+        }
+        if let url = URL.init(string: passedExercise.muscleImg!) {
+            imageurl.append(url)
+        }
         
-    }
+        SDWebImagePrefetcher.shared().prefetchURLs(imageurl, progress: nil, completed: { finishedCount, skippedCount in
+            print("Prefetch complete!")
+        })    }
 
 }

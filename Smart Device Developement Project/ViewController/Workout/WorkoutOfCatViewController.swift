@@ -18,6 +18,7 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
     var searchActive : Bool = false
     var segmentHide: Bool!
     var exercise: [Exercise] = []
+    var imageUrls: [URL] = []
     
     @IBOutlet weak var titleHeader: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
@@ -27,9 +28,16 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
     @IBAction func difficultyChange(_ sender: Any) {
         exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
         DispatchQueue.main.async {
+            self.prefetchImage()
             self.tableView.reloadData()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,13 +52,15 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         } else {
             difficultySegmentCtrl.isHidden = false
         }
-
         if let passid: Int! = self.passedId {
             exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
         }else {
             exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
         }
 
+        DispatchQueue.main.async {
+            self.prefetchImage()
+        }
 
     }
     
@@ -125,6 +135,7 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         if segue.identifier == "showWorkoutDetail" {
             var viewController = segue.destination as! WorkoutDetailViewController
             if let cell = sender as? WorkoutListCustomCell {
+                print("Cell : ", exercise[(tableView.indexPath(for: cell)?.row)!].id)
                 viewController.passedExercise = exercise[(tableView.indexPath(for: cell)?.row)!]
             }
         }
@@ -138,5 +149,19 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func prefetchImage(){
+        for i in self.exercise {
+            for k in i.imageLink {
+                if let url = URL.init(string: k) {
+                    self.imageUrls.append(url)
+                }
+            }
+        }
+        
+        SDWebImagePrefetcher.shared().prefetchURLs(self.imageUrls, progress: nil, completed: { finishedCount, skippedCount in
+            print("Prefetch complete!")
+        })
+    }
 
 }

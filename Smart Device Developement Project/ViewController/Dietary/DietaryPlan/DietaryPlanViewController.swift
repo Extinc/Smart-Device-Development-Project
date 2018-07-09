@@ -25,10 +25,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
-    var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"No"),
-                     MealPlan(2,"", "", 2, "Aglio Olio", "", 450, "No"),
-                     MealPlan(3,"", "", 3, "Porridge", "", 300,"No")],
-                     [MealPlan(4,"","", 14, "", "", 200, "Yes")]
+    var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"chickenricerecipe","No")],
+                     [MealPlan(4,"","", 14, "", "", 200, "","Yes")]
                     ]
 
     var contentWidth:CGFloat = 0.0
@@ -49,7 +47,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         var preferences : [UserPlanPreferences] = DietaryPlanDataManager.loadPreferences(username: username)
         //Load meals
         loadMeals()
-    
+        
         var count = DietaryPlanDataManagerFirebase.loadMealPlansCount(date: dateTextField.text!, username: username)
         print("Count", count)
         
@@ -132,9 +130,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 // Set the mealItem field with the meal
                 // object selected by the user.
                 //
-                let meal = mealPlans[myIndexPath!.row]
+                let recipeImage: String = mealPlans[myIndexPath!.section][myIndexPath!.row].recipeImage!
+                ViewMealViewController.imageName = recipeImage
 
-                
             }
         }
         
@@ -157,14 +155,17 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     }
    
     @IBAction func loadMeals(_ sender: Any) {
+        
+        RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username)
         //Load meal plans
-        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+        /*if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
             generatePlanButton.isEnabled = true
         }
         else{
             generatePlanButton.isEnabled = false
             if(DietaryPlanDataManagerFirebase.loadMealPlansCount(date: selectedDate, username: username) < 1) {
                 RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username)
+                print("TEST")
             }
             
             loadPlanMeals(date: selectedDate, username: username)
@@ -173,13 +174,16 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 for j in 0...mealplan.count {
                     if (mealplan[j].isDiary == "No") {
                         mealPlans[0].append(mealplan[j])
+                        
                     }
                     else {
                         mealPlans[1].append(mealplan[j])
+                        
                     }
                 }
             }
-        }
+            tableView.reloadData()
+        }*/
         
     }
     

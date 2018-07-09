@@ -18,6 +18,8 @@ class DietaryViewController: UIViewController {
         let angle = progressBar.angle + 80
         progressBar.animate(fromAngle: progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
     }
+    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class DietaryViewController: UIViewController {
         let x = NutrInfo().calReccCalories()
         reccCal.text = x.description */
         progressBar.animate(fromAngle: progressBar.angle, toAngle: 0, duration: 0.5, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,5 +47,7 @@ class DietaryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+   
 }

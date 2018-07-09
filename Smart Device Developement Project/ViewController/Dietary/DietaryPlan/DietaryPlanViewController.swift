@@ -51,27 +51,30 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         //Load meals
         loadMeals()
         
-        //Load meal plans
-        loadPlanMeals(date: actualDate, username: username)
         
-           if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+        //Load meal plans
+        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
                 generatePlanButton.isEnabled = true
+        }
+        else{
+            generatePlanButton.isEnabled = false
+            if(DietaryPlanDataManagerFirebase.loadMealPlansCount(date: actualDate, username: username) < 1) {
+                RecommendMeal.createMealPlan(meals: meal, date: actualDate, username: username)
             }
-            else {
-                generatePlanButton.isEnabled = false
-                RecommendMeal.createMealPlans(username: username, meal: meal, date: dateTextField.text!, totalCalories: totalCalories)
-                //Append meal inside mealPlans to display at table
-                for i in 0...1 {
-                    for j in 0...mealplan.count {
-                        if (mealplan[j].isDiary == "No") {
-                            mealPlans[0].append(mealplan[j])
-                        }
-                        else {
-                            mealPlans[1].append(mealplan[j])
-                        }
+            
+            loadPlanMeals(date: actualDate, username: username)
+            //Append meal inside mealPlans to display at table
+            for i in 0...1 {
+                for j in 0...mealplan.count {
+                    if (mealplan[j].isDiary == "No") {
+                        mealPlans[0].append(mealplan[j])
+                    }
+                    else {
+                        mealPlans[1].append(mealplan[j])
                     }
                 }
             }
+        }
         
         
         //Date picker

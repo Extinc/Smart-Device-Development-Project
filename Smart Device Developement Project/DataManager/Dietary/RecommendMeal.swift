@@ -10,27 +10,23 @@ import UIKit
 
 class RecommendMeal: NSObject {
     
-    static func createMealPlans(username: String, meal: [Meal], date: String, totalCalories: Float) {
-        let preferences = DietaryPlanDataManager.loadPreferences(username: username)
-        var mealPlan : [MealPlan] = []
-        
-        //get meals that are planned
-        let plannedMeals : [MealPlan] = mealPlanTypeSelect(planType: preferences[0].mealPlanType!, meals: meal, planPreferences: preferences[0], date: date, totalCalories: totalCalories)
-        
-        //Insert planned meals into firebase
-        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plannedMeals)
-    }
     
-    static func mealPlanTypeSelect (planType: String, meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float ) -> [MealPlan] {
+    static func createMealPlan(meals: [Meal], date: String, username: String){
         var plan: [MealPlan] = []
+        let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
+        let planType = preferences.mealPlanType
+        //let totalCalories: Float = Float(NutrInfo.calReccCalories())
+        let totalCalories: Float = 2200
         if (planType == "Gluten Free"){
-            plan = glutenFreePlan(meals: meals, planPreferences: planPreferences, date: date, totalCalories: totalCalories)
+            plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories)
             
         }
         else {
             
         }
-        return plan
+        
+        
+        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
     }
     
     static func getLastPlanID() -> Int{

@@ -22,16 +22,16 @@ class DietaryPlanDataManagerFirebase: NSObject {
         ref.observeSingleEvent(of: .value, with:{(snapshot) in
                 for record in snapshot.children {
                     let r = record as! DataSnapshot
-                    mealList.append(Meal(Int(r.key)!,
-                                         r.childSnapshot(forPath: "image").value as! String,
-                                         r.childSnapshot(forPath: "name").value as! String,
-                                         r.childSnapshot(forPath: "calories").value as! Float,
-                                         r.childSnapshot(forPath: "carbohydrates").value as! Float,
-                                         r.childSnapshot(forPath: "protein").value as! Float,
-                                         r.childSnapshot(forPath: "fat").value as! Float,
-                                         r.childSnapshot(forPath: "sodium").value as! Float,
-                                         r.childSnapshot(forPath: "ingredients").value as? String
-                                         ))
+                    let id = Int(r.key)!
+                    let image = r.childSnapshot(forPath: "image").value as! String
+                    let name = r.childSnapshot(forPath: "name").value as! String
+                    let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
+                    let carbohydrates = Float(r.childSnapshot(forPath: "carbohydrates").value as! String)!
+                    let protein = Float(r.childSnapshot(forPath: "protein").value as! String)!
+                    let fat = Float(r.childSnapshot(forPath: "fat").value as! String)!
+                    let sodium = Float(r.childSnapshot(forPath: "sodium").value as! String)!
+                    let ingredients = r.childSnapshot(forPath: "ingredients").value as! String
+                    mealList.append(Meal(id, image, name, calories, carbohydrates, protein, fat, sodium, ingredients))
                 }
             onComplete(mealList)
         })
@@ -176,26 +176,69 @@ class DietaryPlanDataManagerFirebase: NSObject {
         // Load full list of movies and execute "with" closure once, when download is complete
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
-                if (snapshot.hasChild("1")){
+                
+                let exists: Bool = snapshot.exists()
+                
+                if (exists == true){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                            mealPlanList.append(MealPlan(Int(r.key)!,
-                                                         r.childSnapshot(forPath: "username").value as! String,
-                                                         r.childSnapshot(forPath: "date").value as! String,
-                                                         r.childSnapshot(forPath: "mealID").value as! Int,
-                                                         r.childSnapshot(forPath: "mealName").value as! String,
-                                                         r.childSnapshot(forPath: "mealImage").value as! String,
-                                                         r.childSnapshot(forPath: "calories").value as! Float,
-                                                         r.childSnapshot(forPath: "isDiary").value as! String
-                            ))
+                        let userName = r.childSnapshot(forPath: "username").value as! String
+                        let Date = r.childSnapshot(forPath: "date").value as! String
+                        let id = Int(r.key)!
+                        let mealid = Int(r.childSnapshot(forPath: "mealID").value as! String)!
+                        let mealname = r.childSnapshot(forPath: "mealName").value as! String
+                        let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
+                        let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
+                        let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
+                        
+                        if(userName == username && Date == date) {
+                            mealPlanList.append(MealPlan(id,userName,Date,mealid,mealname,mealimage,calories,isDiary))
+                        }
                     }
                 }
                 else {
-                    mealPlanList.append(MealPlan(0, "", "", 0, "", "", 0, "No"))
+                    mealPlanList.append(MealPlan(0,"","",0,"","",0,""))
                 }
-             
+                
                 onComplete(mealPlanList)
         })
+    }
+    
+    static func loadMealPlansCount(date: String, username: String) -> Int{
+        var count: Int = 0
+        //Create empty list
+        var mealPlanList : [MealPlan] = []
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
+        // Load full list of movies and execute "with" closure once, when download is complete
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                
+                let exists: Bool = snapshot.exists()
+                
+                if (exists == true){
+                    for record in snapshot.children {
+                        let r = record as! DataSnapshot
+                        let userName = r.childSnapshot(forPath: "username").value as! String
+                        let Date = r.childSnapshot(forPath: "date").value as! String
+                        let id = Int(r.key)!
+                        let mealid = Int(r.childSnapshot(forPath: "mealID").value as! String)!
+                        let mealname = r.childSnapshot(forPath: "mealName").value as! String
+                        let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
+                        let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
+                        let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
+                        
+                        if(userName == username && Date == date) {
+                            mealPlanList.append(MealPlan(id,userName,Date,mealid,mealname,mealimage,calories,isDiary))
+                            count+=1
+                        }
+                    }
+                }
+                else {
+                    mealPlanList.append(MealPlan(0,"","",0,"","",0,""))
+                }
+            })
+        
+        return count
     }
     
     //Create / Update

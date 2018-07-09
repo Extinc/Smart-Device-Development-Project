@@ -257,19 +257,32 @@
             <objects>
                 <viewController id="qBs-vc-JN2" customClass="ViewMealViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m1g-WP-Ete">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kn9-GY-Wfw">
-                                <rect key="frame" x="0.0" y="64" width="414" height="603"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euA-Xu-uab">
+                                <rect key="frame" x="0.0" y="64" width="414" height="936"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kn9-GY-Wfw">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="936"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Kn9-GY-Wfw" firstAttribute="top" secondItem="euA-Xu-uab" secondAttribute="top" id="DXR-6h-rzT"/>
+                                    <constraint firstItem="Kn9-GY-Wfw" firstAttribute="centerX" secondItem="euA-Xu-uab" secondAttribute="centerX" id="Pcj-Eb-OMA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kn9-GY-Wfw" secondAttribute="trailing" id="Qll-UK-4cd"/>
+                                    <constraint firstItem="Kn9-GY-Wfw" firstAttribute="centerY" secondItem="euA-Xu-uab" secondAttribute="centerY" id="WnW-WD-LZs"/>
+                                    <constraint firstItem="Kn9-GY-Wfw" firstAttribute="leading" secondItem="euA-Xu-uab" secondAttribute="leading" id="YPL-BW-EIp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kn9-GY-Wfw" secondAttribute="bottom" id="dn7-ku-Fbs"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="bottom" secondItem="TBE-cP-xep" secondAttribute="bottom" id="4D1-JO-ul1"/>
-                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="trailing" secondItem="TBE-cP-xep" secondAttribute="trailing" id="QB0-x9-iN0"/>
-                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="leading" secondItem="TBE-cP-xep" secondAttribute="leading" id="kWS-9t-bWv"/>
-                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="top" secondItem="TBE-cP-xep" secondAttribute="top" id="ohp-2G-QEN"/>
+                            <constraint firstItem="TBE-cP-xep" firstAttribute="bottom" secondItem="euA-Xu-uab" secondAttribute="bottom" id="bVz-Li-FC7"/>
+                            <constraint firstItem="euA-Xu-uab" firstAttribute="top" secondItem="TBE-cP-xep" secondAttribute="top" id="fXV-f2-ZPN"/>
+                            <constraint firstItem="euA-Xu-uab" firstAttribute="leading" secondItem="TBE-cP-xep" secondAttribute="leading" id="gQM-fV-bDY"/>
+                            <constraint firstItem="TBE-cP-xep" firstAttribute="trailing" secondItem="euA-Xu-uab" secondAttribute="trailing" id="p4G-RV-a2G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TBE-cP-xep"/>
                     </view>
@@ -280,13 +293,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="recipeImage" destination="Kn9-GY-Wfw" id="T3P-mu-wS8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="072-Nh-P6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1142" y="931"/>
+            <point key="canvasLocation" x="-1001" y="1037"/>
         </scene>
         <!--Meal Types View Controller-->
         <scene sceneID="rq1-GT-hnF">

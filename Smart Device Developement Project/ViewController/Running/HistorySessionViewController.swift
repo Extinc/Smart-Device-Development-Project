@@ -8,8 +8,14 @@
 
 import UIKit
 
+
+
 class HistorySessionViewController: UIViewController {
 
+  
+    @IBOutlet weak var btnAverageSpeed: UIButton!
+    
+    
     @IBOutlet weak var lblavgspeed: UILabel!
     
     @IBOutlet weak var lblTotalTime: UILabel!
@@ -19,23 +25,23 @@ class HistorySessionViewController: UIViewController {
     @IBOutlet weak var lblTotalCaloriesBurnt: UILabel!
     
     var currentid = String()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let id : Int = Int(currentid)!
-        let thisSession : Session = RunningDataManager.loadSessionByID(id)
-        lblTotalDistance.text = String(format : "%.1f",thisSession.totaldistance!)
-        lblTotalTime.text = String(format : "%.1f",thisSession.totaltime!)
-        lblTotalCaloriesBurnt.text = String(format : "%.1f",thisSession.totalcaloriesburnt!)
-        
-        // Do any additional setup after loading the view.
-    }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var selectedID : Int = Int(currentid)!
+        var selectedSession = RunningDataManager.loadSessionByID(selectedID)
+        lblTotalTime.text = selectedSession.totaltime
+        lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
+        lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
+        lblavgspeed.text = selectedSession.totalSpeed
+    }
+
 
     /*
     // MARK: - Navigation

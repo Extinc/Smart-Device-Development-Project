@@ -67,7 +67,8 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")!
-        cell.textLabel?.text = runningsections[indexPath.section].totalfinishdate![indexPath.row]
+        cell.textLabel?.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
+        cell.detailTextLabel?.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
        // cell.detailTextLabel?.text = runningsections[indexPath.section].totaldistance![indexPath.row]
         return cell
     }

@@ -55,6 +55,9 @@
 		69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761820DFCBE900688C7A /* ViewMealViewController.swift */; };
 		69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
+		704426DD20F35002009EE823 /* SpeedBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704426DC20F35002009EE823 /* SpeedBarViewController.swift */; };
+		7053561220F39A6800D72FF0 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561120F39A6800D72FF0 /* WeatherService.swift */; };
+		7053561420F39FDC00D72FF0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561320F39FDC00D72FF0 /* Weather.swift */; };
 		70A3D92A20EB96DF003392C0 /* ZombieChase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */; };
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
@@ -159,6 +162,9 @@
 		69E22A2120F0E4F40054D552 /* RecommendMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMeal.swift; sourceTree = "<group>"; };
 		69F9761820DFCBE900688C7A /* ViewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
 		69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypesViewController.swift; sourceTree = "<group>"; };
+		704426DC20F35002009EE823 /* SpeedBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedBarViewController.swift; sourceTree = "<group>"; };
+		7053561120F39A6800D72FF0 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		7053561320F39FDC00D72FF0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieChase.mp3; sourceTree = "<group>"; };
 		70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySessionViewController.swift; sourceTree = "<group>"; };
 		70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
@@ -473,6 +479,9 @@
 				70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */,
 				70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */,
 				70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */,
+				704426DC20F35002009EE823 /* SpeedBarViewController.swift */,
+				7053561120F39A6800D72FF0 /* WeatherService.swift */,
+				7053561320F39FDC00D72FF0 /* Weather.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -814,6 +823,7 @@
 				69D026DB20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift in Sources */,
 				693F6ACB20F25C7600F3FA95 /* ChangeMealViewController.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
+				7053561420F39FDC00D72FF0 /* Weather.swift in Sources */,
 				513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
 				70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */,
@@ -821,6 +831,7 @@
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
+				704426DD20F35002009EE823 /* SpeedBarViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				519BF93620EFB27900F87A65 /* food.mlmodel in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
@@ -840,6 +851,7 @@
 				9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */,
 				5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */,
 				692E473520E100F7009519C4 /* PlanOptions2TableViewCell.swift in Sources */,
+				7053561220F39A6800D72FF0 /* WeatherService.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
 				51FC308D20E6247400A5E685 /* CameraViewController.swift in Sources */,
 				90FBA71E20F24F03004DA241 /* WorkoutDetailTableViewController.swift in Sources */,

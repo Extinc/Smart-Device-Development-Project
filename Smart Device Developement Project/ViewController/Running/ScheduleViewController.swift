@@ -17,7 +17,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     @IBOutlet weak var lblNumber: UITextField!
     var mainevents:EKEvent!
     var maineventStore: EKEventStore!
-    @IBOutlet weak var lblday: UILabel!
+
     @IBOutlet weak var daypicker: UIPickerView!
     @IBOutlet weak var buttonCreate: UIButton!
     @IBOutlet weak var buttonDelete: UIButton!
@@ -35,14 +35,18 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     }
     
  let day : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-   
+    var dayrepeatpicker = UIPickerView()
+    @IBOutlet weak var daytf: UITextField!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        lbldaydescript.isHidden = false
         FinishedCurrentSchedule()
         CheckCurrentSchedule()
+        dayrepeatpicker.delegate = self
+        dayrepeatpicker.dataSource = self
         
+        createDayPicker()
         createDatePicker()
         // Do any additional setup after loading the view.
     }
@@ -68,9 +72,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             let CurrentSchedule = RunningDataManager.loadScheduleInformation(username)
             self.buttonCreate.isHidden = true
             self.buttonDelete.isHidden = false
-            self.lblday.isHidden = false
-            self.lblday.text = CurrentSchedule.day!
-            
+            self.daytf.text = CurrentSchedule.day!
             
             self.lblProgress.text = CurrentSchedule.progress!
             
@@ -82,9 +84,9 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             self.datePickerTxt.text = CurrentSchedule.startDate!
             self.datePickerTxt.isEnabled = false
           
+            daytf.isEnabled = false
             
-            daypicker.isHidden = true
-            daypicker.isUserInteractionEnabled = false
+            
             
             distanceslider.isUserInteractionEnabled = false
             
@@ -95,17 +97,15 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             self.buttonCreate.isHidden = false
             self.buttonDelete.isHidden = true
             self.datePickerTxt.isHidden = false
-            lblday.isHidden = true
-            
+            self.daytf.isEnabled = true
+            daytf.text = ""
+            lblNumber.text = ""
+            datePickerTxt.text = ""
             lblNumber.isEnabled = true
-            
-            datePickerTxt.isEnabled = true
-            
-            daypicker.isUserInteractionEnabled = true
-            
             distanceslider.isUserInteractionEnabled = true
         }
     }
+    //Mark Creating Picker
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -119,8 +119,22 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         return day[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lblday.isHidden = false
-        lblday.text = day[row]
+        daytf.text = day[row]
+        self.view.endEditing(false)
+    }
+    func createDayPicker(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedday))
+        toolbar.setItems([done], animated: false)
+        
+        daytf.inputAccessoryView = toolbar
+        daytf.inputView = dayrepeatpicker
+    }
+    @objc func donePressedday(){
+        
+        view.endEditing(true)
     }
     
     //Creating DatePicker
@@ -215,38 +229,38 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 )
                 
                 //Set Recurring Rule For eg. When the user choose 10 time of running session it will repeat 10 time
-                if(self.lblday.text! == "Sunday")
+                if(self.daytf.text! == "Sunday")
                 {
                   recurringrule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek.init(EKWeekday.saturday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil
                 , daysOfTheYear: nil, setPositions: nil
                     , end: EKRecurrenceEnd.init(occurrenceCount: Int(self.lblNumber.text!)!)
                     )
                 }
-                else if(self.lblday.text! == "Monday"){
+                else if(self.daytf.text! == "Monday"){
                      recurringrule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek.init(EKWeekday.monday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil
                         , daysOfTheYear: nil, setPositions: nil
                         , end: EKRecurrenceEnd.init(occurrenceCount: Int(self.lblNumber.text!)!)
                     )
                 }
-                else if(self.lblday.text! == "Tuesday"){
+                else if(self.daytf.text! == "Tuesday"){
                      recurringrule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek.init(EKWeekday.tuesday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil
                         , daysOfTheYear: nil, setPositions: nil
                         , end: EKRecurrenceEnd.init(occurrenceCount: Int(self.lblNumber.text!)!)
                     )
                 }
-                else if(self.lblday.text! == "Wednesday"){
+                else if(self.daytf.text! == "Wednesday"){
                      recurringrule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek.init(EKWeekday.wednesday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil
                         , daysOfTheYear: nil, setPositions: nil
                         , end: EKRecurrenceEnd.init(occurrenceCount: Int(self.lblNumber.text!)!)
                     )
                 }
-                else if(self.lblday.text! == "Thursday"){
+                else if(self.daytf.text! == "Thursday"){
                     let recurringrule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek.init(EKWeekday.thursday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil
                         , daysOfTheYear: nil, setPositions: nil
                         , end: EKRecurrenceEnd.init(occurrenceCount: Int(self.lblNumber.text!)!)
                     )
                 }
-                else if(self.lblday.text! == "Friday"){
+                else if(self.daytf.text! == "Friday"){
                     let recurringrule = EKRecurrenceRule(recurrenceWith: .daily, interval: 1, daysOfTheWeek: [EKRecurrenceDayOfWeek.init(EKWeekday.friday)], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil
                         , daysOfTheYear: nil, setPositions: nil
                         , end: EKRecurrenceEnd.init(occurrenceCount: Int(self.lblNumber.text!)!)
@@ -274,7 +288,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
                 self.createAlert(title: "Schedule Created", message: "Check Your Calendar for created events")
                 
                 
-                let newSchedule = Schedule(self.datePickerTxt.text!,self.lblday.text!,self.lblDistance.text!,self.lblNumber.text!,self.lblProgress.text!,self.username,self.savedevevntstore,self.savedevent)
+                let newSchedule = Schedule(self.datePickerTxt.text!,self.daytf.text!,self.lblDistance.text!,self.lblNumber.text!,self.lblProgress.text!,self.username,self.savedevevntstore,self.savedevent)
                 RunningDataManager.insertOrReplaceSchedule(schedule: newSchedule)
                 
                 

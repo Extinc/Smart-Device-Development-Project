@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 import AVFoundation
 
-class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate{
+
+class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate, WeatherServiceDelegate{
     
     var audioPlayer = AVAudioPlayer()
     var synth = AVSpeechSynthesizer()
@@ -20,6 +21,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var ZombieNotTooDangerous = AVSpeechUtterance(string: "")
     var DistanceNotification = AVSpeechUtterance(string: "")
     
+    let weatherService = WeatherService()
+    
+    @IBOutlet weak var desclbl: UILabel!
+    
+    @IBOutlet weak var templbl: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -46,6 +52,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     @IBOutlet weak var ZombieModeSwitch: UISwitch!
     
     @IBOutlet weak var lblZombie: UILabel!
+    
+   
+   
     
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
@@ -93,12 +102,23 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     @IBOutlet weak var lblspeed: UILabel!
     //timer
     weak var timer = Timer()
+    //Mark Weather Service
+    func setWeather(weather: Weather) {
+        print("set Weather")
+        print("City \(weather.cityName) temp\(weather.temp) desc: \(weather.description)")
+        
+        DispatchQueue.main.async {
+        self.templbl.text = "\(weather.temp)"
+        self.desclbl.text = weather.description
+        }
+        
+    }
     
     @IBAction func btnPause(_ sender: Any) {
         if self.resumeTapped == false
         {
         timer!.invalidate()
-        var thiscurrentdistance = Session(scheduleid: RunningDataManager.selectlastSessionTableId(),currentdistance: travelledDistance/1000)
+        var thiscurrentdistance = Session(sessionid: RunningDataManager.selectlastSessionTableId(),currentdistance: travelledDistance/1000)
         RunningDataManager.UpdateCurrentDistance(session: thiscurrentdistance)
         self.resumeTapped = true
         locationManager.stopUpdatingLocation()
@@ -117,6 +137,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
     override func viewDidLoad() {
+        //Get Weather
+       
         do{
         audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
             audioPlayer.prepareToPlay()
@@ -125,6 +147,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             print(error)
         }
         super.viewDidLoad()
+        
+        self.weatherService.delegate = self
+        self.weatherService.getWeatherForCity(lat: "40.8367321", lon :"14.2468856")
+
         btnComplete.isHidden = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
@@ -671,18 +697,26 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             var thisSessionSpeed = Session(firstspeed : lap1Speed,secondspeed : lap2Speed,thirdspeed : lap3Speed,fourthspeed : lap4Speed,fivespeed : lap5Speed,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateSessionSpeed(session: thisSessionSpeed)
             
-            var thistotalcaloriesburnt = Session(scheduleid: RunningDataManager.selectlastSessionTableId(), totalcalories:calorie)
+            var thistotalcaloriesburnt = Session(sessionid: RunningDataManager.selectlastSessionTableId(), totalcalories:calorie)
             RunningDataManager.UpdateTotalCalories(session: thistotalcaloriesburnt)
             
-            var thistotaldistance = Session(scheduleid: RunningDataManager.selectlastSessionTableId(), currentdistance: travelledDistance/1000)
+            var thistotaldistance = Session(sessionid: RunningDataManager.selectlastSessionTableId(), currentdistance: travelledDistance/1000)
             RunningDataManager.UpdateCurrentDistance(session: thistotaldistance)
             
-            var thiscompletesession = Session(scheduleid : RunningDataManager.selectlastSessionTableId(), sessioncomplete : 1)
+            var thiscompletesession = Session(sessionid : RunningDataManager.selectlastSessionTableId(), sessioncomplete : 1)
             RunningDataManager.UpdateCurrentComplete(session: thiscompletesession)
             
             var thisSessionLapTime = Session(firsttime :lap1time,secondtime :lap2time,thirdtime :lap3time,fourthtime :lap4time,fivetime :lap5time, RunningDataManager.selectlastSessionTableId())
-            
             RunningDataManager.UpdateSessiontime(session: thisSessionLapTime)
+            
+        /*    var thisSessionTotalSpeed = Session(sessionid : RunningDataManager.selectlastSessionTableId(), totalspeed :String(lblspeed.text!))
+            print(thisSessionSpeed)
+            RunningDataManager.UpdateTotalSpeed(session: thisSessionSpeed)
+ */
+            
+            var thiscurrentdistance = Session(sessionid: RunningDataManager.selectlastSessionTableId(),currentdistance: travelledDistance/1000)
+            RunningDataManager.UpdateCurrentDistance(session: thiscurrentdistance)
+            
             
             updateMapRegion(rangeSpan: 200)
             

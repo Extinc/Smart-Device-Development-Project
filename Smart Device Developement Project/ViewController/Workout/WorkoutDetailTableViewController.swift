@@ -45,9 +45,9 @@ class WorkoutDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         var row = 0
-        if tableView.headerView(forSection: section)?.textLabel?.text == "Type" {
+        if section == 0 {
             row = 3
-        } else if tableView.headerView(forSection: section)?.textLabel?.text == "Description" {
+        } else if section == 1 {
             row = 1
         }
         return row
@@ -56,13 +56,17 @@ class WorkoutDetailTableViewController: UITableViewController {
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        var cell: UITableViewCell!
         // Configure the cell...
 
+        if  tableView.headerView(forSection: indexPath.section)?.textLabel?.text == "Description" {
+            cell = tableView.dequeueReusableCell(withIdentifier: "descCell")!
+            cell.textLabel?.text = exerciseFromDetail.desc
+        }
+        
         return cell
     }
-    */
+    */	
 
     /*
     // Override to support conditional editing of the table view.

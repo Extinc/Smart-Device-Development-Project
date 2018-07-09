@@ -22,8 +22,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Clean Eating", "Ideal if you are looking to make a healthy change in your eating habits", "cleaneating")],
                 [MealType("High Protein", "High Protein", "highprotein")],
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
-    let mealplantype = "Vegan"
-    let goals = "Maintain weight"
     let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
@@ -36,46 +34,24 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     var contentWidth:CGFloat = 0.0
     var username = "1"
     var totalCalories:Float = 1800.0
-    
+    var selectedDate:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        var actualDate = formatter.string(from: date)
-        dateTextField.text = actualDate
+        formatter.dateFormat = "dd/MM/yyyy"
+        let todayDate = formatter.string(from: date)
+        dateTextField.text = todayDate
+        selectedDate = dateTextField.text!
         
         var preferences : [UserPlanPreferences] = DietaryPlanDataManager.loadPreferences(username: username)
         //Load meals
         loadMeals()
-        
-        
-        //Load meal plans
-        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
-                generatePlanButton.isEnabled = true
-        }
-        else{
-            generatePlanButton.isEnabled = false
-            if(DietaryPlanDataManagerFirebase.loadMealPlansCount(date: actualDate, username: username) < 1) {
-                RecommendMeal.createMealPlan(meals: meal, date: actualDate, username: username)
-            }
-            
-            loadPlanMeals(date: actualDate, username: username)
-            //Append meal inside mealPlans to display at table
-            for i in 0...1 {
-                for j in 0...mealplan.count {
-                    if (mealplan[j].isDiary == "No") {
-                        mealPlans[0].append(mealplan[j])
-                    }
-                    else {
-                        mealPlans[1].append(mealplan[j])
-                    }
-                }
-            }
-        }
-        
+    
+        var count = DietaryPlanDataManagerFirebase.loadMealPlansCount(date: dateTextField.text!, username: username)
+        print("Count", count)
         
         //Date picker
         datePicker = UIDatePicker()
@@ -108,6 +84,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         dateTextField.text = dateFormatter.string(from: datePicker.date)
+        selectedDate = dateTextField.text!
         view.endEditing(true)
     }
 
@@ -179,7 +156,33 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         }
     }
    
-
+    @IBAction func loadMeals(_ sender: Any) {
+        //Load meal plans
+        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+            generatePlanButton.isEnabled = true
+        }
+        else{
+            generatePlanButton.isEnabled = false
+            if(DietaryPlanDataManagerFirebase.loadMealPlansCount(date: selectedDate, username: username) < 1) {
+                RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username)
+            }
+            
+            loadPlanMeals(date: selectedDate, username: username)
+            //Append meal inside mealPlans to display at table
+            for i in 0...1 {
+                for j in 0...mealplan.count {
+                    if (mealplan[j].isDiary == "No") {
+                        mealPlans[0].append(mealplan[j])
+                    }
+                    else {
+                        mealPlans[1].append(mealplan[j])
+                    }
+                }
+            }
+        }
+        
+    }
+    
  
 
 }

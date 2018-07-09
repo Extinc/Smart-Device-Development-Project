@@ -50,33 +50,34 @@ class RecommendMeal: NSObject {
     static func glutenFreePlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
         
         var plan: [MealPlan] = []
+        var mealListBefore: [Meal] = meals
         var mealList: [Meal] = []
         let noIngredients = ["Wheat", "Wheat germ", "Rye", "Barley", "Bulgur", "Couscous", "Farina", "Graham flour", "Kamut Matzo", "Semolina", "Spelt", "Triticale"]
-        let count = meals.count
-        let ingredientsCount = noIngredients.count
-        var getIndex:Int = -1
+        let Count = mealListBefore.count - 1
+        let ingredientsCount = noIngredients.count - 1
         var arrayOfMealID: [Int] = []
         var arrayOfMealIDAfterCalories: [Int] = []
         let eachMealCalories: Float = totalCalories / Float(planPreferences.mealsperday!)
         
         //Check for ingredients
-        for i in 0...count {
+        for i in 0...Count {
             for j in 0...ingredientsCount{
                 if(meals[i].ingredients?.contains(noIngredients[j]) == false ){
-                    arrayOfMealID.append(meals[i].mealID!)
+                    arrayOfMealID.append(mealListBefore[i].mealID!)
+                    mealListBefore.remove(at: i)
                 }
             }
         }
         
         //Check calories
-        for k in 0...arrayOfMealID.count {
+        for k in 0...arrayOfMealID.count - 1 {
             if(meals[arrayOfMealID[k]].calories! <= eachMealCalories){
                 arrayOfMealIDAfterCalories.append(meals[arrayOfMealID[k]].mealID!)
             }
         }
         
         //Randomly pick from meals that have satisfied conditions
-        for a in 0...planPreferences.mealsperday! {
+        for a in 0...planPreferences.mealsperday! - 1 {
             let randomNumber = Int(arc4random_uniform(UInt32(arrayOfMealIDAfterCalories.count-1)))
             let mealId = arrayOfMealIDAfterCalories[randomNumber]
             arrayOfMealIDAfterCalories.remove(at: randomNumber)
@@ -84,7 +85,7 @@ class RecommendMeal: NSObject {
         }
         
         //Append into Meal Plan List 
-        for b in 0...mealList.count {
+        for b in 0...mealList.count - 1{
             let username = "1"
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name

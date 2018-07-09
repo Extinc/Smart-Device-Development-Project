@@ -157,14 +157,21 @@
                                 <rect key="frame" x="0.0" y="222" width="414" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moO-fo-4s6">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Choose A New Plan"/>
                                         <connections>
                                             <segue destination="2z4-X2-tjR" kind="show" id="43s-IX-PH9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvA-tk-aGu">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Load Meals"/>
+                                        <connections>
+                                            <action selector="loadMeals:" destination="RH4-Sf-Dwc" eventType="touchUpInside" id="Lg7-P4-tJ9"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-Zx-tcd">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Add Meal"/>
                                         <connections>
                                             <segue destination="jOM-fY-TxS" kind="show" id="caT-9B-PbL"/>

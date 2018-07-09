@@ -235,6 +235,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 }
                 else {
                     mealPlanList.append(MealPlan(0,"","",0,"","",0,""))
+                    count+=1
                 }
             })
         
@@ -244,7 +245,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
         for i in 0...mealPlanList.count{
-            let ref = FirebaseDatabase.Database.database().reference().child("Meal/\(mealPlanList[i].planID)/")
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(mealPlanList[i].planID)/")
             ref.setValue([
                 "username" : mealPlanList[i].username,
                 "date" : mealPlanList[i].date,
@@ -256,6 +257,22 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 ]
             )
         }
+    }
+    
+    static func create1Plan() {
+        
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(1)/")
+            ref.setValue([
+                "username" : "1",
+                "date" : "09/07/2018",
+                "mealID" : "1",
+                "mealName" : "Chicken Rice",
+                "mealImage" : "chickenrice",
+                "calories" : "510",
+                "isDiary" : "No"
+                ]
+            )
+        
     }
     
     //Delete

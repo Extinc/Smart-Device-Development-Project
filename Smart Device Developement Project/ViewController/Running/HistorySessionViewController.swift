@@ -1,19 +1,33 @@
 //
-//  RunningGraphViewController.swift
+//  HistorySessionViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by Ang Bryan on 1/7/18.
+//  Created by Ang Bryan on 7/7/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
-	
 
-class RunningGraphViewController: UIViewController {
+class HistorySessionViewController: UIViewController {
 
+    @IBOutlet weak var lblavgspeed: UILabel!
+    
+    @IBOutlet weak var lblTotalTime: UILabel!
+    
+    @IBOutlet weak var lblTotalDistance: UILabel!
+    
+    @IBOutlet weak var lblTotalCaloriesBurnt: UILabel!
+    
+    var currentid = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let id : Int = Int(currentid)!
+        let thisSession : Session = RunningDataManager.loadSessionByID(id)
+        lblTotalDistance.text = String(format : "%.1f",thisSession.totaldistance!)
+        lblTotalTime.text = String(format : "%.1f",thisSession.totaltime!)
+        lblTotalCaloriesBurnt.text = String(format : "%.1f",thisSession.totalcaloriesburnt!)
+        
         // Do any additional setup after loading the view.
     }
 

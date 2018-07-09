@@ -55,8 +55,10 @@
 		69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761820DFCBE900688C7A /* ViewMealViewController.swift */; };
 		69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
-		702864F420E8BA8800C75702 /* RunningGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702864F320E8BA8800C75702 /* RunningGraphViewController.swift */; };
 		70A3D92A20EB96DF003392C0 /* ZombieChase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */; };
+		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
+		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
+		70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */; };
 		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
@@ -153,8 +155,10 @@
 		69D026DA20EE67FD008E450E /* DietaryPlanFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanFirebase.swift; sourceTree = "<group>"; };
 		69F9761820DFCBE900688C7A /* ViewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
 		69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypesViewController.swift; sourceTree = "<group>"; };
-		702864F320E8BA8800C75702 /* RunningGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGraphViewController.swift; sourceTree = "<group>"; };
 		70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieChase.mp3; sourceTree = "<group>"; };
+		70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySessionViewController.swift; sourceTree = "<group>"; };
+		70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
+		70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnigHistoryViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP_Auth.swift; sourceTree = "<group>"; };
@@ -454,7 +458,9 @@
 			children = (
 				513F09D820E2019D009806D8 /* RunningTimerViewController.swift */,
 				513F09D920E2019D009806D8 /* ScheduleViewController.swift */,
-				702864F320E8BA8800C75702 /* RunningGraphViewController.swift */,
+				70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */,
+				70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */,
+				70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -795,8 +801,10 @@
 				513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */,
 				69D026D920EE65FB008E450E /* RecommendMeal.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
+				70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
+				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				51860C0020E5CF6200DF498A /* Recipe.swift in Sources */,
@@ -807,6 +815,7 @@
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
 				9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */,
 				51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */,
+				70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
@@ -828,7 +837,6 @@
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,
 				513F09E120E209E2009806D8 /* Session.swift in Sources */,
 				51860BFF20E5CF6200DF498A /* Meal.swift in Sources */,
-				702864F420E8BA8800C75702 /* RunningGraphViewController.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,

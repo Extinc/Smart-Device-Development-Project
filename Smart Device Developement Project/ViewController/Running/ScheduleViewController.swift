@@ -35,7 +35,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     }
     
  let day : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-
+   
     override func viewDidLoad() {
         
         super.viewDidLoad()

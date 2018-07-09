@@ -180,6 +180,70 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         RunningDataManager.createScheduleTable()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
+        super.viewDidLoad()
+        btnComplete.isHidden = true
+        locationManager.stopUpdatingLocation()
+        locationManager.stopMonitoringSignificantLocationChanges()
+        print(RunningDataManager.selectlastScheduleTableId())
+        if(RunningDataManager.checkUserScheduleExist(username) == false)
+        {
+            btnCreateSchedules.isHidden = false
+            btnStart.isHidden = true
+            btncontinue.isHidden = true
+            buttonPause.isHidden = true
+        }
+        else
+        {
+            btncontinue.isHidden = true
+            buttonPause.isHidden = true
+            btnStart.isHidden = false
+            btnCreateSchedules.isHidden = true
+        }
+        mapView.delegate = self
+        //Create Database When entered this page
+        RunningDataManager.createScheduleTable()
+        RunningDataManager.createSessionTable()
+        
+        //Ask permission to access user location but do not start first
+        
+        
+        // need this for polyline
+        locationManager.delegate = self
+        updateMapRegion(rangeSpan: 100)
+        
+        //If there is an ongoing schedule, retrieve ongoing schedule information to remind user that there is one else inform them there is no schedule
+        if(RunningDataManager.checkUserScheduleExist(username) == true)
+        {
+            let currentschedule = RunningDataManager.loadScheduleInformation(username)
+            scheduleid = currentschedule.scheduleId!
+            thisprogress = Int(currentschedule.progress!)!
+            let title : String = currentschedule.trainingdistance!
+            targetDistance = Double(title)!
+            progress = currentschedule.progress!
+            let totalTime : String = currentschedule.numberoftimes!
+            lblProgress.text = "\(title)Km Run/Jog"
+            lblNumberofProgress.text = "\(progress) / \(totalTime) Times "
+        }
+        else{
+            lblNumberofProgress.text = "No Schedule Created"
+        }
+        lastSessionID = RunningDataManager.selectlastSessionTableId() - 1
+        
+        
+        
+        
+        // Do any additional setup after loading the view.
+        RunningDataManager.createScheduleTable()
+        
+    }
     
     @IBAction func btnCreate(_ sender: Any) {
         btnCreateSchedules.isHidden = true
@@ -387,10 +451,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         setupCoreLocation()
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
+        let monthformater = DateFormatter()
+        monthformater.dateFormat = "LLLL"
+        var letnameofmonth = monthformater.string(from: Date())
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
         let myString = formatter.string(from: Date()) // string purpose I add here
         // convert your string to date
         let yourDate = formatter.date(from: myString)
@@ -399,7 +465,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         
-        let currentSession = Session(RunningDataManager.selectlastScheduleTableId(),0.0,targetDistance,lblTime.text!,myStringafd,0)
+        let currentSession = Session(RunningDataManager.selectlastScheduleTableId(),0.0,targetDistance,lblTime.text!,myStringafd,0,letnameofmonth)
       
             
         RunningDataManager.insertOrReplaceSession(session: currentSession)
@@ -620,6 +686,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             updateMapRegion(rangeSpan: 200)
             
+            audioPlayer.stop()
             timer!.invalidate()
         }
         }

@@ -32,6 +32,7 @@ class RunningDataManager: NSObject {
             "currentdistance Double DEFAULT 0," +
             "totaldistance Double ," +
             "totaltime String ," +
+            "month String ," +
             "finishdate TEXT DEFAULT '0'," +
             "lap1speed TEXT DEFAULT '0'," +
             "lap2speed TEXT DEFAULT '0'," +
@@ -114,6 +115,61 @@ class RunningDataManager: NSObject {
         return previousScheduleLapTime
         
     }
+    static func loadSessionByID(_ sessionID:Int) -> Session{
+        let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select totalcaloriesburnt,totaldistance,totaltime from Session where sessionID = \(sessionID)")
+        
+        var selectedinfo = Session(Totalcalories: 0, TotalDistance: 0, Totaltime: "")
+        
+        for row in selectSessionInfo
+        {
+             selectedinfo = Session(Totalcalories: row["totalcaloriesburnt"] as! Double,TotalDistance:row["totaldistance"] as! Double,Totaltime:row["totaltime"] as! String)
+        }
+        
+        return selectedinfo
+    
+    }
+    
+    static func loadallsession() -> [Session]{
+       let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month from Session")
+        var call: Int = 1
+   /*      var jandate : [String] = []
+        var febdate : [String] = []
+        var mardate : [String] = []
+        var aprdate : [String] = []
+        var maydate : [String] = []
+        var jundate : [String] = []
+ */
+        //July
+        var juldate : [String] = []
+        var julid: [Int] = []
+        var juldistance: [Double] = []
+        
+     /*   var augdate : [String] = []
+        var sepdate : [String] = []
+        var octdate : [String] = []
+        var novdate : [String] = []
+        var decdate : [String] = []
+ */
+        var allSession : [Session] = []
+        var eachsession = Session(Month :"", sessionid :0 , totaldistance :0.0, finishDate:"")
+        for row in allsession
+        {
+          
+            if(row["month"] as! String == "July")
+            {
+                juldate.append(row["finishdate"] as! String)
+               julid.append(row["sessionID"] as! Int)
+                juldistance.append(row["totaldistance"] as! Double)
+            }
+            
+        }
+       
+        eachsession = Session(Month :"July",allsessionid : julid ,alltotalDistance :juldistance ,totalfinishDate: juldate)
+        
+        allSession.append(eachsession)
+            return allSession
+        
+    }
     static func selectlastSessionTableId() -> Int{
         let currentid = SQLiteDB.sharedInstance.query(sql: "Select Max(SessionID) from Session")
         var id : Int = 0
@@ -149,7 +205,7 @@ class RunningDataManager: NSObject {
     
     static func insertOrReplaceSession(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt) " + "Values (?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt	])
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt,month) " + "Values (?,?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt, session.month])
     }
     static func UpdateSessionSpeed(session: Session)
     {
@@ -198,8 +254,9 @@ class RunningDataManager: NSObject {
     }
     
     
-}
     
+}
+
     
    
     

@@ -34,8 +34,15 @@ class Session: NSObject {
     var lap3time: Double?
     var lap4time: Double?
     var lap5time: Double?
+    var Alltime: [String]?
+    var Alldistance: [String]?
+    var month: String?
+    var totalfinishdate: [String]?
+    var AllSessionID: [Int]?
+    var AllDistance: [Double]?
+    var expanded: Bool!
     
-    init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double)
+    init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double,_ month: String)
     {
         self.currentdistance = currentdistance
         self.totaldistance = totaldistance
@@ -43,6 +50,7 @@ class Session: NSObject {
         self.totalcaloriesburnt = totalcaloriesburnt
         self.totaltime = totaltime
         self.scheduleID = scheduleID
+        self.month = month
     }
     
     init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fivespeed lap5speed:String,_ sessionid:Int)
@@ -126,4 +134,26 @@ class Session: NSObject {
         self.scheduleID = scheduleID
         self.sessionComplete = sessionComplete
     }
+    init(Month month:String, sessionid sessionID:Int , totaldistance totaldistance:Double, finishDate finishdate:String)
+    {
+        self.month = month
+        self.sessionID = sessionID
+        self.totaldistance = totaldistance
+        self.finishdate = finishdate
+    }
+    init(Month month:String, allsessionid ALLsessionID:[Int] , alltotalDistance Alldistance:[Double],totalfinishDate totalfinishdate:[String])
+    {
+        self.month = month
+        self.AllSessionID = ALLsessionID
+        self.AllDistance = Alldistance
+        self.totalfinishdate = totalfinishdate
+        self.expanded = false
+    }
+    init(Totalcalories totalcaloriesburnt:Double,TotalDistance totaldistance:Double,Totaltime totaltime: String)
+    {
+        self.totalcaloriesburnt = totalcaloriesburnt
+        self.totaldistance = totaldistance
+        self.totaltime = totaltime
+    }
+    
 }

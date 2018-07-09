@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="87t-2R-V49">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,7 +104,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Su2-6L-pe7" id="PdC-qI-zxa">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="101.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="101.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-oC-8MK">
@@ -116,13 +116,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-j8-ZUN">
-                                                    <rect key="frame" x="130" y="52" width="231" height="21"/>
+                                                    <rect key="frame" x="130" y="52" width="226" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-VW-I6j">
-                                                    <rect key="frame" x="130" y="23" width="231" height="21"/>
+                                                    <rect key="frame" x="130" y="23" width="226" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -208,6 +208,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateTextField" destination="Qrd-60-21W" id="xFi-a7-dmy"/>
+                        <outlet property="generatePlanButton" destination="moO-fo-4s6" id="tDc-6T-kaU"/>
                         <outlet property="tableView" destination="oZh-9X-YeT" id="HaK-g7-fMc"/>
                     </connections>
                 </viewController>
@@ -215,40 +216,70 @@
             </objects>
             <point key="canvasLocation" x="-952.17391304347836" y="180.57065217391306"/>
         </scene>
+        <!--Change Meal View Controller-->
+        <scene sceneID="a35-k7-32k">
+            <objects>
+                <viewController id="E0T-N9-N1b" customClass="ChangeMealViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iy8-da-Ogs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBN-OG-Rnm">
+                                <rect key="frame" x="42" y="117" width="330" height="498"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTA-tO-Nll">
+                                        <rect key="frame" x="8" y="8" width="314" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Remove Meal From Plan"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.82400726394604917" green="0.82400726394604917" blue="0.82400726394604917" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Axz-sh-IkU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hsj-eT-CxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1920.289855072464" y="981.929347826087"/>
+        </scene>
         <!--Recipe-->
         <scene sceneID="J58-JY-eme">
             <objects>
                 <viewController id="qBs-vc-JN2" customClass="ViewMealViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m1g-WP-Ete">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jeE-A5-bWl">
-                                <rect key="frame" x="0.0" y="64" width="414" height="786"/>
-                                <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ga9-D6-ufc">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
-                                    </scrollView>
-                                </subviews>
-                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kn9-GY-Wfw">
+                                <rect key="frame" x="0.0" y="64" width="414" height="603"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jeE-A5-bWl" firstAttribute="trailing" secondItem="TBE-cP-xep" secondAttribute="trailing" id="2ZM-aF-W02"/>
-                            <constraint firstItem="jeE-A5-bWl" firstAttribute="leading" secondItem="TBE-cP-xep" secondAttribute="leading" id="QYH-yu-ifo"/>
-                            <constraint firstItem="jeE-A5-bWl" firstAttribute="bottom" secondItem="TBE-cP-xep" secondAttribute="bottom" id="dOV-Uy-EZb"/>
-                            <constraint firstItem="jeE-A5-bWl" firstAttribute="top" secondItem="TBE-cP-xep" secondAttribute="top" id="h9E-xp-SmW"/>
+                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="bottom" secondItem="TBE-cP-xep" secondAttribute="bottom" id="4D1-JO-ul1"/>
+                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="trailing" secondItem="TBE-cP-xep" secondAttribute="trailing" id="QB0-x9-iN0"/>
+                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="leading" secondItem="TBE-cP-xep" secondAttribute="leading" id="kWS-9t-bWv"/>
+                            <constraint firstItem="Kn9-GY-Wfw" firstAttribute="top" secondItem="TBE-cP-xep" secondAttribute="top" id="ohp-2G-QEN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TBE-cP-xep"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" id="Zmb-Jr-Ufz">
-                        <barButtonItem key="rightBarButtonItem" title="Change Meal" id="SxV-vG-cY3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Change Meal" id="SxV-vG-cY3">
+                            <connections>
+                                <segue destination="E0T-N9-N1b" kind="show" identifier="changeMealSegue" id="l0h-Sr-nFh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="414" height="850"/>
+                    <connections>
+                        <outlet property="recipeImage" destination="Kn9-GY-Wfw" id="T3P-mu-wS8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="072-Nh-P6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-952.17391304347836" y="945.6521739130435"/>
+            <point key="canvasLocation" x="-1142" y="931"/>
         </scene>
         <!--Meal Types View Controller-->
         <scene sceneID="rq1-GT-hnF">
@@ -311,7 +342,7 @@
             </objects>
             <point key="canvasLocation" x="558" y="170"/>
         </scene>
-        <!--Options-->
+        <!--Preferences-->
         <scene sceneID="1fi-G5-ecI">
             <objects>
                 <viewController id="DUt-rP-HKx" customClass="PlanOptionsViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -323,16 +354,16 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SfV-6H-6ko">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100.66666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Diet Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24R-uF-Kiw">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TwI-kE-d50">
-                                                <rect key="frame" x="0.0" y="50.666666666666671" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="36" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="die-Me-8gv"/>
                                                 </constraints>
@@ -343,16 +374,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-bV-lMw">
-                                        <rect key="frame" x="0.0" y="100.66666666666666" width="414" height="100.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="86" width="414" height="86.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goals of Diet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vo-pd-mtA">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-vx-1RP">
-                                                <rect key="frame" x="0.0" y="50.333333333333343" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="36.333333333333343" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="5kZ-6k-eNt"/>
                                                 </constraints>
@@ -363,16 +394,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-VU-YM0">
-                                        <rect key="frame" x="0.0" y="201" width="414" height="100.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="172.33333333333334" width="414" height="86.000000000000028"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration of Diet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgl-jl-agQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0w-Bl-Hxr">
-                                                <rect key="frame" x="0.0" y="50.666666666666686" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="35.999999999999972" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="0sD-Yn-oDK"/>
                                                 </constraints>
@@ -383,16 +414,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T8p-sB-UIO">
-                                        <rect key="frame" x="0.0" y="301.66666666666669" width="414" height="100.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="258.33333333333331" width="414" height="86.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meals Per Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1b5-aO-9Oh">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8j-H2-PCP">
-                                                <rect key="frame" x="0.0" y="50.333333333333314" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="36.333333333333371" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="qZv-1o-TbQ"/>
                                                 </constraints>
@@ -403,16 +434,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-iO-f0Z">
-                                        <rect key="frame" x="0.0" y="402" width="414" height="100.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="344.66666666666669" width="414" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Timings Interval" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ee-k1-4nu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mU0-kd-d4f">
-                                                <rect key="frame" x="0.0" y="50.666666666666629" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="36" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Qxs-nZ-jO7"/>
                                                 </constraints>
@@ -422,17 +453,37 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VpW-q6-Wf4">
+                                        <rect key="frame" x="0.0" y="430.66666666666669" width="414" height="86.333333333333314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date of Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7s-dA-i9Y">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4S8-OD-fm4">
+                                                <rect key="frame" x="0.0" y="36.333333333333314" width="414" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="HlJ-6y-723"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OBY-g6-Qtq">
-                                        <rect key="frame" x="0.0" y="502.66666666666657" width="414" height="100.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="517" width="414" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders before Meals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnE-qg-0ik">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBT-bZ-7JN">
-                                                <rect key="frame" x="0.0" y="50.333333333333371" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="36" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="TAl-mR-DI7"/>
                                                 </constraints>
@@ -454,7 +505,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hEi-wD-g3P"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Options" id="j7r-tq-0YU">
+                    <navigationItem key="navigationItem" title="Preferences" id="j7r-tq-0YU">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="OIv-SY-zZ8">
                             <connections>
                                 <action selector="goBackToDPC:" destination="DUt-rP-HKx" id="FMx-FV-UvM"/>
@@ -468,6 +519,7 @@
                         <outlet property="mealtimingsTextField" destination="mU0-kd-d4f" id="NNW-AR-waF"/>
                         <outlet property="planTextField" destination="TwI-kE-d50" id="arw-Dl-AxK"/>
                         <outlet property="remindersTextField" destination="CBT-bZ-7JN" id="vwe-um-4yn"/>
+                        <outlet property="startDateTextField" destination="4S8-OD-fm4" id="Of3-n3-JZu"/>
                         <segue destination="Cjv-Dy-B1G" kind="unwind" identifier="unwindSegueToDPC" unwindAction="unwindToDietaryPlanControllerWithSegue:" id="Qtk-YI-pw6"/>
                     </connections>
                 </viewController>

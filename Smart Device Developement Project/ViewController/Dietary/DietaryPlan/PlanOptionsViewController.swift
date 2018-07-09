@@ -17,6 +17,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var mealsperdayTextField: UITextField!
     @IBOutlet weak var mealtimingsTextField: UITextField!
     @IBOutlet weak var remindersTextField: UITextField!
+    @IBOutlet weak var startDateTextField: UITextField!
     
     var picker1 = UIPickerView()
     var picker2 = UIPickerView()
@@ -24,6 +25,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var picker4 = UIPickerView()
     var picker5 = UIPickerView()
     var picker6 = UIPickerView()
+    var datePicker: UIDatePicker?
     
     
     var dataPlan = ["Vegan", "Gluten Free", "Clean Eating", "Muscle Builder", "Keto", "Dash"]
@@ -36,7 +38,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var planpreferences = [UserPlanPreferences]()
     
     var preferences = ["test", "Vegan", "Lose Weight", "2 Weeks", "3", "2 Hours", "Yes"]
-    var username = "test"
+    var username = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,18 +64,26 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         picker5.tag = 5
         picker6.tag = 6
         
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(DietaryPlanViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
         planTextField.inputView = picker1
         goalsTextField.inputView = picker2
         durationTextField.inputView = picker3
         mealsperdayTextField.inputView = picker4
         mealtimingsTextField.inputView = picker5
         remindersTextField.inputView = picker6
+        startDateTextField.inputView = datePicker
+        
+        
         
         //when user taps, usually keyboard comes up, disables the keyboard coming up
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PlanOptionsViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
         
-        //loadPreferences()
+        
+        
         
     }
 
@@ -84,6 +94,13 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     // MARK: - Tap Gestures
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        startDateTextField.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
     }
     
@@ -173,17 +190,40 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     // MARK: - Navigation
 
     @IBAction func goBackToDPC(_ sender: Any) {
-        let username = "1"
-        let dietplan = planTextField.text
-        let goals = goalsTextField.text
-        let duration = durationTextField.text
-        let mpd = Int(mealsperdayTextField.text!)
-        let mti = mealtimingsTextField.text
-        let reminders = remindersTextField.text
-        let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd!, mti!, reminders! )
-    PlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
-        performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
+        if (planTextField.text == "" ||
+            goalsTextField.text == "" ||
+            durationTextField.text == "" ||
+            mealsperdayTextField.text == "" ||
+            mealtimingsTextField.text == "" ||
+            remindersTextField.text == "" ||
+            startDateTextField.text == "") {
+            let alert = UIAlertController(title: "Please fill in all fields", message: "", preferredStyle: .alert)
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: nil
+            ))
+            self.present(alert, animated:true, completion: nil)
+            return
+        }
+        else {
+            let dietplan = planTextField.text
+            let goals = goalsTextField.text
+            let duration = durationTextField.text
+            let mpd = Int(mealsperdayTextField.text!)
+            let mti = mealtimingsTextField.text
+            let reminders = remindersTextField.text
+            let startDate = startDateTextField.text
+            
+            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd!, mti!, reminders!, startDate!)
+            DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
+            
+            performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
+        }
+       
     }
     
      // MARK: - Functions
+    
 }

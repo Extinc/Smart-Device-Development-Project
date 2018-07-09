@@ -11,11 +11,13 @@ import UIKit
 class ViewMealViewController: UIViewController {
   
 
-    var RecipeItem : Recipe?
+    @IBOutlet weak var recipeImage: UIImageView!
+    var imageName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        recipeImage.image = UIImage(named: imageName)
         // Do any additional setup after loading the view.
     }
 

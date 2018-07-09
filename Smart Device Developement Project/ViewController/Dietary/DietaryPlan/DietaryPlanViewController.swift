@@ -13,6 +13,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var generatePlanButton: UIButton!
     
     private var datePicker: UIDatePicker?
     
@@ -23,19 +24,55 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let mealplantype = "Vegan"
     let goals = "Maintain weight"
-    let headers = ["Planned Meals", "Dietary Diary"]
-    var mealPlans = [[MealPlan("", "", 1, 1, 1, "Chicken rice", "chickenrice", 340.5),
-                     MealPlan("", "", 2, 2, 1, "Aglio Olio", "", 450),
-                     MealPlan("", "", 3, 3, 1, "Porridge", "", 300)],
-                     [MealPlan("","", 14, 4, 1, "", "", 200)]
+    let headers:[String] = ["Planned Meals", "Dietary Diary"]
+    var meal : [Meal] = []
+    var mealplan: [MealPlan] = []
+    var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"No"),
+                     MealPlan(2,"", "", 2, "Aglio Olio", "", 450, "No"),
+                     MealPlan(3,"", "", 3, "Porridge", "", 300,"No")],
+                     [MealPlan(4,"","", 14, "", "", 200, "Yes")]
                     ]
 
     var contentWidth:CGFloat = 0.0
+    var username = "1"
+    var totalCalories:Float = 1800.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //DietaryCreateData.createData()
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        var actualDate = formatter.string(from: date)
+        dateTextField.text = actualDate
+        
+        var preferences : [UserPlanPreferences] = DietaryPlanDataManager.loadPreferences(username: username)
+        //Load meals
+        loadMeals()
+        
+        //Load meal plans
+        loadPlanMeals(date: actualDate, username: username)
+        
+           if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+                generatePlanButton.isEnabled = true
+            }
+            else {
+                generatePlanButton.isEnabled = false
+                RecommendMeal.createMealPlans(username: username, meal: meal, date: dateTextField.text!, totalCalories: totalCalories)
+                //Append meal inside mealPlans to display at table
+                for i in 0...1 {
+                    for j in 0...mealplan.count {
+                        if (mealplan[j].isDiary == "No") {
+                            mealPlans[0].append(mealplan[j])
+                        }
+                        else {
+                            mealPlans[1].append(mealplan[j])
+                        }
+                    }
+                }
+            }
+        
         
         //Date picker
         datePicker = UIDatePicker()
@@ -50,20 +87,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         dateTextField.inputView = datePicker
         
         // Create tables
-        PlanDataManager.createUPTable()
-        
-        //load meal plan type and goals
-      /*  if (mealplantype == ""){
-            mptlabel.text = ""
-            glabel.text = ""
-            mealPlanTypeLabel.text = ""
-            goalsLabel.text = ""
-        }
-        else {
-            mealPlanTypeLabel.text = mealplantype
-            goalsLabel.text = goals
-        }*/
-        
+        DietaryPlanDataManager.createUPTable()
         
     }
     
@@ -125,19 +149,33 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
             
             if(myIndexPath != nil)
             {
-                // Set the movieItem field with the movie
+                // Set the mealItem field with the meal
                 // object selected by the user.
                 //
                 let meal = mealPlans[myIndexPath!.row]
-                let recipe = Recipe(1, 1, "", "", "")
-                
-                ViewMealViewController.RecipeItem = recipe
+
                 
             }
         }
         
         
     }
+    
+    // MARK: - Functions
+    func loadMeals() {
+        DietaryPlanDataManagerFirebase.loadMeals(){
+            mealListFromFirebase in
+            self.meal = mealListFromFirebase
+        }
+    }
+    
+    func loadPlanMeals (date: String, username: String) {
+        DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
+            mealPlanListFromFirebase in
+            self.mealplan = mealPlanListFromFirebase
+        }
+    }
+   
 
  
 

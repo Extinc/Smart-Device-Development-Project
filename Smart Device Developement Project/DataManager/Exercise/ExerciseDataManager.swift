@@ -279,6 +279,32 @@ class ExerciseDataManager: NSObject{
         return exercise
     }
     
+    static func loadExerciseOfLevel(level: String) -> [Exercise]{
+        var exercise : [Exercise] = []
+        let exRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT * " +
+            "FROM Workout WHERE level = '\(level)' COLLATE NOCASE GROUP BY Workout.name ")
+        
+        for row in exRows {
+            var imgurls = row["imgurls"] as! String
+            imgurls.removeFirst()
+            imgurls.removeLast()
+            
+            exercise.append(Exercise(id: row["workoutID"] as! Int,
+                                     name: row["name"] as! String,
+                                     equipment: row["equipment"] as! Int,
+                                     desc: row["description"] as! String,
+                                     category: row["category"] as! Int,
+                                     videoLink: row["videolink"] as! String,
+                                     imageLink: convertArrInStringToStrArr(sArray: imgurls),
+                                     type: row["type"] as! String,
+                                     muscleImg: row["muscleimgurls"] as! String,
+                                     level: row["level"] as! String))
+        }
+        
+        return exercise
+    }
+    
     static func loadCategory() -> [ExerciseCategory]
     {
         let categoryRows = SQLiteDB.sharedInstance.query(sql:

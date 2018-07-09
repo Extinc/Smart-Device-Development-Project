@@ -1,4 +1,4 @@
-//
+	//
 //  WorkoutOfCatViewController.swift
 //  Smart Device Developement Project
 //
@@ -16,11 +16,20 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
     var passedId: Int?
     var passedName: String?
     var searchActive : Bool = false
+    var segmentHide: Bool!
     var exercise: [Exercise] = []
+    
     @IBOutlet weak var titleHeader: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var difficultySegmentCtrl: UISegmentedControl!
     
+    @IBAction func difficultyChange(_ sender: Any) {
+        exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +38,20 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        exercise = ExerciseDataManager.loadExerciseOfCat(catID: passedId!)
+        print("segmentHide: \(segmentHide)")
+        if segmentHide == true{
+            difficultySegmentCtrl.isHidden = true
+        } else {
+            difficultySegmentCtrl.isHidden = false
+        }
+
+        if let passid: Int! = self.passedId {
+            exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
+        }else {
+            exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
+        }
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,6 +103,8 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutListCustomCell
         if let url = URL.init(string: exercise[indexPath.row].imageLink[1]) {
             cell.imageView?.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
@@ -97,6 +121,14 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         return 100
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWorkoutDetail" {
+            var viewController = segue.destination as! WorkoutDetailViewController
+            if let cell = sender as? WorkoutListCustomCell {
+                viewController.passedExercise = exercise[(tableView.indexPath(for: cell)?.row)!]
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

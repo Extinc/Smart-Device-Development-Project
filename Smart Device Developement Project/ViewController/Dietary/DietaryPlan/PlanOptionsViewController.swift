@@ -28,7 +28,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var datePicker: UIDatePicker?
     
     
-    var dataPlan = ["Vegan", "Gluten Free", "Clean Eating", "Muscle Builder", "Keto", "Dash"]
+    var dataPlan = ["Vegan", "Gluten Free", "Muscle Builder", "Keto", "Dash"]
     var dataGoals = ["Gain Weight", "Lose Weight", "Maintain Weight"]
     var dataDuration = ["1 Week", "2 Weeks", "1 Month", "3 Months", "6 Months"]
     var dataMealsPD = ["1", "2", "3", "4", "5", "6"]
@@ -207,16 +207,34 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.present(alert, animated:true, completion: nil)
             return
         }
-        else {
+        else{
+            let duration = durationTextField.text
+            var days: String = "0"
+            if(duration == "1 Week") {
+                days = "7 Days"
+            }
+            else if(duration == "2 Weeks"){
+                days = "14 Days"
+            }
+            else if(duration == "1 Month"){
+                days = "30 Days"
+            }
+            else if(duration == "3 Months"){
+                days = "90 Days"
+            }
+            else if(duration == "6 Months"){
+                days = "180 Days"
+            }
+            
             let dietplan = planTextField.text
             let goals = goalsTextField.text
-            let duration = durationTextField.text
+            
             let mpd = Int(mealsperdayTextField.text!)
             let mti = mealtimingsTextField.text
             let reminders = remindersTextField.text
             let startDate = startDateTextField.text
             
-            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, duration!, mpd!, mti!, reminders!, startDate!)
+            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, days, mpd!, mti!, reminders!, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
             performSegue(withIdentifier: "unwindSegueToDPC", sender: self)

@@ -70,3 +70,10 @@ class ExerciseCategory: NSObject {
     }
 }
 
+class ImageFetchURL: NSObject {
+    var urls: [URL]!
+    
+    init(urls: [URL]!) {
+        self.urls = urls
+    }
+}

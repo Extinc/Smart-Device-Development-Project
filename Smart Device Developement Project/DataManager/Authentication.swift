@@ -16,4 +16,12 @@ class Authentication: NSObject {
         }
         return uid
     }
+    
+    static func getCurrEmail()-> String{
+        var uid: String!
+        if Auth.auth().currentUser!.email!.isEmpty == false && Auth.auth().currentUser!.email != nil {
+            uid = Auth.auth().currentUser!.email
+        }
+        return uid
+    }
 }

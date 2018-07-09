@@ -8,13 +8,18 @@
 
 import UIKit
 
-class WorkoutDetailTableViewController: UITableViewController {
+class WorkoutDetailTableViewController: UITableViewController{
 
     var exerciseFromDetail: Exercise!
+    
+
     
     @IBOutlet var tableViewDetail: UITableView!
     @IBOutlet weak var descLabel: UILabel!
     
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var catLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,36 +28,55 @@ class WorkoutDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableViewDetail.delegate = self
-        tableViewDetail.dataSource = self
         
-        descLabel.text = exerciseFromDetail.desc
-        print("test:")
+       // descLabel.text = exerciseFromDetail.desc
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        var row = 0
-        if section == 0 {
-            row = 3
-        } else if section == 1 {
-            row = 1
-        }
-        return row
+        return 3
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count = 0
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 3
+        }
+        
+        return count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let button = UIButton(type: .system)
+        button.setTitle("Close", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .yellow
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+        
+        button.tag = section
+        
+        return button
+    }
+    
+    @objc func handleExpandClose(button: UIButton) {
+        print("Trying to expand and close section...")
+        
+        let section = button.tag
+        
+
+    }
+    
+    
+    // MARK: - Table view data source
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

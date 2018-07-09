@@ -19,7 +19,10 @@ class BMIViewController: UIViewController {
     @IBOutlet weak var ServerlyOverWeight: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        NutrInfo().calcBMI(){
+            bmi in
+        }
         // Do any additional setup after loading the view.
     }
 

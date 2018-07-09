@@ -17,7 +17,6 @@ class ViewMealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recipeImage.image = UIImage(named: imageName)
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +25,9 @@ class ViewMealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        recipeImage.image = UIImage(named: imageName)
+    }
 
     /*
     // MARK: - Navigation

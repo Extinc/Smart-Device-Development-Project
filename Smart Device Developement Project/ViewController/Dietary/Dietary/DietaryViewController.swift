@@ -11,22 +11,34 @@ import FirebaseDatabase
 
 class DietaryViewController: UIViewController {
     @IBOutlet weak var reccCal: UILabel!
+    @IBOutlet weak var intakeCal: UILabel!
     
     @IBOutlet weak var progressBar: KDCircularProgress!
     
     @IBAction func Test(_ sender: Any) {
         let angle = progressBar.angle + 80
         progressBar.animate(fromAngle: progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
+        let a = intakeCal.text
+        let x: Int = Int(a!)!
+        let y = x + 300
+        intakeCal.text = String(y)
+        if (progressBar.angle >= 350 ) {
+            progressBar.animate(fromAngle: 360, toAngle: 360, duration: 0.5, completion: nil)
+        }
     }
+    
+
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        /*let y = NutrInfo().calcBMI()
-        print(y)
         
-        let x = NutrInfo().calReccCalories()
-        reccCal.text = x.description */
+        NutrInfo().calReccCalories(){
+            cal in
+            self.reccCal.text = cal.description
+        }
+        
+        
         progressBar.animate(fromAngle: progressBar.angle, toAngle: 0, duration: 0.5, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,5 +56,7 @@ class DietaryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+   
 }

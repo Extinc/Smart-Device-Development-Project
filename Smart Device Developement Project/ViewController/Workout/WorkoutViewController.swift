@@ -32,24 +32,20 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
 
         // Do any additional setup after loading the view.
         exerciseCat = ExerciseDataManager.loadCategory()
-        testCardColorThemer()
 
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
 
         exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
-        for ex in exercise!{
-            print(ex.name!)
-        }
-
+        
     }
     
     func testCardColorThemer() {
-        // Given
+
         let colorScheme = MDCSemanticColorScheme()
         colorScheme.surfaceColor = .white
         cardView1.backgroundColor = .white
         cardView1.setBorderColor(UIColor.blue, for: cardView1.state)
-        // When
+
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cardView1)
     
     }
@@ -79,8 +75,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         colorScheme.surfaceColor = .white
         cell.card.backgroundColor = .gray
         cell.card.setBorderColor(UIColor.blue, for: cell.card.state)
-        
-        // When
+
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
         return cell
     }

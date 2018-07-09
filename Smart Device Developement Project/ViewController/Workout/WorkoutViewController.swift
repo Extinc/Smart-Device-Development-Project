@@ -40,7 +40,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         for ex in exercise!{
             print(ex.name!)
         }
-
+        print("userids : \(Authentication.getUID())")
     }
     
     func testCardColorThemer() {

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "meegorengrecipe.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "meegorengrecipe.png",
       "scale" : "2x"
     },
     {

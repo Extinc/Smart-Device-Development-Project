@@ -77,7 +77,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "76",
             "protein" : "35",
             "fat" : "5.5",
-            "sodium" : "1293.2",
+            "sodium" : "300",
             "ingredients" : "wholegrain pasta, corn, celery, olive oil, chicken breast, chilli powder, chicken seasoning, pepper, tomatoes, lime, parsley",
             "imageRecipe" : "chillichickenpastarecipe"
             
@@ -91,7 +91,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "22.2",
             "protein" : "39",
             "fat" : "12.8",
-            "sodium" : "1722.78",
+            "sodium" : "350",
             "ingredients" : "chicken leg, onions, chilli powder, turmeric powder, green capsicum, salt, pepper, sunflower oil, evaporated milk, curry leaves",
             "imageRecipe" : "currychickenrecipe"
             ])
@@ -104,7 +104,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "40",
             "protein" : "12.8",
             "fat" : "12.4",
-            "sodium" : "1380.2",
+            "sodium" : "310",
             "ingredients" : "olive oil, garlic, minced meat, chinese olives, long beans, brown rice, basmati rice, red chilli, cashews, sesame oil",
             "imageRecipe" : "friedolivericerecipe"
             ])
@@ -117,7 +117,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "28",
             "protein" : "13",
             "fat" : "7.2",
-            "sodium" : "2607.05",
+            "sodium" : "370",
             "ingredients" : "canola oil, chilli paste, garlic, shallots, dried shrimp, minced meat, prawns, chye sim, yellow noodles, cabbage, bean sprouts, tomato sauce, stalks onions",
             "imageRecipe" : "meegorengrecipe"
             ])
@@ -143,7 +143,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "38.7",
             "protein" : "14.9",
             "fat" : "11.9",
-            "sodium" : "1245.48",
+            "sodium" : "480",
             "ingredients" : "Sardines, canola oil, onion, garlic, vegetables, rice, pepper, eggs",
             "imageRecipe" : "sardinefriedricerecipe"
             ])
@@ -156,7 +156,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "55.2",
             "protein" : "21.1",
             "fat" : "8.8",
-            "sodium" : "1595.89",
+            "sodium" : "470",
             "ingredients" : "fish fillet, brown rice bee hoon, tomatoes, spring onions, ginger, corn oil, sesame oil, evaporated milk, fish stock seasoning, pepper",
             "imageRecipe" : "beehoonsouprecipe"
             ])
@@ -169,7 +169,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "carbohydrates" : "39.2",
             "protein" : "26.9",
             "fat" : "13.4",
-            "sodium" : "1300.48",
+            "sodium" : "375",
             "ingredients" : "capsicum, canola oil, salmon fillet, teriyaki marinade, black and white sesame seeds, wholemeal pasta, olive oil, cucumber, lime, pepper",
             "imageRecipe" : "salmonpastarecipe"
             ])
@@ -222,42 +222,30 @@ class DietaryPlanDataManagerFirebase: NSObject {
         var mealPlanList : [MealPlan] = []
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
         // Load full list of movies and execute "with" closure once, when download is complete
-        ref.observeSingleEvent(of: .value, with:
-            {(snapshot) in
-                
-                let exists: Bool = snapshot.exists()
-                
-                if (exists == true){
-                    for record in snapshot.children {
-                        let r = record as! DataSnapshot
-                        let userName = r.childSnapshot(forPath: "username").value as! String
-                        let Date = r.childSnapshot(forPath: "date").value as! String
-                        let id = Int(r.key)!
-                        let mealid = Int(r.childSnapshot(forPath: "mealID").value as! String)!
-                        let mealname = r.childSnapshot(forPath: "mealName").value as! String
-                        let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
-                        let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
-                        let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
-                        let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
-                        if(userName == username && Date == date) {
-                            mealPlanList.append(MealPlan(id,userName,Date,mealid,mealname,mealimage,calories, recipeimage, isDiary))
-                            count+=1
-                        }
-                    }
-                }
-                else {
-                    mealPlanList.append(MealPlan(0,"","",0,"","",0,"", ""))
-                    count+=1
-                }
+        ref.observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot!) in
+            count = Int(snapshot.childrenCount)
             })
         
         return count
     }
     
+    static func loadMealPlanLastID() -> Int{
+        var planid: Int = 0
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
+        // Load full list of movies and execute "with" closure once, when download is complete
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot: DataSnapshot!) in
+                planid = Int(snapshot.childrenCount)
+        })
+        
+        return planid
+    }
+    
+    
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
-        for i in 0...mealPlanList.count{
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(mealPlanList[i].planID)/")
+        for i in 0...mealPlanList.count - 1{
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(mealPlanList[i].planID!)/")
             ref.setValue([
                 "username" : mealPlanList[i].username,
                 "date" : mealPlanList[i].date,

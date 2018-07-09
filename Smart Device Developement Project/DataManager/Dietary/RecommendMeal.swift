@@ -21,6 +21,9 @@ class RecommendMeal: NSObject {
             plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories)
             
         }
+        else if (planType == "Dash") {
+            
+        }
         else {
             
         }
@@ -32,15 +35,49 @@ class RecommendMeal: NSObject {
         return planid
     }
     
-    static func veganPlan(ingredients: String, totalCalories: Float, meal: Meal) -> [Meal] {
+    static func dashPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
+        var plan: [MealPlan] = []
+        let maxSodium: Float = 1500
+        let sodiumPerMeal: Float = maxSodium / Float(planPreferences.mealsperday!)
+        let Count = meals.count - 1
+        var mealIDBefore: [Int] = []
+        var mealList: [Meal] = []
+        let eachMealCalories: Float = totalCalories / Float(planPreferences.mealsperday!)
         
-        var plan: [Meal] = []
+        //check if over calories & sodium amount
+        for i in 0...Count {
+            if(meals[i].calories! <= eachMealCalories) {
+                if(meals[i].sodium! <= sodiumPerMeal) {
+                    mealIDBefore.append(i)
+                }
+            }
+        }
         
-        //Check for ingredients
-        if(ingredients.contains(""))
-        {
+        for a in 0...planPreferences.mealsperday! - 1 {
+            let randomNumber = Int(arc4random_uniform(UInt32(mealIDBefore.count-1)))
+            let mealId = mealIDBefore[randomNumber]
+            mealIDBefore.remove(at: randomNumber)
+            mealList.append(meals[mealId])
+        }
+        
+        let mealListCount: Int = mealList.count - 1
+        var planID: Int = DietaryPlanDataManagerFirebase.loadMealPlanLastID()
+        //Append into Meal Plan List
+        for b in 0...mealListCount{
+            let username = "1"
+            let mealID = mealList[b].mealID
+            let mealName = mealList[b].name
+            let mealImage = mealList[b].mealImage
+            let calories = mealList[b].calories
+            let recipeImage = mealList[b].recipeImage
+            
+            
+            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
+            planID = planID + 1
             
         }
+        
+        
         
         return plan
     }
@@ -49,7 +86,7 @@ class RecommendMeal: NSObject {
         
         var plan: [MealPlan] = []
         var mealList: [Meal] = []
-        let noIngredients = ["Wheat", "Wheat germ", "Rye", "Barley", "Bulgur", "Couscous", "Farina", "Graham flour", "Kamut Matzo", "Semolina", "Spelt", "Triticale"]
+        let noIngredients = ["Wheat", "Wheat germ", "Rye", "Barley", "Bulgur", "Couscous", "Farina", "Graham flour", "Kamut Matzo", "Semolina", "Spelt", "Triticale", "Soy Sauce", "Roux"]
         let Count = meals.count - 1
         let ingredientsCount = noIngredients.count - 1
         var arrayOfMealIndex: [Int] = []
@@ -61,10 +98,14 @@ class RecommendMeal: NSObject {
         for i in 0...Count {
             for j in 0...ingredientsCount{
                 if(meals[i].ingredients?.contains(noIngredients[j]) == false ){
-                    if (arrayOfMealIndex.isEmpty == false) {
+                    if (arrayOfMealIndex.count > 0) {
                         for m in 0...arrayOfMealIndex.count{
                             if(arrayOfMealIndex.contains(meals[i].mealID!) == false) {
                                 arrayOfMealIndex.append(i)
+                                break
+                            }
+                            else {
+                                break 
                             }
                         }
                     }
@@ -95,6 +136,7 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
+        var planID: Int = DietaryPlanDataManagerFirebase.loadMealPlanLastID()
         //Append into Meal Plan List 
         for b in 0...mealListCount{
             let username = "1"
@@ -103,10 +145,10 @@ class RecommendMeal: NSObject {
             let mealImage = mealList[b].mealImage
             let calories = mealList[b].calories
             let recipeImage = mealList[b].recipeImage
-            var planID = 1
+            
             
             plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
-            planID += 1
+            planID = planID + 1
             
         }
         

@@ -14,6 +14,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var generatePlanButton: UIButton!
+    @IBOutlet weak var loadMealsButton: UIButton!
     
     private var datePicker: UIDatePicker?
     
@@ -33,6 +34,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     var username = "1"
     var totalCalories:Float = 1800.0
     var selectedDate:String = ""
+    var preferences: [UserPlanPreferences] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +46,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         dateTextField.text = todayDate
         selectedDate = dateTextField.text!
         
-        var preferences : [UserPlanPreferences] = DietaryPlanDataManager.loadPreferences(username: username)
+        DietaryPlanDataManagerFirebase.createMealData()
+        
         //Load meals
         loadMeals()
-        
-        var count = DietaryPlanDataManagerFirebase.loadMealPlansCount(date: dateTextField.text!, username: username)
-        print("Count", count)
         
         //Date picker
         datePicker = UIDatePicker()
@@ -65,6 +65,17 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         
         // Create tables
         DietaryPlanDataManager.createUPTable()
+        
+        //Load Preferences
+        preferences = DietaryPlanDataManager.loadPreferences(username: username)
+        
+        //Check if there is a plan in selected date
+        if(DietaryPlanDataManager.countPreferences(userName: username) >= 1 ) {
+            let days = preferences[0].duration!
+            
+            
+        }
+       
         
     }
     
@@ -156,7 +167,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
    
     @IBAction func loadMeals(_ sender: Any) {
         
+        
         RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username)
+        
+       
         //Load meal plans
         /*if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
             generatePlanButton.isEnabled = true

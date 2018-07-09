@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "salmonpastarecipe.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "salmonpastarecipe.png",
       "scale" : "2x"
     },
     {

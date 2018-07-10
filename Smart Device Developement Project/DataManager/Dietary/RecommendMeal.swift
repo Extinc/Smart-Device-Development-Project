@@ -11,20 +11,25 @@ import UIKit
 class RecommendMeal: NSObject {
     
     
-    static func createMealPlan(meals: [Meal], date: String, username: String){
+    static func createMealPlan(meals: [Meal], date: String, username: String, pID: Int){
         var plan: [MealPlan] = []
         let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
-        let planType = preferences.mealPlanType
+        let planType = preferences.mealPlanType!
         //let totalCalories: Float = Float(NutrInfo.calReccCalories())
         let totalCalories: Float = 2200
         if (planType == "Gluten Free"){
-            plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories)
-            
+            plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories, pID: pID)
         }
         else if (planType == "Dash") {
+            plan = dashPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories, pID: pID)
+        }
+        else if (planType == "Keto") {
+            plan = ketoPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories, pID: pID)
+        }
+        else if(planType == "Vegan"){
             
         }
-        else {
+        else if(planType == "Muscle Builder") {
             
         }
         DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
@@ -35,7 +40,7 @@ class RecommendMeal: NSObject {
         return planid
     }
     
-    static func dashPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
+    static func dashPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan] {
         var plan: [MealPlan] = []
         let maxSodium: Float = 1500
         let sodiumPerMeal: Float = maxSodium / Float(planPreferences.mealsperday!)
@@ -61,7 +66,7 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planID: Int = DietaryPlanDataManagerFirebase.loadMealPlanLastID()
+        var planID: Int = pID + 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
             let username = "1"
@@ -82,7 +87,50 @@ class RecommendMeal: NSObject {
         return plan
     }
     
-    static func glutenFreePlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
+    static func ketoPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan]{
+        var plan: [MealPlan] = []
+        let maxCarbs: Float = 50
+        let carbsPerMeal: Float = maxCarbs / Float(planPreferences.mealsperday!)
+        let Count = meals.count - 1
+        var mealIDBefore: [Int] = []
+        var mealList: [Meal] = []
+        let eachMealCalories: Float = totalCalories / Float(planPreferences.mealsperday!)
+        
+        //check if over calories & sodium amount
+        for i in 0...Count {
+            if(meals[i].calories! <= eachMealCalories) {
+                if(meals[i].carbohydrates! <= carbsPerMeal) {
+                    mealIDBefore.append(i)
+                }
+            }
+        }
+        
+        for a in 0...planPreferences.mealsperday! - 1 {
+            let randomNumber = Int(arc4random_uniform(UInt32(mealIDBefore.count-1)))
+            let mealId = mealIDBefore[randomNumber]
+            mealIDBefore.remove(at: randomNumber)
+            mealList.append(meals[mealId])
+        }
+        
+        let mealListCount: Int = mealList.count - 1
+        var planID: Int = pID + 1
+        //Append into Meal Plan List
+        for b in 0...mealListCount{
+            let username = "1"
+            let mealID = mealList[b].mealID
+            let mealName = mealList[b].name
+            let mealImage = mealList[b].mealImage
+            let calories = mealList[b].calories
+            let recipeImage = mealList[b].recipeImage
+            
+            
+            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
+            planID = planID + 1
+        }
+        return plan
+    }
+    
+    static func glutenFreePlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID : Int ) -> [MealPlan] {
         
         var plan: [MealPlan] = []
         var mealList: [Meal] = []
@@ -136,7 +184,7 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planID: Int = DietaryPlanDataManagerFirebase.loadMealPlanLastID()
+        var planID: Int = pID + 1
         //Append into Meal Plan List 
         for b in 0...mealListCount{
             let username = "1"

@@ -237,6 +237,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, days, mpd!, mti!, reminders!, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
+            
+            
             performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
         }
        

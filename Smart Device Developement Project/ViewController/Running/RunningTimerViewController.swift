@@ -20,6 +20,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var ZombieDangerous = AVSpeechUtterance(string: "")
     var ZombieNotTooDangerous = AVSpeechUtterance(string: "")
     var DistanceNotification = AVSpeechUtterance(string: "")
+    var authUID = AuthenticateUser.getUID()
     
     let weatherService = WeatherService()
     
@@ -268,7 +269,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         // Do any additional setup after loading the view.
         RunningDataManager.createScheduleTable()
-        
+
     }
     
     @IBAction func btnCreate(_ sender: Any) {

@@ -17,10 +17,14 @@ class WeatherService {
     
     func getWeatherForCity(lat: String, lon: String){
         
+        
+        
         let latitude = lat.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)
         let longitude = lon.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)
         
+       
         let path = "https://samples.openweathermap.org/data/2.5/weather?lat=\(latitude!)&lon=\(longitude!)&appid=b6907d289e10d714a6e88b30761fae22"
+         print("path = \(path)")
         let url = URL(string: path)
         let session = URLSession.shared
         let task = session.dataTask(with: url!){(data: Data?, response: URLResponse? , error: Error?) -> Void in

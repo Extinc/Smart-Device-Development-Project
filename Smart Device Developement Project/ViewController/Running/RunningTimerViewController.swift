@@ -296,7 +296,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
                 DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             else {
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             if(callfirst == 1)
             {
@@ -314,7 +315,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
                 DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             else {
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             
             if(callsecond == 1)
@@ -335,7 +337,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
                 DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             else {
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             if(callthird == 1)
             {
@@ -354,7 +357,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
                 DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             else {
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             if(callfourth == 1)
             {
@@ -371,7 +375,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
                 DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             else {
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             if(callfifth == 1)
             {
@@ -392,7 +397,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             ZombieDangerous = AVSpeechUtterance(string: "Zombie is Behind you")
             ZombieDangerous.rate = 0.5
-            ZombieSafe = AVSpeechUtterance(string: "Zombie is still far")
+            ZombieSafe = AVSpeechUtterance(string: "You are in a safe distance currently")
             ZombieSafe.rate = 0.5
             ZombieNotTooDangerous = AVSpeechUtterance(string: "Zombie is still closing up")
             ZombieSafe.rate = 0.5
@@ -689,6 +694,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             var currentFinishTime = Session(time: finishingtime,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateTotalTime(session: currentFinishTime)
             FinishAlert(title:"Finish",message:"You have completed the jog/run")
+            btnComplete.isHidden = false
+            buttonPause.isHidden = true
+            btncontinue.isHidden = true
             disableLocationServices()
             var currentprogress: String = String(thisprogress + 1)
             var currentcomplete: Schedule = Schedule(currentprogress,scheduleid)
@@ -716,6 +724,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             var thiscurrentdistance = Session(sessionid: RunningDataManager.selectlastSessionTableId(),currentdistance: travelledDistance/1000)
             RunningDataManager.UpdateCurrentDistance(session: thiscurrentdistance)
+            
+            var thistotalspeed = Session(sessionid: RunningDataManager.selectlastSessionTableId(),totalspeed : (travelledDistance/time))
+            RunningDataManager.UpdateTotalSpeed(session: thistotalspeed)
             
             
             updateMapRegion(rangeSpan: 200)

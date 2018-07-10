@@ -130,6 +130,7 @@ PODS:
   - "MaterialComponents/NavigationBar+ColorThemer (55.0.4)":
     - MaterialComponents/NavigationBar
     - MaterialComponents/schemes/Color
+  - MaterialComponents/PageControl (55.0.4)
   - MaterialComponents/Palettes (55.0.4)
   - MaterialComponents/private/Application (55.0.4)
   - MaterialComponents/private/Icons/Base (55.0.4)
@@ -223,6 +224,7 @@ DEPENDENCIES:
   - MaterialComponents/Dialogs
   - MaterialComponents/FeatureHighlight
   - MaterialComponents/FlexibleHeader
+  - MaterialComponents/PageControl
   - MaterialComponents/Palettes
   - MaterialComponents/schemes/Color
   - MaterialComponents/schemes/Typography
@@ -274,6 +276,6 @@ SPEC CHECKSUMS:
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: 02e73696d9782d157df01cbdc6292befe38ea423
+PODFILE CHECKSUM: edf38878922545608d8a646632e8c3e2df42bfc2
 
 COCOAPODS: 1.5.2

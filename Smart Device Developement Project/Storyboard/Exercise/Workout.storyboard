@@ -218,14 +218,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQf-iw-BmQ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i89-CT-1uZ">
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-lC-bSl" customClass="MDCPageControl">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="211"/>
+                                            </pageControl>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i89-CT-1uZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                                <subviews>
-                                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-lC-bSl">
-                                                        <rect key="frame" x="187" y="0.0" width="0.0" height="211"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </pageControl>
-                                                </subviews>
                                             </scrollView>
                                         </subviews>
                                         <constraints>
@@ -302,7 +299,7 @@
                     </view>
                     <connections>
                         <outlet property="descLabel" destination="BfU-iN-PMq" id="Oyl-ua-WGS"/>
-                        <outlet property="pageControl" destination="qJg-lC-bSl" id="6OU-Ih-5e9"/>
+                        <outlet property="pageControl" destination="qJg-lC-bSl" id="nn7-9a-Lul"/>
                         <outlet property="scrollView" destination="i89-CT-1uZ" id="rib-c8-fmq"/>
                     </connections>
                 </viewController>

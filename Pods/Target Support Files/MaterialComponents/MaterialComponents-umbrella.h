@@ -81,6 +81,8 @@
 #import "MDCNavigationBar.h"
 #import "MaterialNavigationBar+ColorThemer.h"
 #import "MDCNavigationBarColorThemer.h"
+#import "MaterialPageControl.h"
+#import "MDCPageControl.h"
 #import "MaterialPalettes.h"
 #import "MDCPalettes.h"
 #import "MaterialShadowElevations.h"

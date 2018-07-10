@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
+import MaterialComponents.MaterialPageControl
 import SDWebImage
 
 class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
@@ -18,7 +19,7 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
     var imageurl: [URL] = []
     var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: MDCPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -29,6 +30,7 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
         
         // Do any additional setup after loading the view.
         scrollView.delegate = self
+        
         prefetchCurrExerciseImage()
         descLabel.lineBreakMode = .byWordWrapping
         descLabel.numberOfLines = 100
@@ -67,17 +69,37 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
             print("Scrollview subcviews ", scrollView.subviews)
         }
         
-        scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(passedExercise.imageLink.count)), height: scrollView.frame.size.height)
+        pageControl.numberOfPages = passedExercise.imageLink.count
+        
+        let pageControlSize = pageControl.sizeThatFits(view.bounds.size)
+        pageControl.frame = CGRect(x: 0, y: view.bounds.height - pageControlSize.height, width: view.bounds.width, height: pageControlSize.height)
+        
+        pageControl.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
+        pageControl.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+        
+        //scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(passedExercise.imageLink.count)), height: scrollView.frame.size.height)
+    }
+    
+    @objc func didChangePage(sender: MDCPageControl){
+        var offset = scrollView.contentOffset
+        offset.x = CGFloat(sender.currentPage) * scrollView.bounds.size.width;
+        scrollView.setContentOffset(offset, animated: true)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        
+        pageControl.scrollViewDidScroll(scrollView)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControl.scrollViewDidScroll(scrollView)
+        /*
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
+         */
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        pageControl.scrollViewDidEndScrollingAnimation(scrollView)
     }
     
     override func didReceiveMemoryWarning() {

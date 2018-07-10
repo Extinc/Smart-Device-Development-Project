@@ -39,6 +39,8 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/BottomNavigation+ColorThemer'
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
+  pod 'MaterialComponents/PageControl'
+  
   pod 'Alamofire', '~> 4.7'
   
   pod 'SDWebImage', '~> 4.0'

@@ -139,6 +139,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     override func viewDidLoad() {
         //Get Weather
+        
+   /*     NutrInfo().getWeight(){
+            weight in
+            self.weight = weight
+            
+        }
+ */
        
         do{
         audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
@@ -413,6 +420,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         {
             ZombieDangerousshortimer += 1
             audioPlayer.volume = 1.0
+            
+            
             if(self.ZombieDangerousshortimer == 10 && zombiedistance > travelledDistance - 10)
             {
                 synth.speak(ZombieDangerous)

@@ -91,11 +91,11 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        pageControl.scrollViewDidScroll(scrollView)
-        /*
+        //pageControl.scrollViewDidScroll(scrollView)
+        
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
-         */
+        
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

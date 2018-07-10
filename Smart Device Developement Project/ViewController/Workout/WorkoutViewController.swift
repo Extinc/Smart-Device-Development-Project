@@ -35,7 +35,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
 
         //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
 
-        exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
+        //exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
         
     }
     

@@ -52,12 +52,15 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
         } else {
             difficultySegmentCtrl.isHidden = false
         }
-        if let passid: Int! = self.passedId {
+        
+
+        if let passid: Int = self.passedId! {
+             print("passed id: ", passid)
             exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
         }else {
             exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
         }
-
+     
         DispatchQueue.main.async {
             self.prefetchImage()
         }

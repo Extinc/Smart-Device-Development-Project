@@ -26,7 +26,7 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
     @IBAction func difficultyChange(_ sender: Any) {
         exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
         DispatchQueue.main.async {
-            self.prefetchImage()
+            WorkoutImageDataManager.prefetchImage(exercise: self.exercise)
             self.tableView.reloadData()
         }
     }

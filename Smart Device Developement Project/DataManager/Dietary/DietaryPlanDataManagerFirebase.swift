@@ -183,7 +183,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     static func loadMealPlans(date: String, username: String, onComplete: @escaping ([MealPlan]) -> Void) {
         //Create empty list
         var mealPlanList : [MealPlan] = []
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan")
         // Load full list of movies and execute "with" closure once, when download is complete
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
@@ -196,49 +196,62 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let userName = r.childSnapshot(forPath: "username").value as! String
                         let Date = r.childSnapshot(forPath: "date").value as! String
                         let id = Int(r.key)!
-                        let mealid = Int(r.childSnapshot(forPath: "mealID").value as! String)!
+                        let mealid = r.childSnapshot(forPath: "mealID").value as! Int
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
-                        let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
+                        let calories = r.childSnapshot(forPath: "calories").value as! Int
                         let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
+                        let fCalories = Float(calories)
                         
                         if(userName == username && Date == date) {
-                            mealPlanList.append(MealPlan(id,userName,Date,mealid,mealname,mealimage,calories,recipeimage,isDiary))
+                            mealPlanList.append(MealPlan(id,userName,Date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
                         }
                     }
                 }
                 else {
                     mealPlanList.append(MealPlan(0,"","",0,"","",0,"", ""))
                 }
-                
-                onComplete(mealPlanList)
+            onComplete(mealPlanList)
         })
     }
     
-    static func loadMealPlansCount(date: String, username: String) -> Int{
+    static func loadMealPlansCount(date: String, username: String, onComplete: @escaping (Int) -> Void){
         var count: Int = 0
         //Create empty list
         var mealPlanList : [MealPlan] = []
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
         // Load full list of movies and execute "with" closure once, when download is complete
-        ref.observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot!) in
-            count = Int(snapshot.childrenCount)
-            })
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+            for record in snapshot.children{
+                let r = record as! DataSnapshot
+                let uname = r.childSnapshot(forPath: "username").value as! String
+                let Date = r.childSnapshot(forPath: "date").value as! String
+                if(uname == username && Date == date) {
+                    count = count + 1
+                }
+                
+            }
+            onComplete(count)
+        })
         
-        return count
     }
     
-    static func loadMealPlanLastID() -> Int{
+    static func loadMealPlanLastID(onComplete: @escaping (Int) -> Void){
         var planid: Int = 0
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
         // Load full list of movies and execute "with" closure once, when download is complete
         ref.observeSingleEvent(of: .value, with:
-            {(snapshot: DataSnapshot!) in
-                planid = Int(snapshot.childrenCount)
+            {(snapshot) in
+                for record in snapshot.children{
+                    let r = record as! DataSnapshot
+                    let id = Int(r.key)!
+                }
+                onComplete(planid)
         })
         
-        return planid
+
     }
     
     

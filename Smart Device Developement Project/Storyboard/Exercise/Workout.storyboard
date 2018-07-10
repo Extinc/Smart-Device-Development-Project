@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -218,9 +218,6 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQf-iw-BmQ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                         <subviews>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-lC-bSl" customClass="MDCPageControl">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="211"/>
-                                            </pageControl>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i89-CT-1uZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                             </scrollView>
@@ -236,26 +233,26 @@
                                         <rect key="frame" x="0.0" y="211" width="375" height="392"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEs-x8-tho">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ryc-nK-tsr">
-                                                <rect key="frame" x="0.0" y="59" width="375" height="333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RAx-jM-eTp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZHy-Ee-JZX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A4A-re-aks">
-                                                                <rect key="frame" x="0.0" y="108" width="375" height="36.5"/>
+                                                                <rect key="frame" x="0.0" y="108" width="375" height="33"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfU-iN-PMq">
-                                                                        <rect key="frame" x="20" y="8" width="335" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="20" y="8" width="335" height="17"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -278,8 +275,10 @@
                                             <constraint firstItem="ryc-nK-tsr" firstAttribute="top" secondItem="PEs-x8-tho" secondAttribute="bottom" id="1gx-Cc-0ot"/>
                                             <constraint firstAttribute="bottom" secondItem="ryc-nK-tsr" secondAttribute="bottom" id="TeO-tY-0Nb"/>
                                             <constraint firstItem="ryc-nK-tsr" firstAttribute="leading" secondItem="j7Y-c6-PUQ" secondAttribute="leading" id="c9h-mL-TrW"/>
+                                            <constraint firstItem="ryc-nK-tsr" firstAttribute="width" secondItem="j7Y-c6-PUQ" secondAttribute="width" id="cjX-Ll-I6G"/>
                                             <constraint firstItem="PEs-x8-tho" firstAttribute="height" secondItem="j7Y-c6-PUQ" secondAttribute="height" multiplier="0.15" id="nQ1-kF-V5a"/>
                                             <constraint firstAttribute="trailing" secondItem="ryc-nK-tsr" secondAttribute="trailing" id="qWa-fM-Rp3"/>
+                                            <constraint firstItem="ryc-nK-tsr" firstAttribute="height" secondItem="j7Y-c6-PUQ" secondAttribute="height" id="vKF-zu-BhP"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -299,13 +298,29 @@
                     </view>
                     <connections>
                         <outlet property="descLabel" destination="BfU-iN-PMq" id="Oyl-ua-WGS"/>
-                        <outlet property="pageControl" destination="qJg-lC-bSl" id="nn7-9a-Lul"/>
                         <outlet property="scrollView" destination="i89-CT-1uZ" id="rib-c8-fmq"/>
+                        <outlet property="stackView" destination="WQf-iw-BmQ" id="ldb-cu-H9W"/>
+                        <outlet property="titleLabel" destination="PEs-x8-tho" id="qGD-W4-fbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8u-KL-QCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="388" y="677.81109445277366"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="huM-vX-0OD">
+            <objects>
+                <viewController id="q9Z-G6-6dS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lay-cp-qcS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="AB5-LW-Jpv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Rd-Oz-xMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063" y="678"/>
         </scene>
         <!--Title-->
         <scene sceneID="Nek-2Y-43M">

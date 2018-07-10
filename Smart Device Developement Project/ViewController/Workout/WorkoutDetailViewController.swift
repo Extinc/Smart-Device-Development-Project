@@ -18,13 +18,14 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
     var newText: [String] = []
     var imageurl: [URL] = []
     var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    let pageControls = MDCPageControl()
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var pageControl: MDCPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
-    @IBOutlet weak var cardDesc: MDCCard!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +33,9 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
         scrollView.delegate = self
         
         prefetchCurrExerciseImage()
+        
+        titleLabel.text = passedExercise.name!
+        
         descLabel.lineBreakMode = .byWordWrapping
         descLabel.numberOfLines = 100
         descLabel.text = passedExercise.desc!
@@ -56,8 +60,9 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
         for count in 0..<passedExercise.imageLink.count {
             frame.origin.x = scrollView.frame.size.width * CGFloat(count)
             frame.size = scrollView.frame.size
-            var imageView = UIImageView(frame: frame)
-            imageView.contentMode = .scaleToFill
+            var imageView = UIImageView()
+            imageView.frame = frame
+            imageView.contentMode = .scaleAspectFit
             if let url = URL.init(string: passedExercise.imageLink[count]) {
                 imageView.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
                     if error != nil {
@@ -69,13 +74,14 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
             print("Scrollview subcviews ", scrollView.subviews)
         }
         
-        pageControl.numberOfPages = passedExercise.imageLink.count
+        pageControls.numberOfPages = passedExercise.imageLink.count
         
-        let pageControlSize = pageControl.sizeThatFits(view.bounds.size)
-        pageControl.frame = CGRect(x: 0, y: view.bounds.height - pageControlSize.height, width: view.bounds.width, height: pageControlSize.height)
+        let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
+        pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
         
-        pageControl.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
-        pageControl.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+        pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
+        pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+        stackView.addSubview(pageControls)
         
         //scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(passedExercise.imageLink.count)), height: scrollView.frame.size.height)
     }
@@ -87,19 +93,19 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControl.scrollViewDidScroll(scrollView)
+        pageControls.scrollViewDidScroll(scrollView)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        //pageControl.scrollViewDidScroll(scrollView)
+        pageControls.scrollViewDidScroll(scrollView)
         
-        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl.currentPage = Int(pageNumber)
+        //let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        //pageControl.currentPage = Int(pageNumber)
         
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        pageControl.scrollViewDidEndScrollingAnimation(scrollView)
+        pageControls.scrollViewDidEndScrollingAnimation(scrollView)
     }
     
     override func didReceiveMemoryWarning() {

@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var profileTableView: UITableView!
     
     var lifeStyle = LifestyleTheme()
+    var accInfo: AccountProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         LifestyleTheme.styleCard(card: cardView, isInteractable: false, cornerRadius: 8)
         print(Double(cardView.cornerRadius))
-        lifeStyle.styleBtn(btn: editProfileBtn, title: "Edit", pColor: lifeStyle.colors.secondaryColor)
+        lifeStyle.styleBtn(btn: editProfileBtn, title: "Edit", pColor: lifeStyle.colors.secondaryDarkColor)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +67,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
+        
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                cell.textLabel?.text = "Email: "
+            } else if indexPath.row == 1 {
+                cell.textLabel?.text = "Password: "
+            }
+            cell.detailTextLabel?.text = accInfo?.emailNpw[indexPath.section][indexPath.row]
+        }
+        // Incomplete below is for other
         
         return cell
     }

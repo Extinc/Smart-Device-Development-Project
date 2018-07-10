@@ -33,6 +33,14 @@ class AuthenticateUser: NSObject {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    static func getAccountProfile()-> AccountProfile{
+        var accInfo: AccountProfile!
+        
+            
+        
+        return accInfo
+    }
 }
 
 class AccountProfile: NSObject {

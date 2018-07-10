@@ -186,7 +186,9 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="displaysUppercaseTitles" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Workout" id="8i5-Qp-VXr"/>
+                    <navigationItem key="navigationItem" title="Workout" id="8i5-Qp-VXr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="4d1-uL-KxE" customClass="History"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>

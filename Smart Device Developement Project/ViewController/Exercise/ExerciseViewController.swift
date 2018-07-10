@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class ExerciseViewController: UIViewController {
 
+
+    @IBOutlet weak var workoutCard: MDCCard!
+    @IBOutlet weak var runningCard: MDCCard!
+    @IBOutlet weak var runningStackView: UIStackView!
+    @IBOutlet weak var workoutStackView: UIStackView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Below is Database code
     
-    
+        LifestyleTheme.styleCard(card: workoutCard, isInteractable: true, cornerRadius: 12.0)
+        LifestyleTheme.styleCard(card: runningCard, isInteractable: true, cornerRadius: 12.0)
+        
         print(ExerciseDataManager.checkIfTableHasRows(tableName: "Workout"))
         //
         

@@ -35,14 +35,12 @@ class AuthenticateUser: NSObject {
     }
 }
 
-class Account: NSObject {
-    var email: String!
-    var password: String!
+class AccountProfile: NSObject {
+    var emailNpw : [String]
     var heightNweight: [Double]
     
-    init(email: String, password: String, hNw: [Double]){
-        self.email = email
-        self.password = password
+    init(emailNpw: [String], hNw: [Double]){
+        self.emailNpw = emailNpw
         self.heightNweight = hNw
     }
 }

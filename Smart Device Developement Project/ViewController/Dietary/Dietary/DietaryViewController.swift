@@ -9,9 +9,12 @@
 import UIKit
 import FirebaseDatabase
 
-class DietaryViewController: UIViewController {
+class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
     @IBOutlet weak var reccCal: UILabel!
     @IBOutlet weak var intakeCal: UILabel!
+    
+    @IBOutlet weak var picker: UIPickerView!
     
     @IBOutlet weak var progressBar: KDCircularProgress!
     
@@ -27,6 +30,7 @@ class DietaryViewController: UIViewController {
         }
     }
     
+    var pickerData: [String] = ["Lose Weight", "Gain Weight"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,8 @@ class DietaryViewController: UIViewController {
             self.reccCal.text = cal.description
         }
         
+        self.picker.dataSource = self;
+        self.picker.delegate = self;
         
         progressBar.animate(fromAngle: progressBar.angle, toAngle: 0, duration: 0.5, completion: nil)
         
@@ -46,17 +52,17 @@ class DietaryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
     
+    // The number of rows of data
+    func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
     
-   
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
 }

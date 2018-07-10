@@ -34,10 +34,6 @@ class Exercise: NSObject {
     }
 }
 
-class ExerciseInfo: NSObject {
-    
-}
-
 class ExerciseImage: NSObject {
     var id: Int?
     var imageurl: String?

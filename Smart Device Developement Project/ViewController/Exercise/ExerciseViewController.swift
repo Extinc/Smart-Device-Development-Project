@@ -26,9 +26,7 @@ class ExerciseViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         ExerciseDataManager.insertExerciseToDB()
-        
-        
-        ExerciseDataManager.testgetExercise(catID: 10)
+    
     }
 
     override func didReceiveMemoryWarning() {

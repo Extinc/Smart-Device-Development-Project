@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
+import FirebaseAuth
 
 class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
 
@@ -17,7 +18,8 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var exercise: [Exercise]?
     var nameToPass: String?
     var idToPass: Int?
-    
+    var a = AuthenticateUser.getUID()
+
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
     @IBOutlet weak var cardView2: MDCCard!
@@ -26,6 +28,13 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     
+    func getUID()->String{
+        var uid: String!
+        if Auth.auth().currentUser!.uid.isEmpty == false && Auth.auth().currentUser!.uid != nil {
+            uid = Auth.auth().currentUser!.uid
+        }
+        return uid
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +42,6 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
         exerciseCat = ExerciseDataManager.loadCategory()
 
-        //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
-
-        //exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
-        
     }
     
     func testCardColorThemer() {
@@ -47,7 +52,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         cardView1.setBorderColor(UIColor.blue, for: cardView1.state)
 
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cardView1)
-    
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,6 +110,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
                 viewController.passedId = idToPass
                 viewController.passedName = nameToPass
                 viewController.segmentHide = true
+                print(idToPass)
             }
         }
         else if segue.identifier == "allCardViewClick" {

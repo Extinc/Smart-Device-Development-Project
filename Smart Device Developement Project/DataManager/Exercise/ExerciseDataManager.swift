@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 class ExerciseDataManager: NSObject{
+    
     // *************************************************************************************
     //  Rest API
     //  Token for wger.de/api/v2/exercise/
@@ -96,64 +97,7 @@ class ExerciseDataManager: NSObject{
         })
     }
     
-    // TODO: For testing purpose
-    static func testGetFirebase(){
-        var eqList : [Exercise] = []
-        
-        let ref = FirebaseDatabase.Database.database().reference().child("Exercise/")
-        
-        // observeSingleEventOfType tells Firebase
-        // to load the full list of Movies, and execute the
-        // "with" closure once, when the download
-        // is complete.
-        //
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            // This is the "with" closure that
-            // executes only when the retrieval
-            // of data from Firebase is complete.
-            // Meanwhile, before the download is complete,
-            // the user can still interact with the user
-            // interface.
-            //
-            for record in snapshot.children
-            {
-                let r = record as! DataSnapshot
-                let imglistcount = Int(r.childSnapshot(forPath: "Img").childrenCount)
-                var imgList: [String] = []
-                for i in 0...imglistcount-1{
-                    imgList.append(r.childSnapshot(forPath: "Img").childSnapshot(forPath: "\(i)").childSnapshot(forPath: "image").value as! String)
-                    
-                }
-                
-                
-                
-            }
-        })
-    }
-    
-    static func testgetExercise(catID: Int){
-        var exercise : [Exercise] = []
-        let exRows = SQLiteDB.sharedInstance.query(sql:
-            "SELECT * " +
-            "FROM Workout WHERE category = \(catID) GROUP BY Workout.name")
-        
-        for row in exRows {
-             //var muscPri = row["imgurls"] as! String
-            //muscPri.removeFirst()
-           // muscPri.removeLast()
-           //√ print("YO: \(convertArrInStringToStrArr(sArray: muscPri))")
-            /*exercise.append(Exercise(id: row["workoutID"] as! Int,
-                                     name: row["name"] as! String,
-                                     equipment: row["equipment"] as! Int,
-                                     desc: row["description"] as! String,
-                                     category: row["category"] as! Int,
-                                     videoLink: row["videolink"] as! String,
-                                     imageLink: <#T##[String]#>,
-                                     type: row["type"] as! String,
-                                     muscleImg: row["muscleimgurls"] as! String))*/
-        }
-    }
-    
+
     static func getEquipment(onComplete: ((_ : [Equipment]) -> Void)?){
     // create an empty list.
         var eqList : [Equipment] = []
@@ -546,5 +490,7 @@ class ExerciseDataManager: NSObject{
         
         return String(sub)
     }
+    
+    
 }
 

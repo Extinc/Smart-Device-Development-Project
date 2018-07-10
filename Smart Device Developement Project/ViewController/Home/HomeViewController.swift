@@ -20,8 +20,6 @@ class HomeViewController: UIViewController {
         //
         // For User Info
         //
-
-        ExerciseDataManager.testGetFirebase()
         //
     }
 

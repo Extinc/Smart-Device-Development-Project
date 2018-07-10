@@ -205,9 +205,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gLa-fm-uUf" kind="relationship" relationship="viewControllers" id="iKv-TL-E4A"/>
-                        <segue destination="LJ0-0B-Yq1" kind="relationship" relationship="viewControllers" id="QaW-aV-zvt"/>
-                        <segue destination="tWd-bD-Kz3" kind="relationship" relationship="viewControllers" id="GTD-6o-rVu"/>
+                        <segue destination="6g9-PI-Ipd" kind="relationship" relationship="viewControllers" id="u6H-g9-KEG"/>
+                        <segue destination="LJ0-0B-Yq1" kind="relationship" relationship="viewControllers" id="9f6-wg-yDK"/>
+                        <segue destination="tWd-bD-Kz3" kind="relationship" relationship="viewControllers" id="Fyq-IN-XGI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -215,14 +215,14 @@
             <point key="canvasLocation" x="62" y="40"/>
         </scene>
         <!--dietary-->
-        <scene sceneID="R45-2W-c2l">
+        <scene sceneID="yVq-Rp-IHs">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HomeStoryboard" storyboardName="Dietary" referencedIdentifier="dietary" id="gLa-fm-uUf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Way-9J-6B2"/>
+                <viewControllerPlaceholder storyboardName="Dietary" referencedIdentifier="dietary" id="6g9-PI-Ipd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="28d-L5-upa"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fpl-jk-kpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBh-0T-bbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="-6"/>
+            <point key="canvasLocation" x="631" y="-5"/>
         </scene>
         <!--DietaryStoryboard-->
         <scene sceneID="jAA-Ar-57i">

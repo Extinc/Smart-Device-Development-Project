@@ -1,14 +1,14 @@
 //
-//  Authentication.swift
+//  AuthenticateUser.swift
 //  Smart Device Developement Project
 //
-//  Created by lim kei yiang on 9/7/18.
+//  Created by ITP312 on 10/7/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
 import FirebaseAuth
-class Authentication: NSObject {
+class AuthenticateUser: NSObject {
     static func getUID()->String{
         var uid: String!
         if Auth.auth().currentUser!.uid.isEmpty == false && Auth.auth().currentUser!.uid != nil {
@@ -25,3 +25,4 @@ class Authentication: NSObject {
         return uid
     }
 }
+

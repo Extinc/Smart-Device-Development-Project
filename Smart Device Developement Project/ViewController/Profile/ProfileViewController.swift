@@ -3,17 +3,32 @@
 //  Smart Device Developement Project
 //
 //  Created by ITP312 on 10/7/18.
-//  Copyright © 2018 ITP312. All rights reserved.
+//  Copyright © 2018 ITP3   12. All rights reserved.
 //
 
 import UIKit
+import MaterialComponents
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBAction func signOut(_ sender: Any) {
+        AuthenticateUser.logout()
+    }
+    
 
-class ProfileViewController: UIViewController {
-
+    @IBOutlet weak var editProfileBtn: MDCFlatButton!
+    @IBOutlet weak var cardView: MDCCard!
+    @IBOutlet weak var profileTableView: UITableView!
+    
+    var lifeStyle = LifestyleTheme()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        LifestyleTheme.styleCard(card: cardView, isInteractable: false, cornerRadius: 8)
+        print(Double(cardView.cornerRadius))
+        lifeStyle.styleBtn(btn: editProfileBtn, title: "Edit", pColor: lifeStyle.colors.secondaryColor)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +36,41 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var header: String?
+        
+        if section == 0 {
+            header = "Account"
+        } else if section == 1 {
+            header = "Other"
+        }
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count: Int?
+        if section == 0 {
+            count = 2
+        } else if section == 1 {
+            count = 2
+        }
+        
+        return count!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
+        
+        return cell
+    }
+    
+
 
     /*
     // MARK: - Navigation

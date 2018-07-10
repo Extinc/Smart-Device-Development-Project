@@ -26,9 +26,19 @@ class LifestyleTheme: NSObject {
         btn.titleLabel?.textColor = colors.secondaryTextColor
     }
     
-    func styleCard(card: MDCCard, pColor: UIColor){
-
+    static func styleCard(card: MDCCard, isInteractable: Bool, cornerRadius: Double?){
+        let colorScheme = MDCSemanticColorScheme()
+        colorScheme.surfaceColor = .white
+        card.backgroundColor = .gray
+        card.isUserInteractionEnabled = isInteractable
+        card.setBorderColor(UIColor.blue, for: card.state)
+        if cornerRadius != nil {
+            card.cornerRadius = CGFloat(cornerRadius!)
+        }
+        
+        MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: card)
     }
+    
     
     func styleTextFieldOutlined(textField: MDCTextField){
         

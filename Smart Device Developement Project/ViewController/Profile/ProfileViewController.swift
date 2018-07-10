@@ -74,7 +74,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else if indexPath.row == 1 {
                 cell.textLabel?.text = "Password: "
             }
-            cell.detailTextLabel?.text = accInfo?.emailNpw[indexPath.section][indexPath.row]
+            cell.detailTextLabel?.text = accInfo?.emailNpw[indexPath.row]
         }
         // Incomplete below is for other
         

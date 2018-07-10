@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="5JH-8W-sUr">
+            <objects>
+                <viewController storyboardIdentifier="profile" id="G2N-xB-sET" sceneMemberID="viewController">
+                    <containerView key="view" opaque="NO" contentMode="scaleToFill" id="ITV-7F-cW2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <segue destination="8Fo-7I-HLR" kind="embed" id="yF1-Fg-Nvf"/>
+                        </connections>
+                    </containerView>
+                    <tabBarItem key="tabBarItem" title="Profile" image="baseline_person_black_24pt" id="zlD-2i-pnq"/>
+                    <navigationItem key="navigationItem" title="Title" id="An8-Y6-kmG"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlD-As-EYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="330.58470764617692"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qHj-oa-lAC">
+            <objects>
+                <navigationController id="8Fo-7I-HLR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="941-Xh-iOb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FHE-cP-ytI" kind="relationship" relationship="rootViewController" id="s6M-MQ-Pju"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YLC-Ei-v5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="330"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XEI-nT-QSO">
+            <objects>
+                <viewController id="FHE-cP-ytI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P3T-Sh-S0S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="TxI-Ic-piD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mew-Eh-CIY">
+                        <barButtonItem key="rightBarButtonItem" image="baseline_exit_to_app_black_24pt" id="xcB-Hp-j2k"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0b3-cB-keS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681" y="330"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="baseline_exit_to_app_black_24pt" width="24" height="24"/>
+        <image name="baseline_person_black_24pt" width="24" height="24"/>
+    </resources>
+</document>

@@ -12,6 +12,10 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
+    @IBAction func closeSignUp(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var reguser: MDCTextField! = {
         let name = MDCTextField()
         name.autocapitalizationType = .words
@@ -42,6 +46,7 @@ class SignUpViewController: UIViewController {
         return weight
     }()
     
+    @IBOutlet weak var closeContainer: UIStackView!
     @IBOutlet weak var signupBtn: MDCFlatButton!
     var allTextFieldControllers = [MDCTextInputControllerFloatingPlaceholder]()
     
@@ -54,7 +59,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        closeContainer.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        closeContainer.layoutMargins.left = closeContainer.frame.size.width * 0.8
         let colors = Colors()
         let lifestyleTheme = LifestyleTheme()
 
@@ -126,6 +132,8 @@ class SignUpViewController: UIViewController {
             }
         
         }
+        
+        self.dismiss(animated: true, completion: nil)
     }
     /*
      // MARK: - Navigation

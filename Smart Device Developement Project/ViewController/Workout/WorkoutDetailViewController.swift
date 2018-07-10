@@ -34,7 +34,7 @@ class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
         
         prefetchCurrExerciseImage()
         
-        titleLabel.text = passedExercise.name!
+        self.navigationItem.title = passedExercise.name!
         
         descLabel.lineBreakMode = .byWordWrapping
         descLabel.numberOfLines = 100

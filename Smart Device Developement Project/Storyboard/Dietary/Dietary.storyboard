@@ -22,7 +22,7 @@
                             <segue destination="fiC-Qn-9nL" kind="embed" id="JIe-6t-QfN"/>
                         </connections>
                     </containerView>
-                    <tabBarItem key="tabBarItem" title="Calories" selectedImage="icons8-tripadvisor-24" id="roH-RF-lY2"/>
+                    <tabBarItem key="tabBarItem" title="Calories" image="icons8-tripadvisor-24" id="roH-RF-lY2"/>
                     <navigationItem key="navigationItem" title="Calories" id="StU-cv-LlN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

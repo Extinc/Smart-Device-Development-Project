@@ -11,20 +11,20 @@ import UIKit
 class RecommendMeal: NSObject {
     
     
-    static func createMealPlan(meals: [Meal], date: String, username: String, pID: Int){
+    static func createMealPlan(meals: [Meal], date: String, username: String, pID: Int, totalCalories: Int){
         var plan: [MealPlan] = []
         let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
         let planType = preferences.mealPlanType!
         //let totalCalories: Float = Float(NutrInfo.calReccCalories())
-        let totalCalories: Float = 2200
+
         if (planType == "Gluten Free"){
-            plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories, pID: pID)
+            plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: Float(totalCalories), pID: pID)
         }
         else if (planType == "Dash") {
-            plan = dashPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories, pID: pID)
+            plan = dashPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: Float(totalCalories), pID: pID)
         }
         else if (planType == "Keto") {
-            plan = ketoPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: totalCalories, pID: pID)
+            plan = ketoPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: Float(totalCalories), pID: pID)
         }
         else if(planType == "Vegan"){
             

@@ -12,7 +12,6 @@ import Firebase
 class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
     @IBOutlet weak var planTextField: UITextField!
-    @IBOutlet weak var goalsTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var mealsperdayTextField: UITextField!
     @IBOutlet weak var mealtimingsTextField: UITextField!
@@ -20,7 +19,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var startDateTextField: UITextField!
     
     var picker1 = UIPickerView()
-    var picker2 = UIPickerView()
     var picker3 = UIPickerView()
     var picker4 = UIPickerView()
     var picker5 = UIPickerView()
@@ -44,21 +42,18 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         super.viewDidLoad()
         
         picker1.delegate = self
-        picker2.delegate = self
         picker3.delegate = self
         picker4.delegate = self
         picker5.delegate = self
         picker6.delegate = self
         
         picker1.dataSource = self
-        picker2.dataSource = self
         picker3.dataSource = self
         picker4.dataSource = self
         picker5.dataSource = self
         picker6.dataSource = self
         
         picker1.tag = 1
-        picker2.tag = 2
         picker3.tag = 3
         picker4.tag = 4
         picker5.tag = 5
@@ -69,7 +64,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         datePicker?.addTarget(self, action: #selector(DietaryPlanViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         planTextField.inputView = picker1
-        goalsTextField.inputView = picker2
         durationTextField.inputView = picker3
         mealsperdayTextField.inputView = picker4
         mealtimingsTextField.inputView = picker5
@@ -113,9 +107,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if pickerView.tag == 1 {
             return dataPlan.count
         }
-        else if pickerView.tag == 2 {
-            return dataGoals.count
-        }
         else if pickerView.tag == 3 {
             return dataDuration.count
         }
@@ -136,10 +127,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1 {
             planTextField.text = dataPlan[row]
-            view.endEditing(true)
-        }
-        else if pickerView.tag == 2 {
-            goalsTextField.text = dataGoals[row]
             view.endEditing(true)
         }
         else if pickerView.tag == 3 {
@@ -165,9 +152,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if pickerView.tag == 1 {
             return dataPlan[row]
         }
-        else if pickerView.tag == 2 {
-            return dataGoals[row]
-        }
         else if pickerView.tag == 3 {
             return dataDuration[row]
         }
@@ -191,7 +175,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     @IBAction func goBackToDPC(_ sender: Any) {
         if (planTextField.text == "" ||
-            goalsTextField.text == "" ||
             durationTextField.text == "" ||
             mealsperdayTextField.text == "" ||
             mealtimingsTextField.text == "" ||
@@ -227,14 +210,12 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
             
             let dietplan = planTextField.text
-            let goals = goalsTextField.text
-            
             let mpd = Int(mealsperdayTextField.text!)
             let mti = mealtimingsTextField.text
             let reminders = remindersTextField.text
             let startDate = startDateTextField.text
             
-            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, goals!, days, mpd!, mti!, reminders!, startDate!)
+            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, mti!, reminders!, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
             

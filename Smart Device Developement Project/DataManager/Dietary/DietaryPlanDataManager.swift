@@ -20,7 +20,6 @@ class DietaryPlanDataManager: NSObject {
                 "UserPlanPreferences (" +
                 "username text primary key, " +
                 "mealplantype text, " +
-                "goals text, " +
                 "duration text, " +
                 "mealsperday int, " +
                 "mealtiming text, " +
@@ -35,12 +34,11 @@ class DietaryPlanDataManager: NSObject {
     static func insertOrReplacePreferences(userPlanPreferences: UserPlanPreferences)
     {
         SQLiteDB.sharedInstance.execute(sql:
-            "INSERT OR REPLACE INTO userPlanPreferences(username, mealplantype, goals, duration, mealsperday, mealtiming, reminders, startDate)" +
-            "VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT OR REPLACE INTO userPlanPreferences(username, mealplantype, duration, mealsperday, mealtiming, reminders, startDate)" +
+            "VALUES(?, ?, ?, ?, ?, ?, ?)",
                                         parameters: [
                                             userPlanPreferences.username,
                                             userPlanPreferences.mealPlanType,
-                                            userPlanPreferences.goals,
                                             userPlanPreferences.duration,
                                             userPlanPreferences.mealsperday,
                                             userPlanPreferences.mealtiming,
@@ -54,7 +52,7 @@ class DietaryPlanDataManager: NSObject {
     static func loadPreferences(username: String) -> [UserPlanPreferences] {
         var preferences : [UserPlanPreferences] = []
         let userpreferences = SQLiteDB.sharedInstance.query(sql:
-        "SELECT username, mealplantype, goals, duration, mealsperday, mealtiming, reminders, startDate" +
+        "SELECT username, mealplantype, duration, mealsperday, mealtiming, reminders, startDate" +
         " FROM userPlanPreferences" +
         " WHERE username = ?",
             parameters: [username]
@@ -65,7 +63,6 @@ class DietaryPlanDataManager: NSObject {
                 preferences.append(UserPlanPreferences(
                     row["username"] as! String,
                     row["mealplantype"] as! String,
-                    row["goals"] as! String,
                     row["duration"] as! String,
                     row["mealsperday"] as! Int,
                     row["mealtiming"] as! String,
@@ -75,7 +72,7 @@ class DietaryPlanDataManager: NSObject {
             }
         
         if (count < 1) {
-            preferences.append(UserPlanPreferences("", "","","", 0, "", "", ""))
+            preferences.append(UserPlanPreferences("", "","", 0, "", "", ""))
         }
         
            

@@ -26,13 +26,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
-    var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"chickenricerecipe","No")],
-                     []
-                    ]
+    var mealPlans: [[MealPlan]] = [[],[]]
 
     var contentWidth:CGFloat = 0.0
     var username = "1"
-    var totalCalories:Float = 1800.0
+    var totalCalories:Int = 0
     var selectedDate:String = ""
     var preferences: [UserPlanPreferences] = []
     var lastPID: Int = 0
@@ -56,6 +54,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
             self.loadLastPlanID()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
             //self.loadPlanMeals(date: self.selectedDate, username: self.username)
+            self.loadCalories()
+            self.username = AuthenticateUser.getUID()
             
         }
         
@@ -236,11 +236,18 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
             self.planCount = planCountFromFirebase
         }
     }
+    
+    func loadCalories(){
+        NutrInfo().calReccCalories() {
+            recCaloriesFromFirebase in
+            self.totalCalories = recCaloriesFromFirebase
+        }
+    }
    
     @IBAction func loadMeals(_ sender: Any) {
         
         if(planCount < 1) {
-            RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username, pID: lastPID)
+            RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username, pID: lastPID, totalCalories: totalCalories)
         }
         
         DispatchQueue.main.async {

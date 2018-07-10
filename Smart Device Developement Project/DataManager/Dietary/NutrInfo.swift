@@ -13,9 +13,9 @@ class NutrInfo: NSObject {
     
     func calcBMI(onComplete: @escaping (Double) -> Void){
         
-        //var user = Auth.auth()?.currentUser?.uid
+        let user = AuthenticateUser.getUID()
         var ref: DatabaseReference
-        let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
+        //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)
         
         ref.observeSingleEvent(of: .value,
@@ -34,7 +34,7 @@ class NutrInfo: NSObject {
     
     func calReccCalories(onComplete: @escaping (Int) -> Void){
         
-        //var user = Auth.auth()?.currentUser?.uid
+        //let user = AuthenticateUser.getUID()
         var ref: DatabaseReference
         let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)

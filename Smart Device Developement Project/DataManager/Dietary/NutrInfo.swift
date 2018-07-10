@@ -34,9 +34,9 @@ class NutrInfo: NSObject {
     
     func calReccCalories(onComplete: @escaping (Int) -> Void){
         
-        //let user = AuthenticateUser.getUID()
+        let user = AuthenticateUser.getUID()
         var ref: DatabaseReference
-        let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
+        //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)
         
         ref.observeSingleEvent(of: .value,
@@ -52,6 +52,21 @@ class NutrInfo: NSObject {
                                 let calories = Int(recc.rounded())
                                 print("Cal:",calories)
                                 onComplete(calories)
+        })
+    }
+    
+    func getWeight(onComplete: @escaping (Double) -> Void){
+        
+        let user = AuthenticateUser.getUID()
+        var ref: DatabaseReference
+        //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
+        ref = Database.database().reference().child("Profile").child(user)
+        
+        ref.observeSingleEvent(of: .value,
+                               with: { (snapshot) in
+                                let weight = (snapshot.childSnapshot(forPath: "weight").value as? String)!
+                                let w = Double(weight) ?? 0.0
+                                onComplete(w)
         })
     }
 }

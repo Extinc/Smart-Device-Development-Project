@@ -1,44 +1,27 @@
- //
-//  HomeViewController.swift
+//
+//  ProfileViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by ITP312 on 15/5/18.
+//  Created by ITP312 on 10/7/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
-import FirebaseAuth
 
-class HomeViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
-
-
-        //
-        // For User Info
-        //
-        //
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
-    @IBAction func logoutAction(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-        }
-        catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initial = storyboard.instantiateInitialViewController()
-        UIApplication.shared.keyWindow?.rootViewController = initial
-    }
     /*
     // MARK: - Navigation
 

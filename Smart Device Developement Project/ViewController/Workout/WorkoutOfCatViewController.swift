@@ -11,8 +11,6 @@ import SDWebImage
 
 class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    
-
     var passedId: Int?
     var passedName: String?
     var searchActive : Bool = false
@@ -53,11 +51,12 @@ class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITable
             difficultySegmentCtrl.isHidden = false
         }
         
-
-        if let passid: Int = self.passedId! {
-             print("passed id: ", passid)
-            exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
-        }else {
+        if self.passedName != "All" {
+            if let passid: Int = self.passedId!{
+                print("passed id: ", passid)
+                exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
+            }
+        } else {
             exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
         }
      

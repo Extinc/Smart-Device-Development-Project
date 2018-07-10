@@ -243,7 +243,10 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36b-SK-65G">
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                                                        <state key="normal" title="Button"/>
+                                                                        <state key="normal" title="Start"/>
+                                                                        <connections>
+                                                                            <segue destination="nTg-6y-bfU" kind="show" id="yLD-gP-vJl"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -380,9 +383,9 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xvv-WB-ptB">
                                                                     <rect key="frame" x="112.5" y="0.0" width="262.5" height="99.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z4-a3-A3w">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z4-a3-A3w">
                                                                             <rect key="frame" x="8" y="8" width="254.5" height="83.5"/>
-                                                                            <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="20"/>
+                                                                            <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="18"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>

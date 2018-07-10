@@ -42,9 +42,6 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
         exerciseCat = ExerciseDataManager.loadCategory()
 
-        //catID = ExerciseDataManager.getCatID(name: workoutSegmentControl.titleForSegment(at: workoutSegmentControl.selectedSegmentIndex)!)
-
-        //exercise = ExerciseDataManager.loadExerciseOfCat(catID: catID)
     }
     
     func testCardColorThemer() {

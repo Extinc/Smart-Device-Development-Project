@@ -222,7 +222,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBh-0T-bbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="9"/>
+            <point key="canvasLocation" x="631" y="-5"/>
         </scene>
         <!--DietaryStoryboard-->
         <scene sceneID="jAA-Ar-57i">

@@ -39,6 +39,7 @@
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B7BB6120E39ADF002677A2 /* MealInfo.swift */; };
 		51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27C920F475D40054E053 /* AuthenticateUser.swift */; };
+		51ED27CC20F483640054E053 /* WorkoutImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */; };
 		51FC308D20E6247400A5E685 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC308C20E6247400A5E685 /* CameraViewController.swift */; };
 		51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC308E20E62A5900A5E685 /* SummaryViewController.swift */; };
 		6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
@@ -145,6 +146,7 @@
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51B7BB6120E39ADF002677A2 /* MealInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfo.swift; sourceTree = "<group>"; };
 		51ED27C920F475D40054E053 /* AuthenticateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUser.swift; sourceTree = "<group>"; };
+		51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImageDataManager.swift; sourceTree = "<group>"; };
 		51FC308C20E6247400A5E685 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		51FC308E20E62A5900A5E685 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		5C03B93D7A28592C854E5A98 /* Pods-Smart Device Developement Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.debug.xcconfig"; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				900A3DFB20D4E60B00220298 /* Exercise.swift */,
 				900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */,
 				5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */,
+				51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */,
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				69D026DB20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift in Sources */,
+				51ED27CC20F483640054E053 /* WorkoutImageDataManager.swift in Sources */,
 				693F6ACB20F25C7600F3FA95 /* ChangeMealViewController.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				7053561420F39FDC00D72FF0 /* Weather.swift in Sources */,

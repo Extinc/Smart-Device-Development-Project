@@ -31,6 +31,7 @@
 		5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */; };
 		5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67020AAAA210014E15D /* ExerciseViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
+		51835E5B20F5A84900311D6A /* ProfileBtnCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51835E5A20F5A84900311D6A /* ProfileBtnCustomCell.swift */; };
 		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		519BF93620EFB27900F87A65 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 519BF93520EFB27900F87A65 /* food.mlmodel */; };
@@ -138,6 +139,7 @@
 		5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthyRestAdvisor.storyboard; sourceTree = "<group>"; };
 		5169C67020AAAA210014E15D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
+		51835E5A20F5A84900311D6A /* ProfileBtnCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBtnCustomCell.swift; sourceTree = "<group>"; };
 		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		519BF93520EFB27900F87A65 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				51AEDE5020F49741005B44F0 /* ProfileViewController.swift */,
+				51835E5A20F5A84900311D6A /* ProfileBtnCustomCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */,
+				51835E5B20F5A84900311D6A /* ProfileBtnCustomCell.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,

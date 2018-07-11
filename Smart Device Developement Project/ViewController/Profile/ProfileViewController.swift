@@ -16,20 +16,40 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
 
-    @IBOutlet weak var editProfileBtn: MDCFlatButton!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: MDCCard!
-    @IBOutlet weak var profileTableView: UITableView!
     
+    let color = Colors()
     var lifeStyle = LifestyleTheme()
     var accInfo: AccountProfile?
+    var height: Double = 0.0
+    var weight: Double = 0.0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AuthenticateUser.getHeight { (height) in
+            self.height = height
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        AuthenticateUser.getWeight { (weight) in
+            self.weight = weight
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        LifestyleTheme.styleCard(card: cardView, isInteractable: false, cornerRadius: 8)
+        LifestyleTheme.styleCard(card: cardView, isInteractable: true, cornerRadius: 8)
         print(Double(cardView.cornerRadius))
-        lifeStyle.styleBtn(btn: editProfileBtn, title: "Edit", pColor: lifeStyle.colors.secondaryDarkColor)
+        tableView.allowsSelection = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,31 +77,54 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int?
         if section == 0 {
-            count = 2
-        } else if section == 1 {
-            count = 2
+            count = 3
+        } else {
+            count = 3
         }
         
-        return count!
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
         
         if indexPath.section == 0 {
+            
             if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
                 cell.textLabel?.text = "Email: "
+                cell.detailTextLabel?.text = AuthenticateUser.getCurrEmail()
+                return cell
             } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
                 cell.textLabel?.text = "Password: "
+                cell.detailTextLabel?.text = "********"
+                return cell
+            }else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! ProfileBtnCustomCell
+                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Email & Password", pColor: color.secondaryDarkColor)
+                return cell
             }
-            cell.detailTextLabel?.text = accInfo?.emailNpw[indexPath.row]
-        }
-        // Incomplete below is for other
-        
-        return cell
-    }
-    
+            
+        } else {
+            
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
+                cell.textLabel?.text = "Height: "
+                cell.detailTextLabel?.text = "\(Int(self.height)) cm"
+                return cell
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
+                cell.textLabel?.text = "Weight: "
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! ProfileBtnCustomCell
+                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Height & Weight", pColor: color.secondaryDarkColor)
+                return cell
+            }
 
+        }
+    }
 
     /*
     // MARK: - Navigation

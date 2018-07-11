@@ -296,7 +296,17 @@ class DietaryPlanDataManagerFirebase: NSObject {
         ref.removeValue()
     }
     
-    
+    //MARK: - Hawker Centres
+    static func createHawkerData() {
+        let ref1 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(1)/")
+        ref1.setValue([
+            "name" : "Chicken Rice",
+            "image": "chickenrice",
+            "calories" : "510",
+            "carbohydrates" : "45.6"
+            ]
+        )
+    }
     
     
 }

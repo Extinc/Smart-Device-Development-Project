@@ -13,6 +13,11 @@ class MealPlanTableViewCell: UITableViewCell {
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var mealCalories: UILabel!
+    
+    
+    @IBOutlet weak var mimage: UIImageView!
+    @IBOutlet weak var mname: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

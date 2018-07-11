@@ -31,12 +31,13 @@
 		5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */; };
 		5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67020AAAA210014E15D /* ExerciseViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
+		51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1520F60F29000CBFE8 /* SearchViewController.swift */; };
+		51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1720F615CF000CBFE8 /* FoodViewController.swift */; };
 		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		519BF93620EFB27900F87A65 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 519BF93520EFB27900F87A65 /* food.mlmodel */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AEDE5020F49741005B44F0 /* ProfileViewController.swift */; };
-		51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B7BB6120E39ADF002677A2 /* MealInfo.swift */; };
 		51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27C920F475D40054E053 /* AuthenticateUser.swift */; };
 		51ED27CC20F483640054E053 /* WorkoutImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */; };
 		51ED27CF20F4873A0054E053 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51ED27CE20F4873A0054E053 /* Profile.storyboard */; };
@@ -138,12 +139,13 @@
 		5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthyRestAdvisor.storyboard; sourceTree = "<group>"; };
 		5169C67020AAAA210014E15D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
+		51762D1520F60F29000CBFE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		51762D1720F615CF000CBFE8 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		519BF93520EFB27900F87A65 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51AEDE5020F49741005B44F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		51B7BB6120E39ADF002677A2 /* MealInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfo.swift; sourceTree = "<group>"; };
 		51ED27C920F475D40054E053 /* AuthenticateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUser.swift; sourceTree = "<group>"; };
 		51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImageDataManager.swift; sourceTree = "<group>"; };
 		51ED27CE20F4873A0054E053 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -423,7 +425,6 @@
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
 				69BE096D20DB6EED0008BF25 /* DietaryPlanDataManager.swift */,
-				51B7BB6120E39ADF002677A2 /* MealInfo.swift */,
 				F12F23EB20EDEEB900836A83 /* foodData.swift */,
 				69D026DA20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift */,
 				69E22A2120F0E4F40054D552 /* RecommendMeal.swift */,
@@ -455,6 +456,8 @@
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
 				51FC308E20E62A5900A5E685 /* SummaryViewController.swift */,
 				F192FE7420F2162B005C76E8 /* BMIViewController.swift */,
+				51762D1520F60F29000CBFE8 /* SearchViewController.swift */,
+				51762D1720F615CF000CBFE8 /* FoodViewController.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
+				51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
 				704426DD20F35002009EE823 /* SpeedBarViewController.swift in Sources */,
@@ -845,7 +849,7 @@
 				51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */,
 				F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */,
 				69BE096E20DB6EEE0008BF25 /* DietaryPlanDataManager.swift in Sources */,
-				51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */,
+				51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */,
 				90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,

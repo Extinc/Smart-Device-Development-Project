@@ -39,7 +39,7 @@ class HistorySessionViewController: UIViewController {
         lblTotalTime.text = selectedSession.totaltime
         lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
         lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
-        lblavgspeed.text = selectedSession.totalSpeed
+        lblavgspeed.text = String(format: "%.2f", selectedSession.totalspeed!)
     }
 
 

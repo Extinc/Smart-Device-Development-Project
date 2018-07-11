@@ -17,10 +17,14 @@ class WeatherService {
     
     func getWeatherForCity(lat: String, lon: String){
         
+        
+        
         let latitude = lat.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)
         let longitude = lon.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)
         
-        let path = "https://samples.openweathermap.org/data/2.5/weather?lat=\(latitude!)&lon=\(longitude!)&appid=b6907d289e10d714a6e88b30761fae22"
+       
+        let path = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude!)&lon=\(longitude!)&appid=d90e2ff77f7a52c22cde2f9bb66038b2"
+         print("path = \(path)")
         let url = URL(string: path)
         let session = URLSession.shared
         let task = session.dataTask(with: url!){(data: Data?, response: URLResponse? , error: Error?) -> Void in
@@ -31,8 +35,9 @@ class WeatherService {
             let temp = json["main"]["temp"].double
             let name = json["name"].string
             let desc = json["weather"][0]["description"].string
+            let icon = json["weather"][0]["icon"].string
             
-            let weather = Weather(cityName: name!, temp: temp!, description: desc!)
+            let weather = Weather(cityName: name!, temp: temp!, description: desc!, icon: icon!)
             
             if self.delegate != nil {
                 self.delegate?.setWeather(weather: weather)

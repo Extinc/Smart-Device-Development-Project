@@ -29,7 +29,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     var mealPlans: [[MealPlan]] = [[],[]]
 
     var contentWidth:CGFloat = 0.0
-    var username = "1"
+    var username = ""
     var totalCalories:Int = 0
     var selectedDate:String = ""
     var preferences: [UserPlanPreferences] = []
@@ -52,11 +52,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         DispatchQueue.main.async {
             self.loadMeals()
             self.loadLastPlanID()
+            self.username = AuthenticateUser.getUID()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
             //self.loadPlanMeals(date: self.selectedDate, username: self.username)
             self.loadCalories()
-            self.username = AuthenticateUser.getUID()
-            
         }
         
         if(self.planCount < 1) {
@@ -78,12 +77,12 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         
         //Load meal plans
         if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
-            generatePlanButton.isEnabled = true
-            loadMealsButton.isEnabled = false
+            generatePlanButton.isHidden = false
+            loadMealsButton.isHidden = true
         }
         else{
-            generatePlanButton.isEnabled = false
-            loadMealsButton.isEnabled = true
+            generatePlanButton.isHidden = true
+            loadMealsButton.isHidden = false
         }
         
         //Date picker

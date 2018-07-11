@@ -16,7 +16,7 @@ class Session: NSObject {
     var finishdate: String?
     var totaltime: String?
     var totalcaloriesburnt: Double?
-    var totalSpeed: String?
+    var totalspeed: Double?
     
     var lap1speed: String?
     var lap2speed: String?
@@ -129,10 +129,10 @@ class Session: NSObject {
         self.sessionID = sessionID
         self.totalcaloriesburnt = totalcaloriesburnt
     }
-    init(sessionid sessionID:Int,totalspeed Totalspeed:String)
+    init(sessionid sessionID:Int,totalspeed Totalspeed:Double)
     {
         self.sessionID = sessionID
-        self.totalSpeed = Totalspeed
+        self.totalspeed = Totalspeed
     }
     init(sessionid sessionID:Int, currentdistance currentdistance:Double)
     {
@@ -150,6 +150,7 @@ class Session: NSObject {
         self.sessionID = sessionID
         self.totaldistance = totaldistance
         self.finishdate = finishdate
+    
     }
     init(Month month:String, allsessionid ALLsessionID:[Int] , alltotalDistance Alldistance:[Double],totalfinishDate totalfinishdate:[String],alltotaltime Alltotaltime:[String])
     {
@@ -160,10 +161,11 @@ class Session: NSObject {
         self.allTotalTime = Alltotaltime
         self.expanded = false
     }
-    init(Totalcalories totalcaloriesburnt:Double,TotalDistance totaldistance:Double,Totaltime totaltime: String)
+    init(Totalcalories totalcaloriesburnt:Double,TotalDistance totaldistance:Double,Totaltime totaltime: String,totalspeed TotalSpeed: Double)
     {
         self.totalcaloriesburnt = totalcaloriesburnt
         self.totaldistance = totaldistance
         self.totaltime = totaltime
+        self.totalspeed = TotalSpeed
 }
 }

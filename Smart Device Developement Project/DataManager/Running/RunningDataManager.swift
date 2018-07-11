@@ -119,11 +119,11 @@ class RunningDataManager: NSObject {
     static func loadSessionByID(_ sessionID:Int) -> Session{
         let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select totalcaloriesburnt,totaldistance,totaltime,totalspeed from Session where sessionID = \(sessionID)")
         
-        var selectedinfo = Session(Totalcalories: 0, TotalDistance: 0, Totaltime: "")
+        var selectedinfo = Session(Totalcalories: 0, TotalDistance: 0, Totaltime: "",totalspeed: 0.0)
         
         for row in selectSessionInfo
         {
-            selectedinfo = Session(Totalcalories: row["totalcaloriesburnt"] as! Double,TotalDistance:row["totaldistance"] as! Double,Totaltime:row["totaltime"] as! String)
+            selectedinfo = Session(Totalcalories: row["totalcaloriesburnt"] as! Double,TotalDistance:row["totaldistance"] as! Double,Totaltime:row["totaltime"] as! String, totalspeed:row["totalspeed"] as! Double)
         }
         
         return selectedinfo
@@ -255,13 +255,11 @@ class RunningDataManager: NSObject {
     {
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET sessionComplete = ? Where sessionID = ? ", parameters: [session.sessionComplete,session.sessionID])
     }
- /*
-     static func UpdateTotalSpeed(session: Session)
+    static func UpdateTotalSpeed(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "Update Session SET totalspeed = ? Where sessionID = ? ", parameters: [session.totalSpeed,session.sessionID])
+
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET totalspeed = ? Where sessionID = ? ", parameters: [session.totalspeed,session.sessionID])
     }
- */
-    
     
     
 }

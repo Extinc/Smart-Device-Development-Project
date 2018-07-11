@@ -13,19 +13,24 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var images: [String] = ["cleaneating1", "dash1", "glutenfree1", "keto1", "muscle1", "vegan1"]
+    var images: [String] = ["dash1", "glutenfree1", "keto1", "muscle1", "vegan1"]
     var frame = CGRect(x:0, y:0, width:0, height:0)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let imgView = UIImageView(frame: frame)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imgView.isUserInteractionEnabled = true
+        imgView.addGestureRecognizer(tapGestureRecognizer)
+        
         // Do any additional setup after loading the view.
         pageControl.numberOfPages = images.count
         for index in 0..<images.count {
             frame.origin.x = scrollView.frame.size.width * CGFloat(index)
             frame.size = scrollView.frame.size
-            let imgView = UIImageView(frame: frame)
             imgView.image = UIImage(named: images[index])
             self.scrollView.addSubview(imgView)
         }
@@ -45,6 +50,13 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+       
     }
     
 

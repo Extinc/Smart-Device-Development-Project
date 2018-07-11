@@ -15,18 +15,6 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     var runningsections : [Session] = RunningDataManager.loadallsession()
     var selectedid : Int = 0
     
-/*    var sections = [
-    Section(genre: "🦁 Animation",
-    movies: ["The Lion King", "The Incredibles"],
-    expanded: false),
-    Section(genre: "💥 Superhero",
-    movies: ["Guardians of the Galaxy", "The Flash", "The Avengers", "The Dark Knight"],
-    expanded: false),
-    Section(genre: "👻 Horror",
-    movies: ["The Walking Dead", "Insidious", "Conjuring"],
-    expanded: false)
-    ]
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
 

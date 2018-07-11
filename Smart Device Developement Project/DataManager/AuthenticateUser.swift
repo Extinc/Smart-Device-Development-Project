@@ -24,5 +24,31 @@ class AuthenticateUser: NSObject {
         }
         return uid
     }
+    
+    static func logout(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    static func getAccountProfile()-> AccountProfile{
+        var accInfo: AccountProfile!
+        
+            
+        
+        return accInfo
+    }
 }
 
+class AccountProfile: NSObject {
+    var emailNpw : [String]
+    var heightNweight: [Double]
+    
+    init(emailNpw: [String], hNw: [Double]){
+        self.emailNpw = emailNpw
+        self.heightNweight = hNw
+    }
+}

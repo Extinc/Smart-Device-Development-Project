@@ -26,15 +26,15 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
     let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
-    var mealPlans = [[MealPlan(1,"", "", 1, "Chicken rice", "chickenrice", 340.5,"chickenricerecipe","No")],
-                     [MealPlan(4,"","", 14, "", "", 200, "","Yes")]
-                    ]
+    var mealPlans: [[MealPlan]] = [[],[]]
 
     var contentWidth:CGFloat = 0.0
     var username = "1"
-    var totalCalories:Float = 1800.0
+    var totalCalories:Int = 0
     var selectedDate:String = ""
     var preferences: [UserPlanPreferences] = []
+    var lastPID: Int = 0
+    var planCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +48,43 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         
         DietaryPlanDataManagerFirebase.createMealData()
         
-        //Load meals
-        loadMeals()
+        //Firebase load meals and plans
+        DispatchQueue.main.async {
+            self.loadMeals()
+            self.loadLastPlanID()
+            self.loadPlanCount(date: self.selectedDate, username: self.username)
+            //self.loadPlanMeals(date: self.selectedDate, username: self.username)
+            self.loadCalories()
+            self.username = AuthenticateUser.getUID()
+            
+        }
+        
+        if(self.planCount < 1) {
+            
+            /*for i in 0...1 {
+             for j in 0...self.mealplan.count {
+             if (self.mealplan[j].isDiary == "No") {
+             self.mealPlans[0].append(self.mealplan[j])
+             
+             }
+             else {
+             self.mealPlans[1].append(self.mealplan[j])
+             
+             }
+             }
+             }*/
+            //self.tableView.reloadData()
+        }
+        
+        //Load meal plans
+        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+            generatePlanButton.isEnabled = true
+            loadMealsButton.isEnabled = false
+        }
+        else{
+            generatePlanButton.isEnabled = false
+            loadMealsButton.isEnabled = true
+        }
         
         //Date picker
         datePicker = UIDatePicker()
@@ -79,6 +114,16 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+            generatePlanButton.isEnabled = true
+            loadMealsButton.isEnabled = false
+        }
+        else{
+            generatePlanButton.isEnabled = false
+            loadMealsButton.isEnabled = true
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -142,11 +187,12 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
                 // object selected by the user.
                 //
                 let recipeImage: String = mealPlans[myIndexPath!.section][myIndexPath!.row].recipeImage!
+                print(recipeImage)
                 ViewMealViewController.imageName = recipeImage
 
             }
         }
-        
+    
         
     }
     
@@ -162,43 +208,51 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource {
         DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
             mealPlanListFromFirebase in
             self.mealplan = mealPlanListFromFirebase
+          
+                for j in 0...self.mealplan.count-1 {
+                    if (self.mealplan[j].isDiary == "No") {
+                        self.mealPlans[0].append(self.mealplan[j])
+                    }
+                    else {
+                        self.mealPlans[1].append(self.mealplan[j])
+                    }
+                }
+            
+            self.tableView.reloadData()
+            
+        }
+    }
+    
+    func loadLastPlanID(){
+        DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
+            planIDFromFirebase in
+            self.lastPID = planIDFromFirebase
+        }
+    }
+    
+    func loadPlanCount(date: String, username: String) {
+        DietaryPlanDataManagerFirebase.loadMealPlansCount(date: date, username: username) {
+            planCountFromFirebase in
+            self.planCount = planCountFromFirebase
+        }
+    }
+    
+    func loadCalories(){
+        NutrInfo().calReccCalories() {
+            recCaloriesFromFirebase in
+            self.totalCalories = recCaloriesFromFirebase
         }
     }
    
     @IBAction func loadMeals(_ sender: Any) {
         
-        
-        RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username)
-        
-       
-        //Load meal plans
-        /*if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
-            generatePlanButton.isEnabled = true
+        if(planCount < 1) {
+            RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username, pID: lastPID, totalCalories: totalCalories)
         }
-        else{
-            generatePlanButton.isEnabled = false
-            if(DietaryPlanDataManagerFirebase.loadMealPlansCount(date: selectedDate, username: username) < 1) {
-                RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username)
-                print("TEST")
-            }
-            
-            loadPlanMeals(date: selectedDate, username: username)
-            //Append meal inside mealPlans to display at table
-            for i in 0...1 {
-                for j in 0...mealplan.count {
-                    if (mealplan[j].isDiary == "No") {
-                        mealPlans[0].append(mealplan[j])
-                        
-                    }
-                    else {
-                        mealPlans[1].append(mealplan[j])
-                        
-                    }
-                }
-            }
-            tableView.reloadData()
-        }*/
         
+        DispatchQueue.main.async {
+            self.loadPlanMeals(date: self.selectedDate, username: self.username)
+        }
     }
     
  

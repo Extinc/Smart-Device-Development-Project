@@ -11,7 +11,6 @@ import UIKit
 class UserPlanPreferences: NSObject {
     var username: String?
     var mealPlanType: String?
-    var goals: String?
     var duration: String?
     var mealsperday: Int?
     var mealtiming: String?
@@ -19,10 +18,9 @@ class UserPlanPreferences: NSObject {
     var startDate: String?
     
     
-    init(_ username: String,_ mealPlanType: String,_ goals: String,_ duration: String, _ mealsperday: Int,_ mealtiming: String,_ reminders: String, _ startDate: String ){
+    init(_ username: String,_ mealPlanType: String, _ duration: String, _ mealsperday: Int,_ mealtiming: String,_ reminders: String, _ startDate: String ){
         self.username = username
         self.mealPlanType = mealPlanType
-        self.goals = goals
         self.duration = duration
         self.mealsperday = mealsperday
         self.mealtiming = mealtiming

@@ -13,7 +13,7 @@
         <!--Login-->
         <scene sceneID="PR7-mh-wq7">
             <objects>
-                <viewController id="XAB-83-5Lk" customClass="LoginViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginStoryboard" id="XAB-83-5Lk" customClass="LoginViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t7E-Fm-XFb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="Hmc-gr-SKJ" kind="show" id="2eo-vw-pMO"/>
+                                    <segue destination="Hmc-gr-SKJ" kind="popoverPresentation" popoverAnchorView="oDx-mT-IqL" id="krP-Id-kOU">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4j-vX-rXE" customClass="MDCTextField">
@@ -76,10 +78,35 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b8H-kd-V1X">
-                                <rect key="frame" x="0.0" y="64" width="414" height="215"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="371.33333333333331"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IT5-qr-37e">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsE-LC-4oF">
+                                                <rect key="frame" x="100" y="8" width="306" height="30"/>
+                                                <state key="normal" title="X"/>
+                                                <connections>
+                                                    <action selector="closeSignUp:" destination="Hmc-gr-SKJ" eventType="touchUpInside" id="8Ft-RU-2Ow"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="100" bottom="8" right="8"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohv-d7-CdX">
+                                        <rect key="frame" x="0.0" y="50.999999999999993" width="414" height="100.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ds8-qs-tmf">
+                                                <rect key="frame" x="8" y="40" width="398" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="40" left="8" bottom="40" right="8"/>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-yU-Evh">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="156.33333333333334" width="414" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-Z1-dJz" customClass="MDCTextField">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="30"/>
@@ -91,7 +118,7 @@
                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qeb-6q-PG3">
-                                        <rect key="frame" x="0.0" y="35" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="191.33333333333334" width="414" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zAz-df-NOj" customClass="MDCTextField">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="30"/>
@@ -103,7 +130,7 @@
                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-CL-HvH">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="226.33333333333334" width="414" height="30.000000000000028"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PaK-jq-esW" customClass="MDCTextField">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="30"/>
@@ -115,7 +142,7 @@
                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gou-Ho-UIm">
-                                        <rect key="frame" x="0.0" y="105" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="261.33333333333331" width="414" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F9K-yC-yjX" customClass="MDCTextField">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="30"/>
@@ -127,7 +154,7 @@
                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dY-VY-1U6">
-                                        <rect key="frame" x="0.0" y="140" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="296.33333333333331" width="414" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gn5-DJ-dJd" customClass="MDCTextField">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="30"/>
@@ -139,7 +166,7 @@
                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dkq-cu-UYF">
-                                        <rect key="frame" x="0.0" y="175" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="331.33333333333331" width="414" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sz-hr-dqp" customClass="MDCFlatButton">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="40"/>
@@ -168,6 +195,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="XdC-Am-RWk"/>
                     <connections>
+                        <outlet property="closeContainer" destination="IT5-qr-37e" id="Pyl-QX-7Y2"/>
                         <outlet property="regHeightTF" destination="F9K-yC-yjX" id="baJ-xI-3r9"/>
                         <outlet property="regRepeatPass" destination="PaK-jq-esW" id="M0C-yX-607"/>
                         <outlet property="regWeightTF" destination="gn5-DJ-dJd" id="QJG-jI-5IF"/>
@@ -208,6 +236,7 @@
                         <segue destination="6g9-PI-Ipd" kind="relationship" relationship="viewControllers" id="u6H-g9-KEG"/>
                         <segue destination="LJ0-0B-Yq1" kind="relationship" relationship="viewControllers" id="9f6-wg-yDK"/>
                         <segue destination="tWd-bD-Kz3" kind="relationship" relationship="viewControllers" id="Fyq-IN-XGI"/>
+                        <segue destination="czT-qC-jgC" kind="relationship" relationship="viewControllers" id="BZQ-Ga-D1g"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -243,6 +272,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWt-AQ-2Eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="688" y="128"/>
+        </scene>
+        <!--profile-->
+        <scene sceneID="v0i-na-ERh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profile" id="czT-qC-jgC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Tlj-Tv-65g"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwN-Fz-Hb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="204"/>
         </scene>
     </scenes>
 </document>

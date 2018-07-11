@@ -171,8 +171,12 @@
                     <navigationItem key="navigationItem" title="Exercise" id="DuR-Qm-8de"/>
                     <connections>
                         <outlet property="runningCard" destination="APf-BG-W64" id="K4v-7z-Rkm"/>
+                        <outlet property="runningImgView" destination="3Gj-kX-pSn" id="hms-et-PeN"/>
+                        <outlet property="runningLabel" destination="8WQ-66-qPo" id="rMf-Gr-RML"/>
                         <outlet property="runningStackView" destination="mKB-n1-11h" id="cfH-jW-nhE"/>
                         <outlet property="workoutCard" destination="vkp-0I-eGA" id="Siq-rt-Ryd"/>
+                        <outlet property="workoutImgView" destination="pi1-q3-0mw" id="tjp-9b-q6j"/>
+                        <outlet property="workoutLabel" destination="MZ7-Xj-GcI" id="IcO-58-swP"/>
                         <outlet property="workoutStackView" destination="eRi-H4-bKj" id="lFd-TR-ZrH"/>
                     </connections>
                 </viewController>

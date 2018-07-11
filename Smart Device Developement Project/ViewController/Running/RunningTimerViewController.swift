@@ -99,6 +99,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var callthird : Int = 1
     var callfourth : Int = 1
     var callfifth : Int = 1
+    var latitude : String = ""
+    var longitude : String = ""
 
     @IBOutlet weak var lblspeed: UILabel!
     //timer
@@ -627,6 +629,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         if startlocation == nil{
             startlocation = locations.first
+            longitude = String(startlocation.coordinate.longitude)
+            latitude = String(startlocation.coordinate.latitude)
+            self.weatherService.delegate = self
+            self.weatherService.getWeatherForCity(lat: latitude, lon : longitude)
         }
         else if let location = locations.last{
           

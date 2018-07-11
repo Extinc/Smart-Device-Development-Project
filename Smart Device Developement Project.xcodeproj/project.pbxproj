@@ -470,8 +470,8 @@
 		70D4D7FF20D3A6BA009AC051 /* Running */ = {
 			isa = PBXGroup;
 			children = (
-				513F09D820E2019D009806D8 /* RunningTimerViewController.swift */,
 				513F09D920E2019D009806D8 /* ScheduleViewController.swift */,
+				513F09D820E2019D009806D8 /* RunningTimerViewController.swift */,
 				70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */,
 				70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */,
 				70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */,

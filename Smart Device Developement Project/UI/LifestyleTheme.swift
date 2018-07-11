@@ -26,6 +26,18 @@ class LifestyleTheme: NSObject {
         btn.titleLabel?.textColor = colors.secondaryTextColor
     }
     
+    static func styleBtn2(btn: MDCFlatButton, title: String, pColor: UIColor){
+        let color = Colors()
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: btn)
+        let btncolorScheme = MDCSemanticColorScheme()
+        btncolorScheme.primaryColor = pColor
+        btn.setTitle(title, for: UIControlState())
+        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
+        btn.titleLabel?.textColor = color.secondaryTextColor
+    }
+    
+    
     static func styleCard(card: MDCCard, isInteractable: Bool, cornerRadius: Double?){
         let colorScheme = MDCSemanticColorScheme()
         colorScheme.surfaceColor = .white

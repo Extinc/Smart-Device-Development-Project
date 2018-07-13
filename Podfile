@@ -20,22 +20,24 @@ target 'Smart Device Developement Project' do
   # Material Design pods by google
   pod 'MaterialComponents/AppBar'
   pod 'MaterialComponents/Cards'
+  pod 'MaterialComponents/Cards+ColorThemer'
   pod 'MaterialComponents/Dialogs'
   pod 'MaterialComponents/FlexibleHeader'
   pod 'MaterialComponents/BottomNavigation'
   pod 'MaterialComponents/Slider'
+  pod 'MaterialComponents/Slider+ColorThemer'
   pod 'MaterialComponents/FeatureHighlight'
   pod 'MaterialComponents/Chips'
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Buttons+ButtonThemer'
   pod 'MaterialComponents/Palettes'
   pod 'MaterialComponents/schemes/Color'
   pod 'MaterialComponents/schemes/Typography'
-  pod 'MaterialComponents/Buttons+ButtonThemer'
   pod 'MaterialComponents/TextFields+ColorThemer'
-  pod 'MaterialComponents/Cards+ColorThemer'
+  
   pod 'MaterialComponents/AppBar+ColorThemer’
   pod 'MaterialComponents/Tabs+TypographyThemer’
-  pod 'MaterialComponents/Slider+ColorThemer'
+
   pod 'MaterialComponents/BottomNavigation+ColorThemer'
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
@@ -54,5 +56,8 @@ target 'Smart Device Developement Project' do
 
   #RapidConnect
   pod 'RapidAPISDK', '~> 0.1'
+  
+  # Expandable Table View
+  pod 'ExpyTableView'
   
 end

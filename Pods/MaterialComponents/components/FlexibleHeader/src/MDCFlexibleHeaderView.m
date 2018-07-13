@@ -30,9 +30,8 @@ static const CGFloat kFlexibleHeaderDefaultHeight = 56;
 // The maximum default opacity of the shadow.
 static const float kDefaultVisibleShadowOpacity = 0.4f;
 
-// The threshold in which the _viewsToHideWhenShifted should be fully hidden. 0.5 means the views
-// are completely hidden when the header has shifted half of its content height upwards. This should
-// never be 0.
+// The percentage shifted threshold at which point the _viewsToHideWhenShifted should be fully
+// hidden.
 static const float kContentHidingThreshold = 0.5f;
 
 // This length defines the moment at which the shadow will be fully visible as the header shifts
@@ -192,12 +191,14 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
 @synthesize sharedWithManyScrollViews = _sharedWithManyScrollViews;
 @synthesize visibleShadowOpacity = _visibleShadowOpacity;
 
-#if DEBUG
 - (void)dealloc {
+#if DEBUG
   [_trackingScrollView.panGestureRecognizer removeTarget:self
                                                   action:@selector(fhv_scrollViewDidPan:)];
-}
 #endif
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -353,6 +354,11 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
   self.layer.shadowOffset = CGSizeMake(0, 1);
   self.layer.shadowRadius = 4.f;
   self.layer.shadowOpacity = 0;
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(fhv_updateLayout)
+                                               name:UIAccessibilityVoiceOverStatusChanged
+                                             object:nil];
 }
 
 - (void)setVisibleShadowOpacity:(float)visibleShadowOpacity {
@@ -841,15 +847,6 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
   frameBottomEdge = MAX(0, MIN(kShadowScaleLength, frameBottomEdge));
   CGFloat boundedAccumulator = MIN([self fhv_accumulatorMax], _shiftAccumulator);
 
-  if (_shiftBehavior != MDCFlexibleHeaderShiftBehaviorDisabled) {
-    CGFloat contentHeight = self.computedMinimumHeight - MDCDeviceTopSafeAreaInset();
-    CGFloat hideThreshold = kContentHidingThreshold;
-    CGFloat alpha = MAX(contentHeight - boundedAccumulator / hideThreshold, 0) / contentHeight;
-    for (UIView *view in _viewsToHideWhenShifted) {
-      view.alpha = alpha;
-    }
-  }
-
   CGFloat shadowIntensity;
   if (self.hidesStatusBarWhenCollapsed) {
     // Calculate the desired shadow strength for the offset & accumulator and then take the
@@ -1014,7 +1011,7 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
 
   CGRect bounds = self.bounds;
 
-  if (_canOverExtend) {
+  if (_canOverExtend && !UIAccessibilityIsVoiceOverRunning()) {
     bounds.size.height = MAX(self.computedMinimumHeight, headerHeight);
 
   } else {
@@ -1043,14 +1040,24 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
 // Commit the current shiftOffscreenAccumulator value to the view's position.
 - (void)fhv_commitAccumulatorToFrame {
   CGPoint position = self.center;
+  CGFloat shiftOffset = MIN([self fhv_accumulatorMax], _shiftAccumulator);
   // Offset the frame.
-  position.y = -MIN([self fhv_accumulatorMax], _shiftAccumulator);
+  position.y = -shiftOffset;
   position.y += self.bounds.size.height / 2;
 
   self.center = position;
 
   [self fhv_accumulatorDidChange];
   [self fhv_recalculatePhase];
+
+  CGFloat opacityShiftThreshold = [self fhv_accumulatorMax] * kContentHidingThreshold;
+  // 0% means not shifted at all, 100% means shifted up to our threshold amount.
+  CGFloat percentShiftedAlongThreshold = MIN(1, MAX(0, shiftOffset / opacityShiftThreshold));
+  for (UIView *view in _viewsToHideWhenShifted) {
+    // When not shifted at all, we want to be fully visible. We invert the percentage to get our
+    // desired alpha.
+    view.alpha = 1 - percentShiftedAlongThreshold;
+  }
 
   [_statusBarShifter setOffset:_shiftAccumulator];
 
@@ -1069,10 +1076,27 @@ static NSString *const MDCFlexibleHeaderDelegateKey = @"MDCFlexibleHeaderDelegat
   // header other than as a subview to the scroll view. This is the most common case to which the
   // following logic has been written.
   if (self.superview == self.trackingScrollView) {
-    self.transform = CGAffineTransformMakeTranslation(0, self.trackingScrollView.contentOffset.y);
-
     if (self.superview.subviews.lastObject != self) {
       [self.superview bringSubviewToFront:self];
+    }
+
+    if (UIAccessibilityIsVoiceOverRunning()) {
+      // Clamp the offset to at least -self.maximumHeight. Accessibility may attempt to scroll to
+      // a lesser offset than this to pull the flexible header into the center of the scrollview on
+      // focusing.
+      CGPoint offset = self.trackingScrollView.contentOffset;
+      offset.y = MAX(offset.y, -self.maximumHeight);
+      self.trackingScrollView.contentOffset = offset;
+      // Setting the transform on the same run loop as the accessibility scroll can cause additional
+      // incorrect scrolling as the scrollview attempts to resolve to a position that will place
+      // the header in the center of the scroll. Punting to the next loop prevents this.
+      dispatch_async(dispatch_get_main_queue(), ^{
+        self.transform =
+            CGAffineTransformMakeTranslation(0, self.trackingScrollView.contentOffset.y);
+        [self fhv_updateLayout];
+      });
+    } else {
+      self.transform = CGAffineTransformMakeTranslation(0, self.trackingScrollView.contentOffset.y);
     }
   }
 

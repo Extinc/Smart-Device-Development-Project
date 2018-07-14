@@ -72,6 +72,9 @@
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
+		9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */; };
+		9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */; };
+		9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */; };
 		9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */; };
 		906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 906FA74420B92B9E0061C953 /* GoogleService-Info.plist */; };
 		90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90726C0E20D797B700FCFB28 /* DataManager.swift */; };
@@ -183,6 +186,9 @@
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
+		9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailInfoViewController.swift; sourceTree = "<group>"; };
+		9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExpyTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBtnCustomCell.swift; sourceTree = "<group>"; };
 		9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		906FA74420B92B9E0061C953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90726C0E20D797B700FCFB28 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */,
 				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
 				4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */,
@@ -256,6 +263,7 @@
 				5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */,
 				9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */,
 				90FBA71D20F24F03004DA241 /* WorkoutDetailTableViewController.swift */,
+				9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -405,6 +413,7 @@
 		51AEDE4F20F4970C005B44F0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */,
 				51AEDE5020F49741005B44F0 /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -488,6 +497,7 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */,
 				510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */,
 				90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */,
 				9008D52320D6932F00FEAC9E /* libsqlite3.tbd */,
@@ -820,6 +830,7 @@
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
 				51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */,
+				9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
 				704426DD20F35002009EE823 /* SpeedBarViewController.swift in Sources */,
@@ -839,6 +850,7 @@
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
+				9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */,
 				5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */,

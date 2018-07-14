@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -99,12 +99,10 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtd-fn-C9B" customClass="MDCFlatButton">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="49.5"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <connections>
-                                                                                <segue destination="hjB-qP-A4x" kind="popoverPresentation" identifier="cEmailPwSegue" popoverAnchorView="Wtd-fn-C9B" id="WPU-Wz-EaT">
-                                                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                                                </segue>
+                                                                                <segue destination="hjB-qP-A4x" kind="presentation" id="f1N-6V-jKi"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -179,12 +177,6 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9XD-TJ-Vq5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-4U-6eR" customClass="MDCFlatButton">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                                <state key="normal" title="x"/>
-                                            </button>
-                                        </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zAf-vk-2cF">
                                         <rect key="frame" x="0.0" y="40" width="375" height="627"/>

@@ -209,7 +209,7 @@ PODS:
   - SDWebImage/Core (4.4.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire
   - ExpyTableView
   - Firebase/Auth
   - Firebase/Core
@@ -238,7 +238,7 @@ DEPENDENCIES:
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
   - RapidAPISDK (~> 0.1)
-  - SDWebImage (~> 4.0)
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -281,6 +281,6 @@ SPEC CHECKSUMS:
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: 88fc7f2bf8ed9c199796a2946d2ab66ed46059c5
+PODFILE CHECKSUM: e61ae7e8f622c935f7a544681f91528e9df212ad
 
 COCOAPODS: 1.5.3

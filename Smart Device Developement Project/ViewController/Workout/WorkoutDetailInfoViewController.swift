@@ -20,6 +20,8 @@ class WorkoutDetailInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
         expandableTableView.delegate = self
         expandableTableView.dataSource = self
+        expandableTableView.tableFooterView = UIView(frame: .zero)
+        expandableTableView.expand(0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,7 +54,7 @@ extension WorkoutDetailInfoViewController: ExpyTableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
             //Make your customizations here.
-            cell?.textLabel?.text = "Image"
+            cell?.textLabel?.text = "Muscle Image"
             return cell!
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
@@ -106,20 +108,22 @@ extension WorkoutDetailInfoViewController {
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
                 cell?.textLabel?.text = "Type:"
-                cell?.detailTextLabel?.text = passedExercise.desc
+                cell?.detailTextLabel?.text = ExerciseDataManager.getCategory(catid: passedExercise.category!)
                 return cell!
             case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-                cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T1"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
+                cell?.textLabel?.text = "Equipment:"
+                cell?.detailTextLabel?.text = ExerciseDataManager.getEquipmentById(id: passedExercise.equipment).name!
                 return cell!
             case 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-                cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T2"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
+                cell?.textLabel?.text = "Difficulty:"
+                cell?.detailTextLabel?.text = passedExercise.level!
                 return cell!
                 
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-                cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T1"
+                cell?.textLabel?.text = ""
                 return cell!
             }
         } else if indexPath.section == 2 {
@@ -172,7 +176,7 @@ extension WorkoutDetailInfoViewController: ExpyTableViewDelegate {
         //This is not a bug of ExpyTableView hence, I think, you should solve it with the proper way for your implementation.
         //If you have a generic solution for this, please submit a pull request or open an issue.
         
-        print("DID SELECT row: \(indexPath.row), section: \(indexPath.section)")
+        // print("DID SELECT row: \(indexPath.row), section: \(indexPath.section)")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

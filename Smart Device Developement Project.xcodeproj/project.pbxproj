@@ -63,6 +63,7 @@
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
 		70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */; };
+		9004FB0E20FA296C00380722 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9004FB0D20FA296C00380722 /* SDWebImage.framework */; };
 		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
@@ -83,7 +84,7 @@
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
 		90D6C24A20F9E7A800C32C73 /* WorkoutDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */; };
 		90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */; };
-		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */; };
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
@@ -176,6 +177,9 @@
 		70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnigHistoryViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SJFluidSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9004FB0B20FA259700380722 /* TTSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TTSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9004FB0D20FA296C00380722 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP_Auth.swift; sourceTree = "<group>"; };
 		9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9004FB0E20FA296C00380722 /* SDWebImage.framework in Frameworks */,
 				9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */,
 				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
@@ -496,6 +501,9 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9004FB0D20FA296C00380722 /* SDWebImage.framework */,
+				9004FB0B20FA259700380722 /* TTSegmentedControl.framework */,
+				9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */,
 				9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */,
 				510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */,
 				90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */,
@@ -786,6 +794,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpyTableView/ExpyTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -794,12 +803,14 @@
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TTSegmentedControl/TTSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpyTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -808,6 +819,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

@@ -11,15 +11,15 @@ import MaterialComponents
 import FirebaseAuth
 
 class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
-
-
+    
+    
     var exerciseCat: [ExerciseCategory]?
     var catID : Int = 0
     var exercise: [Exercise]?
     var nameToPass: String?
     var idToPass: Int?
     var a = AuthenticateUser.getUID()
-
+    
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
     @IBOutlet weak var cardView2: MDCCard!
@@ -38,19 +38,19 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         exerciseCat = ExerciseDataManager.loadCategory()
-
+        
     }
     
     func testCardColorThemer() {
-
+        
         let colorScheme = MDCSemanticColorScheme()
         colorScheme.surfaceColor = .white
         cardView1.backgroundColor = .white
         cardView1.setBorderColor(UIColor.blue, for: cardView1.state)
-
+        
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cardView1)
         
     }
@@ -80,7 +80,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         colorScheme.surfaceColor = .white
         cell.card.backgroundColor = .gray
         cell.card.setBorderColor(UIColor.blue, for: cell.card.state)
-
+        
         MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
         return cell
     }
@@ -126,13 +126,13 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

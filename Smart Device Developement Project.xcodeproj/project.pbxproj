@@ -81,6 +81,7 @@
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
+		90D6C24A20F9E7A800C32C73 /* WorkoutDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */; };
 		90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */; };
 		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */; };
@@ -194,6 +195,7 @@
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCustomCell.swift; sourceTree = "<group>"; };
 		90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Workout.storyboard; sourceTree = "<group>"; };
 		90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCustomViewCell.swift; sourceTree = "<group>"; };
@@ -256,8 +258,8 @@
 		5112D5C820EF0C3400212972 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				9001837720FA02AA00DACAB6 /* CustomCell */,
 				9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */,
-				90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */,
 				5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */,
 				9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */,
 				9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */,
@@ -503,6 +505,15 @@
 				BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9001837720FA02AA00DACAB6 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */,
+				90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		9008B30820D3EDF40096D9F2 /* Helpers */ = {
@@ -827,6 +838,7 @@
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
 				51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */,
+				90D6C24A20F9E7A800C32C73 /* WorkoutDetailCustomCell.swift in Sources */,
 				9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 import ExpyTableView
 class WorkoutDetailInfoViewController: UIViewController {
     
+    var passedExercise: Exercise!
+    
     @IBOutlet weak var expandableTableView: ExpyTableView!
     
     override func viewDidLoad() {
@@ -99,26 +101,63 @@ extension WorkoutDetailInfoViewController {
         // then you will not get callback for IndexPath(row: 0, section: indexPath.section) here in cellForRowAtIndexPath
         //But if you define the same cell as -sometimes not expandable- you will get callbacks for not expandable cells here and you must return a cell for IndexPath(row: 0, section: indexPath.section) in here besides in expandingCell. You can return the same cell from expandingCell method and here.
         
-        switch indexPath.row {
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = "T"
-            return cell!
+        if indexPath.section == 1 {
+            switch indexPath.row {
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
+                cell?.textLabel?.text = "Type:"
+                cell?.detailTextLabel?.text = passedExercise.desc
+                return cell!
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+                cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T1"
+                return cell!
+            case 3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+                cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T2"
+                return cell!
+                
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+                cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T1"
+                return cell!
+            }
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DescCell") as! WorkoutDetailCustomCell
+            cell.descLabel.lineBreakMode = .byWordWrapping
+            cell.descLabel.text = formatDesc(description: passedExercise.desc!)
             
-        case 2:
+            return cell
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
             cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T1"
             return cell!
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T2"
-            return cell!
-            
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T"
-            return cell!
         }
+
+    }
+    
+    func formatDesc(description: String)->String{
+        var desc: String!
+        desc = description
+        var newText = description.components(separatedBy: "\n")
+        desc = ""
+        for val in newText {
+            
+            if val.contains(". ") {
+                newText = val.components(separatedBy: ". ")
+                
+                for val1 in newText {
+                    desc.append(" • \(val1) \n\n")
+                }
+                
+            } else if val.contains("Caution") {
+                desc.append("\(val) \n\n")
+            } else {
+                desc.append(" • \(val) \n\n")
+            }
+        }
+        
+        return desc
     }
 }
 
@@ -134,5 +173,9 @@ extension WorkoutDetailInfoViewController: ExpyTableViewDelegate {
         //If you have a generic solution for this, please submit a pull request or open an issue.
         
         print("DID SELECT row: \(indexPath.row), section: \(indexPath.section)")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }

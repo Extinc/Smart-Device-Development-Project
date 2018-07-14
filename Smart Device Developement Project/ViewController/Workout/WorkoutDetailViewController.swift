@@ -110,6 +110,13 @@
             pageControls.scrollViewDidEndScrollingAnimation(scrollView)
         }
         
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "tableViewEmbed" {
+                var viewController = segue.destination as! WorkoutDetailInfoViewController
+                viewController.passedExercise = passedExercise
+            }
+        }
+        
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.

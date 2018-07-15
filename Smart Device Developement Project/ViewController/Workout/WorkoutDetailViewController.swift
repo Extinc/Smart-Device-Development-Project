@@ -54,7 +54,6 @@
             }
             
             pageControls.numberOfPages = passedExercise.imageLink.count
-            
             let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
             pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
         

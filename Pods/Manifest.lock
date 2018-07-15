@@ -34,7 +34,6 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
-  - JBChartView (3.0.13)
   - leveldb-library (1.20)
   - MaterialComponents/AnimationTiming (57.0.0)
   - MaterialComponents/AppBar (57.0.0):
@@ -219,7 +218,6 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
-  - JBChartView
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
   - MaterialComponents/BottomNavigation
@@ -259,7 +257,6 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - JBChartView
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
@@ -281,7 +278,6 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MaterialComponents: 0dfd3bf21642f205ecd59d633a4492e14571e53f
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
@@ -291,6 +287,6 @@ SPEC CHECKSUMS:
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: c637c5f0c12a19c4715f5b2fdec3c194bcfbdac2
+PODFILE CHECKSUM: e705ca93aa97331163a079391d2255ee65da1a8d
 
 COCOAPODS: 1.5.3

@@ -48,7 +48,7 @@ target 'Smart Device Developement Project' do
   
   # Chart
   pod 'Charts'
-  pod 'JBChartView'
+  #pod 'JBChartView'
   
   # Firebase
   pod 'Firebase/Core'

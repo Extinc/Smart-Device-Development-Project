@@ -68,4 +68,5 @@ target 'Smart Device Developement Project' do
   #pod 'TTSegmentedControl'
   #pod 'BetterSegmentedControl', '~> 0.9'
 
+  pod "PageControls"
 end

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FDAABD1E680FC3ABEBF50A66A2868011"
-               BuildableName = "Pods_Smart_Device_Developement_Project.framework"
-               BlueprintName = "Pods-Smart Device Developement Project"
+               BlueprintIdentifier = "97381A438117BA97EB5A505EA91C8C73"
+               BuildableName = "PageControls.framework"
+               BlueprintName = "PageControls"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FDAABD1E680FC3ABEBF50A66A2868011"
-            BuildableName = "Pods_Smart_Device_Developement_Project.framework"
-            BlueprintName = "Pods-Smart Device Developement Project"
+            BlueprintIdentifier = "97381A438117BA97EB5A505EA91C8C73"
+            BuildableName = "PageControls.framework"
+            BlueprintName = "PageControls"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

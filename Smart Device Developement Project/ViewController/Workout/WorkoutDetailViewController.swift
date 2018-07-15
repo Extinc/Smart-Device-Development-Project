@@ -10,7 +10,8 @@
     import MaterialComponents
     import MaterialComponents.MaterialPageControl
     import SDWebImage
-    
+    import PageControls
+    import AVFoundation
     class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
         
         
@@ -20,19 +21,21 @@
         var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         let pageControls = MDCPageControl()
         
-        @IBOutlet weak var stackView: UIStackView!
+        var videoThumbnail: UIImageView!
         @IBOutlet weak var scrollView: UIScrollView!
-        @IBOutlet weak var titleLabel: UILabel!
-        @IBOutlet weak var descLabel: UILabel!
         
         override func viewDidLoad() {
             super.viewDidLoad()
             
             // Do any additional setup after loading the view.
             scrollView.delegate = self
+            let contentSize = CGSize(width: scrollView.bounds.width * CGFloat(passedExercise.imageLink.count+1),
+                                     height: scrollView.bounds.height)
+            scrollView.contentSize = contentSize
             
             prefetchCurrExerciseImage()
             
+
             self.navigationItem.title = passedExercise.name!
             
             
@@ -52,14 +55,15 @@
                 scrollView.addSubview(imageView)
                 //print("Scrollview subcviews ", scrollView.subviews)
             }
-            
-            pageControls.numberOfPages = passedExercise.imageLink.count
-            let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
-            pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
+            //scrollingPageControl.pageCount = passedExercise.imageLink.count
+
+            //pageControls.numberOfPages = passedExercise.imageLink.count
+            //let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
+            //pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
         
-            pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
-            pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
-            stackView.addSubview(pageControls)
+           // pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
+            //pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+            //stackView.addSubview(pageControls)
             
         }
         
@@ -70,16 +74,16 @@
         }
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            pageControls.scrollViewDidScroll(scrollView)
+
         }
         
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            pageControls.scrollViewDidScroll(scrollView)
+            //pageControls.scrollViewDidScroll(scrollView)
             
         }
         
         func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-            pageControls.scrollViewDidEndScrollingAnimation(scrollView)
+            //pageControls.scrollViewDidEndScrollingAnimation(scrollView)
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,5 +121,19 @@
             SDWebImagePrefetcher.shared().prefetchURLs(imageurl, progress: nil, completed: { finishedCount, skippedCount in
                 print("Prefetch complete!")
             })
+        }
+        
+        func getThumbnailImage(forUrl url: URL) -> UIImage? {
+            let asset: AVAsset = AVAsset(url: url)
+            let imageGenerator = AVAssetImageGenerator(asset: asset)
+            
+            do {
+                let thumbnailImage = try imageGenerator.copyCGImage(at: CMTimeMake(1, 60) , actualTime: nil)
+                return UIImage(cgImage: thumbnailImage)
+            } catch let error {
+                print(error)
+            }
+            
+            return nil
         }
     }

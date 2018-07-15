@@ -109,9 +109,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     func setWeather(weather: Weather) {
         print("set Weather")
         print("City \(weather.cityName) temp\(weather.temp) desc: \(weather.description)")
-        
+        var kelvin : Double = Double(weather.temp)
+        var celsius : Double = kelvin - 273.15
+        var stringcelsius = String(celsius)
         DispatchQueue.main.async {
-        self.templbl.text = "\(weather.temp)"
+        self.templbl.text = "\(stringcelsius)" + " Degree"
         self.desclbl.text = weather.description
         }
         
@@ -201,8 +203,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             targetDistance = Double(title)!
             progress = currentschedule.progress!
             let totalTime : String = currentschedule.numberoftimes!
-            lblProgress.text = "\(title)Km Run/Jog"
-            lblNumberofProgress.text = "\(progress) / \(totalTime) Times "
+            lblProgress.text = "\(title) Km Run"
+            lblNumberofProgress.text = "\(progress) / \(totalTime) Completed "
         }
         else{
             lblNumberofProgress.text = "No Schedule Created"
@@ -265,8 +267,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             targetDistance = Double(title)!
             progress = currentschedule.progress!
             let totalTime : String = currentschedule.numberoftimes!
-            lblProgress.text = "\(title)Km Run/Jog"
-            lblNumberofProgress.text = "\(progress) / \(totalTime) Times "
+             lblProgress.text = "\(title) Km Run"
+            lblNumberofProgress.text = "\(progress) / \(totalTime) Completed "
         }
         else{
             lblNumberofProgress.text = "No Schedule Created"

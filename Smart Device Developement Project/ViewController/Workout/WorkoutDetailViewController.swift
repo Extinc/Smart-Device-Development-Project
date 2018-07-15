@@ -21,7 +21,6 @@
         let pageControls = MDCPageControl()
         
         @IBOutlet weak var stackView: UIStackView!
-        @IBOutlet weak var pageControl: MDCPageControl!
         @IBOutlet weak var scrollView: UIScrollView!
         @IBOutlet weak var titleLabel: UILabel!
         @IBOutlet weak var descLabel: UILabel!
@@ -51,19 +50,18 @@
                     })
                 }
                 scrollView.addSubview(imageView)
-                print("Scrollview subcviews ", scrollView.subviews)
+                //print("Scrollview subcviews ", scrollView.subviews)
             }
             
             pageControls.numberOfPages = passedExercise.imageLink.count
             
             let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
             pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
-            
+        
             pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
             pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
             stackView.addSubview(pageControls)
             
-            //scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(passedExercise.imageLink.count)), height: scrollView.frame.size.height)
         }
         
         @objc func didChangePage(sender: MDCPageControl){
@@ -78,9 +76,6 @@
         
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
             pageControls.scrollViewDidScroll(scrollView)
-            
-            //let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-            //pageControl.currentPage = Int(pageNumber)
             
         }
         
@@ -122,5 +117,6 @@
             
             SDWebImagePrefetcher.shared().prefetchURLs(imageurl, progress: nil, completed: { finishedCount, skippedCount in
                 print("Prefetch complete!")
-            })    }
+            })
+        }
     }

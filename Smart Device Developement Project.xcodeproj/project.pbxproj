@@ -180,6 +180,7 @@
 		9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SJFluidSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9004FB0B20FA259700380722 /* TTSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TTSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9004FB0D20FA296C00380722 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9007CAE920FB30F6000521A8 /* CHIPageControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CHIPageControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP_Auth.swift; sourceTree = "<group>"; };
 		9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -501,6 +502,7 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9007CAE920FB30F6000521A8 /* CHIPageControl.framework */,
 				9004FB0D20FA296C00380722 /* SDWebImage.framework */,
 				9004FB0B20FA259700380722 /* TTSegmentedControl.framework */,
 				9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */,

@@ -224,6 +224,15 @@
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i89-CT-1uZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                             </scrollView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFI-zJ-uub" customClass="CHIPageControlPaprika" customModule="CHIPageControl">
+                                                <rect key="frame" x="375" y="0.0" width="0.0" height="211"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="currentPageTintColor">
+                                                        <color key="value" red="0.2613466653729728" green="1" blue="0.26597900150458786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="i89-CT-1uZ" firstAttribute="top" secondItem="WQf-iw-BmQ" secondAttribute="top" id="Gdh-nu-o7h"/>
@@ -260,6 +269,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="pxT-so-n5D"/>
                     <connections>
+                        <outlet property="paprikaPageControl" destination="cFI-zJ-uub" id="V59-zi-ycM"/>
                         <outlet property="scrollView" destination="i89-CT-1uZ" id="rib-c8-fmq"/>
                         <outlet property="stackView" destination="WQf-iw-BmQ" id="ldb-cu-H9W"/>
                     </connections>

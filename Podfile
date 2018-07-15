@@ -67,4 +67,5 @@ target 'Smart Device Developement Project' do
   # Below is for testing first so may remove it.
   #pod 'TTSegmentedControl'
   #pod 'BetterSegmentedControl', '~> 0.9'
+
 end

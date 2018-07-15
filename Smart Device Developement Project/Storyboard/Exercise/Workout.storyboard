@@ -232,14 +232,11 @@
                                             <constraint firstAttribute="trailing" secondItem="i89-CT-1uZ" secondAttribute="trailing" id="vPR-GQ-X3b"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9i-uN-0Sy">
-                                        <rect key="frame" x="0.0" y="211" width="375" height="110"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j7Y-c6-PUQ">
-                                        <rect key="frame" x="0.0" y="321" width="375" height="282"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j7Y-c6-PUQ">
+                                        <rect key="frame" x="0.0" y="211" width="375" height="392"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4UI-c4-UNc">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UI-c4-UNc">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                                                 <connections>
                                                     <segue destination="DgP-ed-YNj" kind="embed" identifier="tableViewEmbed" id="nhJ-Vl-jhm"/>
                                                 </connections>
@@ -417,11 +414,11 @@
             <objects>
                 <viewController id="DgP-ed-YNj" customClass="WorkoutDetailInfoViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c0F-J6-iZV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="htv-Pw-thv" customClass="ExpyTableView" customModule="ExpyTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" textLabel="O2g-O4-0CO" style="IBUITableViewCellStyleDefault" id="lIY-jc-zHE">
@@ -502,6 +499,33 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descLabel" destination="Vze-Wd-Ty3" id="Cqu-bH-2TF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" id="Njn-5J-HjS" customClass="WorkoutDetailImgCustomCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Njn-5J-HjS" id="wwk-CM-fVR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-qX-BDf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7il-e3-DsF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DAV-qX-BDf" firstAttribute="leading" secondItem="wwk-CM-fVR" secondAttribute="leading" id="Cw0-az-gTO"/>
+                                                <constraint firstAttribute="bottom" secondItem="DAV-qX-BDf" secondAttribute="bottom" id="OPR-jF-jZJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="DAV-qX-BDf" secondAttribute="trailing" id="VaW-Vy-8rW"/>
+                                                <constraint firstItem="DAV-qX-BDf" firstAttribute="top" secondItem="wwk-CM-fVR" secondAttribute="top" id="cPO-o7-vEz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="muscleImg" destination="7il-e3-DsF" id="bbA-v1-u1d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

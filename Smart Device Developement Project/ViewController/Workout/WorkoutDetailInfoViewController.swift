@@ -103,7 +103,19 @@ extension WorkoutDetailInfoViewController {
         // then you will not get callback for IndexPath(row: 0, section: indexPath.section) here in cellForRowAtIndexPath
         //But if you define the same cell as -sometimes not expandable- you will get callbacks for not expandable cells here and you must return a cell for IndexPath(row: 0, section: indexPath.section) in here besides in expandingCell. You can return the same cell from expandingCell method and here.
         
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell") as! WorkoutDetailImgCustomCell
+            
+            if let url = URL.init(string: passedExercise.muscleImg!) {
+                cell.muscleImg.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                    if error != nil {
+                        print("Image View Error: \(error.debugDescription)")
+                    }
+                })
+            }
+            
+            return cell
+        } else if indexPath.section == 1 {
             switch indexPath.row {
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")

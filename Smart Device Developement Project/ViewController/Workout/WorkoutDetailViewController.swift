@@ -36,28 +36,6 @@
             
             self.navigationItem.title = passedExercise.name!
             
-            /*
-             descLabel.lineBreakMode = .byWordWrapping
-             descLabel.numberOfLines = 100
-             descLabel.text = passedExercise.desc!
-             newText = passedExercise.desc!.components(separatedBy: "\n")
-             descLabel.text = ""
-             for val in newText {
-             
-             if val.contains(". ") {
-             newText = val.components(separatedBy: ". ")
-             
-             for val1 in newText {
-             descLabel.text?.append(" • \(val1) \n\n")
-             }
-             
-             } else if val.contains("Caution") {
-             descLabel.text?.append("\(val) \n\n")
-             } else {
-             descLabel.text?.append(" • \(val) \n\n")
-             }
-             }
-             */
             
             for count in 0..<passedExercise.imageLink.count {
                 frame.origin.x = scrollView.frame.size.width * CGFloat(count)
@@ -145,5 +123,4 @@
             SDWebImagePrefetcher.shared().prefetchURLs(imageurl, progress: nil, completed: { finishedCount, skippedCount in
                 print("Prefetch complete!")
             })    }
-        
     }

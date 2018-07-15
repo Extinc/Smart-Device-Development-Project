@@ -43,9 +43,12 @@ target 'Smart Device Developement Project' do
   
   pod 'Alamofire'
   
+  # Image download / Prefetch
   pod 'SDWebImage'
   
-  pod 'JBChartView'
+  # Chart
+  pod 'Charts'
+  #pod 'JBChartView'
   
   # Firebase
   pod 'Firebase/Core'
@@ -57,6 +60,9 @@ target 'Smart Device Developement Project' do
   
   # Expandable Table View
   pod 'ExpyTableView'
+
+  # Timer
+  pod 'MZTimerLabel'
 
   # Below is for testing first so may remove it.
   #pod 'TTSegmentedControl'

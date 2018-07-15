@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.7.3)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - ExpyTableView (1.0)
   - Firebase/Auth (5.4.0):
     - Firebase/CoreOnly
@@ -31,7 +34,6 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
-  - JBChartView (3.0.13)
   - leveldb-library (1.20)
   - MaterialComponents/AnimationTiming (57.0.0)
   - MaterialComponents/AppBar (57.0.0):
@@ -198,6 +200,7 @@ PODS:
     - MaterialComponents/private/Math
   - MDFInternationalization (1.0.4)
   - MDFTextAccessibility (1.2.0)
+  - MZTimerLabel (0.5.4)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -210,11 +213,11 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Charts
   - ExpyTableView
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
-  - JBChartView
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
   - MaterialComponents/BottomNavigation
@@ -237,12 +240,14 @@ DEPENDENCIES:
   - "MaterialComponents/Tabs+TypographyThemer"
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
+  - MZTimerLabel
   - RapidAPISDK (~> 0.1)
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Charts
     - ExpyTableView
     - Firebase
     - FirebaseAnalytics
@@ -252,17 +257,18 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - JBChartView
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
+    - MZTimerLabel
     - nanopb
     - RapidAPISDK
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   ExpyTableView: 75fe6494d4613fd3dc4bd965cce6e14cec7e2223
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
@@ -272,15 +278,15 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MaterialComponents: 0dfd3bf21642f205ecd59d633a4492e14571e53f
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+  MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: e61ae7e8f622c935f7a544681f91528e9df212ad
+PODFILE CHECKSUM: ba96ea9e1d51936dca41e6c05f2236540e749464
 
 COCOAPODS: 1.5.3

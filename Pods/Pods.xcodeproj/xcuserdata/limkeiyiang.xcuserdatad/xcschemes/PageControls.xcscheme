@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A4752E1A78EE7604F2EEFBC36866BB3"
-               BuildableName = "JBChartView.framework"
-               BlueprintName = "JBChartView"
+               BlueprintIdentifier = "97381A438117BA97EB5A505EA91C8C73"
+               BuildableName = "PageControls.framework"
+               BlueprintName = "PageControls"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7A4752E1A78EE7604F2EEFBC36866BB3"
-            BuildableName = "JBChartView.framework"
-            BlueprintName = "JBChartView"
+            BlueprintIdentifier = "97381A438117BA97EB5A505EA91C8C73"
+            BuildableName = "PageControls.framework"
+            BlueprintName = "PageControls"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

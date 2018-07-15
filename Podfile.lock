@@ -34,7 +34,6 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
-  - JBChartView (3.0.13)
   - leveldb-library (1.20)
   - MaterialComponents/AnimationTiming (57.0.0)
   - MaterialComponents/AppBar (57.0.0):
@@ -207,6 +206,15 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PageControls (1.0.1):
+    - PageControls/FilledPageControl (= 1.0.1)
+    - PageControls/PillPageControl (= 1.0.1)
+    - PageControls/ScrollingPageControl (= 1.0.1)
+    - PageControls/SnakePageControl (= 1.0.1)
+  - PageControls/FilledPageControl (1.0.1)
+  - PageControls/PillPageControl (1.0.1)
+  - PageControls/ScrollingPageControl (1.0.1)
+  - PageControls/SnakePageControl (1.0.1)
   - RapidAPISDK (0.1)
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
@@ -219,7 +227,6 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
-  - JBChartView
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
   - MaterialComponents/BottomNavigation
@@ -243,6 +250,7 @@ DEPENDENCIES:
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
   - MZTimerLabel
+  - PageControls
   - RapidAPISDK (~> 0.1)
   - SDWebImage
 
@@ -259,13 +267,13 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - JBChartView
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
     - MZTimerLabel
     - nanopb
+    - PageControls
     - RapidAPISDK
     - SDWebImage
 
@@ -281,16 +289,16 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MaterialComponents: 0dfd3bf21642f205ecd59d633a4492e14571e53f
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PageControls: fc2436c93e79419521a6de5d46d84722593e2949
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: 3613729e23de34377783f4294e99cbe39e42ed79
+PODFILE CHECKSUM: 3169cf192367ddb921afdb805c2ba0141cfff3a2
 
 COCOAPODS: 1.5.3

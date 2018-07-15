@@ -10,6 +10,8 @@ import UIKit
 import ExpyTableView
 class WorkoutDetailInfoViewController: UIViewController {
     
+    var passedExercise: Exercise!
+    
     @IBOutlet weak var expandableTableView: ExpyTableView!
     
     override func viewDidLoad() {
@@ -18,6 +20,8 @@ class WorkoutDetailInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
         expandableTableView.delegate = self
         expandableTableView.dataSource = self
+        expandableTableView.tableFooterView = UIView(frame: .zero)
+        expandableTableView.expand(0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +54,7 @@ extension WorkoutDetailInfoViewController: ExpyTableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
             //Make your customizations here.
-            cell?.textLabel?.text = "Image"
+            cell?.textLabel?.text = "Muscle Image"
             return cell!
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell")
@@ -99,26 +103,77 @@ extension WorkoutDetailInfoViewController {
         // then you will not get callback for IndexPath(row: 0, section: indexPath.section) here in cellForRowAtIndexPath
         //But if you define the same cell as -sometimes not expandable- you will get callbacks for not expandable cells here and you must return a cell for IndexPath(row: 0, section: indexPath.section) in here besides in expandingCell. You can return the same cell from expandingCell method and here.
         
-        switch indexPath.row {
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = "T"
-            return cell!
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell") as! WorkoutDetailImgCustomCell
             
-        case 2:
+            if let url = URL.init(string: passedExercise.muscleImg!) {
+                cell.muscleImg.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                    if error != nil {
+                        print("Image View Error: \(error.debugDescription)")
+                    }
+                })
+            }
+            
+            return cell
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
+                cell?.textLabel?.text = "Type:"
+                cell?.detailTextLabel?.text = ExerciseDataManager.getCategory(catid: passedExercise.category!)
+                return cell!
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
+                cell?.textLabel?.text = "Equipment:"
+                cell?.detailTextLabel?.text = ExerciseDataManager.getEquipmentById(id: passedExercise.equipment).name!
+                return cell!
+            case 3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell")
+                cell?.textLabel?.text = "Difficulty:"
+                cell?.detailTextLabel?.text = passedExercise.level!
+                return cell!
+                
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+                cell?.textLabel?.text = ""
+                return cell!
+            }
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DescCell") as! WorkoutDetailCustomCell
+            cell.descLabel.lineBreakMode = .byWordWrapping
+            cell.descLabel.text = formatDesc(description: passedExercise.desc!)
+            
+            return cell
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
             cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T1"
             return cell!
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T2"
-            return cell!
-            
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = "Section: \(indexPath.section) Row: \(indexPath.row) T"
-            return cell!
         }
+
+    }
+    
+    func formatDesc(description: String)->String{
+        var desc: String!
+        desc = description
+        var newText = description.components(separatedBy: "\n")
+        desc = ""
+        for val in newText {
+            
+            if val.contains(". ") {
+                newText = val.components(separatedBy: ". ")
+                
+                for val1 in newText {
+                    desc.append(" • \(val1) \n\n")
+                }
+                
+            } else if val.contains("Caution") {
+                desc.append("\(val) \n\n")
+            } else {
+                desc.append(" • \(val) \n\n")
+            }
+        }
+        
+        return desc
     }
 }
 
@@ -133,6 +188,10 @@ extension WorkoutDetailInfoViewController: ExpyTableViewDelegate {
         //This is not a bug of ExpyTableView hence, I think, you should solve it with the proper way for your implementation.
         //If you have a generic solution for this, please submit a pull request or open an issue.
         
-        print("DID SELECT row: \(indexPath.row), section: \(indexPath.section)")
+        // print("DID SELECT row: \(indexPath.row), section: \(indexPath.section)")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }

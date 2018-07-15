@@ -187,7 +187,11 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Workout" id="8i5-Qp-VXr">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="4d1-uL-KxE" customClass="History"/>
+                        <barButtonItem key="rightBarButtonItem" title="History" id="4d1-uL-KxE">
+                            <connections>
+                                <segue destination="nTg-6y-bfU" kind="presentation" id="zGF-0y-cS6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -234,7 +238,7 @@
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UI-c4-UNc">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                                                 <connections>
-                                                    <segue destination="DgP-ed-YNj" kind="embed" id="nhJ-Vl-jhm"/>
+                                                    <segue destination="DgP-ed-YNj" kind="embed" identifier="tableViewEmbed" id="nhJ-Vl-jhm"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -262,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8u-KL-QCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="388" y="677.81109445277366"/>
+            <point key="canvasLocation" x="1141.5999999999999" y="-80.50974512743629"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bnh-Jd-9J1">
@@ -277,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qld-RW-Ckp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="678"/>
+            <point key="canvasLocation" x="-468" y="669"/>
         </scene>
         <!--Title-->
         <scene sceneID="Nek-2Y-43M">
@@ -291,7 +295,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Lfk-G1-aC3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -301,7 +305,7 @@
                                         </connections>
                                     </searchBar>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-gQ-JyE">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="29"/>
+                                        <rect key="frame" x="0.0" y="82" width="375" height="29"/>
                                         <segments>
                                             <segment title="Beginner"/>
                                             <segment title="Intermediate"/>
@@ -312,7 +316,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-g5-D9i">
-                                        <rect key="frame" x="0.0" y="84" width="375" height="519"/>
+                                        <rect key="frame" x="0.0" y="110" width="375" height="493"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="100" id="6XW-Es-yOC" customClass="WorkoutListCustomCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
@@ -403,7 +407,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="388" y="-81"/>
+            <point key="canvasLocation" x="388" y="-81.409295352323838"/>
         </scene>
         <!--Workout Detail Info View Controller-->
         <scene sceneID="Etk-2l-cG3">
@@ -427,7 +431,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O2g-O4-0CO">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -458,13 +462,71 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="enn-VC-e9R">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="S5w-Aq-AJc">
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5w-Aq-AJc" id="Xh4-mD-DOK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DescCell" id="enn-VC-e9R" customClass="WorkoutDetailCustomCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="enn-VC-e9R" id="Arq-4m-c36">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pfp-we-Tpe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-Wd-Ty3">
+                                                            <rect key="frame" x="20" y="8" width="335" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="8" left="20" bottom="8" right="20"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pfp-we-Tpe" firstAttribute="top" secondItem="Arq-4m-c36" secondAttribute="top" id="IVq-AP-72T"/>
+                                                <constraint firstItem="pfp-we-Tpe" firstAttribute="leading" secondItem="Arq-4m-c36" secondAttribute="leading" id="kKj-yM-8KL"/>
+                                                <constraint firstAttribute="bottom" secondItem="pfp-we-Tpe" secondAttribute="bottom" id="xDa-b9-Lq3"/>
+                                                <constraint firstAttribute="trailing" secondItem="pfp-we-Tpe" secondAttribute="trailing" id="zpr-Ma-zls"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descLabel" destination="Vze-Wd-Ty3" id="Cqu-bH-2TF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" id="Njn-5J-HjS" customClass="WorkoutDetailImgCustomCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Njn-5J-HjS" id="wwk-CM-fVR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-qX-BDf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7il-e3-DsF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DAV-qX-BDf" firstAttribute="leading" secondItem="wwk-CM-fVR" secondAttribute="leading" id="Cw0-az-gTO"/>
+                                                <constraint firstAttribute="bottom" secondItem="DAV-qX-BDf" secondAttribute="bottom" id="OPR-jF-jZJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="DAV-qX-BDf" secondAttribute="trailing" id="VaW-Vy-8rW"/>
+                                                <constraint firstItem="DAV-qX-BDf" firstAttribute="top" secondItem="wwk-CM-fVR" secondAttribute="top" id="cPO-o7-vEz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="muscleImg" destination="7il-e3-DsF" id="bbA-v1-u1d"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -488,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HI-Pa-mmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="1336.7316341829087"/>
+            <point key="canvasLocation" x="1142" y="554"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

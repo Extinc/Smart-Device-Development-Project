@@ -34,19 +34,20 @@ target 'Smart Device Developement Project' do
   pod 'MaterialComponents/schemes/Color'
   pod 'MaterialComponents/schemes/Typography'
   pod 'MaterialComponents/TextFields+ColorThemer'
-  
   pod 'MaterialComponents/AppBar+ColorThemer’
   pod 'MaterialComponents/Tabs+TypographyThemer’
-
   pod 'MaterialComponents/BottomNavigation+ColorThemer'
   pod 'MaterialComponents/TextFields'	
   pod 'MaterialComponents/Tabs'
   pod 'MaterialComponents/PageControl'
   
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire'
   
-  pod 'SDWebImage', '~> 4.0'
+  # Image download / Prefetch
+  pod 'SDWebImage'
   
+  # Chart
+  pod 'Charts'
   pod 'JBChartView'
   
   # Firebase
@@ -59,5 +60,11 @@ target 'Smart Device Developement Project' do
   
   # Expandable Table View
   pod 'ExpyTableView'
-  
+
+  # Timer
+  pod 'MZTimerLabel'
+
+  # Below is for testing first so may remove it.
+  #pod 'TTSegmentedControl'
+  #pod 'BetterSegmentedControl', '~> 0.9'
 end

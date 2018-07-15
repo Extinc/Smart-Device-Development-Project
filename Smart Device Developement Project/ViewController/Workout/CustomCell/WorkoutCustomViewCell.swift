@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
+
 class WorkoutCustomViewCell: UITableViewCell{
     @IBOutlet weak var idLabel: UILabel!
     

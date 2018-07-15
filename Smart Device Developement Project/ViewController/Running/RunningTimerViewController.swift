@@ -55,7 +55,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     @IBOutlet weak var lblZombie: UILabel!
     
    
-   
+    @IBOutlet weak var weatherIcon: UIImageView!
+    
     
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
@@ -115,6 +116,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         DispatchQueue.main.async {
         self.templbl.text = "\(stringcelsius)" + " Degree"
         self.desclbl.text = weather.description
+        self.weatherIcon.image = UIImage(named: weather.icon)
         }
         
     }
@@ -305,11 +307,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             speeddiff = thissessionspeed - Prevspeed
             var stringspeeddiff = String(speeddiff)
             if speeddiff < 0{
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
             }
             else {
-                var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
+                
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
             }
             if(callfirst == 1)
             {
@@ -324,11 +327,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             speeddiff = thissessionspeed - Prevspeed
             var stringspeeddiff = String(speeddiff)
             if speeddiff < 0{
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
             }
             else {
-                var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
+               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
             }
             
             if(callsecond == 1)
@@ -346,11 +349,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             speeddiff = thissessionspeed - Prevspeed
             var stringspeeddiff = String(speeddiff)
             if speeddiff < 0{
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
             }
             else {
-                var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
+               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
             }
             if(callthird == 1)
             {
@@ -366,11 +369,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             speeddiff = thissessionspeed - Prevspeed
             var stringspeeddiff = String(speeddiff)
             if speeddiff < 0{
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
             }
             else {
-                var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
+              DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
             }
             if(callfourth == 1)
             {
@@ -384,11 +387,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             speeddiff = thissessionspeed - Prevspeed
             var stringspeeddiff = String(speeddiff)
             if speeddiff < 0{
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
+                var postive : String = String(speeddiff * -1)
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
             }
             else {
-                var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
+               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
             }
             if(callfifth == 1)
             {
@@ -658,7 +661,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
             var speed = travelledDistance/time
         //Convert time to meter/second
-        self.lblspeed.text = String(format :"%.2f",speed) + " m/s"
+        self.lblspeed.text = String(format :"%.2f",speed)
         
         
         

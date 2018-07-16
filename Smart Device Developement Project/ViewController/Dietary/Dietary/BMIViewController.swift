@@ -21,7 +21,7 @@ class BMIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*NutrInfo().calcBMI(){
+        NutrInfo().calcBMI(){
             bmi in
             if (bmi <= 0 && bmi <= 10.5){
                 self.ServerlyUnderWeight.backgroundColor = UIColor.red
@@ -65,49 +65,6 @@ class BMIViewController: UIViewController {
                 self.SlightlyUnderWeight.backgroundColor = UIColor.red
                 self.ServerlyUnderWeight.backgroundColor = UIColor.red
             }
-        }*/
-        let bmi = 17.0
-        if (bmi >= 0 && bmi <= 10.5){
-            self.ServerlyUnderWeight.backgroundColor = UIColor.red
-        }
-        else if(bmi >= 10.6 && bmi <= 16.5){
-            self.SlightlyUnderWeight.backgroundColor = UIColor.red
-            self.ServerlyUnderWeight.backgroundColor = UIColor.red
-        }
-        else if(bmi >= 16.6 && bmi <= 18.5){
-            self.UnderWeight.backgroundColor = UIColor.orange
-            self.SlightlyUnderWeight.backgroundColor = UIColor.orange
-            self.ServerlyUnderWeight.backgroundColor = UIColor.orange
-        }
-        else if(bmi >= 18.6 && bmi <= 25){
-            self.Normal.backgroundColor = UIColor.green
-            self.UnderWeight.backgroundColor = UIColor.green
-            self.SlightlyUnderWeight.backgroundColor = UIColor.green
-            self.ServerlyUnderWeight.backgroundColor = UIColor.green
-        }
-        else if(bmi >= 26 && bmi <= 29){
-            self.SlightlyOverWeight.backgroundColor = UIColor.orange
-            self.Normal.backgroundColor = UIColor.orange
-            self.UnderWeight.backgroundColor = UIColor.orange
-            self.SlightlyUnderWeight.backgroundColor = UIColor.orange
-            self.ServerlyUnderWeight.backgroundColor = UIColor.orange
-        }
-        else if(bmi >= 30 && bmi <= 40){
-            self.OverWeight.backgroundColor = UIColor.red
-            self.SlightlyOverWeight.backgroundColor = UIColor.red
-            self.Normal.backgroundColor = UIColor.red
-            self.UnderWeight.backgroundColor = UIColor.red
-            self.SlightlyUnderWeight.backgroundColor = UIColor.red
-            self.ServerlyUnderWeight.backgroundColor = UIColor.red
-        }
-        else if(bmi > 41){
-            self.ServerlyOverWeight.backgroundColor = UIColor.red
-            self.OverWeight.backgroundColor = UIColor.red
-            self.SlightlyOverWeight.backgroundColor = UIColor.red
-            self.Normal.backgroundColor = UIColor.red
-            self.UnderWeight.backgroundColor = UIColor.red
-            self.SlightlyUnderWeight.backgroundColor = UIColor.red
-            self.ServerlyUnderWeight.backgroundColor = UIColor.red
         }
     }
 

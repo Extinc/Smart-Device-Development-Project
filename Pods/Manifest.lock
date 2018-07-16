@@ -1,39 +1,42 @@
 PODS:
-  - Alamofire (4.7.2)
-  - Firebase/Auth (5.0.1):
+  - Alamofire (4.7.3)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
+  - ExpyTableView (1.0)
+  - Firebase/Auth (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.0.0)
-  - Firebase/Core (5.0.1):
+    - FirebaseAuth (= 5.0.2)
+  - Firebase/Core (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.0)
-  - Firebase/CoreOnly (5.0.1):
-    - FirebaseCore (= 5.0.1)
-  - Firebase/Database (5.0.1):
+    - FirebaseAnalytics (= 5.0.1)
+  - Firebase/CoreOnly (5.4.0):
+    - FirebaseCore (= 5.0.5)
+  - Firebase/Database (5.4.0):
     - Firebase/CoreOnly
-    - FirebaseDatabase (= 5.0.0)
-  - FirebaseAnalytics (5.0.0):
+    - FirebaseDatabase (= 5.0.2)
+  - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
-  - FirebaseAuth (5.0.0):
+  - FirebaseAuth (5.0.2):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (5.0.1):
+  - FirebaseCore (5.0.5):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseDatabase (5.0.0):
+  - FirebaseDatabase (5.0.2):
     - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (3.0.0):
+  - FirebaseInstanceID (3.1.1):
     - FirebaseCore (~> 5.0)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
-  - JBChartView (3.0.13)
   - leveldb-library (1.20)
-  - MaterialComponents/AnimationTiming (55.0.4)
-  - MaterialComponents/AppBar (55.0.4):
+  - MaterialComponents/AnimationTiming (57.0.0)
+  - MaterialComponents/AppBar (57.0.0):
     - MaterialComponents/FlexibleHeader
     - MaterialComponents/HeaderStackView
     - MaterialComponents/NavigationBar
@@ -44,25 +47,25 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - "MaterialComponents/AppBar+ColorThemer (55.0.4)":
+  - "MaterialComponents/AppBar+ColorThemer (57.0.0)":
     - MaterialComponents/AppBar
     - "MaterialComponents/FlexibleHeader+ColorThemer"
     - "MaterialComponents/NavigationBar+ColorThemer"
     - MaterialComponents/Themes
-  - MaterialComponents/BottomNavigation (55.0.4):
+  - MaterialComponents/BottomNavigation (57.0.0):
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - "MaterialComponents/BottomNavigation+ColorThemer (55.0.4)":
+  - "MaterialComponents/BottomNavigation+ColorThemer (57.0.0)":
     - MaterialComponents/BottomNavigation
     - MaterialComponents/schemes/Color
-  - MaterialComponents/ButtonBar (55.0.4):
+  - MaterialComponents/ButtonBar (57.0.0):
     - MaterialComponents/Buttons
     - MDFInternationalization
-  - MaterialComponents/Buttons (55.0.4):
+  - MaterialComponents/Buttons (57.0.0):
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
     - MaterialComponents/private/Shapes
@@ -71,26 +74,26 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - "MaterialComponents/Buttons+ButtonThemer (55.0.4)":
+  - "MaterialComponents/Buttons+ButtonThemer (57.0.0)":
     - MaterialComponents/Buttons
     - "MaterialComponents/Buttons+ColorThemer"
     - "MaterialComponents/Buttons+TypographyThemer"
-  - "MaterialComponents/Buttons+ColorThemer (55.0.4)":
+  - "MaterialComponents/Buttons+ColorThemer (57.0.0)":
     - MaterialComponents/Buttons
     - MaterialComponents/schemes/Color
-  - "MaterialComponents/Buttons+TypographyThemer (55.0.4)":
+  - "MaterialComponents/Buttons+TypographyThemer (57.0.0)":
     - MaterialComponents/Buttons
     - MaterialComponents/schemes/Typography
-  - MaterialComponents/Cards (55.0.4):
+  - MaterialComponents/Cards (57.0.0):
     - MaterialComponents/Ink
     - MaterialComponents/private/Icons/ic_check_circle
     - MaterialComponents/private/Math
     - MaterialComponents/private/Shapes
     - MaterialComponents/ShadowLayer
-  - "MaterialComponents/Cards+ColorThemer (55.0.4)":
+  - "MaterialComponents/Cards+ColorThemer (57.0.0)":
     - MaterialComponents/Cards
     - MaterialComponents/schemes/Color
-  - MaterialComponents/Chips (55.0.4):
+  - MaterialComponents/Chips (57.0.0):
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
     - MaterialComponents/private/ShapeLibrary
@@ -100,76 +103,76 @@ PODS:
     - MaterialComponents/TextFields
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/Dialogs (55.0.4):
+  - MaterialComponents/Dialogs (57.0.0):
     - MaterialComponents/Buttons
     - MaterialComponents/private/KeyboardWatcher
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/FeatureHighlight (55.0.4):
+  - MaterialComponents/FeatureHighlight (57.0.0):
     - MaterialComponents/private/Math
     - MaterialComponents/Typography
     - MDFTextAccessibility
-  - MaterialComponents/FlexibleHeader (55.0.4):
+  - MaterialComponents/FlexibleHeader (57.0.0):
     - MaterialComponents/private/Application
     - MaterialComponents/private/UIMetrics
     - MDFTextAccessibility
-  - "MaterialComponents/FlexibleHeader+ColorThemer (55.0.4)":
+  - "MaterialComponents/FlexibleHeader+ColorThemer (57.0.0)":
     - MaterialComponents/FlexibleHeader
     - MaterialComponents/schemes/Color
-  - MaterialComponents/HeaderStackView (55.0.4)
-  - MaterialComponents/Ink (55.0.4):
+  - MaterialComponents/HeaderStackView (57.0.0)
+  - MaterialComponents/Ink (57.0.0):
     - MaterialComponents/private/Math
-  - MaterialComponents/NavigationBar (55.0.4):
+  - MaterialComponents/NavigationBar (57.0.0):
     - MaterialComponents/ButtonBar
     - MaterialComponents/private/Math
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - "MaterialComponents/NavigationBar+ColorThemer (55.0.4)":
+  - "MaterialComponents/NavigationBar+ColorThemer (57.0.0)":
     - MaterialComponents/NavigationBar
     - MaterialComponents/schemes/Color
-  - MaterialComponents/PageControl (55.0.4)
-  - MaterialComponents/Palettes (55.0.4)
-  - MaterialComponents/private/Application (55.0.4)
-  - MaterialComponents/private/Icons/Base (55.0.4)
-  - MaterialComponents/private/Icons/ic_arrow_back (55.0.4):
+  - MaterialComponents/PageControl (57.0.0)
+  - MaterialComponents/Palettes (57.0.0)
+  - MaterialComponents/private/Application (57.0.0)
+  - MaterialComponents/private/Icons/Base (57.0.0)
+  - MaterialComponents/private/Icons/ic_arrow_back (57.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/Icons/ic_check_circle (55.0.4):
+  - MaterialComponents/private/Icons/ic_check_circle (57.0.0):
     - MaterialComponents/private/Icons/Base
-  - MaterialComponents/private/KeyboardWatcher (55.0.4):
+  - MaterialComponents/private/KeyboardWatcher (57.0.0):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (55.0.4)
-  - MaterialComponents/private/ShapeLibrary (55.0.4):
+  - MaterialComponents/private/Math (57.0.0)
+  - MaterialComponents/private/ShapeLibrary (57.0.0):
     - MaterialComponents/private/Math
     - MaterialComponents/private/Shapes
-  - MaterialComponents/private/Shapes (55.0.4):
+  - MaterialComponents/private/Shapes (57.0.0):
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - MaterialComponents/private/ThumbTrack (55.0.4):
+  - MaterialComponents/private/ThumbTrack (57.0.0):
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - MaterialComponents/private/UIMetrics (55.0.4):
+  - MaterialComponents/private/UIMetrics (57.0.0):
     - MaterialComponents/private/Application
-  - MaterialComponents/schemes/Color (55.0.4)
-  - MaterialComponents/schemes/Typography (55.0.4)
-  - MaterialComponents/ShadowElevations (55.0.4)
-  - MaterialComponents/ShadowLayer (55.0.4):
+  - MaterialComponents/schemes/Color (57.0.0)
+  - MaterialComponents/schemes/Typography (57.0.0)
+  - MaterialComponents/ShadowElevations (57.0.0)
+  - MaterialComponents/ShadowLayer (57.0.0):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/Slider (55.0.4):
+  - MaterialComponents/Slider (57.0.0):
     - MaterialComponents/Palettes
     - MaterialComponents/private/ThumbTrack
     - MaterialComponents/ShadowElevations
-  - "MaterialComponents/Slider+ColorThemer (55.0.4)":
+  - "MaterialComponents/Slider+ColorThemer (57.0.0)":
     - MaterialComponents/Palettes
     - MaterialComponents/schemes/Color
     - MaterialComponents/Slider
-  - MaterialComponents/Tabs (55.0.4):
+  - MaterialComponents/Tabs (57.0.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
@@ -177,41 +180,53 @@ PODS:
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
     - MDFInternationalization
-  - "MaterialComponents/Tabs+TypographyThemer (55.0.4)":
+  - "MaterialComponents/Tabs+TypographyThemer (57.0.0)":
     - MaterialComponents/schemes/Typography
     - MaterialComponents/Tabs
-  - MaterialComponents/TextFields (55.0.4):
+  - MaterialComponents/TextFields (57.0.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Palettes
     - MaterialComponents/private/Math
     - MaterialComponents/Typography
     - MDFInternationalization
-  - "MaterialComponents/TextFields+ColorThemer (55.0.4)":
+  - "MaterialComponents/TextFields+ColorThemer (57.0.0)":
     - MaterialComponents/TextFields
     - MaterialComponents/Themes
-  - MaterialComponents/Themes (55.0.4):
+  - MaterialComponents/Themes (57.0.0):
     - MaterialComponents/schemes/Color
     - MaterialComponents/schemes/Typography
-  - MaterialComponents/Typography (55.0.4):
+  - MaterialComponents/Typography (57.0.0):
     - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
   - MDFInternationalization (1.0.4)
   - MDFTextAccessibility (1.2.0)
+  - MZTimerLabel (0.5.4)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PageControls (1.0.1):
+    - PageControls/FilledPageControl (= 1.0.1)
+    - PageControls/PillPageControl (= 1.0.1)
+    - PageControls/ScrollingPageControl (= 1.0.1)
+    - PageControls/SnakePageControl (= 1.0.1)
+  - PageControls/FilledPageControl (1.0.1)
+  - PageControls/PillPageControl (1.0.1)
+  - PageControls/ScrollingPageControl (1.0.1)
+  - PageControls/SnakePageControl (1.0.1)
   - RapidAPISDK (0.1)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire
+  - Charts
+  - ExpyTableView
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
-  - JBChartView
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
   - MaterialComponents/BottomNavigation
@@ -234,12 +249,16 @@ DEPENDENCIES:
   - "MaterialComponents/Tabs+TypographyThemer"
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
+  - MZTimerLabel
+  - PageControls
   - RapidAPISDK (~> 0.1)
-  - SDWebImage (~> 4.0)
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Charts
+    - ExpyTableView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -248,34 +267,38 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - JBChartView
     - leveldb-library
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
+    - MZTimerLabel
     - nanopb
+    - PageControls
     - RapidAPISDK
     - SDWebImage
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
-  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
-  FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
-  FirebaseCore: cafc814b2d84fc8733f09e653041cc2165332ad7
-  FirebaseDatabase: 697eb53e5b4fe7cd4fa8756c1f82a9fca011345f
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  ExpyTableView: 75fe6494d4613fd3dc4bd965cce6e14cec7e2223
+  Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
+  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
+  FirebaseAuth: 096e457cdd4274412a66c4a35874787e411f5a03
+  FirebaseCore: 42b3267233bd21a5abd54117ccc38ca3dd0f8e83
+  FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
+  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  MaterialComponents: 059f649876b2e1ed6a623ba689175493422cc7cd
+  MaterialComponents: 0dfd3bf21642f205ecd59d633a4492e14571e53f
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
+  MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PageControls: fc2436c93e79419521a6de5d46d84722593e2949
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: edf38878922545608d8a646632e8c3e2df42bfc2
+PODFILE CHECKSUM: 3169cf192367ddb921afdb805c2ba0141cfff3a2
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

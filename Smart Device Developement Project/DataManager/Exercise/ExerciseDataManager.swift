@@ -265,6 +265,19 @@ class ExerciseDataManager: NSObject{
         return category;
     }
     
+    static func getCategory(catid: Int) -> String{
+        var cat: String!
+        let categoryRows = SQLiteDB.sharedInstance.query(sql:
+            "SELECT catID, catName " +
+            "FROM WorkoutCategory WHERE catID = \(catid)")
+
+        for row in categoryRows
+        {
+            cat = row["catName"] as! String
+        }
+        return cat
+    }
+    
     static func loadExerciseImg() -> [ExerciseImage]
     {
         let categoryRows = SQLiteDB.sharedInstance.query(sql:

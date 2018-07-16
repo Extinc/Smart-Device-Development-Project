@@ -196,6 +196,7 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
     _button.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     _button.accessibilityLabel = [self accessibilityLabelWithTitle:_title];
     _button.accessibilityTraits &= ~UIAccessibilityTraitButton;
+    _button.accessibilityValue = self.accessibilityValue;
     [self addSubview:_button];
   }
 }
@@ -203,17 +204,17 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
 - (void)layoutSubviews {
   [super layoutSubviews];
 
-  CGSize labelSize = [self.title boundingRectWithSize:self.bounds.size
-                                              options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:@{ NSFontAttributeName:self.label.font }
-                                              context:nil].size;
-  self.label.frame = CGRectMake(0, 0, labelSize.width, labelSize.height);
+  [self.label sizeToFit];
+  CGSize labelSize = CGSizeMake(CGRectGetWidth(self.label.bounds),
+                                CGRectGetHeight(self.label.bounds));
+  CGFloat maxWidth = CGRectGetWidth(self.bounds);
+  self.label.frame = CGRectMake(0, 0, MIN(maxWidth, labelSize.width), labelSize.height);
   self.inkView.maxRippleRadius =
       (CGFloat)(MDCHypot(CGRectGetHeight(self.bounds), CGRectGetWidth(self.bounds)) / 2);
   [self centerLayoutAnimated:NO];
 }
 
-- (void)centerLayoutAnimated:(bool)animated {
+- (void)centerLayoutAnimated:(BOOL)animated {
   if (self.titleBelowIcon) {
     CGPoint iconImageViewCenter =
         CGPointMake(CGRectGetMidX(self.bounds), CGRectGetHeight(self.iconImageView.bounds) / 2 +
@@ -315,7 +316,7 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
     self.label.textColor = self.selectedItemTitleColor;
     self.iconImageView.tintColor = self.selectedItemTintColor;
     self.button.accessibilityTraits |= UIAccessibilityTraitSelected;
-
+    self.iconImageView.image = (self.selectedImage) ? self.selectedImage : self.image;
     switch (self.titleVisibility) {
       case MDCBottomNavigationBarTitleVisibilitySelected:
         self.label.hidden = NO;
@@ -331,7 +332,7 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
     self.label.textColor = self.unselectedItemTintColor;
     self.iconImageView.tintColor = self.unselectedItemTintColor;
     self.button.accessibilityTraits &= ~UIAccessibilityTraitSelected;
-
+    self.iconImageView.image = self.image;
     switch (self.titleVisibility) {
       case MDCBottomNavigationBarTitleVisibilitySelected:
         self.label.hidden = YES;
@@ -363,8 +364,8 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
   if (!self.selected) {
     self.iconImageView.tintColor = self.unselectedItemTintColor;
     self.label.textColor = self.unselectedItemTintColor;
-    CGFloat alpha = MDCBottomNavigationItemViewInkOpacity;
-    self.inkView.inkColor = [self.unselectedItemTintColor colorWithAlphaComponent:alpha];
+    self.inkView.inkColor =
+        [self.selectedItemTintColor colorWithAlphaComponent:MDCBottomNavigationItemViewInkOpacity];
   }
 }
 
@@ -386,7 +387,9 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
     badgeValue = nil;
   }
   self.badge.badgeValue = badgeValue;
-  self.button.accessibilityValue = badgeValue;
+  if (self.accessibilityValue == nil || self.accessibilityValue.length == 0) {
+    self.button.accessibilityValue = badgeValue;
+  }
   if (badgeValue == nil || badgeValue.length == 0) {
     self.badge.hidden = YES;
   } else {
@@ -397,6 +400,14 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
 - (void)setImage:(UIImage *)image {
   _image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.iconImageView.image = _image;
+  self.iconImageView.tintColor = (self.selected) ? self.selectedItemTintColor
+      : self.unselectedItemTintColor;
+  [self.iconImageView sizeToFit];
+}
+
+-(void)setSelectedImage:(UIImage *)selectedImage {
+  _selectedImage = [selectedImage imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+  self.iconImageView.image = _selectedImage;
   self.iconImageView.tintColor = self.selectedItemTintColor;
   [self.iconImageView sizeToFit];
 }
@@ -411,6 +422,14 @@ static NSString *const kMDCBottomNavigationItemViewTabString = @"tab";
   _itemTitleFont = itemTitleFont;
   self.label.font = itemTitleFont;
   [self setNeedsLayout];
+}
+
+-(void)setAccessibilityValue:(NSString *)accessibilityValue {
+  self.button.accessibilityValue = accessibilityValue;
+}
+
+- (NSString *)accessibilityValue {
+  return self.button.accessibilityValue;
 }
 
 #pragma mark - Resource bundle

@@ -17,23 +17,20 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var selectPicture: UIButton!
     @IBOutlet weak var takePicture: UIButton!
+    @IBOutlet weak var chooseMeal: UIButton!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // we check if this device has a camera
-        /*
+
         if !(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
-            // If not, we will just hide the takePicture button
-            //
             takePicture.isHidden = true
         }
-        */
+        chooseMeal.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -49,10 +46,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func takePicture(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
-        
-        // Setting this to true allows the user to crop and scale
-        // the image to a square after the photo is taken.
-        //
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.camera
         self.present(picker, animated: true)
@@ -82,12 +75,14 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             DispatchQueue.main.async {
                 if ((topResult.confidence * 100) < 80)
                 {
-                    //self?.test.text = "Invalid Image/Take Again"
-                    self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
-                    //print(self?.test.text as Any)
+                    self?.test.text = "Invalid Image/Take Again"
+                    self?.test.backgroundColor = UIColor.black
+                    print(self?.test.text as Any)
+                    self?.chooseMeal.isHidden = false
+                    
                 }else{
                     self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
-                    //print(self?.test.text as Any)
+                    print(self?.test.text as Any)
                 }
             }
         })

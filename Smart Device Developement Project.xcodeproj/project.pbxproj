@@ -31,13 +31,13 @@
 		5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */; };
 		5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67020AAAA210014E15D /* ExerciseViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
-		51835E5B20F5A84900311D6A /* ProfileBtnCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51835E5A20F5A84900311D6A /* ProfileBtnCustomCell.swift */; };
+		51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1520F60F29000CBFE8 /* SearchViewController.swift */; };
+		51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1720F615CF000CBFE8 /* FoodViewController.swift */; };
 		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		519BF93620EFB27900F87A65 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 519BF93520EFB27900F87A65 /* food.mlmodel */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AEDE5020F49741005B44F0 /* ProfileViewController.swift */; };
-		51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B7BB6120E39ADF002677A2 /* MealInfo.swift */; };
 		51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27C920F475D40054E053 /* AuthenticateUser.swift */; };
 		51ED27CC20F483640054E053 /* WorkoutImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */; };
 		51ED27CF20F4873A0054E053 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51ED27CE20F4873A0054E053 /* Profile.storyboard */; };
@@ -56,13 +56,13 @@
 		69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761820DFCBE900688C7A /* ViewMealViewController.swift */; };
 		69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */; };
 		6EFFCD0FC2AE9D7A0696BD8F /* Pods_Smart_Device_Developement_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353201C0F88E066FB05BEF86 /* Pods_Smart_Device_Developement_ProjectTests.framework */; };
-		704426DD20F35002009EE823 /* SpeedBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704426DC20F35002009EE823 /* SpeedBarViewController.swift */; };
 		7053561220F39A6800D72FF0 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561120F39A6800D72FF0 /* WeatherService.swift */; };
 		7053561420F39FDC00D72FF0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561320F39FDC00D72FF0 /* Weather.swift */; };
 		70A3D92A20EB96DF003392C0 /* ZombieChase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */; };
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
 		70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */; };
+		9004FB0E20FA296C00380722 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9004FB0D20FA296C00380722 /* SDWebImage.framework */; };
 		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
@@ -72,16 +72,20 @@
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
+		9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */; };
+		9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */; };
+		9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */; };
 		9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */; };
 		906FA74520B92B9E0061C953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 906FA74420B92B9E0061C953 /* GoogleService-Info.plist */; };
 		90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90726C0E20D797B700FCFB28 /* DataManager.swift */; };
 		909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED72C20AFD1B30092D385 /* SignUpViewController.swift */; };
 		90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601E920B00EAA002FFF5D /* Colors.swift */; };
 		90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C601EC20B01596002FFF5D /* LoginViewController.swift */; };
+		90D6C24A20F9E7A800C32C73 /* WorkoutDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */; };
 		90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */; };
-		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		90F9C75020FB715100D111DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9C74F20FB715100D111DC /* MediaPlayer.framework */; };
 		90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */; };
-		90FBA71E20F24F03004DA241 /* WorkoutDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA71D20F24F03004DA241 /* WorkoutDetailTableViewController.swift */; };
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
@@ -139,13 +143,13 @@
 		5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthyRestAdvisor.storyboard; sourceTree = "<group>"; };
 		5169C67020AAAA210014E15D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
-		51835E5A20F5A84900311D6A /* ProfileBtnCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBtnCustomCell.swift; sourceTree = "<group>"; };
+		51762D1520F60F29000CBFE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		51762D1720F615CF000CBFE8 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		519BF93520EFB27900F87A65 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51AEDE5020F49741005B44F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		51B7BB6120E39ADF002677A2 /* MealInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInfo.swift; sourceTree = "<group>"; };
 		51ED27C920F475D40054E053 /* AuthenticateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUser.swift; sourceTree = "<group>"; };
 		51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImageDataManager.swift; sourceTree = "<group>"; };
 		51ED27CE20F4873A0054E053 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -164,7 +168,6 @@
 		69E22A2120F0E4F40054D552 /* RecommendMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMeal.swift; sourceTree = "<group>"; };
 		69F9761820DFCBE900688C7A /* ViewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
 		69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypesViewController.swift; sourceTree = "<group>"; };
-		704426DC20F35002009EE823 /* SpeedBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedBarViewController.swift; sourceTree = "<group>"; };
 		7053561120F39A6800D72FF0 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		7053561320F39FDC00D72FF0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieChase.mp3; sourceTree = "<group>"; };
@@ -173,6 +176,11 @@
 		70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnigHistoryViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SJFluidSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9004FB0B20FA259700380722 /* TTSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TTSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9004FB0D20FA296C00380722 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9007CAE920FB30F6000521A8 /* CHIPageControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CHIPageControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9007CAEB20FB3883000521A8 /* PageControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PageControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP_Auth.swift; sourceTree = "<group>"; };
 		9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -183,16 +191,20 @@
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
+		9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailInfoViewController.swift; sourceTree = "<group>"; };
+		9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExpyTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBtnCustomCell.swift; sourceTree = "<group>"; };
 		9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		906FA74420B92B9E0061C953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90726C0E20D797B700FCFB28 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		909ED72C20AFD1B30092D385 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		90C601E920B00EAA002FFF5D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		90C601EC20B01596002FFF5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailCustomCell.swift; sourceTree = "<group>"; };
 		90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Workout.storyboard; sourceTree = "<group>"; };
 		90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F9C74F20FB715100D111DC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCustomViewCell.swift; sourceTree = "<group>"; };
-		90FBA71D20F24F03004DA241 /* WorkoutDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailTableViewController.swift; sourceTree = "<group>"; };
 		A17DA4018283E26F6203D928 /* Pods-Smart Device Developement Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project.release.xcconfig"; sourceTree = "<group>"; };
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +222,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F9C75020FB715100D111DC /* MediaPlayer.framework in Frameworks */,
+				9004FB0E20FA296C00380722 /* SDWebImage.framework in Frameworks */,
+				9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */,
 				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
 				4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */,
@@ -251,11 +266,11 @@
 		5112D5C820EF0C3400212972 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				9001837720FA02AA00DACAB6 /* CustomCell */,
 				9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */,
-				90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */,
 				5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */,
 				9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */,
-				90FBA71D20F24F03004DA241 /* WorkoutDetailTableViewController.swift */,
+				9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -323,6 +338,7 @@
 		5169C65520AAA49C0014E15D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				90F9C75120FB8A5100D111DC /* Workout */,
 				51ED27CD20F487270054E053 /* Profile */,
 				9054824F20CF699400BDF5D7 /* Running */,
 				5169C66320AAA72A0014E15D /* HRA */,
@@ -345,7 +361,6 @@
 		5169C65D20AAA6710014E15D /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
-				90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */,
 				5169C65F20AAA68F0014E15D /* Exercise.storyboard */,
 			);
 			path = Exercise;
@@ -405,8 +420,8 @@
 		51AEDE4F20F4970C005B44F0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */,
 				51AEDE5020F49741005B44F0 /* ProfileViewController.swift */,
-				51835E5A20F5A84900311D6A /* ProfileBtnCustomCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -426,7 +441,6 @@
 				69BE096B20DB6E980008BF25 /* MealPlan.swift */,
 				692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */,
 				69BE096D20DB6EED0008BF25 /* DietaryPlanDataManager.swift */,
-				51B7BB6120E39ADF002677A2 /* MealInfo.swift */,
 				F12F23EB20EDEEB900836A83 /* foodData.swift */,
 				69D026DA20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift */,
 				69E22A2120F0E4F40054D552 /* RecommendMeal.swift */,
@@ -458,6 +472,8 @@
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
 				51FC308E20E62A5900A5E685 /* SummaryViewController.swift */,
 				F192FE7420F2162B005C76E8 /* BMIViewController.swift */,
+				51762D1520F60F29000CBFE8 /* SearchViewController.swift */,
+				51762D1720F615CF000CBFE8 /* FoodViewController.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -473,12 +489,11 @@
 		70D4D7FF20D3A6BA009AC051 /* Running */ = {
 			isa = PBXGroup;
 			children = (
-				513F09D920E2019D009806D8 /* ScheduleViewController.swift */,
 				513F09D820E2019D009806D8 /* RunningTimerViewController.swift */,
+				513F09D920E2019D009806D8 /* ScheduleViewController.swift */,
 				70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */,
 				70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */,
 				70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */,
-				704426DC20F35002009EE823 /* SpeedBarViewController.swift */,
 				7053561120F39A6800D72FF0 /* WeatherService.swift */,
 				7053561320F39FDC00D72FF0 /* Weather.swift */,
 			);
@@ -488,6 +503,13 @@
 		8F1373C9382ED93377F91585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90F9C74F20FB715100D111DC /* MediaPlayer.framework */,
+				9007CAEB20FB3883000521A8 /* PageControls.framework */,
+				9007CAE920FB30F6000521A8 /* CHIPageControl.framework */,
+				9004FB0D20FA296C00380722 /* SDWebImage.framework */,
+				9004FB0B20FA259700380722 /* TTSegmentedControl.framework */,
+				9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */,
+				9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */,
 				510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */,
 				90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */,
 				9008D52320D6932F00FEAC9E /* libsqlite3.tbd */,
@@ -496,6 +518,15 @@
 				BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9001837720FA02AA00DACAB6 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */,
+				90D6C24920F9E7A800C32C73 /* WorkoutDetailCustomCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		9008B30820D3EDF40096D9F2 /* Helpers */ = {
@@ -535,6 +566,14 @@
 				5154F67F20B78838000C9E29 /* LifestyleTheme.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		90F9C75120FB8A5100D111DC /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				90F1EE5D20E8E0F6004353F7 /* Workout.storyboard */,
+			);
+			path = Workout;
 			sourceTree = "<group>";
 		};
 		90F9C7D820D39F39005BA228 /* DataManager */ = {
@@ -768,12 +807,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/ExpyTableView/ExpyTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/PageControls/PageControls.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -781,12 +823,15 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpyTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZTimerLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -817,9 +862,11 @@
 				70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,
 				900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */,
+				51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */,
+				90D6C24A20F9E7A800C32C73 /* WorkoutDetailCustomCell.swift in Sources */,
+				9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
-				704426DD20F35002009EE823 /* SpeedBarViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				519BF93620EFB27900F87A65 /* food.mlmodel in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
@@ -832,24 +879,23 @@
 				70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */,
-				51835E5B20F5A84900311D6A /* ProfileBtnCustomCell.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
+				9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */,
 				5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */,
 				7053561220F39A6800D72FF0 /* WeatherService.swift in Sources */,
 				909ED72D20AFD1B30092D385 /* SignUpViewController.swift in Sources */,
 				51FC308D20E6247400A5E685 /* CameraViewController.swift in Sources */,
-				90FBA71E20F24F03004DA241 /* WorkoutDetailTableViewController.swift in Sources */,
 				69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */,
 				69E22A2220F0E4F40054D552 /* RecommendMeal.swift in Sources */,
 				51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */,
 				F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */,
 				69BE096E20DB6EEE0008BF25 /* DietaryPlanDataManager.swift in Sources */,
-				51B7BB6220E39ADF002677A2 /* MealInfo.swift in Sources */,
+				51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */,
 				90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
 				5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */,

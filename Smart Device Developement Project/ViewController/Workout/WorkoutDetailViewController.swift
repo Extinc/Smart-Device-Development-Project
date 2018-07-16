@@ -10,7 +10,6 @@
     import MaterialComponents
     import MaterialComponents.MaterialPageControl
     import SDWebImage
-    import PageControls
     import AVFoundation
     import AVKit
     
@@ -31,7 +30,7 @@
         @IBAction func videGuidePlay(_ sender: Any) {
             if let path = URL(string: passedExercise.videoLink!)
             {
-                let video = AVPlayer(url: path)
+                let video = AVPlayer(url: path		)
                 let videoPlayer = AVPlayerViewController()
                 videoPlayer.player = video
                 

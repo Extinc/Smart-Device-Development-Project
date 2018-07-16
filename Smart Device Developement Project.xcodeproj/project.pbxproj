@@ -62,7 +62,6 @@
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
 		70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */; };
-		9004FB0E20FA296C00380722 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9004FB0D20FA296C00380722 /* SDWebImage.framework */; };
 		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
@@ -223,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				90F9C75020FB715100D111DC /* MediaPlayer.framework in Frameworks */,
-				9004FB0E20FA296C00380722 /* SDWebImage.framework in Frameworks */,
 				9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */,
 				90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */,
 				9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */,
@@ -807,7 +805,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpyTableView/ExpyTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -815,7 +812,6 @@
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/PageControls/PageControls.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -823,7 +819,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpyTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -831,7 +826,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZTimerLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageControls.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",

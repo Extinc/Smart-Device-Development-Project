@@ -47,7 +47,7 @@ target 'Smart Device Developement Project' do
   pod 'SDWebImage'
   
   # Chart
-  pod 'Charts'
+  #pod 'Charts'
   #pod 'JBChartView'
   
   # Firebase
@@ -67,6 +67,4 @@ target 'Smart Device Developement Project' do
   # Below is for testing first so may remove it.
   #pod 'TTSegmentedControl'
   #pod 'BetterSegmentedControl', '~> 0.9'
-
-  pod "PageControls"
 end

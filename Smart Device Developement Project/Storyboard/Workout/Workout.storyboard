@@ -233,11 +233,22 @@
                                             <constraint firstItem="i89-CT-1uZ" firstAttribute="leading" secondItem="Htf-tK-zMi" secondAttribute="leading" id="Tnz-TR-ZE9"/>
                                         </constraints>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-FW-5Im">
+                                        <rect key="frame" x="0.0" y="211" width="375" height="60.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHw-up-p6u">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j7Y-c6-PUQ">
-                                        <rect key="frame" x="0.0" y="211" width="375" height="392"/>
+                                        <rect key="frame" x="0.0" y="271.5" width="375" height="331.5"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UI-c4-UNc">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="331.5"/>
                                                 <connections>
                                                     <segue destination="DgP-ed-YNj" kind="embed" identifier="tableViewEmbed" id="nhJ-Vl-jhm"/>
                                                 </connections>
@@ -247,6 +258,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Htf-tK-zMi" firstAttribute="height" secondItem="G4P-5j-Qvs" secondAttribute="height" multiplier="0.35" id="Dlb-KX-wk8"/>
+                                    <constraint firstItem="fBI-FW-5Im" firstAttribute="height" secondItem="G4P-5j-Qvs" secondAttribute="height" multiplier="0.1" id="XCd-Oo-l0J"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -259,9 +271,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cJU-ji-2tf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="pxT-so-n5D"/>
+                    <navigationItem key="navigationItem" title="Title" id="pxT-so-n5D">
+                        <barButtonItem key="rightBarButtonItem" title="Video Guide" id="sEu-tU-qCX">
+                            <connections>
+                                <action selector="videGuidePlay:" destination="APs-6Y-H9q" id="KDC-F6-xLP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="i89-CT-1uZ" id="rib-c8-fmq"/>
+                        <outlet property="titleLabel" destination="CHw-up-p6u" id="scE-8Q-NEz"/>
+                        <outlet property="videoGuidePlayBtn" destination="sEu-tU-qCX" id="tKL-B7-mee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8u-KL-QCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,7 +296,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJ2-GY-zXk" customClass="LineChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJ2-GY-zXk">
                                 <rect key="frame" x="0.0" y="20" width="375" height="368"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,7 +322,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Lfk-G1-aC3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -312,7 +332,7 @@
                                         </connections>
                                     </searchBar>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-gQ-JyE">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="55"/>
+                                        <rect key="frame" x="0.0" y="82" width="375" height="29"/>
                                         <segments>
                                             <segment title="Beginner"/>
                                             <segment title="Intermediate"/>
@@ -421,11 +441,11 @@
             <objects>
                 <viewController id="DgP-ed-YNj" customClass="WorkoutDetailInfoViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c0F-J6-iZV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="331.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="htv-Pw-thv" customClass="ExpyTableView" customModule="ExpyTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="331.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" textLabel="O2g-O4-0CO" style="IBUITableViewCellStyleDefault" id="lIY-jc-zHE">

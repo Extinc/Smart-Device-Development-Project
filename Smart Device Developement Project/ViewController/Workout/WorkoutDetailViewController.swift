@@ -10,8 +10,9 @@
     import MaterialComponents
     import MaterialComponents.MaterialPageControl
     import SDWebImage
-    import PageControls
     import AVFoundation
+    import AVKit
+    
     class WorkoutDetailViewController: UIViewController, UIScrollViewDelegate{
         
         
@@ -22,7 +23,23 @@
         let pageControls = MDCPageControl()
         
         var videoThumbnail: UIImageView!
+        @IBOutlet weak var videoGuidePlayBtn: UIBarButtonItem!
         @IBOutlet weak var scrollView: UIScrollView!
+        @IBOutlet weak var titleLabel: UILabel!
+        
+        @IBAction func videGuidePlay(_ sender: Any) {
+            if let path = URL(string: passedExercise.videoLink!)
+            {
+                let video = AVPlayer(url: path		)
+                let videoPlayer = AVPlayerViewController()
+                videoPlayer.player = video
+                
+                present(videoPlayer, animated: true, completion:
+                    {
+                        video.play()
+                })
+            }
+        }
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -36,35 +53,10 @@
             prefetchCurrExerciseImage()
             
 
-            self.navigationItem.title = passedExercise.name!
+            self.navigationItem.title = ""
+            titleLabel.text = passedExercise.name!
             
-            
-            for count in 0..<passedExercise.imageLink.count {
-                frame.origin.x = scrollView.frame.size.width * CGFloat(count)
-                frame.size = scrollView.frame.size
-                var imageView = UIImageView()
-                imageView.frame = frame
-                imageView.contentMode = .scaleAspectFit
-                if let url = URL.init(string: passedExercise.imageLink[count]) {
-                    imageView.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
-                        if error != nil {
-                            print("Image View Error: \(error.debugDescription)")
-                        }
-                    })
-                }
-                scrollView.addSubview(imageView)
-                //print("Scrollview subcviews ", scrollView.subviews)
-            }
-            //scrollingPageControl.pageCount = passedExercise.imageLink.count
-
-            //pageControls.numberOfPages = passedExercise.imageLink.count
-            //let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
-            //pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
-        
-           // pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
-            //pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
-            //stackView.addSubview(pageControls)
-            
+            addImagetoPaging()
         }
         
         @objc func didChangePage(sender: MDCPageControl){
@@ -135,5 +127,33 @@
             }
             
             return nil
+        }
+        
+        func addImagetoPaging(){
+            for count in 0..<passedExercise.imageLink.count {
+                frame.origin.x = scrollView.frame.size.width * CGFloat(count)
+                frame.size = scrollView.frame.size
+                var imageView = UIImageView()
+                imageView.frame = frame
+                imageView.contentMode = .scaleAspectFit
+                if let url = URL.init(string: passedExercise.imageLink[count]) {
+                    imageView.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                        if error != nil {
+                            print("Image View Error: \(error.debugDescription)")
+                        }
+                    })
+                }
+                scrollView.addSubview(imageView)
+                //print("Scrollview subcviews ", scrollView.subviews)
+            }
+            //scrollingPageControl.pageCount = passedExercise.imageLink.count
+            
+            //pageControls.numberOfPages = passedExercise.imageLink.count
+            //let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
+            //pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
+            
+            // pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
+            //pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+            //stackView.addSubview(pageControls)
         }
     }

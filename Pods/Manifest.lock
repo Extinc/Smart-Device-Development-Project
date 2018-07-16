@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (4.7.3)
-  - Charts (3.1.1):
-    - Charts/Core (= 3.1.1)
-  - Charts/Core (3.1.1)
   - ExpyTableView (1.0)
   - Firebase/Auth (5.4.0):
     - Firebase/CoreOnly
@@ -206,15 +203,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PageControls (1.0.1):
-    - PageControls/FilledPageControl (= 1.0.1)
-    - PageControls/PillPageControl (= 1.0.1)
-    - PageControls/ScrollingPageControl (= 1.0.1)
-    - PageControls/SnakePageControl (= 1.0.1)
-  - PageControls/FilledPageControl (1.0.1)
-  - PageControls/PillPageControl (1.0.1)
-  - PageControls/ScrollingPageControl (1.0.1)
-  - PageControls/SnakePageControl (1.0.1)
   - RapidAPISDK (0.1)
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
@@ -222,7 +210,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Charts
   - ExpyTableView
   - Firebase/Auth
   - Firebase/Core
@@ -250,14 +237,12 @@ DEPENDENCIES:
   - MaterialComponents/TextFields
   - "MaterialComponents/TextFields+ColorThemer"
   - MZTimerLabel
-  - PageControls
   - RapidAPISDK (~> 0.1)
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - Charts
     - ExpyTableView
     - Firebase
     - FirebaseAnalytics
@@ -273,13 +258,11 @@ SPEC REPOS:
     - MDFTextAccessibility
     - MZTimerLabel
     - nanopb
-    - PageControls
     - RapidAPISDK
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   ExpyTableView: 75fe6494d4613fd3dc4bd965cce6e14cec7e2223
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
@@ -295,10 +278,9 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PageControls: fc2436c93e79419521a6de5d46d84722593e2949
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: 3169cf192367ddb921afdb805c2ba0141cfff3a2
+PODFILE CHECKSUM: 4a95768d4e2103059f2101921ef5078f68203357
 
 COCOAPODS: 1.5.3

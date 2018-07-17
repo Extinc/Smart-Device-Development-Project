@@ -47,7 +47,7 @@ target 'Smart Device Developement Project' do
   pod 'SDWebImage'
   
   # Chart
-  #pod 'Charts'
+  pod 'Charts'
   #pod 'JBChartView'
   
   # Firebase

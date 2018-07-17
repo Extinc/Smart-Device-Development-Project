@@ -10,6 +10,8 @@
 		242FA2352DD166E86D42D4CF /* Pods_Smart_Device_Developement_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */; };
 		4B9642A2DCFDA97CC70FE469 /* Pods_Smart_Device_Developement_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */; };
 		5112D5CA20EF0DD100212972 /* WorkoutOfCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */; };
+		5116A7CE20FDB3B5006C2EA3 /* HawkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116A7CD20FDB3B5006C2EA3 /* HawkerViewController.swift */; };
+		5116A7D020FDC551006C2EA3 /* HawkerCentres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */; };
 		5137755720E210C900DC20FA /* ExerciseCreateDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */; };
 		5137755920E222AF00DC20FA /* FoodScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755820E222AF00DC20FA /* FoodScanner.storyboard */; };
 		5137755B20E2256400DC20FA /* DietaryPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5137755A20E2256400DC20FA /* DietaryPlan.storyboard */; };
@@ -116,6 +118,8 @@
 		4409878569FD3028865B23C7 /* Pods-Smart Device Developement ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		510E2C4620EB51CD00E0E767 /* RapidAPISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RapidAPISDK.framework; path = Pods/RapidAPISDK.framework; sourceTree = "<group>"; };
 		5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOfCatViewController.swift; sourceTree = "<group>"; };
+		5116A7CD20FDB3B5006C2EA3 /* HawkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkerViewController.swift; sourceTree = "<group>"; };
+		5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkerCentres.swift; sourceTree = "<group>"; };
 		5137755620E210C900DC20FA /* ExerciseCreateDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCreateDataManager.swift; sourceTree = "<group>"; };
 		5137755820E222AF00DC20FA /* FoodScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FoodScanner.storyboard; sourceTree = "<group>"; };
 		5137755A20E2256400DC20FA /* DietaryPlan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DietaryPlan.storyboard; sourceTree = "<group>"; };
@@ -446,6 +450,7 @@
 				69D026DA20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift */,
 				69E22A2120F0E4F40054D552 /* RecommendMeal.swift */,
 				F192FE7620F25801005C76E8 /* NutrInfo.swift */,
+				5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */,
 				692E472E20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift */,
 				693F6ACA20F25C7600F3FA95 /* ChangeMealViewController.swift */,
+				5116A7CD20FDB3B5006C2EA3 /* HawkerViewController.swift */,
 			);
 			path = DietaryPlan;
 			sourceTree = "<group>";
@@ -866,6 +872,7 @@
 				9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
+				5116A7CE20FDB3B5006C2EA3 /* HawkerViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				519BF93620EFB27900F87A65 /* food.mlmodel in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
@@ -882,6 +889,7 @@
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
+				5116A7D020FDC551006C2EA3 /* HawkerCentres.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,

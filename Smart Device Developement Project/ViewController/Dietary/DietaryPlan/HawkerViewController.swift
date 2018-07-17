@@ -1,17 +1,22 @@
 //
-//  ChangeMealViewController.swift
+//  HawkerViewController.swift
 //  Smart Device Developement Project
 //
-//  Created by Guan Wei on 8/7/18.
+//  Created by ITP312 on 17/7/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
 
 import UIKit
+import MapKit
 
-class ChangeMealViewController: UIViewController/*, UITableViewDataSource*/ {
+class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var doneButton: UIButton!
+    @IBOutlet var hawkerSegment: UISegmentedControl!
+    @IBOutlet weak var hawkerMapView: MKMapView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import AVFoundation
+import CoreData
 
 
 class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate, WeatherServiceDelegate{
@@ -54,10 +55,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var lblZombie: UILabel!
     
-   
     @IBOutlet weak var weatherIcon: UIImageView!
     
-    
+    var run : Run!
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
@@ -152,6 +152,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
         }
  */
+      
        
         do{
         audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
@@ -537,8 +538,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if(timer!.isValid == true)
         {
             btnStart.isHidden = true
-            lblProgress.isHidden = true
-            lblNumberofProgress.isHidden = true
             buttonPause.isHidden = false
         }
         
@@ -749,8 +748,24 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             var thistotalspeed = Session(sessionid: RunningDataManager.selectlastSessionTableId(),totalspeed : (travelledDistance/time))
             RunningDataManager.UpdateTotalSpeed(session: thistotalspeed)
             
+            var RunLongitude : [String] = []
+            var RunLatitude : [String] = []
+           
             
-            updateMapRegion(rangeSpan: 200)
+            for location in mylocations{
+                
+                RunLongitude.append(String(location.coordinate.longitude))
+                RunLatitude.append(String(location.coordinate.latitude))
+                
+            }
+            
+                var thiscurrentsessionlongitude = convertArrayToString(RunLongitude)
+                var thiscurrentsessionlatitude = convertArrayToString(RunLatitude)
+            
+            var thisrunninglocation = Session(longitude: thiscurrentsessionlongitude, latitude: thiscurrentsessionlatitude,RunningDataManager.selectlastSessionTableId())
+            
+            RunningDataManager.UpdateLocation(session: thisrunninglocation)
+            
             
             audioPlayer.stop()
             timer!.invalidate()
@@ -759,6 +774,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
         
         }
+    func convertArrayToString(_ arr:[String]) -> String{
+       
+        let stringRepresentation =  arr.joined(separator:  ",")
+        
+        return stringRepresentation
+    }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
     

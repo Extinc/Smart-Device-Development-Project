@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 
+class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
 
-class HistorySessionViewController: UIViewController {
-
-  
+    @IBOutlet weak var historyMap: MKMapView!
+    
     @IBOutlet weak var btnAverageSpeed: UIButton!
     
     
@@ -36,6 +37,14 @@ class HistorySessionViewController: UIViewController {
         
         var selectedID : Int = Int(currentid)!
         var selectedSession = RunningDataManager.loadSessionByID(selectedID)
+        var selectSessionMap = RunningDataManager.loadSessionlocationByID(selectedID)
+        let longitude = selectSessionMap.rangeoflongitude?.components(separatedBy: ",")
+        let latitude = selectSessionMap.rangeoflatitude?.components(separatedBy: ",")
+        
+        for i in 0 ..< longitude!.count
+            {
+                let coordinate:CLLocation = CLLocation(latitude: Double(latitude![i])!, longitude: Double(longitude![i])!)
+        }
         lblTotalTime.text = selectedSession.totaltime
         lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
         lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)

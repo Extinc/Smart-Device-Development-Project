@@ -31,6 +31,7 @@
 		5169C66520AAA7580014E15D /* HealthyRestAdvisor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */; };
 		5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67020AAAA210014E15D /* ExerciseViewController.swift */; };
 		5169C67520AAAA390014E15D /* HRAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169C67420AAAA390014E15D /* HRAViewController.swift */; };
+		516C779620FDB1C10042F8CE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516C779420FDB1C10042F8CE /* Model.xcdatamodeld */; };
 		51762D1620F60F29000CBFE8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1520F60F29000CBFE8 /* SearchViewController.swift */; };
 		51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1720F615CF000CBFE8 /* FoodViewController.swift */; };
 		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
@@ -143,6 +144,7 @@
 		5169C66420AAA7580014E15D /* HealthyRestAdvisor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HealthyRestAdvisor.storyboard; sourceTree = "<group>"; };
 		5169C67020AAAA210014E15D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		5169C67420AAAA390014E15D /* HRAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRAViewController.swift; sourceTree = "<group>"; };
+		516C779520FDB1C10042F8CE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		51762D1520F60F29000CBFE8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		51762D1720F615CF000CBFE8 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				906FA74420B92B9E0061C953 /* GoogleService-Info.plist */,
 				5169C63220AAA4460014E15D /* Info.plist */,
 				9030ED8120C0305600D28D92 /* acc.rtf */,
+				516C779420FDB1C10042F8CE /* Model.xcdatamodeld */,
 			);
 			path = "Smart Device Developement Project";
 			sourceTree = "<group>";
@@ -906,6 +909,7 @@
 				F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				516C779620FDB1C10042F8CE /* Model.xcdatamodeld in Sources */,
 				F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */,
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */,
@@ -1221,6 +1225,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		516C779420FDB1C10042F8CE /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				516C779520FDB1C10042F8CE /* Model.xcdatamodel */,
+			);
+			currentVersion = 516C779520FDB1C10042F8CE /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5169C61920AAA4460014E15D /* Project object */;
 }

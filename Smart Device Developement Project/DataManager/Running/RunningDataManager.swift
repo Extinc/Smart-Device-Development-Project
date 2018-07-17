@@ -50,6 +50,8 @@ class RunningDataManager: NSObject {
             "lap3distance TEXT DEFAULT '0'," +
             "lap4distance TEXT DEFAULT '0'," +
             "lap5distance TEXT DEFAULT '0'," +
+            "Runlogitude TEXT DEFAULT '0'," +
+            "Runlatitude TEXT DEFAULT '0'," +
             "totalcaloriesburnt DOUBLE DEFAULT '0'," +
             "sessionComplete INTEGER default 0," +
             "scheduleID INTEGER, " +
@@ -88,7 +90,6 @@ class RunningDataManager: NSObject {
         }
         return exist
     }
-    
     static func forfeitSchedule(_ user:String) -> Bool{
         SQLiteDB.sharedInstance.query(sql: "Update trainingschedule SET forfeit = 1 where complete = 0 AND forfeit = 0")
         return true
@@ -128,6 +129,19 @@ class RunningDataManager: NSObject {
         
         return selectedinfo
     
+    }
+    static func loadSessionlocationByID(_ sessionID:Int) -> Session{
+        let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select Runlogitude,Runlatitude from Session where sessionID = \(sessionID)")
+        
+        var selectedinfo = Session(longitude : "" , latitude : "")
+        
+        for row in selectSessionInfo
+        {
+            selectedinfo = Session(longitude: row["logitude"] as! String, latitude:row["latitude"] as! String)
+        }
+        
+        return selectedinfo
+        
     }
     
     static func loadallsession() -> [Session]{
@@ -259,6 +273,11 @@ class RunningDataManager: NSObject {
     {
 
         SQLiteDB.sharedInstance.execute(sql: "Update Session SET totalspeed = ? Where sessionID = ? ", parameters: [session.totalspeed,session.sessionID])
+    }
+    static func UpdateLocation(session: Session)
+    {
+        
+        SQLiteDB.sharedInstance.execute(sql: "Update Session SET Runlogitude = ? , Runlatitude = ? Where sessionID = ? ", parameters: [session.rangeoflongitude,session.rangeoflatitude,session.sessionID])
     }
     
     

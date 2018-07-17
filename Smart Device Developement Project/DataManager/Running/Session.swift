@@ -46,6 +46,8 @@ class Session: NSObject {
     var AllDistance: [Double]?
     var allTotalTime : [String]?
     var expanded: Bool!
+    var rangeoflongitude: String?
+    var rangeoflatitude: String?
     
     init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double,_ month: String)
     {
@@ -168,4 +170,16 @@ class Session: NSObject {
         self.totaltime = totaltime
         self.totalspeed = TotalSpeed
 }
+    init(longitude rangeoflongitude:String,latitude rangeoflatitude:String,_ sessionID:Int)
+    {
+        self.rangeoflongitude = rangeoflongitude
+        self.rangeoflatitude = rangeoflatitude
+        self.sessionID = sessionID
+    }
+    init(longitude rangeoflongitude:String,latitude rangeoflatitude:String)
+    {
+        self.rangeoflongitude = rangeoflongitude
+        self.rangeoflatitude = rangeoflatitude
+     
+    }
 }

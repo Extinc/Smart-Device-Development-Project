@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -216,13 +216,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G4P-5j-Qvs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="0.0" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Htf-tK-zMi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="211"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i89-CT-1uZ">
-                                                <rect key="frame" x="0.0" y="8" width="375" height="203"/>
+                                                <rect key="frame" x="0.0" y="8" width="0.0" height="203"/>
                                             </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,10 +234,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pks-fb-111">
-                                        <rect key="frame" x="0.0" y="211" width="375" height="42.5"/>
+                                        <rect key="frame" x="0.0" y="211" width="0.0" height="42.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgH-Hw-PjT">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="42.5"/>
                                                 <state key="normal" title="Start"/>
                                                 <connections>
                                                     <segue destination="Zqu-1v-sFl" kind="show" id="LkB-To-CHb"/>
@@ -246,10 +246,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBI-FW-5Im">
-                                        <rect key="frame" x="0.0" y="253.5" width="375" height="42"/>
+                                        <rect key="frame" x="0.0" y="253.5" width="0.0" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHw-up-p6u">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -257,10 +257,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j7Y-c6-PUQ">
-                                        <rect key="frame" x="0.0" y="295.5" width="375" height="307.5"/>
+                                        <rect key="frame" x="0.0" y="295.5" width="0.0" height="307.5"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UI-c4-UNc">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="307.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="307.5"/>
                                                 <connections>
                                                     <segue destination="DgP-ed-YNj" kind="embed" identifier="tableViewEmbed" id="nhJ-Vl-jhm"/>
                                                 </connections>
@@ -301,16 +301,24 @@
             </objects>
             <point key="canvasLocation" x="1141.5999999999999" y="-80.50974512743629"/>
         </scene>
-        <!--View Controller-->
+        <!--Workout Start View Controller-->
         <scene sceneID="ooO-qZ-gR2">
             <objects>
-                <viewController id="Zqu-1v-sFl" sceneMemberID="viewController">
+                <viewController id="Zqu-1v-sFl" customClass="WorkoutStartViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eEr-5S-4wB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mb7-rf-ZbV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-Zy-bqx" customClass="MZTimerLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -322,6 +330,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FEh-y2-vXj"/>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="5ag-Zy-bqx" id="9G2-IS-ud9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn2-CZ-3Nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,7 +372,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Lfk-G1-aC3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -371,7 +382,7 @@
                                         </connections>
                                     </searchBar>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-gQ-JyE">
-                                        <rect key="frame" x="0.0" y="82" width="375" height="29"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="55"/>
                                         <segments>
                                             <segment title="Beginner"/>
                                             <segment title="Intermediate"/>
@@ -480,15 +491,15 @@
             <objects>
                 <viewController id="DgP-ed-YNj" customClass="WorkoutDetailInfoViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c0F-J6-iZV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="307.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="307.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="htv-Pw-thv" customClass="ExpyTableView" customModule="ExpyTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="307.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="307.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" textLabel="O2g-O4-0CO" style="IBUITableViewCellStyleDefault" id="lIY-jc-zHE">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lIY-jc-zHE" id="e0K-Eo-BQF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -505,7 +516,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" textLabel="qOD-gy-Lkf" detailTextLabel="ODg-yO-Xxw" style="IBUITableViewCellStyleValue2" id="A35-A2-LEA">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A35-A2-LEA" id="GsH-mW-0Jo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -529,7 +540,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="S5w-Aq-AJc">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="116" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S5w-Aq-AJc" id="Xh4-mD-DOK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -537,7 +548,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DescCell" id="enn-VC-e9R" customClass="WorkoutDetailCustomCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="160" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="enn-VC-e9R" id="Arq-4m-c36">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -568,7 +579,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" id="Njn-5J-HjS" customClass="WorkoutDetailImgCustomCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="204" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Njn-5J-HjS" id="wwk-CM-fVR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

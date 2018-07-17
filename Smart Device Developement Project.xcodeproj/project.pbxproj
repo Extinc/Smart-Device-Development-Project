@@ -35,6 +35,7 @@
 		51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51762D1720F615CF000CBFE8 /* FoodViewController.swift */; };
 		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
+		5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */; };
 		519BF93620EFB27900F87A65 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 519BF93520EFB27900F87A65 /* food.mlmodel */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AEDE5020F49741005B44F0 /* ProfileViewController.swift */; };
@@ -146,6 +147,8 @@
 		51762D1720F615CF000CBFE8 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStartViewController.swift; sourceTree = "<group>"; };
+		5192A4DD20FD8E2500C64F9C /* Smart Device Developement Project-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Smart Device Developement Project-Bridging-Header.h"; path = "/Users/itp312/Documents/GitHub/Smart-Device-Development-Project/Smart Device Developement Project/Helpers/Smart Device Developement Project-Bridging-Header.h"; sourceTree = "<absolute>"; };
 		519BF93520EFB27900F87A65 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51AEDE5020F49741005B44F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +188,6 @@
 		9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		9008D52120D6927F00FEAC9E /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
 		9008D52320D6932F00FEAC9E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		9008D53320D6941B00FEAC9E /* Smart Device Developement Project-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Smart Device Developement Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */,
 				9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */,
 				9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */,
+				5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -530,11 +533,11 @@
 		9008B30820D3EDF40096D9F2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5192A4DD20FD8E2500C64F9C /* Smart Device Developement Project-Bridging-Header.h */,
 				F1A1B6D020EB60190026A962 /* HTTP.swift */,
 				9008D52120D6927F00FEAC9E /* SQLiteDB.swift */,
 				9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */,
 				9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */,
-				9008D53320D6941B00FEAC9E /* Smart Device Developement Project-Bridging-Header.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */,
 				51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */,
 				51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */,
+				5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */,
 				70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692E472F20E0C3FE009519C4 /* PlanOptionsTableViewCell.swift in Sources */,

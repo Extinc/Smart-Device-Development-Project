@@ -343,6 +343,22 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-RG-IS5">
                                 <rect key="frame" x="0.0" y="563" width="414" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-GV-WwK">
+                                        <rect key="frame" x="16" y="16" width="390" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYN-2f-Nfb">
+                                        <rect key="frame" x="16" y="45" width="390" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -359,8 +375,10 @@
                         <viewLayoutGuide key="safeArea" id="opu-57-wVJ"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="PYN-2f-Nfb" id="c6f-uv-X33"/>
                         <outlet property="hawkerMapView" destination="6oY-fz-0jM" id="b4X-hk-vZz"/>
                         <outlet property="hawkerSegment" destination="1sL-Yd-tEs" id="TIq-Aw-hn7"/>
+                        <outlet property="nameLabel" destination="Iki-GV-WwK" id="v96-Zg-RRR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ig-ll-sA1" userLabel="First Responder" sceneMemberID="firstResponder"/>

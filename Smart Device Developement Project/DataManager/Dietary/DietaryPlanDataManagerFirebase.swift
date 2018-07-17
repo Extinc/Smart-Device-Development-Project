@@ -311,6 +311,31 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     //MARK: - Hawker Centres
+    
+    //Load Meal "table"
+    static func loadHawkerCentres(onComplete: @escaping ([HawkerCentres]) -> Void){
+        //Create empty list
+        var hawkerCentreList : [HawkerCentres] = []
+        let ref = FirebaseDatabase.Database.database().reference().child("HawkerCentres/")
+        // Load full list of movies and execute "with" closure once, when download is complete
+        ref.observeSingleEvent(of: .value, with:{(snapshot) in
+            for record in snapshot.children {
+                let r = record as! DataSnapshot
+                let id = Int(r.key)!
+                let name = r.childSnapshot(forPath: "name").value as! String
+                let address = r.childSnapshot(forPath: "address").value as! String
+                let longitude = Float(r.childSnapshot(forPath: "latitude").value as! String)!
+                let latitude = Float(r.childSnapshot(forPath: "longitude").value as! String)!
+                hawkerCentreList.append(HawkerCentres(id, name, latitude, longitude, address))
+               
+            }
+            onComplete(hawkerCentreList)
+        })
+        
+        
+    }
+    
+    
     static func createHawkerData() {
         let ref1 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(1)/")
         ref1.setValue([
@@ -321,6 +346,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             ]
         )
     }
+    
+    
     
     
 }

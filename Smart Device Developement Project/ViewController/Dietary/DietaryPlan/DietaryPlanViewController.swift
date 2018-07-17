@@ -48,32 +48,14 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         selectedDate = dateTextField.text!
         
         DietaryPlanDataManagerFirebase.createMealData()
+        self.username = AuthenticateUser.getUID()
         
         //Firebase load meals and plans
         DispatchQueue.main.async {
             self.loadMeals()
             self.loadLastPlanID()
-            self.username = AuthenticateUser.getUID()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
-            //self.loadPlanMeals(date: self.selectedDate, username: self.username)
             self.loadCalories()
-        }
-        
-        if(self.planCount < 1) {
-            
-            /*for i in 0...1 {
-             for j in 0...self.mealplan.count {
-             if (self.mealplan[j].isDiary == "No") {
-             self.mealPlans[0].append(self.mealplan[j])
-             
-             }
-             else {
-             self.mealPlans[1].append(self.mealplan[j])
-             
-             }
-             }
-             }*/
-            //self.tableView.reloadData()
         }
         
         //Load meal plans
@@ -107,21 +89,17 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         //Check if there is a plan in selected date
         if(DietaryPlanDataManager.countPreferences(userName: username) >= 1 ) {
             let days = preferences[0].duration!
-            
-            
         }
-       
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
-            generatePlanButton.isEnabled = true
-            loadMealsButton.isEnabled = false
+            generatePlanButton.isHidden = false
+            loadMealsButton.isHidden = true
         }
         else{
-            generatePlanButton.isEnabled = false
-            loadMealsButton.isEnabled = true
+            generatePlanButton.isHidden = true
+            loadMealsButton.isHidden = false
         }
     }
     override func didReceiveMemoryWarning() {

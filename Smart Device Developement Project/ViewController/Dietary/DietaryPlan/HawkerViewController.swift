@@ -13,6 +13,8 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 
     @IBOutlet var hawkerSegment: UISegmentedControl!
     @IBOutlet weak var hawkerMapView: MKMapView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     
     override func viewDidLoad() {

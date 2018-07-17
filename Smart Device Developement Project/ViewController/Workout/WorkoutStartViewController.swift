@@ -13,11 +13,17 @@ class WorkoutStartViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: MZTimerLabel!
     
+    var passedExercise: Exercise!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.'
-        //timerLabel.start()
+        timerLabel.delegate = self
+        timerLabel.timerType = MZTimerLabelTypeTimer
+        timerLabel.timeFormat = "mm:ss"
+        timerLabel.setCountDownTime(TimeInterval(60))
+        timerLabel.resetTimerAfterFinish = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,4 +42,13 @@ class WorkoutStartViewController: UIViewController {
     }
     */
 
+}
+
+extension WorkoutStartViewController: MZTimerLabelDelegate {
+    func timerLabel(_ timerLabels: MZTimerLabel!, countingTo time: TimeInterval, timertype timerType: MZTimerLabelType) {
+        if timerLabels.isEqual(timerLabel) && time < 10 {
+            self.timerLabel.timeLabel.textColor = UIColor.red
+        }
+    }
+    
 }

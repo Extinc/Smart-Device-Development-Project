@@ -17,7 +17,7 @@ class WorkoutStartViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.'
-        timerLabel.start()
+        //timerLabel.start()
     }
 
     override func didReceiveMemoryWarning() {

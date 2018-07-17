@@ -312,13 +312,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mb7-rf-ZbV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ag-Zy-bqx" customClass="MZTimerLabel">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rq5-yz-tUG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbG-xP-BGu">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                            </scrollView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4te-3T-uPP">
+                                        <rect key="frame" x="0.0" y="241" width="375" height="362"/>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Rq5-yz-tUG" firstAttribute="height" secondItem="mb7-rf-ZbV" secondAttribute="height" multiplier="0.4" id="33H-GX-5Tl"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,9 +338,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FEh-y2-vXj"/>
                     </view>
-                    <connections>
-                        <outlet property="timerLabel" destination="5ag-Zy-bqx" id="9G2-IS-ud9"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Yrq-n9-Y9B">
+                        <barButtonItem key="rightBarButtonItem" title="Video Guide" id="Onc-yV-0Uk"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn2-CZ-3Nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

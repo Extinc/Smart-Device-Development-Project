@@ -167,6 +167,7 @@ extension WorkoutDetailInfoViewController {
                 }
                 
             } else if val.contains("Caution") {
+                print("Containst caution: \(val)")
                 desc.append("\(val) \n\n")
             } else {
                 desc.append(" • \(val) \n\n")

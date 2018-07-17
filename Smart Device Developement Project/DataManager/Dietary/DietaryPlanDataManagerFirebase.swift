@@ -273,6 +273,20 @@ class DietaryPlanDataManagerFirebase: NSObject {
         }
     }
     
+    static func updatePlan(mealPlan: MealPlan) {
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(mealPlan.planID!)/")
+        ref.setValue([
+            "username" : mealPlan.username,
+            "date" : mealPlan.date,
+            "mealID" : mealPlan.mealID,
+            "mealName" : mealPlan.mealName,
+            "mealImage" : mealPlan.mealImage,
+            "calories" : mealPlan.calories,
+            "isDiary" : mealPlan.isDiary,
+            "recipeImage" : mealPlan.recipeImage
+            ])
+    }
+    
     static func create1Plan() {
         
             let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(1)/")

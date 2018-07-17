@@ -18,6 +18,11 @@ class MealPlanTableViewCell: UITableViewCell {
     @IBOutlet weak var mimage: UIImageView!
     @IBOutlet weak var mname: UILabel!
     
+    @IBOutlet var rMealImage: UIImageView!
+    @IBOutlet var rMealName: UILabel!
+    @IBOutlet var rMealCalories: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

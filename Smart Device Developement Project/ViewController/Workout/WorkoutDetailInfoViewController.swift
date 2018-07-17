@@ -29,6 +29,13 @@ class WorkoutDetailInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "startExercise"  {
+            var viewController = segue.destination as! WorkoutStartViewController
+            viewController.passedExercise = passedExercise
+        }
+    }
+    
     
     /*
      // MARK: - Navigation

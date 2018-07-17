@@ -41,6 +41,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.username = AuthenticateUser.getUID()
+        
         picker1.delegate = self
         picker3.delegate = self
         picker4.delegate = self

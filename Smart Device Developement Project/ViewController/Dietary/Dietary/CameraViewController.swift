@@ -82,7 +82,10 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                     
                 }else{
                     self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
+                    self?.test.backgroundColor = UIColor.black
                     print(self?.test.text as Any)
+                    
+                    
                 }
             }
         })

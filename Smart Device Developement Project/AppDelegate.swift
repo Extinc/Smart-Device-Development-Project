@@ -19,8 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        UINavigationBar.appearance().backgroundColor = MDCPalette.indigo.tint800
+        UINavigationBar.appearance().barTintColor = MDCPalette.indigo.tint800
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().isTranslucent = false	
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
         return true
     }
 
@@ -46,6 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-
 }
 

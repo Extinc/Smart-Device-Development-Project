@@ -79,6 +79,8 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
  
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+        selectedid  =  (runningsections[tableview.indexPathForSelectedRow!.section].AllSessionID![tableview.indexPathForSelectedRow!.row])
         var nextcontroller = segue.destination as! HistorySessionViewController
         nextcontroller.currentid = String(selectedid)
     }

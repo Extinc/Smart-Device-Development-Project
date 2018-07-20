@@ -137,8 +137,10 @@ class RunningDataManager: NSObject {
         
         for row in selectSessionInfo
         {
-            selectedinfo = Session(longitude: row["logitude"] as! String, latitude:row["latitude"] as! String)
+            selectedinfo = Session(longitude: row["Runlogitude"] as! String, latitude:row["Runlatitude"] as! String)
         }
+        
+        print("range of longitude\(selectedinfo.rangeoflongitude) range of latitude\(selectedinfo.rangeoflatitude)")
         
         return selectedinfo
         

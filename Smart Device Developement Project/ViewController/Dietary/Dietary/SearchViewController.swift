@@ -62,12 +62,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let popup = UIStoryboard(name: "FoodScanner", bundle: nil).instantiateViewController(withIdentifier: "popupMeal") as! FoodViewController
-        //popup.
-        self.addChildViewController(popup)
+        popup.img = UIImage(named: mealList[indexPath.row].mealImage!)
+        popup.cal = mealList[indexPath.row].calories
+        /*self.addChildViewController(popup)
         popup.view.frame = self.view.frame
         self.view.addSubview(popup.view)
-        popup.didMove(toParentViewController: self)
+        popup.didMove(toParentViewController: self)*/
         //self.present(popup, animated: true, completion: nil)
+        popup.modalPresentationStyle = .overCurrentContext
+        self.present(popup, animated: true, completion: nil)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

@@ -11,10 +11,14 @@ import UIKit
 class FoodViewController: UIViewController {
 
     var img: UIImage?
+    var cal: Float?
+    
+    @IBOutlet weak var mealImg: UIImageView!
+    @IBOutlet weak var calories: UILabel!
     
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        
+        self.view.isOpaque = false
         self.showAnimate()
         
         // Do any additional setup after loading the view.
@@ -26,9 +30,7 @@ class FoodViewController: UIViewController {
     }
     
     @IBAction func closePopUp(_ sender: AnyObject) {
-        self.removeAnimate()
-        self.view.removeFromSuperview()
-        //self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func showAnimate()
@@ -39,6 +41,9 @@ class FoodViewController: UIViewController {
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });
+        
+        self.mealImg.image = img
+        self.calories.text = String(describing: cal!) + " Kcal"
     }
     
     func removeAnimate()

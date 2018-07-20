@@ -26,7 +26,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var datePicker: UIDatePicker?
     
     
-    var dataPlan = ["Vegan", "Gluten Free", "Muscle Builder", "Keto", "Dash"]
+    var dataPlan = ["Vegan", "Gluten Free", "Keto", "Dash"]
     var dataGoals = ["Gain Weight", "Lose Weight", "Maintain Weight"]
     var dataDuration = ["1 Week", "2 Weeks", "1 Month", "3 Months", "6 Months"]
     var dataMealsPD = ["1", "2", "3", "4", "5", "6"]
@@ -196,19 +196,19 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let duration = durationTextField.text
             var days: String = "0"
             if(duration == "1 Week") {
-                days = "7 Days"
+                days = "7"
             }
             else if(duration == "2 Weeks"){
-                days = "14 Days"
+                days = "14"
             }
             else if(duration == "1 Month"){
-                days = "30 Days"
+                days = "30"
             }
             else if(duration == "3 Months"){
-                days = "90 Days"
+                days = "90"
             }
             else if(duration == "6 Months"){
-                days = "180 Days"
+                days = "180"
             }
             
             let dietplan = planTextField.text

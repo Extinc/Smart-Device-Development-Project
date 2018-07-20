@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false	
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
-            statusBar.backgroundColor = UIColor.clear
+            statusBar.backgroundColor = barBGColor
             
         }
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent

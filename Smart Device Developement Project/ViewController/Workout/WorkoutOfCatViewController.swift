@@ -9,7 +9,7 @@
     import UIKit
     import SDWebImage
     
-    class WorkoutOfCatViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    class WorkoutOfCatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         var passedId: Int?
         var passedName: String?
@@ -74,26 +74,7 @@
             }
         }
         
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            searchActive = true;
-        }
-        
-        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-            searchActive = false;
-        }
-        
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            searchActive = false;
-        }
-        
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            searchActive = false;
-        }
-        
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            self.tableView.reloadData()
-        }
-        
+
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
@@ -164,6 +145,29 @@
             SDWebImagePrefetcher.shared().prefetchURLs(self.imageUrls, progress: nil, completed: { finishedCount, skippedCount in
                 print("Prefetch complete!")
             })
+        }
+        
+    }
+    
+    extension WorkoutOfCatViewController: UISearchBarDelegate {
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchActive = true;
+        }
+        
+        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            searchActive = false;
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = false;
+        }
+        
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = false;
+        }
+        
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            self.tableView.reloadData()
         }
         
     }

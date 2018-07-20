@@ -19,11 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        UINavigationBar.appearance().barTintColor = MDCPalette.indigo.tint800
+        let barBGColor =  Colors.PrimaryColor()
+        
+        UINavigationBar.appearance().barTintColor = barBGColor
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().isTranslucent = false	
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        
+        if let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as? UIView {
+            statusBar.backgroundColor = UIColor.clear
+            
+        }
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         return true

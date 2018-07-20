@@ -18,7 +18,6 @@ target 'Smart Device Developement Project' do
   end
 
   # Material Design pods by google
-  pod 'MaterialComponents/NavigationBar'
   pod 'MaterialComponents/AppBar'
   pod 'MaterialComponents/Cards'
   pod 'MaterialComponents/Cards+ColorThemer'

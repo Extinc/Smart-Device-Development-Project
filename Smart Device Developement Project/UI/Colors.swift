@@ -17,4 +17,44 @@ class Colors: NSObject {
     let secondaryLightColor = UIColor(red: 0.56, green: 0.60, blue: 0.95, alpha: 1.0);
     let secondaryDarkColor = UIColor(red: 0.15, green: 0.25, blue: 0.56, alpha: 1.0);
     let secondaryTextColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.0);
+    
+    static func PrimaryColor()->UIColor{
+        let color = Colors()
+        return color.primaryColor
+    }
+    
+    static func PrimaryLightColor()->UIColor{
+        let color = Colors()
+        return color.primaryLightColor
+    }
+    
+    static func PrimaryDarkColor()->UIColor{
+        let color = Colors()
+        return color.primaryDarkColor
+    }
+    
+    static func PrimaryTextColor()->UIColor{
+        let color = Colors()
+        return color.primaryTextColor
+    }
+    
+    static func SecondaryColor()->UIColor{
+        let color = Colors()
+        return color.secondaryColor
+    }
+    
+    static func SecondaryLightColor()->UIColor{
+        let color = Colors()
+        return color.secondaryLightColor
+    }
+    
+    static func SecondaryDarkColor()->UIColor{
+        let color = Colors()
+        return color.secondaryDarkColor
+    }
+    
+    static func SecondaryTextColor()->UIColor{
+        let color = Colors()
+        return color.secondaryTextColor
+    }
 }

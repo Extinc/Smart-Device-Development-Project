@@ -61,6 +61,7 @@ class LoginViewController: UIViewController {
                     if DataManager.checkUserExist(params: [userID!, email!]) == false {
                         print(DataManager.checkUserExist(params: [userID!, email!]))
                         DataManager.insertUserInfo(uid: userID!, email: email!)
+                        
                     }
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -81,6 +82,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
@@ -135,5 +137,9 @@ class LoginViewController: UIViewController {
         loginPwdController.placeholderText = "Password"
         loginPwd.isSecureTextEntry = true
         allTextFieldControllers.append(loginPwdController)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 }

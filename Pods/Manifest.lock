@@ -230,7 +230,6 @@ DEPENDENCIES:
   - MaterialComponents/Dialogs
   - MaterialComponents/FeatureHighlight
   - MaterialComponents/FlexibleHeader
-  - MaterialComponents/NavigationBar
   - MaterialComponents/PageControl
   - MaterialComponents/Palettes
   - MaterialComponents/schemes/Color
@@ -288,6 +287,6 @@ SPEC CHECKSUMS:
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
 
-PODFILE CHECKSUM: 5edbfadbccab968df0ef10a550c3a86f3c718ee0
+PODFILE CHECKSUM: ba96ea9e1d51936dca41e6c05f2236540e749464
 
 COCOAPODS: 1.5.3

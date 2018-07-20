@@ -35,7 +35,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         }
         return uid
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -134,5 +134,4 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
      // Pass the selected object to the new view controller.
      }
      */
-    
 }

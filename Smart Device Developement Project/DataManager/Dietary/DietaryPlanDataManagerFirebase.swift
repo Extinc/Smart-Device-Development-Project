@@ -183,7 +183,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     static func loadMealPlans(date: String, username: String, onComplete: @escaping ([MealPlan]) -> Void) {
         //Create empty list
         var mealPlanList : [MealPlan] = []
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan")
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username)
         // Load full list of movies and execute "with" closure once, when download is complete
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
@@ -193,9 +193,9 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if (exists == true){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                        let userName = r.childSnapshot(forPath: "username").value as! String
+                        let userName = r.key as! String
                         let Date = r.childSnapshot(forPath: "date").value as! String
-                        let id = Int(r.key)!
+                        let id = r.childSnapshot(forPath: "planid").value as! Int
                         let mealid = r.childSnapshot(forPath: "mealID").value as! Int
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
@@ -258,9 +258,9 @@ class DietaryPlanDataManagerFirebase: NSObject {
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
         for i in 0...mealPlanList.count - 1{
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(mealPlanList[i].planID!)/")
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!)
             ref.setValue([
-                "username" : mealPlanList[i].username,
+                "planid" : mealPlanList[i].planID,
                 "date" : mealPlanList[i].date,
                 "mealID" : mealPlanList[i].mealID,
                 "mealName" : mealPlanList[i].mealName,
@@ -274,9 +274,9 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     static func updatePlan(mealPlan: MealPlan) {
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(mealPlan.planID!)/")
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!)
         ref.setValue([
-            "username" : mealPlan.username,
+            "planid" : mealPlan.planID,
             "date" : mealPlan.date,
             "mealID" : mealPlan.mealID,
             "mealName" : mealPlan.mealName,
@@ -287,7 +287,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
             ])
     }
     
-    static func create1Plan() {
+   /* static func create1Plan() {
         
             let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(1)/")
             ref.setValue([
@@ -302,7 +302,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 ]
             )
         
-    }
+    }*/
     
     //Delete
     static func deleteMealPlan(_ mealPlan: MealPlan){

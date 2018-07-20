@@ -15,24 +15,38 @@ class RecommendMeal: NSObject {
         var plan: [MealPlan] = []
         let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
         let planType = preferences.mealPlanType!
-        //let totalCalories: Float = Float(NutrInfo.calReccCalories())
+        let planDays: Int = Int(preferences.duration!)!
+        var dateComponent = DateComponents()
+    
+        var currentDate = date
+        
+        
+        for i in 0...planDays {
+            
+            dateComponent.day = planDays
+            if (i == 0) {
+                
+            }
+            else {
+                
+            }
+            
+            if (planType == "Gluten Free"){
+                plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+            }
+            else if (planType == "Dash") {
+                plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+            }
+            else if (planType == "Keto") {
+                plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+            }
+            else if(planType == "Vegan"){
+                
+            }
+            DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
+        }
 
-        if (planType == "Gluten Free"){
-            plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: date, totalCalories: Float(totalCalories), pID: pID)
-        }
-        else if (planType == "Dash") {
-            plan = dashPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: Float(totalCalories), pID: pID)
-        }
-        else if (planType == "Keto") {
-            plan = ketoPlan(meals: meals, planPreferences: preferences, date: date, totalCalories: Float(totalCalories), pID: pID)
-        }
-        else if(planType == "Vegan"){
-            
-        }
-        else if(planType == "Muscle Builder") {
-            
-        }
-        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
+        
     }
     
     static func getLastPlanID() -> Int{

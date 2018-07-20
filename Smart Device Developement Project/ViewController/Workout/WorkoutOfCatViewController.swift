@@ -14,9 +14,9 @@
         var passedId: Int?
         var passedName: String?
         var searchActive : Bool = false
-        var segmentHide: Bool!
         var exercise: [Exercise] = []
         var imageUrls: [URL] = []
+        var filtered: [Exercise] = []
         
         @IBOutlet weak var titleHeader: UINavigationItem!
         @IBOutlet weak var tableView: UITableView!
@@ -44,12 +44,7 @@
             tableView.delegate = self
             tableView.dataSource = self
             searchBar.delegate = self
-            print("segmentHide: \(segmentHide)")
-            if segmentHide == true{
-                difficultySegmentCtrl.isHidden = true
-            } else {
-                difficultySegmentCtrl.isHidden = false
-            }
+            searchBar.scopeBarBackgroundImage = UIImage.imageWithColor(color: UIColor.white)
             
             if self.passedName != "All" {
                 if let passid: Int = self.passedId!{
@@ -57,13 +52,15 @@
                     exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
                 }
             } else {
-                exercise = ExerciseDataManager.loadExerciseOfLevel(level: difficultySegmentCtrl.titleForSegment(at: difficultySegmentCtrl.selectedSegmentIndex)!)
+                exercise = ExerciseDataManager.loadExercise()
             }
+            
+            filtered = exercise
             
             DispatchQueue.main.async {
                 self.prefetchImage()
             }
-            
+          
         }
         
         override func viewDidAppear(_ animated: Bool) {
@@ -84,29 +81,64 @@
         // For Table
         // ****************************************************************************
         
+        func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+            return UIView(frame: .zero)
+        }
+        
         func numberOfSections(in tableView: UITableView) -> Int {
             return 1
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if searchActive {
-                return 1
-            }
-            return exercise.count
+            return filtered.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutListCustomCell
-            if let url = URL.init(string: exercise[indexPath.row].imageLink[1]) {
-                cell.imageView?.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
-                    if error != nil {
-                        print("Image View Error: \(error.debugDescription)")
+            var rowCount = indexPath.row
+            /*
+            if searchActive == false {
+                //print("Search Active falase")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutListCustomCell
+                if let url = URL.init(string: exercise[rowCount].imageLink[1]) {
+                    cell.imageView?.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                        if error != nil {
+                            print("Image View Error: \(error.debugDescription)")
+                        }
+                    })
+                }
+                cell.exerciseLabel.text = exercise[indexPath.row].name
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutListCustomCell
+
+                if filtered.count > 0{
+                    print("Filted results: \(filtered[rowCount].imageLink)")
+                    if let url = URL.init(string: filtered[rowCount].imageLink[1]) {
+                        cell.imageView?.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                            if error != nil {
+                                print("Image View Error: \(error.debugDescription)")
+                            }
+                        })
                     }
-                })
+                }
+                cell.exerciseLabel.text = filtered[indexPath.row].name
+                return cell
+            }*/
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutListCustomCell
+            
+            if filtered.count > 0{
+                print("Filted results: \(filtered.count)")
+                if let url = URL.init(string: filtered[rowCount].imageLink[1]) {
+                    cell.imageView?.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                        if error != nil {
+                            print("Image View Error: \(error.debugDescription)")
+                        }
+                    })
+                }
+                    cell.exerciseLabel.text = filtered[indexPath.row].name
             }
-            cell.exerciseLabel.text = exercise[indexPath.row].name
+
             return cell
         }
         
@@ -149,25 +181,92 @@
         
     }
     
-    extension WorkoutOfCatViewController: UISearchBarDelegate {
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            searchActive = true;
-        }
-        
+    extension WorkoutOfCatViewController: UISearchBarDelegate{
+
         func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-            searchActive = false;
+            if (searchBar.text?.isEmpty)! {
+                 searchActive = false
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                 searchActive = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
         
         func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            searchActive = false;
+            searchActive = false
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            searchActive = false;
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchActive = true
         }
         
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            self.tableView.reloadData()
+            searchActive = true
+            filtered = exercise.filter({ (ex) -> Bool in
+                switch searchBar.selectedScopeButtonIndex {
+                case 0:
+                    if searchText.isEmpty { return ex.level == searchBar.scopeButtonTitles![0] }
+                    return (ex.name?.lowercased().contains(searchText.lowercased()))! && ex.level == searchBar.scopeButtonTitles![0]
+                case 1:
+                    if searchText.isEmpty { return ex.level == searchBar.scopeButtonTitles![1]}
+                    return (ex.name?.lowercased().contains(searchText.lowercased()))! && ex.level == searchBar.scopeButtonTitles![1]
+                case 2:
+                    if searchText.isEmpty { return ex.level == searchBar.scopeButtonTitles![2]}
+                    return (ex.name?.lowercased().contains(searchText.lowercased()))! && ex.level == searchBar.scopeButtonTitles![2]
+                default:
+                    if searchText.isEmpty { return ex.level == searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex] }
+                    return (ex.name?.lowercased().contains(searchText.lowercased()))! && ex.level == searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+                }
+            })
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         
+        
+        func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+            
+            filtered = exercise.filter({ (ex) -> Bool in
+                switch selectedScope {
+                case 0:
+                    if (searchBar.text?.isEmpty)! { return ex.level == searchBar.scopeButtonTitles![0] }
+                    return (ex.name?.lowercased().contains(searchBar.text!.lowercased()))! && ex.level == searchBar.scopeButtonTitles![0]
+                case 1:
+                    if (searchBar.text?.isEmpty)! { return ex.level == searchBar.scopeButtonTitles![1]}
+                    return (ex.name?.lowercased().contains(searchBar.text!.lowercased()))! && ex.level == searchBar.scopeButtonTitles![1]
+                case 2:
+                    if (searchBar.text?.isEmpty)! { return ex.level == searchBar.scopeButtonTitles![2]}
+                    return (ex.name?.lowercased().contains(searchBar.text!.lowercased()))! && ex.level == searchBar.scopeButtonTitles![2]
+                default:
+                    if (searchBar.text?.isEmpty)! { return ex.level == searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex] }
+                    return (ex.name?.lowercased().contains(searchBar.text!.lowercased()))! && ex.level == searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+                }
+            })
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
+    extension UIImage {
+        class func imageWithColor(color: UIColor) -> UIImage {
+            let rect: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+            UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1), false, 0)
+            color.setFill()
+            UIRectFill(rect)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            return image
+        }
     }

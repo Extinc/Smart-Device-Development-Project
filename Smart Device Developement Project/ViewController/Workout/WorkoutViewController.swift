@@ -109,7 +109,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
                 // your new view controller should have property that will store passed value
                 viewController.passedId = idToPass
                 viewController.passedName = nameToPass
-                viewController.segmentHide = true
+
                 print(idToPass)
             }
         }
@@ -118,7 +118,6 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
             
             // your new view controller should have property that will store passed value
             viewController.passedName = "All"
-            viewController.segmentHide = false
         }
     }
     

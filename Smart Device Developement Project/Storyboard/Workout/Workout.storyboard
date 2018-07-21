@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -400,27 +400,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pmG-1R-Csy">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Lfk-G1-aC3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lfk-G1-aC3">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <scopeButtonTitles>
-                                            <string>Title</string>
+                                            <string>Beginner</string>
+                                            <string>Intermediate</string>
+                                            <string>Expert</string>
                                         </scopeButtonTitles>
                                         <connections>
                                             <outlet property="delegate" destination="GjI-aN-eYq" id="gzC-Ib-Ry6"/>
                                         </connections>
                                     </searchBar>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-gQ-JyE">
-                                        <rect key="frame" x="0.0" y="56" width="414" height="124"/>
-                                        <segments>
-                                            <segment title="Beginner"/>
-                                            <segment title="Intermediate"/>
-                                            <segment title="Expert"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="difficultyChange:" destination="GjI-aN-eYq" eventType="valueChanged" id="jsi-2a-Xbl"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uy2-g5-D9i">
                                         <rect key="frame" x="0.0" y="179" width="414" height="493"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -496,7 +487,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hi0-oU-VUU"/>
                     <connections>
-                        <outlet property="difficultySegmentCtrl" destination="kjI-gQ-JyE" id="Fqt-fK-6Zs"/>
                         <outlet property="searchBar" destination="Lfk-G1-aC3" id="720-ew-zdd"/>
                         <outlet property="searchDisplayController" destination="u1Y-6V-FDX" id="1Sb-U5-7Br"/>
                         <outlet property="tableView" destination="uy2-g5-D9i" id="ghF-0m-5EA"/>
@@ -506,7 +496,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wi3-PI-Vwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="u1Y-6V-FDX">
                     <connections>
-                        <outlet property="searchBar" destination="Lfk-G1-aC3" id="ORW-ic-bhK"/>
                         <outlet property="searchContentsController" destination="GjI-aN-eYq" id="U0K-4M-GL7"/>
                         <outlet property="searchResultsDataSource" destination="GjI-aN-eYq" id="uID-Mf-GXG"/>
                         <outlet property="searchResultsDelegate" destination="GjI-aN-eYq" id="xjK-g8-An1"/>
@@ -535,7 +524,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O2g-O4-0CO">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
@@ -552,14 +541,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qOD-gy-Lkf">
-                                                    <rect key="frame" x="15" y="14" width="91" height="15.666666666666666"/>
+                                                    <rect key="frame" x="20" y="14" width="91" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ODg-yO-Xxw">
-                                                    <rect key="frame" x="112" y="14" width="35" height="15.666666666666666"/>
+                                                    <rect key="frame" x="117" y="14" width="35" height="15.666666666666666"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>

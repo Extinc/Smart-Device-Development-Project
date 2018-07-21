@@ -57,7 +57,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var weatherIcon: UIImageView!
     
-    var run : Run!
+ 
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
@@ -138,7 +138,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
     }
     
-  var username = "john"
+    var username : String = AuthenticateUser.getUID()
     
     var locationManager = CLLocationManager()
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
@@ -146,12 +146,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     override func viewDidLoad() {
         //Get Weather
         
-   /*     NutrInfo().getWeight(){
+       NutrInfo().getWeight(){
             weight in
             self.weight = weight
             
         }
- */
+ 
       
        
         do{
@@ -212,6 +212,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         else{
             lblNumberofProgress.text = "No Schedule Created"
         }
+        
         lastSessionID = RunningDataManager.selectlastSessionTableId() - 1
         
         

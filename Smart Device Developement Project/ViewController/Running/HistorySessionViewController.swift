@@ -43,11 +43,13 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         var selectedID : Int = Int(currentid)!
         print("Selecte ID \(selectedID)")
       
         var selectedSession = RunningDataManager.loadSessionByID(selectedID)
-        var selectSessionMap = RunningDataManager.loadSessionlocationByID(2)
+        var selectSessionMap = RunningDataManager.loadSessionlocationByID(selectedID)
         let longitude = selectSessionMap.rangeoflongitude!.components(separatedBy: ",")
         let latitude = selectSessionMap.rangeoflatitude!.components(separatedBy: ",")
        for i in 0 ..< longitude.count
@@ -58,31 +60,34 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
                 mylocations.append(coordinate)
                 
         }
-        print("\(mylocations.count)")
-        lblTotalTime.text = selectedSession.totaltime
-        lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
-        lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
-        lblavgspeed.text = String(format: "%.2f", selectedSession.totalspeed!)
-        updateMapRegion(rangeSpan: 200)
-        
-        
+  
+
         for i in 0 ..< longitude.count {
-      
+      //this loop got error
          var sourceIndex = i
-         
+        
             
             for j in 1 ..< longitude.count {
             
-            var destinationIndex = j
+             destinationIndex = j
             }
             
             let c1 = mylocations[sourceIndex].coordinate
             let c2 = mylocations[destinationIndex].coordinate
             var a = [c1,c2]
+            print("\(a)")
             var polyline = MKPolyline(coordinates: &a, count: a.count)
             historyMap.add(polyline)
             
         }
+        lblTotalTime.text = selectedSession.totaltime
+        lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
+        lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
+        lblavgspeed.text = String(format: "%.2f", selectedSession.totalspeed!)
+        
+        historyMap.delegate = self
+        locationManager.delegate = self
+        updateMapRegion(rangeSpan: 1000)
  
        
     }
@@ -100,7 +105,12 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     }
     
     func updateMapRegion(rangeSpan:CLLocationDistance){
-        let region = MKCoordinateRegionMakeWithDistance(coordinate2D, rangeSpan, rangeSpan)
+        var selectedID : Int = Int(currentid)!
+        print("Selecte ID \(selectedID)")
+        
+      
+
+        let region = MKCoordinateRegionMakeWithDistance(mylocations[0].coordinate, rangeSpan, rangeSpan)
          historyMap.region = region
     }
 

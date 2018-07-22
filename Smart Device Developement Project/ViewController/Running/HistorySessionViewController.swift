@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
+class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate {
 
     @IBOutlet weak var historyMap: MKMapView!
     
@@ -34,6 +34,12 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     
     var locationManager = CLLocationManager()
     var coordinate2D = CLLocationCoordinate2DMake(37.32460617, -122.02447971 )
+    struct Objects {
+        var sectionName : String!
+        var sectionObject: [String]!
+    }
+    
+    var objectArray = [Objects]()
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,16 +68,11 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         }
   
 
-        for i in 0 ..< longitude.count {
+        for i in 0 ..< longitude.count - 1 {
       //this loop got error
          var sourceIndex = i
-        
-            
-            for j in 1 ..< longitude.count {
-            
-             destinationIndex = j
-            }
-            
+    
+            destinationIndex = i + 1;
             let c1 = mylocations[sourceIndex].coordinate
             let c2 = mylocations[destinationIndex].coordinate
             var a = [c1,c2]
@@ -81,9 +82,22 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
             
         }
         lblTotalTime.text = selectedSession.totaltime
+         var time = selectedSession.totaltime
+        var distance = String(format: "%.2f",selectedSession.totaldistance!)
+        var calories = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
+        var speed =  String(format: "%.2f", selectedSession.totalspeed!)
         lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
         lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
         lblavgspeed.text = String(format: "%.2f", selectedSession.totalspeed!)
+        
+        
+        
+   /*
+         Not done yet
+         objectArray = [Objects(sectionName: "Time", sectionObject: ["Time taken :\(time)"]),Objects(sectionName: "Distance", sectionObject: ["Distance ran :\(distance)"]),Objects(sectionName: "Calories", sectionObject: ["Calories Burnt :\(calories)"]),Objects(sectionName: "Speed", sectionObject: ["Average speed:\(speed)"])]
+ */
+        
+        
         
         historyMap.delegate = self
         locationManager.delegate = self
@@ -91,6 +105,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
  
        
     }
+    
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         

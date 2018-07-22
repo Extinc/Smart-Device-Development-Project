@@ -72,6 +72,7 @@
 		9008D52420D6933000FEAC9E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9008D52320D6932F00FEAC9E /* libsqlite3.tbd */; };
 		900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFB20D4E60B00220298 /* Exercise.swift */; };
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
+		900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
 		9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */; };
@@ -194,6 +195,7 @@
 		9008D52320D6932F00FEAC9E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
+		900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatViewController.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
 		9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailInfoViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				9068A3F120F1A10C00973C88 /* WorkoutDetailViewController.swift */,
 				9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */,
 				5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */,
+				900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Smart Device Developement Project/Pods-Smart Device Developement Project-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cards/Cards.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpyTableView/ExpyTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -822,6 +826,7 @@
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MZTimerLabel/MZTimerLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -829,6 +834,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cards.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpyTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -837,6 +843,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZTimerLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -882,6 +889,7 @@
 				9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */,
 				51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */,
 				51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */,
+				900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */,
 				5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */,
 				70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,

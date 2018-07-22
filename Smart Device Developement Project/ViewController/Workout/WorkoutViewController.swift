@@ -9,6 +9,7 @@
 import UIKit
 import MaterialComponents
 import FirebaseAuth
+import Cards
 
 class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
@@ -19,6 +20,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var nameToPass: String?
     var idToPass: Int?
     var a = AuthenticateUser.getUID()
+    var cardTitles = ["Home", "Category"]
     
     @IBOutlet weak var stackview: UIStackView!
     @IBOutlet weak var cardView1: MDCCard!
@@ -26,6 +28,8 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var cardView1ImageView: UIImageView!
     @IBOutlet weak var cardView2ImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelAll: UILabel!
+    @IBOutlet weak var labelPersonal: UILabel!
     
     
     func getUID()->String{
@@ -42,6 +46,8 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
         exerciseCat = ExerciseDataManager.loadCategory()
         
+        centerLabel(label: labelAll, anchorView: cardView1)
+        centerLabel(label: labelPersonal, anchorView: cardView2)
     }
     
     func testCardColorThemer() {
@@ -62,31 +68,60 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     // ****************************************************************************
     // For table
     // ****************************************************************************
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (exerciseCat?.count)!
+        //return (exerciseCat?.count)!
+        return cardTitles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCustomViewCell
+
         
-        cell.cellLabel.text = exerciseCat?[indexPath.row].name
-        cell.idLabel.text = "\(exerciseCat?[indexPath.row].id)"
-        let colorScheme = MDCSemanticColorScheme()
-        colorScheme.surfaceColor = .white
-        cell.card.backgroundColor = .gray
-        cell.card.setBorderColor(UIColor.blue, for: cell.card.state)
         
-        MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
-        return cell
+       // let colorScheme = MDCSemanticColorScheme()
+      //  colorScheme.surfaceColor = .white
+      //  colorScheme.backgroundColor = .gray
+        //cell.card.setBorderColor(UIColor.purple, for: cell.card.state)
+       // MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
+        
+         //cell.cellLabel.text =  (exerciseCat?[indexPath.row].name)!
+        //cell.idLabel.text = "\(exerciseCat?[indexPath.row].id)"
+
+        //centerLabel(label: cell.cellLabel, anchorView: cell.card)
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCustomCardCell
+            cell.card.title = "Home"
+            cell.card.itemTitle = ""
+            cell.card.itemSubtitle = ""
+            cell.card.titleSize = 32
+            cell.card.delegate = self
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellCat", for: indexPath) as! WorkoutCustomCardCell
+            cell.card.title = "Category"
+            cell.card.itemTitle = ""
+            cell.card.itemSubtitle = ""
+            cell.card.titleSize = 32
+            cell.card.delegate = self
+
+            return cell
+        }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
     }
     
     // ****************************************************************************
@@ -99,6 +134,7 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     // ****************************************************************************
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
         if segue.identifier == "catCellClick" {
             // initialize new view controller and cast it as your view controller
             var viewController = segue.destination as! WorkoutOfCatViewController
@@ -112,12 +148,17 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
 
                 print(idToPass)
             }
-        }
-        else if segue.identifier == "allCardViewClick" {
+        }*/
+        if segue.identifier == "allCardViewClick" {
             var viewController = segue.destination as! WorkoutOfCatViewController
             
             // your new view controller should have property that will store passed value
             viewController.passedName = "All"
+        } else if segue.identifier == "homeCardClick" {
+            var viewController = segue.destination as! WorkoutOfCatViewController
+            
+            // your new view controller should have property that will store passed value
+            viewController.passedName = "Home"
         }
     }
     
@@ -133,4 +174,21 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func centerLabel(label: UILabel, anchorView: UIView){
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: anchorView.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: anchorView.centerYAnchor).isActive = true
+        label.textAlignment = .center
+    }
+}
+
+extension WorkoutViewController: CardDelegate{
+    func cardHighlightDidTapButton(card: CardHighlight, button: UIButton) {
+        if card.title == "Home" {
+            performSegue(withIdentifier: "homeCardClick", sender: self)
+        } else if card.title == "Category" {
+            performSegue(withIdentifier: "catCardClick", sender: self)
+        }
+    }
 }

@@ -324,8 +324,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 let id = Int(r.key)!
                 let name = r.childSnapshot(forPath: "name").value as! String
                 let address = r.childSnapshot(forPath: "address").value as! String
-                let longitude = Float(r.childSnapshot(forPath: "latitude").value as! String)!
-                let latitude = Float(r.childSnapshot(forPath: "longitude").value as! String)!
+                let longitude = Double(r.childSnapshot(forPath: "latitude").value as! String)!
+                let latitude = Double(r.childSnapshot(forPath: "longitude").value as! String)!
                 hawkerCentreList.append(HawkerCentres(id, name, latitude, longitude, address))
                
             }

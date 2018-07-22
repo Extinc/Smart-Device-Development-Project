@@ -34,14 +34,19 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var dataReminders = ["Yes", "No"]
     
     var planpreferences = [UserPlanPreferences]()
-    
-    var preferences = ["test", "Vegan", "Lose Weight", "2 Weeks", "3", "2 Hours", "Yes"]
-    var username = "1"
+    var username = ""
+    var totalCalories: Int = 0
+    var meal: [Meal] = []
+    var lastPID: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.username = AuthenticateUser.getUID()
+        self.loadMeals()
+        self.loadCalories()
+        self.loadLastPlanID()
+        
         
         picker1.delegate = self
         picker3.delegate = self
@@ -220,7 +225,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, mti!, reminders!, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
-            
+            RecommendMeal.createMealPlan(meals: meal, username: username, pID: lastPID, totalCalories: totalCalories)
             
             performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
         }
@@ -228,5 +233,25 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
      // MARK: - Functions
+    func loadMeals() {
+        DietaryPlanDataManagerFirebase.loadMeals(){
+            mealListFromFirebase in
+            self.meal = mealListFromFirebase
+        }
+    }
+    
+    func loadCalories(){
+        NutrInfo().calReccCalories() {
+            recCaloriesFromFirebase in
+            self.totalCalories = recCaloriesFromFirebase
+        }
+    }
+    
+    func loadLastPlanID(){
+        DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
+            planIDFromFirebase in
+            self.lastPID = planIDFromFirebase
+        }
+    }
     
 }

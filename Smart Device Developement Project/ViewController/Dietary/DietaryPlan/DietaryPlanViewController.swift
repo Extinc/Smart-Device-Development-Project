@@ -272,7 +272,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func loadMeals(_ sender: Any) {
         
         if(planCount < 1) {
-            RecommendMeal.createMealPlan(meals: meal, date: selectedDate, username: username, pID: lastPID, totalCalories: totalCalories)
+            RecommendMeal.createMealPlan(meals: meal, username: username, pID: lastPID, totalCalories: totalCalories)
         }
         
         DispatchQueue.main.async {

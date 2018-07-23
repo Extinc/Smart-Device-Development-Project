@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Cards
 
 class WorkoutCatViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     var exCat: [ExerciseCategory]!
+    var idToPass: Int!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +62,7 @@ extension WorkoutCatViewController: UITableViewDelegate, UITableViewDataSource {
         cell.card.textColor = .white
         cell.card.itemTitle = ""
         cell.card.itemSubtitle = ""
+        cell.card.delegate = self
         if cell.card.title == "Chest" {
             cell.card.backgroundImage = UIImage(named: "10-best-chest-exercises-for-building-muscle-v2-1-700xh")
         } else if cell.card.title == "Forearms" {
@@ -98,8 +103,28 @@ extension WorkoutCatViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showExercises" {
+            var viewController = segue.destination as! WorkoutOfCatViewController
+            
+            // your new view controller should have property that will store passed value
+            viewController.passedName = "Category"
+            viewController.passedId = idToPass
+        }
+    }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView(frame: .zero)
     }
 }
 
+extension WorkoutCatViewController: CardDelegate{
+    func cardHighlightDidTapButton(card: CardHighlight, button: UIButton) {
+        for cat in exCat {
+            if cat.name == card.title {
+                idToPass = cat.id!
+            }
+        }
+        performSegue(withIdentifier: "showExercises", sender: self)
+    }
+}

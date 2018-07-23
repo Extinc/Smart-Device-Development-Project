@@ -80,23 +80,12 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        
-        
-       // let colorScheme = MDCSemanticColorScheme()
-      //  colorScheme.surfaceColor = .white
-      //  colorScheme.backgroundColor = .gray
-        //cell.card.setBorderColor(UIColor.purple, for: cell.card.state)
-       // MDCCardsColorThemer.applySemanticColorScheme(colorScheme, to: cell.card)
-        
-         //cell.cellLabel.text =  (exerciseCat?[indexPath.row].name)!
-        //cell.idLabel.text = "\(exerciseCat?[indexPath.row].id)"
-
-        //centerLabel(label: cell.cellLabel, anchorView: cell.card)
+        let txtColor = UIColor.white
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutCustomCardCell
-            cell.card.title = "Home"
+            cell.card.title = cardTitles[indexPath.row]
+            cell.card.textColor = txtColor
             cell.card.itemTitle = ""
             cell.card.itemSubtitle = ""
             cell.card.titleSize = 32
@@ -104,7 +93,10 @@ class WorkoutViewController: UIViewController,UITableViewDelegate, UITableViewDa
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellCat", for: indexPath) as! WorkoutCustomCardCell
-            cell.card.title = "Category"
+            cell.card.title = cardTitles[indexPath.row]
+            // Below is image for category
+            cell.card.backgroundImage = UIImage(named: "blog-fitnovatives-63015")
+            cell.card.textColor = txtColor
             cell.card.itemTitle = ""
             cell.card.itemSubtitle = ""
             cell.card.titleSize = 32

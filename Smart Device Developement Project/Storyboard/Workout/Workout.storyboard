@@ -121,7 +121,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-K6-5HG" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="backgroundwebsite-1000x675"/>
@@ -151,7 +151,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDP-Bm-0h7" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
@@ -230,7 +230,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i46-0j-R0r" customClass="CardHighlight" customModule="Cards">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                                    <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -243,6 +243,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="card" destination="i46-0j-R0r" id="Ptr-UI-bWg"/>
+                                            <segue destination="GjI-aN-eYq" kind="show" identifier="showExercises" id="hTc-HS-z7G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -392,6 +393,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbo-CG-umT">
+                                                <rect key="frame" x="184" y="82" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -714,6 +720,6 @@
         <image name="backgroundwebsite-1000x675" width="1000" height="675"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Te-yw-9xY"/>
+        <segue reference="hTc-HS-z7G"/>
     </inferredMetricsTieBreakers>
 </document>

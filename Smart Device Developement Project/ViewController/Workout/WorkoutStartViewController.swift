@@ -71,6 +71,14 @@ extension WorkoutStartViewController: MZTimerLabelDelegate {
     }
     func timerLabel(_ timerLabel: MZTimerLabel!, finshedCountDownTimerWithTime countTime: TimeInterval) {
         print("FINISH")
+//        let storyboard = UIStoryboard(name: "WorkoutModal", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "WorkoutModalViewController")
+//        self.present(controller, animated: true) {
+//        }
+        if let vc = UIStoryboard(name: "WorkoutModal", bundle: nil).instantiateViewController(withIdentifier: "WorkoutModalViewController") as? WorkoutModalViewController
+        {
+            present(vc, animated: true, completion: nil)
+        }
     }
     
 }

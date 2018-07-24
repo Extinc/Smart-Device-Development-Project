@@ -19,12 +19,16 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var locationManager = CLLocationManager()
     var hawkerCentres : [HawkerCentres] = []
+    var hawkerCenteresWithMeal : [HawkerCentres] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hawkerMapView.delegate = self
         locationManager.delegate = self
+        if (hawkerSegment.selectedSegmentIndex == 0) {
+            loadPointersWithMeal()
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -34,7 +38,17 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - Segment changed
+    @IBAction func segmentChanged(_ sender: Any) {
+        hawkerMapView.removeAnnotation(hawkerMapView.annotations)
+        if (hawkerSegment.selectedSegmentIndex == 0 ){
+            loadPointersWithMeal()
+        }
+        else {
+            loadAllPointers()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -47,7 +61,17 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     // MARK: - Functions
     
-    func loadPointers(){
+    func loadPointersWithMeal(){
+        for i in 0...self.hawkerCentresWithMeal.count - 1
+        {
+            let p = MKPointAnnotation()
+            p.coordinate = CLLocationCoordinate2D(latitude: self.hawkerCentresWithMeal[i].latitude!, longitude: self.hawkerCentresWithMeal[i].longitude!)
+            p.title = self.hawkerCentresWithMeal[i].hawkerName
+            self.hawkerMapView.addAnnotation(p)
+        }
+    }
+    
+    func loadAllPointers(){
         for i in 0...self.hawkerCentres.count - 1
         {
             let p = MKPointAnnotation()

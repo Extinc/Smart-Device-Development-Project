@@ -9,6 +9,7 @@
 import UIKit
 import MZTimerLabel
 import AVKit
+import MaterialComponents
 class WorkoutStartViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: MZTimerLabel!
@@ -29,6 +30,10 @@ class WorkoutStartViewController: UIViewController {
             })
         }
     }
+
+    @IBAction func startClick(_ sender: Any) {
+       timerLabel.start()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +42,7 @@ class WorkoutStartViewController: UIViewController {
         timerLabel.timerType = MZTimerLabelTypeTimer
         timerLabel.timeFormat = "mm:ss"
         timerLabel.setCountDownTime(TimeInterval(2))
-        timerLabel.start()
+
     }
     
     override func didReceiveMemoryWarning() {

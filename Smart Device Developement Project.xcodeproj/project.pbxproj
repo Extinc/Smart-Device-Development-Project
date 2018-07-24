@@ -75,6 +75,7 @@
 		900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
+		904B98542106AE9D008B30A3 /* WorkoutModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */; };
 		9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */; };
 		9053B50020F9A0CD00C72DA1 /* ExpyTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */; };
 		9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */; };
@@ -198,6 +199,7 @@
 		900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatViewController.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
+		904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModalViewController.swift; sourceTree = "<group>"; };
 		9053B4FD20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailInfoViewController.swift; sourceTree = "<group>"; };
 		9053B4FF20F9A0CD00C72DA1 /* ExpyTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExpyTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileBtnCustomCell.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		5112D5C820EF0C3400212972 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				904B98522106AE7F008B30A3 /* Modal */,
 				9001837720FA02AA00DACAB6 /* CustomCell */,
 				9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */,
 				5112D5C920EF0DD100212972 /* WorkoutOfCatViewController.swift */,
@@ -549,6 +552,14 @@
 				9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		904B98522106AE7F008B30A3 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		9054824F20CF699400BDF5D7 /* Running */ = {
@@ -870,6 +881,7 @@
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				7053561420F39FDC00D72FF0 /* Weather.swift in Sources */,
 				513F09DB20E2019D009806D8 /* ScheduleViewController.swift in Sources */,
+				904B98542106AE9D008B30A3 /* WorkoutModalViewController.swift in Sources */,
 				692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */,
 				70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */,
 				9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */,

@@ -121,7 +121,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-K6-5HG" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="backgroundwebsite-1000x675"/>
@@ -151,7 +151,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDP-Bm-0h7" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
@@ -393,10 +393,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbo-CG-umT">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbo-CG-umT" customClass="MDCFloatingButton">
                                                 <rect key="frame" x="184" y="82" width="46" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="startClick:" destination="Zqu-1v-sFl" eventType="touchUpInside" id="yAS-JI-BqE"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -434,6 +437,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn2-CZ-3Nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1823" y="664"/>
+        </scene>
+        <!--Workout Modal View Controller-->
+        <scene sceneID="XW6-KO-W8X">
+            <objects>
+                <viewController id="MIY-DC-aMs" customClass="WorkoutModalViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZHT-Es-YmU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUA-iG-o3T">
+                                <rect key="frame" x="68" y="216" width="278" height="305"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bVl-GY-J41">
+                                        <rect key="frame" x="91" y="137" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr6-ge-sRg" customClass="MDCFloatingButton">
+                                        <rect key="frame" x="235" y="140" width="24" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="baseline_add_white_24pt"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CD7-Wq-4aG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUd-Xp-df4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2573.913043478261" y="664.4021739130435"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bnh-Jd-9J1">
@@ -718,6 +757,7 @@
     </scenes>
     <resources>
         <image name="backgroundwebsite-1000x675" width="1000" height="675"/>
+        <image name="baseline_add_white_24pt" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hTc-HS-z7G"/>

@@ -37,6 +37,17 @@ class LifestyleTheme: NSObject {
         btn.titleLabel?.textColor = color.secondaryTextColor
     }
     
+    static func styleFloatBtn(btn: MDCFloatingButton, title: String, pColor: UIColor){
+        let color = Colors()
+        let buttonScheme = MDCButtonScheme()
+        MDCContainedButtonThemer.applyScheme(buttonScheme, to: btn)
+        let btncolorScheme = MDCSemanticColorScheme()
+        btncolorScheme.primaryColor = pColor
+        btn.setTitle(title, for: UIControlState())
+        MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
+        btn.titleLabel?.textColor = color.secondaryTextColor
+    }
+    
     
     static func styleCard(card: MDCCard, isInteractable: Bool, cornerRadius: Double?){
         let colorScheme = MDCSemanticColorScheme()

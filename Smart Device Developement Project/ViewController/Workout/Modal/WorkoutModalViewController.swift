@@ -7,13 +7,17 @@
 //
 
 import UIKit
-
+import MaterialComponents
 class WorkoutModalViewController: UIViewController {
 
+    @IBOutlet weak var addBtn: MDCFloatingButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        LifestyleTheme.styleFloatBtn(btn: addBtn, title: "", pColor: Colors.PrimaryColor())
     }
 
     override func didReceiveMemoryWarning() {

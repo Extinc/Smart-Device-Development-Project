@@ -469,6 +469,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="CD7-Wq-4aG"/>
                     </view>
+                    <connections>
+                        <outlet property="addBtn" destination="tr6-ge-sRg" id="06A-Z6-aRP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUd-Xp-df4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,7 +10,28 @@ import UIKit
 import MapKit
 
 
-class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate {
+class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource{
+    
+     let data: [String] = ["item1","item2","item3"]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = data[indexPath.row]
+        return cell
+    }
+    
+    
+   
+    
+
 
     @IBOutlet weak var historyMap: MKMapView!
     

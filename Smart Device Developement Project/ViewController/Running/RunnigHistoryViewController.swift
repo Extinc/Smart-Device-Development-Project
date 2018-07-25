@@ -11,8 +11,13 @@ import UIKit
 class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate {
 
     @IBOutlet weak var tableview: UITableView!
-    
-    var runningsections : [Session] = RunningDataManager.loadallsession()
+    var authUID = AuthenticateUser.getUID()
+   // var runningsections : [Session] = RunningDataManager.loadallsession("hello")
+   var runningsections : [Session] {
+        get{
+            return RunningDataManager.loadallsession(authUID)
+       }
+        }
     var selectedid : Int = 0
     
     override func viewDidLoad() {

@@ -28,6 +28,7 @@ class Session: NSObject {
     var lap3distance: String?
     var lap4distance: String?
     var lap5distance: String?
+    var userID:String?
     
     var progress: Int?
     var scheduleID: Int?

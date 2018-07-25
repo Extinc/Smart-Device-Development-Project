@@ -52,6 +52,7 @@ class RunningDataManager: NSObject {
             "lap5distance TEXT DEFAULT '0'," +
             "Runlogitude TEXT DEFAULT '0'," +
             "Runlatitude TEXT DEFAULT '0'," +
+            "userID TEXT DEFAULT '0'," +
             "totalcaloriesburnt DOUBLE DEFAULT '0'," +
             "sessionComplete INTEGER default 0," +
             "scheduleID INTEGER, " +
@@ -146,7 +147,7 @@ class RunningDataManager: NSObject {
         
     }
     
-    static func loadallsession() -> [Session]{
+    static func loadallsession(_ userID:String) -> [Session]{
        let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month,totaltime from Session Where sessionComplete = 1")
         var call: Int = 1
    /*      var jandate : [String] = []

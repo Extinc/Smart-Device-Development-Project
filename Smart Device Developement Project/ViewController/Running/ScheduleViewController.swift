@@ -25,7 +25,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     @IBOutlet weak var lbldaydescript: UILabel!
     var savedevent = ""
     var savedevevntstore =  ""
-    var username = "john"
+    var username = AuthenticateUser.getUID()
     let picker = UIDatePicker()
     //Get slider value
     

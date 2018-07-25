@@ -11,12 +11,12 @@ import UIKit
 class HawkerCentres: NSObject {
     var hawkerID: Int?
     var hawkerName: String?
-    var latitude: Float?
-    var longitude: Float?
+    var latitude: Double?
+    var longitude: Double?
     var address: String?
     
     
-    init(_ hawkerID: Int ,_ hawkerName: String, _ latitude: Float, _ longitude: Float, _ address: String ){
+    init(_ hawkerID: Int ,_ hawkerName: String, _ latitude: Double, _ longitude: Double, _ address: String ){
         self.hawkerID = hawkerID
         self.hawkerName = hawkerName
         self.latitude = latitude

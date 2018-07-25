@@ -46,6 +46,8 @@ target 'Smart Device Developement Project' do
   # Image download / Prefetch
   pod 'SDWebImage'
   
+  pod 'Cards'
+  
   # Chart
   pod 'Charts'
   #pod 'JBChartView'

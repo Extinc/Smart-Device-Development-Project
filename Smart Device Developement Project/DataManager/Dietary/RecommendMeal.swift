@@ -11,25 +11,20 @@ import UIKit
 class RecommendMeal: NSObject {
     
     
-    static func createMealPlan(meals: [Meal], date: String, username: String, pID: Int, totalCalories: Int){
+    static func createMealPlan(meals: [Meal], username: String, pID: Int, totalCalories: Int){
         var plan: [MealPlan] = []
         let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
         let planType = preferences.mealPlanType!
         let planDays: Int = Int(preferences.duration!)!
         var dateComponent = DateComponents()
     
-        var currentDate = date
+        var currentDate = preferences.startDate!
         
         
         for i in 0...planDays {
             
-            dateComponent.day = planDays
-            if (i == 0) {
-                
-            }
-            else {
-                
-            }
+            dateComponent.day = i
+            //currentDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
             
             if (planType == "Gluten Free"){
                 plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)

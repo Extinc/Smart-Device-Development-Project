@@ -9,6 +9,7 @@
 import UIKit
 import MZTimerLabel
 import AVKit
+import MaterialComponents
 class WorkoutStartViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: MZTimerLabel!
@@ -29,6 +30,10 @@ class WorkoutStartViewController: UIViewController {
             })
         }
     }
+
+    @IBAction func startClick(_ sender: Any) {
+       timerLabel.start()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +42,7 @@ class WorkoutStartViewController: UIViewController {
         timerLabel.timerType = MZTimerLabelTypeTimer
         timerLabel.timeFormat = "mm:ss"
         timerLabel.setCountDownTime(TimeInterval(2))
-        timerLabel.start()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,6 +71,15 @@ extension WorkoutStartViewController: MZTimerLabelDelegate {
     }
     func timerLabel(_ timerLabel: MZTimerLabel!, finshedCountDownTimerWithTime countTime: TimeInterval) {
         print("FINISH")
+//        let storyboard = UIStoryboard(name: "WorkoutModal", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "WorkoutModalViewController")
+//        self.present(controller, animated: true) {
+//        }
+        if let vc = UIStoryboard(name: "Workout", bundle: nil).instantiateViewController(withIdentifier: "WorkoutModal") as? WorkoutModalViewController
+        {
+            vc.modalPresentationStyle = .overCurrentContext
+            present(vc, animated: true, completion: nil)
+        }
     }
     
 }

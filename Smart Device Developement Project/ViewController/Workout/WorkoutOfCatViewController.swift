@@ -47,15 +47,22 @@
             searchBar.scopeBarBackgroundImage = UIImage.imageWithColor(color: UIColor.white)
             
             if self.passedName != "All" {
-                if let passid: Int = self.passedId!{
-                    print("passed id: ", passid)
-                    exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
+                if self.passedName != "Home" {
+                    if let passid: Int = self.passedId!{
+                        print("passed id: ", passid)
+                        exercise = ExerciseDataManager.loadExerciseOfCat(catID: passid)
+                        filtered = exercise
+                    }
+                } else {
+                    exercise = ExerciseDataManager.loadExercise()
+                    filtered = exercise.filter({$0.equipment == ExerciseDataManager.getEquipID(name: "Body Only")})
                 }
             } else {
                 exercise = ExerciseDataManager.loadExercise()
+                filtered = exercise.filter({$0.level == searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]})
             }
             
-            filtered = exercise
+            
             
             DispatchQueue.main.async {
                 self.prefetchImage()

@@ -324,8 +324,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 let id = Int(r.key)!
                 let name = r.childSnapshot(forPath: "name").value as! String
                 let address = r.childSnapshot(forPath: "address").value as! String
-                let longitude = Float(r.childSnapshot(forPath: "latitude").value as! String)!
-                let latitude = Float(r.childSnapshot(forPath: "longitude").value as! String)!
+                let longitude = Double(r.childSnapshot(forPath: "latitude").value as! String)!
+                let latitude = Double(r.childSnapshot(forPath: "longitude").value as! String)!
                 hawkerCentreList.append(HawkerCentres(id, name, latitude, longitude, address))
                
             }
@@ -339,10 +339,93 @@ class DietaryPlanDataManagerFirebase: NSObject {
     static func createHawkerData() {
         let ref1 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(1)/")
         ref1.setValue([
-            "name" : "Chicken Rice",
-            "image": "chickenrice",
-            "calories" : "510",
-            "carbohydrates" : "45.6"
+            "name" : "Marsiling Mall Hawker Centre",
+            "address": "Blk 4,Woodlands St 12,Singapore 738623",
+            "description" : "Built in 2017, and located close to the heart of Woodlands, Marsiling Mall Hawker Centre offers residents convenient access to a variety of good and affordable hawker food. This hawker centre is also situated adjacent to Woodlands Sports Centre, bringing hawker food to the doorstep of sports facility users.",
+            "latitude" : "1.433543",
+            "longitude" : "103.779881"
+            ]
+        )
+        
+        let ref2 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(2)/")
+        ref2.setValue([
+            "name" : "Sembawang Hills Food Centre (Jalan Leban Food Centre)",
+            "address": "590, Upper Thomson Road, Singapore 574419",
+            "description" : "Built in 1974, this centre is nestled along Upper Thomson Road and offers a wide variety of food such as Fish / Seafood Soup, Char Kway Teow, Ngoh Hiang, Pasta etc. The centre comprises 36 cooked food stalls.",
+            "latitude" : "1.37241995",
+            "longitude" : "103.8290329"
+            ]
+        )
+        let ref3 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(3)/")
+        ref3.setValue([
+            "name" : "Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market)",
+            "address": "Blk 628, Ang Mo Kio Ave 4, Singapore 560628",
+            "description" : "Originally built in 1979, the hawker centre is located opposite Yio Chu Kang CC and near schools, temples and residential flats. After the upgrading in 2010, the rebuilt centre consists of 52 cooked food stalls and 166 market stalls to serve the marketingand dining needs of patrons.",
+            "latitude" : "1.38066268",
+            "longitude" : "103.8407516"
+            ]
+        )
+        let ref4 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(4)/")
+        ref4.setValue([
+            "name" : "Ang Mo Kio Ave 4 Blk 160/162 (Mayflower Market)",
+            "address": "Blk 160/162, Ang Mo Kio Ave 4, Singapore 560160/560162",
+            "description" : "Commonly known as Mayflower Market, the hawker centre was built in 1981. It comprises 40 cooked food stalls and 84 market stalls to serve the marketing and dining needs of residents.",
+            "latitude" : "1.37460005",
+            "longitude" : "103.839241"
+            ]
+        )
+        let ref5 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(5)/")
+        ref5.setValue([
+            "name" : "Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market)",
+            "address": "Blk 724, Ang Mo Kio Ave 6, Singapore 560724",
+            "description" : "Located conveniently in the heart of the bustling Ang Mo Kio Town Centre, the hawker centre is always packed with patrons, especially during the weekends. Be prepared to queue for your favourite food at popular stalls!",
+            "latitude" : "1.37204003",
+            "longitude" : "103.8464966"
+            ]
+        )
+        let ref6 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(6)/")
+        ref6.setValue([
+            "name" : "Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre)",
+            "address": "Blk 527, Ang Mo Kio Ave 10, Singapore 560527",
+            "description" : "Commonly known as Cheng San Market and Cooked Food Centre, Blk 527 Ang Mo Kio Ave 10 is one of the three hawker centres located along Ang Mo Kio Ave 10. The hawker centre was built in 1979 to serve the dining and marketing needs of nearby residents. Upgraded in 2004, it houses 50 cooked food stalls and 100 market stalls.",
+            "latitude" : "1.37270999",
+            "longitude" : "103.8544464"
+            ]
+        )
+        let ref7 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(7)/")
+        ref7.setValue([
+            "name" : "Ang Mo Kio Ave 1 Blk 341 (Teck Ghee Court)",
+            "address": "Blk 341, Ang Mo Kio Ave 1, Singapore 560341",
+            "description" : "Located in the heart of Teck Ghee estate and opposite Bishan Park, the 32 cooked food stalls and 86 market stalls within the hawker centre remain a popular choice among patrons despite the availability of alternative marketing and dining facilities nearby. Popular local dishes are whipped up daily to satisfy patrons' desires for good food!",
+            "latitude" : "1.36416996",
+            "longitude" : "103.84832"
+            ]
+        )
+        let ref8 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(8)/")
+        ref8.setValue([
+            "name" : "Ang Mo Kio Ave 10 Blk 409 (Teck Ghee Square)",
+            "address": "Blk 409, Ang Mo Kio Ave 10, Singapore 560409",
+            "description" : "Also known as Teck Ghee Square, it is one of the three hawker centres that are situated along Ang Mo Kio Ave 10. Built in 1979, the hawker centre comprises 40 cooked food stalls and 148 market stalls.",
+            "latitude" : "1.36273003",
+            "longitude" : "103.8553772"
+            ]
+        )
+        let ref9 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(9)/")
+        ref9.setValue([
+            "name" : "Ang Mo Kio Ave 10 Blk 453A (Chong Boon Market and Food Centre)",
+            "address": "Blk 453A, Ang Mo Kio Ave 10, Singapore 561453",
+            "description" : "Built in 1979, the hawker centre at Blk 453A Ang Mo Kio Ave 10 consists of 38 cooked food stalls and 184 market stalls.",
+            "latitude" : "1.36829995999999",
+            "longitude" : "103.8564377"
+            ]
+        )
+        let ref10 = FirebaseDatabase.Database.database().reference().child("HawkerCentres/\(10)/")
+        ref10.setValue([
+            "name" : "Chomp Chomp Food Centre",
+            "address": "20, Kensington Park Road, Singapore 557269",
+            "description" : "Located in Serangoon Gardens, Chomp Chomp Food Centre is well-known for its vibrant dinner and supper scene. Bustling with diners even till late at night, the 36 cooked food stalls in the small hawker centre serve popular local dishes such as Char Kway Teow, BBQ Chicken Wings, Seafood etc. This Centre attracts food lovers from all over the island.",
+            "latitude" : "1.36422801",
+            "longitude" : "103.8665314"
             ]
         )
     }

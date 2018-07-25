@@ -15,8 +15,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var mealsperdayTextField: UITextField!
     @IBOutlet weak var mealtimingsTextField: UITextField!
-    @IBOutlet weak var remindersTextField: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
+    @IBOutlet weak var remindersSwitch: UISwitch!
     
     var picker1 = UIPickerView()
     var picker3 = UIPickerView()
@@ -34,32 +34,38 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var dataReminders = ["Yes", "No"]
     
     var planpreferences = [UserPlanPreferences]()
-    
-    var preferences = ["test", "Vegan", "Lose Weight", "2 Weeks", "3", "2 Hours", "Yes"]
-    var username = "1"
+    var username = ""
+    var totalCalories: Int = 0
+    var meal: [Meal] = []
+    var lastPID: Int = 0
+    var reminders: String = "Yes"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.username = AuthenticateUser.getUID()
+        self.loadMeals()
+        self.loadCalories()
+        self.loadLastPlanID()
+        
         
         picker1.delegate = self
         picker3.delegate = self
         picker4.delegate = self
         picker5.delegate = self
-        picker6.delegate = self
+
         
         picker1.dataSource = self
         picker3.dataSource = self
         picker4.dataSource = self
         picker5.dataSource = self
-        picker6.dataSource = self
+   
         
         picker1.tag = 1
         picker3.tag = 3
         picker4.tag = 4
         picker5.tag = 5
-        picker6.tag = 6
+ 
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
@@ -69,7 +75,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         durationTextField.inputView = picker3
         mealsperdayTextField.inputView = picker4
         mealtimingsTextField.inputView = picker5
-        remindersTextField.inputView = picker6
         startDateTextField.inputView = datePicker
         
         
@@ -118,9 +123,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         else if pickerView.tag == 5 {
             return dataMealsT.count
         }
-        else if pickerView.tag == 6 {
-            return dataReminders.count
-        }
         else {
             return dataPlan.count
         }
@@ -143,10 +145,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             mealtimingsTextField.text = dataMealsT[row]
             view.endEditing(true)
         }
-        else if pickerView.tag == 6 {
-            remindersTextField.text = dataReminders[row]
-            view.endEditing(true)
-        }
     }
     
     
@@ -163,9 +161,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         else if pickerView.tag == 5 {
             return dataMealsT[row]
         }
-        else if pickerView.tag == 6 {
-            return dataReminders[row]
-        }
         else {
             return dataPlan[row]
         }
@@ -180,7 +175,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             durationTextField.text == "" ||
             mealsperdayTextField.text == "" ||
             mealtimingsTextField.text == "" ||
-            remindersTextField.text == "" ||
             startDateTextField.text == "") {
             let alert = UIAlertController(title: "Please fill in all fields", message: "", preferredStyle: .alert)
             alert.addAction(
@@ -214,13 +208,12 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let dietplan = planTextField.text
             let mpd = Int(mealsperdayTextField.text!)
             let mti = mealtimingsTextField.text
-            let reminders = remindersTextField.text
             let startDate = startDateTextField.text
             
-            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, mti!, reminders!, startDate!)
+            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, mti!, reminders, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
-            
+            RecommendMeal.createMealPlan(meals: meal, username: username, pID: lastPID, totalCalories: totalCalories)
             
             performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
         }
@@ -228,5 +221,33 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
      // MARK: - Functions
+    func loadMeals() {
+        DietaryPlanDataManagerFirebase.loadMeals(){
+            mealListFromFirebase in
+            self.meal = mealListFromFirebase
+        }
+    }
+    
+    func loadCalories(){
+        NutrInfo().calReccCalories() {
+            recCaloriesFromFirebase in
+            self.totalCalories = recCaloriesFromFirebase
+        }
+    }
+    
+    func loadLastPlanID(){
+        DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
+            planIDFromFirebase in
+            self.lastPID = planIDFromFirebase
+        }
+    }
+    @IBAction func switchChanged(_ sender: Any) {
+        if (remindersSwitch.isOn) {
+            reminders = "Yes"
+        }
+        else {
+            reminders = "No"
+        }
+    }
     
 }

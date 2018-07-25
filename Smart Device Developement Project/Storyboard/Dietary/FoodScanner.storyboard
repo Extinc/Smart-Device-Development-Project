@@ -221,6 +221,9 @@
                                         <state key="normal" title="Add">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMeal:" destination="o9Z-iL-bkE" eventType="touchUpInside" id="F2N-Ma-KHE"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EL1-jC-R78">
                                         <rect key="frame" x="8" y="148" width="113" height="24"/>

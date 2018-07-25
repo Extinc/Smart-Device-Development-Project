@@ -10,8 +10,12 @@ import UIKit
 
 class FoodViewController: UIViewController {
 
+    var mName: String?
     var img: UIImage?
     var cal: Float?
+    var mealInfo: [MealPlan] = []
+    var meal: [Meal] = []
+    var id: Int?
     
     @IBOutlet weak var mealImg: UIImageView!
     @IBOutlet weak var calories: UILabel!
@@ -30,6 +34,27 @@ class FoodViewController: UIViewController {
     }
     
     @IBAction func closePopUp(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addMeal(_ sender: Any) {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let todayDate = formatter.string(from: date)
+        
+        mealInfo[0].planID = self.id
+        mealInfo[0].username = AuthenticateUser.getUID()
+        mealInfo[0].date = todayDate
+        mealInfo[0].mealID = meal[0].mealID
+        mealInfo[0].mealName = meal[0].name
+        mealInfo[0].mealImage = meal[0].mealImage
+        mealInfo[0].calories = meal[0].calories
+        mealInfo[0].recipeImage = meal[0].recipeImage
+        mealInfo[0].isDiary = "Yes"
+            
+        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
+        
         self.dismiss(animated: true, completion: nil)
     }
     

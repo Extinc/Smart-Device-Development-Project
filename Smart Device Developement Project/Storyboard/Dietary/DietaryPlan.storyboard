@@ -189,7 +189,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WP9-Md-aqS" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" id="7Bv-eJ-mKU"/>
                             <constraint firstItem="ktH-q7-DGE" firstAttribute="leading" secondItem="BVd-YT-BGP" secondAttribute="leading" constant="20" id="7DH-XL-C8J"/>
@@ -610,24 +610,25 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OBY-g6-Qtq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OBY-g6-Qtq">
                                         <rect key="frame" x="0.0" y="502.66666666666657" width="414" height="100.33333333333331"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders before Meals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnE-qg-0ik">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders before Meals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnE-qg-0ik">
+                                                <rect key="frame" x="0.0" y="40" width="334" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBT-bZ-7JN">
-                                                <rect key="frame" x="0.0" y="50.333333333333371" width="414" height="50"/>
+                                            <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Hg-Su-p6T">
+                                                <rect key="frame" x="334" y="34.666666666666742" width="82" height="31"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="TAl-mR-DI7"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="WMk-vT-7Z2"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="cEV-x2-ZJ1"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <connections>
+                                                    <action selector="switchChanged:" destination="DUt-rP-HKx" eventType="valueChanged" id="jDf-de-1FF"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -654,7 +655,7 @@
                         <outlet property="mealsperdayTextField" destination="G8j-H2-PCP" id="zf9-du-BDB"/>
                         <outlet property="mealtimingsTextField" destination="mU0-kd-d4f" id="NNW-AR-waF"/>
                         <outlet property="planTextField" destination="TwI-kE-d50" id="arw-Dl-AxK"/>
-                        <outlet property="remindersTextField" destination="CBT-bZ-7JN" id="vwe-um-4yn"/>
+                        <outlet property="remindersSwitch" destination="0Hg-Su-p6T" id="iVx-lU-dZy"/>
                         <outlet property="startDateTextField" destination="4S8-OD-fm4" id="Of3-n3-JZu"/>
                         <segue destination="Cjv-Dy-B1G" kind="unwind" identifier="unwindSegueToDPC" unwindAction="unwindToDietaryPlanControllerWithSegue:" id="Qtk-YI-pw6"/>
                     </connections>

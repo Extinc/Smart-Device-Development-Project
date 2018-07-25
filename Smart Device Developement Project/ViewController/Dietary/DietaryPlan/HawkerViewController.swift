@@ -40,7 +40,7 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     // MARK: - Segment changed
     @IBAction func segmentChanged(_ sender: Any) {
-        hawkerMapView.removeAnnotation(hawkerMapView.annotations)
+        hawkerMapView.removeAnnotation(hawkerMapView.annotations as! MKAnnotation)
         if (hawkerSegment.selectedSegmentIndex == 0 ){
             loadPointersWithMeal()
         }
@@ -62,11 +62,11 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     // MARK: - Functions
     
     func loadPointersWithMeal(){
-        for i in 0...self.hawkerCentresWithMeal.count - 1
+        for i in 0...self.hawkerCenteresWithMeal.count - 1
         {
             let p = MKPointAnnotation()
-            p.coordinate = CLLocationCoordinate2D(latitude: self.hawkerCentresWithMeal[i].latitude!, longitude: self.hawkerCentresWithMeal[i].longitude!)
-            p.title = self.hawkerCentresWithMeal[i].hawkerName
+            p.coordinate = CLLocationCoordinate2D(latitude: self.hawkerCenteresWithMeal[i].latitude!, longitude: self.hawkerCenteresWithMeal[i].longitude!)
+            p.title = self.hawkerCenteresWithMeal[i].hawkerName
             self.hawkerMapView.addAnnotation(p)
         }
     }

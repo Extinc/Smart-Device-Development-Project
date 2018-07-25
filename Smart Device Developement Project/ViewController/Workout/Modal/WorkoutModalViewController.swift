@@ -12,6 +12,7 @@ class WorkoutModalViewController: UIViewController {
 
     @IBOutlet weak var addBtn: MDCFloatingButton!
     
+    @IBOutlet weak var modalView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +21,8 @@ class WorkoutModalViewController: UIViewController {
         self.view.isOpaque = false
         self.showAnimate()
         LifestyleTheme.styleFloatBtn(btn: addBtn, title: "", pColor: Colors.PrimaryColor())
+        
+        modalView.isOpaque = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +33,9 @@ class WorkoutModalViewController: UIViewController {
     func showAnimate()
     {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0.8;
+        self.view.alpha = 1;
         UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 0.8
+            self.view.alpha = 1		
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });
         

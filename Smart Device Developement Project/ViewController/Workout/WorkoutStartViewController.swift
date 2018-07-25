@@ -75,8 +75,9 @@ extension WorkoutStartViewController: MZTimerLabelDelegate {
 //        let controller = storyboard.instantiateViewController(withIdentifier: "WorkoutModalViewController")
 //        self.present(controller, animated: true) {
 //        }
-        if let vc = UIStoryboard(name: "WorkoutModal", bundle: nil).instantiateViewController(withIdentifier: "WorkoutModalViewController") as? WorkoutModalViewController
+        if let vc = UIStoryboard(name: "Workout", bundle: nil).instantiateViewController(withIdentifier: "WorkoutModal") as? WorkoutModalViewController
         {
+            vc.modalPresentationStyle = .overCurrentContext
             present(vc, animated: true, completion: nil)
         }
     }

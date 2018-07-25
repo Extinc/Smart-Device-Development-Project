@@ -52,7 +52,7 @@ class RunningDataManager: NSObject {
             "lap5distance TEXT DEFAULT '0'," +
             "Runlogitude TEXT DEFAULT '0'," +
             "Runlatitude TEXT DEFAULT '0'," +
-            "userID TEXT DEFAULT '0'," +
+            "userID TEXT," +
             "totalcaloriesburnt DOUBLE DEFAULT '0'," +
             "sessionComplete INTEGER default 0," +
             "scheduleID INTEGER, " +

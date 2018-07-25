@@ -12,12 +12,13 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
 
     @IBOutlet weak var tableview: UITableView!
     var authUID = AuthenticateUser.getUID()
-   // var runningsections : [Session] = RunningDataManager.loadallsession("hello")
-   var runningsections : [Session] {
+    var runningsections : [Session] = RunningDataManager.loadallsession("authUID")
+   /* var runningsections : [Session] {
         get{
             return RunningDataManager.loadallsession(authUID)
        }
         }
+ */
     var selectedid : Int = 0
     
     override func viewDidLoad() {

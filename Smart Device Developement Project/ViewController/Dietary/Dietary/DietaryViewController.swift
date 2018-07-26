@@ -30,7 +30,7 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    var pickerData: [String] = ["Lose Weight", "Gain Weight"]
+    var pickerData: [String] = ["None","Lose Weight", "Gain Weight"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +38,23 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         NutrInfo().calReccCalories(){
             cal in
             self.reccCal.text = cal.description
+            
+            let calories = Double(cal)
+            let percent = (1500.0/calories)*100
+            let angle = (360/100)*percent
+            self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
+            self.intakeCal.text = "1500"
+            
+            if(self.picker.selectedRow(inComponent: 0) == 1){
+                print("loseweight")
+            }
+            else{
+                print("none")
+            }
         }
         
         self.picker.dataSource = self;
         self.picker.delegate = self;
-        
-        progressBar.animate(fromAngle: progressBar.angle, toAngle: 0, duration: 0.5, completion: nil)
         
     }
 

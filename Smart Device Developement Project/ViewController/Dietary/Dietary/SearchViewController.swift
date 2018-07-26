@@ -13,7 +13,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var mealList: [Meal] = []
     var searchActive : Bool = false
     var filtered:[Meal] = []
-    var lastID: Int?
+    
+    let popup = UIStoryboard(name: "FoodScanner", bundle: nil).instantiateViewController(withIdentifier: "popupMeal") as! FoodViewController
 
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -27,11 +28,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             
             DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
                 id in
-                
-                self.lastID = id
-                
-                self.tableView.reloadData()
+                self.popup.id = id
             }
+            self.tableView.reloadData()
         }
         
         search.delegate = self
@@ -68,12 +67,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let popup = UIStoryboard(name: "FoodScanner", bundle: nil).instantiateViewController(withIdentifier: "popupMeal") as! FoodViewController
+        
         popup.img = UIImage(named: mealList[indexPath.row].mealImage!)
         popup.cal = mealList[indexPath.row].calories
         popup.mName = mealList[indexPath.row].name
-        popup.meal = mealList[indexPath.row]
-        popup.id = lastID
+        popup.meal = [mealList[indexPath.row]]
         /*self.addChildViewController(popup)
         popup.view.frame = self.view.frame
         self.view.addSubview(popup.view)

@@ -43,17 +43,17 @@ class FoodViewController: UIViewController {
         formatter.dateFormat = "dd/MM/yyyy"
         let todayDate = formatter.string(from: date)
         
-        mealInfo[0].planID = self.id
-        mealInfo[0].username = AuthenticateUser.getUID()
-        mealInfo[0].date = todayDate
-        mealInfo[0].mealID = meal[0].mealID
-        mealInfo[0].mealName = meal[0].name
-        mealInfo[0].mealImage = meal[0].mealImage
-        mealInfo[0].calories = meal[0].calories
-        mealInfo[0].recipeImage = meal[0].recipeImage
-        mealInfo[0].isDiary = "Yes"
-            
-        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
+        var mealInfo: [MealPlan] = []
+        let username = AuthenticateUser.getUID()
+        let mealID = meal[0].mealID
+        let mealName = meal[0].name
+        let mealImage = meal[0].mealImage
+        let calories = meal[0].calories
+        let recipeImage = meal[0].recipeImage
+        
+        mealInfo.insert(MealPlan(self.id!, username, todayDate, mealID!, mealName!, mealImage!, calories!, recipeImage!, "Yes" ), at: 0)
+        print(self.id!)
+        //DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
         
         self.dismiss(animated: true, completion: nil)
     }

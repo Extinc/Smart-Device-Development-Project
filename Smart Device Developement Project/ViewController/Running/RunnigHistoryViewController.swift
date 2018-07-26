@@ -11,8 +11,9 @@ import UIKit
 class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate {
 
     @IBOutlet weak var tableview: UITableView!
-    var authUID = AuthenticateUser.getUID()
-    var runningsections : [Session] = RunningDataManager.loadallsession("authUID")
+    
+    var authUID: String = ""
+    var runningsections: [Session] = [] 
    /* var runningsections : [Session] {
         get{
             return RunningDataManager.loadallsession(authUID)
@@ -24,6 +25,8 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        authUID = AuthenticateUser.getUID()
+        runningsections = RunningDataManager.loadallsession(authUID)
         // Do any additional setup after loading the view.
     }
 

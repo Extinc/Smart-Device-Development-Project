@@ -55,6 +55,7 @@
 		69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BE096B20DB6E980008BF25 /* MealPlan.swift */; };
 		69BE096E20DB6EEE0008BF25 /* DietaryPlanDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BE096D20DB6EED0008BF25 /* DietaryPlanDataManager.swift */; };
 		69D026DB20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D026DA20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift */; };
+		69E13BA4210A0045004630E5 /* checkForHawker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E13BA3210A0045004630E5 /* checkForHawker.swift */; };
 		69E22A2220F0E4F40054D552 /* RecommendMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E22A2120F0E4F40054D552 /* RecommendMeal.swift */; };
 		69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761820DFCBE900688C7A /* ViewMealViewController.swift */; };
 		69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */; };
@@ -173,6 +174,7 @@
 		69BE096B20DB6E980008BF25 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
 		69BE096D20DB6EED0008BF25 /* DietaryPlanDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanDataManager.swift; sourceTree = "<group>"; };
 		69D026DA20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlanDataManagerFirebase.swift; sourceTree = "<group>"; };
+		69E13BA3210A0045004630E5 /* checkForHawker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkForHawker.swift; sourceTree = "<group>"; };
 		69E22A2120F0E4F40054D552 /* RecommendMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMeal.swift; sourceTree = "<group>"; };
 		69F9761820DFCBE900688C7A /* ViewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMealViewController.swift; sourceTree = "<group>"; };
 		69F9761A20DFCD5A00688C7A /* MealTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypesViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				69E22A2120F0E4F40054D552 /* RecommendMeal.swift */,
 				F192FE7620F25801005C76E8 /* NutrInfo.swift */,
 				5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */,
+				69E13BA3210A0045004630E5 /* checkForHawker.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
 				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				5116A7D020FDC551006C2EA3 /* HawkerCentres.swift in Sources */,
+				69E13BA4210A0045004630E5 /* checkForHawker.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
 				9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,

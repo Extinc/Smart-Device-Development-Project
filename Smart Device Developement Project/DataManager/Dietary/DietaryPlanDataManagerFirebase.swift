@@ -32,12 +32,35 @@ class DietaryPlanDataManagerFirebase: NSObject {
                     let sodium = Float(r.childSnapshot(forPath: "sodium").value as! String)!
                     let ingredients = r.childSnapshot(forPath: "ingredients").value as! String
                     let imageRecipe = r.childSnapshot(forPath: "imageRecipe").value as! String
-                    mealList.append(Meal(id, image, name, calories, carbohydrates, protein, fat, sodium, ingredients, imageRecipe))
+                    let hawkercentres = r.childSnapshot(forPath: "hawkercentres").value as! String
+                    mealList.append(Meal(id, image, name, calories, carbohydrates, protein, fat, sodium, ingredients, imageRecipe, hawkercentres))
                 }
             onComplete(mealList)
         })
+    }
+    
+    static func loadOneMeal(onComplete: @escaping (Meal) -> Void){
         
-        
+        var meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
+        let ref = FirebaseDatabase.Database.database().reference().child("Meal/")
+        ref.observeSingleEvent(of: .value, with:{(snapshot) in
+            for record in snapshot.children {
+                let r = record as! DataSnapshot
+                let id = Int(r.key)!
+                let image = r.childSnapshot(forPath: "image").value as! String
+                let name = r.childSnapshot(forPath: "name").value as! String
+                let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
+                let carbohydrates = Float(r.childSnapshot(forPath: "carbohydrates").value as! String)!
+                let protein = Float(r.childSnapshot(forPath: "protein").value as! String)!
+                let fat = Float(r.childSnapshot(forPath: "fat").value as! String)!
+                let sodium = Float(r.childSnapshot(forPath: "sodium").value as! String)!
+                let ingredients = r.childSnapshot(forPath: "ingredients").value as! String
+                let imageRecipe = r.childSnapshot(forPath: "imageRecipe").value as! String
+                let hawkercentres = r.childSnapshot(forPath: "hawkercentres").value as! String
+                meal = Meal(id, image, name, calories, carbohydrates, protein, fat, sodium, ingredients, imageRecipe, hawkercentres)
+            }
+            onComplete(meal)
+        })
     }
     
     //Create / Update
@@ -52,7 +75,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "16.5",
             "sodium" : "1112.23",
             "ingredients" : "Chicken breast, ginger, white rice, brown rice, canola oil, garlic, Pandan leaf, sesame oil, chicken seasoning powder",
-            "imageRecipe" : "chickenricerecipe"
+            "imageRecipe" : "chickenricerecipe",
+            "hawkercentres" : "1, 2, 5, 9"
             ]
         )
         
@@ -66,7 +90,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "26.74",
             "sodium" : "1937.08",
             "ingredients" : "Daikon, Vegetable oil, salt, white pepper, rice flour, eggs, garlic, soy sauce, Sriracha, Scallions, cilantro",
-            "imageRecipe" : "blackcarrotcakerecipe"
+            "imageRecipe" : "blackcarrotcakerecipe",
+            "hawkercentres" : "2, 3, 4, 5, 9"
             ])
         
         let ref3 = FirebaseDatabase.Database.database().reference().child("Meal/\(3)/")
@@ -79,7 +104,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "5.5",
             "sodium" : "300",
             "ingredients" : "wholegrain pasta, corn, celery, olive oil, chicken breast, chilli powder, chicken seasoning, pepper, tomatoes, lime, parsley",
-            "imageRecipe" : "chillichickenpastarecipe"
+            "imageRecipe" : "chillichickenpastarecipe",
+            "hawkercentres" : "1, 4, 6, 8"
             
             ])
         
@@ -93,7 +119,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "12.8",
             "sodium" : "350",
             "ingredients" : "chicken leg, onions, chilli powder, turmeric powder, green capsicum, salt, pepper, sunflower oil, evaporated milk, curry leaves",
-            "imageRecipe" : "currychickenrecipe"
+            "imageRecipe" : "currychickenrecipe",
+            "hawkercentres" : "1, 2, 5, 6, 7"
             ])
         
         let ref5 = FirebaseDatabase.Database.database().reference().child("Meal/\(5)/")
@@ -106,7 +133,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "12.4",
             "sodium" : "310",
             "ingredients" : "olive oil, garlic, minced meat, chinese olives, long beans, brown rice, basmati rice, red chilli, cashews, sesame oil",
-            "imageRecipe" : "friedolivericerecipe"
+            "imageRecipe" : "friedolivericerecipe",
+            "hawkercentres" : "2, 3, 4, 5, 6, 9"
             ])
         
         let ref6 = FirebaseDatabase.Database.database().reference().child("Meal/\(6)/")
@@ -119,7 +147,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "7.2",
             "sodium" : "370",
             "ingredients" : "canola oil, chilli paste, garlic, shallots, dried shrimp, minced meat, prawns, chye sim, yellow noodles, cabbage, bean sprouts, tomato sauce, stalks onions",
-            "imageRecipe" : "meegorengrecipe"
+            "imageRecipe" : "meegorengrecipe",
+            "hawkercentres" : "1, 2, 3, 4, 5, 6, 7, 8, 9"
             ])
         
         let ref7 = FirebaseDatabase.Database.database().reference().child("Meal/\(7)/")
@@ -132,7 +161,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "3.4",
             "sodium" : "800.5",
             "ingredients" : "tomato pasta sauce, wholemeal bread, low-fat cheese, chicken cubes, white mushroom, eggplant, capsicum",
-            "imageRecipe" : "minipizzasrecipe"
+            "imageRecipe" : "minipizzasrecipe",
+            "hawkercentres" : "1, 4, 7, 8"
             ])
         
         let ref8 = FirebaseDatabase.Database.database().reference().child("Meal/\(8)/")
@@ -145,7 +175,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "11.9",
             "sodium" : "480",
             "ingredients" : "Sardines, canola oil, onion, garlic, vegetables, rice, pepper, eggs",
-            "imageRecipe" : "sardinefriedricerecipe"
+            "imageRecipe" : "sardinefriedricerecipe",
+            "hawkercentres" : "1, 2, 4, 5"
             ])
         
         let ref9 = FirebaseDatabase.Database.database().reference().child("Meal/\(9)/")
@@ -158,7 +189,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "8.8",
             "sodium" : "470",
             "ingredients" : "fish fillet, brown rice bee hoon, tomatoes, spring onions, ginger, corn oil, sesame oil, evaporated milk, fish stock seasoning, pepper",
-            "imageRecipe" : "beehoonsouprecipe"
+            "imageRecipe" : "beehoonsouprecipe",
+            "hawkercentres" : "1, 2, 3, 4, 7, 9"
             ])
         
         let ref10 = FirebaseDatabase.Database.database().reference().child("Meal/\(10)/")
@@ -171,7 +203,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "fat" : "13.4",
             "sodium" : "375",
             "ingredients" : "capsicum, canola oil, salmon fillet, teriyaki marinade, black and white sesame seeds, wholemeal pasta, olive oil, cucumber, lime, pepper",
-            "imageRecipe" : "salmonpastarecipe"
+            "imageRecipe" : "salmonpastarecipe",
+            "hawkercentres" : "4, 7, 8, 9"
             ])
         
         
@@ -247,6 +280,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 for record in snapshot.children{
                     let r = record as! DataSnapshot
                     let id = Int(r.key)!
+                    planid = id
                 }
                 onComplete(planid)
         })

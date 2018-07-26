@@ -17,14 +17,15 @@ class RecommendMeal: NSObject {
         let planType = preferences.mealPlanType!
         let planDays: Int = Int(preferences.duration!)!
         var dateComponent = DateComponents()
-    
+        let daysToAdd = 1
         var currentDate = preferences.startDate!
-        
         
         for i in 0...planDays {
             
             dateComponent.day = i
-            //currentDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
+            dateComponent.month = 0
+            dateComponent.year = 0
+            
             
             if (planType == "Gluten Free"){
                 plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
@@ -35,9 +36,10 @@ class RecommendMeal: NSObject {
             else if (planType == "Keto") {
                 plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
             }
-            else if(planType == "Vegan"){
-                
+            else if (planType == "Normal"){
+                plan = normalPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
             }
+          
             DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
         }
 
@@ -210,6 +212,18 @@ class RecommendMeal: NSObject {
         }
         
         return plan
+    }
+    
+    static func normalPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan] {
+        
+        var plan: [MealPlan] = []
+        return plan
+    }
+    
+    static func getSimilarMeal(meal: Meal) -> [Meal]{
+        var newMeals: [Meal] = []
+        
+        return newMeals
     }
     
     

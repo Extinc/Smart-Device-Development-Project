@@ -47,8 +47,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         dateTextField.text = todayDate
         selectedDate = dateTextField.text!
         
-        DietaryPlanDataManagerFirebase.createMealData()
+       
         self.username = AuthenticateUser.getUID()
+        
         
         //Firebase load meals and plans
         DispatchQueue.main.async {
@@ -145,55 +146,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         
         return cell
     }
-
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let selectedMealPlan: MealPlan = mealPlans[indexPath.section][indexPath.row]
-        
-        let editAction = UITableViewRowAction(style: .default, title: "Edit"){(action, indexPath) in
-            self.updateAction(mealPlan: selectedMealPlan, indexPath: indexPath)
-        }
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete"){(action, indexPath) in
-            self.deleteAction(mealPlan: selectedMealPlan, indexPath: indexPath)
-        }
-        
-        editAction.backgroundColor = .blue
-        deleteAction.backgroundColor = .red
-        return[deleteAction, editAction]
-        
-    }
-    
-    private func updateAction(mealPlan: MealPlan, indexPath: IndexPath){
-        let alert = UIAlertController(title: "Change Meal",
-                                      message: "Are you sure you want to change this meal to another meal?",
-                                      preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            self.mealPlans.remove(at: indexPath.row)
-            self.tableView?.deleteRows(at: [indexPath], with: .automatic)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
-    private func deleteAction(mealPlan: MealPlan, indexPath: IndexPath){
-        let alert = UIAlertController(title: "Delete",
-                                      message: "Are you sure you want to remove this meal from meal plan?",
-                                      preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            DietaryPlanDataManagerFirebase.deleteMealPlan(mealPlan)
-            self.mealPlans.remove(at: indexPath.row)
-            self.tableView?.deleteRows(at: [indexPath], with: .automatic)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue,
@@ -211,9 +163,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                 // Set the mealItem field with the meal
                 // object selected by the user.
                 //
-                let recipeImage: String = mealPlans[myIndexPath!.section][myIndexPath!.row].recipeImage!
-                print(recipeImage)
-                ViewMealViewController.imageName = recipeImage
+                let selectedMeal: MealPlan = mealPlans[myIndexPath!.section][myIndexPath!.row]
+                ViewMealViewController.mealPlan = selectedMeal
+                ViewMealViewController.meals = meal
 
             }
         }

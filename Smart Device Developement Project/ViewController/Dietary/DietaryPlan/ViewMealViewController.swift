@@ -12,8 +12,8 @@ class ViewMealViewController: UIViewController {
   
 
     @IBOutlet weak var recipeImage: UIImageView!
-    var imageName: String = ""
-    
+    var mealPlan: MealPlan = MealPlan(0, "", "", 0, "", "", 0, "", "")
+    var meals: [Meal] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,17 +26,26 @@ class ViewMealViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        recipeImage.image = UIImage(named: imageName)
+        recipeImage.image = UIImage(named: mealPlan.mealImage!)
     }
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?)
+    {
+        let mealid: Int = mealPlan.mealID!
+        if(segue.identifier == "showHawkerSegue")
+        {
+            let ViewHawkerViewController =
+                segue.destination as! HawkerViewController
+            
+            ViewHawkerViewController.mealID = mealid 
+            
+        }
+        else if(segue.identifier == "editMealSegue"){
+            let ChangeMealViewController = segue.destination as! ChangeMealViewController
+            
+        }
     }
-    */
-
 }

@@ -26,7 +26,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var datePicker: UIDatePicker?
     
     
-    var dataPlan = ["Vegan", "Gluten Free", "Keto", "Dash"]
+    var dataPlan = ["Normal", "Gluten Free", "Keto", "Dash"]
     var dataGoals = ["Gain Weight", "Lose Weight", "Maintain Weight"]
     var dataDuration = ["1 Week", "2 Weeks", "1 Month", "3 Months", "6 Months"]
     var dataMealsPD = ["1", "2", "3", "4", "5", "6"]

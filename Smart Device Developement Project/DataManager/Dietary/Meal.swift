@@ -19,8 +19,9 @@ class Meal: NSObject {
     var sodium: Float?
     var ingredients: String?
     var recipeImage: String?
+    var hawkercentres: String?
     
-    init(_ mealID: Int,_ mealImage: String, _ name: String, _ calories: Float, _ carbohydrates: Float, _ protein: Float, _ fat: Float, _ sodium: Float, _ ingredients: String, _ recipeImage: String ){
+    init(_ mealID: Int,_ mealImage: String, _ name: String, _ calories: Float, _ carbohydrates: Float, _ protein: Float, _ fat: Float, _ sodium: Float, _ ingredients: String, _ recipeImage: String, _ hawkercentres: String ){
         self.mealID = mealID
         self.mealImage = mealImage
         self.name = name
@@ -31,5 +32,6 @@ class Meal: NSObject {
         self.sodium = sodium
         self.ingredients = ingredients
         self.recipeImage = recipeImage
+        self.hawkercentres = hawkercentres 
     }
 }

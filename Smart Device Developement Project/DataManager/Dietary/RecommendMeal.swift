@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class RecommendMeal: NSObject {
     
@@ -214,18 +215,63 @@ class RecommendMeal: NSObject {
         return plan
     }
     
+    //Normal Plan
     static func normalPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan] {
-        
         var plan: [MealPlan] = []
+       
+        let Count = meals.count - 1
+        var mealIDBefore: [Int] = []
+        var mealList: [Meal] = []
+        let eachMealCalories: Float = totalCalories / Float(planPreferences.mealsperday!)
+        
+        //check if over calories & sodium amount
+        for i in 0...Count {
+            if(meals[i].calories! <= eachMealCalories) {
+                    mealIDBefore.append(i)
+            }
+        }
+        
+        for a in 0...planPreferences.mealsperday! - 1 {
+            let randomNumber = Int(arc4random_uniform(UInt32(mealIDBefore.count-1)))
+            let mealId = mealIDBefore[randomNumber]
+            mealIDBefore.remove(at: randomNumber)
+            mealList.append(meals[mealId])
+        }
+        
+        let mealListCount: Int = mealList.count - 1
+        var planID: Int = pID + 1
+        //Append into Meal Plan List
+        for b in 0...mealListCount{
+            let username = "1"
+            let mealID = mealList[b].mealID
+            let mealName = mealList[b].name
+            let mealImage = mealList[b].mealImage
+            let calories = mealList[b].calories
+            let recipeImage = mealList[b].recipeImage
+            
+            
+            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
+            planID = planID + 1
+        }
+        
         return plan
     }
     
     static func getSimilarMeal(meal: Meal) -> [Meal]{
         var newMeals: [Meal] = []
         
+        
         return newMeals
     }
     
+    static func makeNotiContent() -> UNMutableNotificationContent{
+        let content = UNMutableNotificationContent()
+        content.title = ""
+        content.body = ""
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        return content
+    }
     
     
 }

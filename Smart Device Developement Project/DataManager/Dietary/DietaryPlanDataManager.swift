@@ -84,7 +84,7 @@ class DietaryPlanDataManager: NSObject {
     static func countPreferences(userName: String) -> Int {
         var preferences : [UserPlanPreferences] = []
         let userpreferences = SQLiteDB.sharedInstance.query(sql:
-            "SELECT username, mealplantype, goals, duration, mealsperday, mealtiming, reminders, startDate" +
+            "SELECT COUNT(username) as planCount" +
             " FROM userPlanPreferences" +
             " WHERE username = ?",
             parameters: [userName]
@@ -92,7 +92,7 @@ class DietaryPlanDataManager: NSObject {
         
         var count = 0
         for row in userpreferences {
-            count += 1
+            count = row["planCount"] as! Int
         }
         
         return count

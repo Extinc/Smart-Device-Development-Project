@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import UserNotifications
+
 
 class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
 
@@ -39,9 +40,18 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var meal: [Meal] = []
     var lastPID: Int = 0
     var reminders: String = "Yes"
+    var isGrantedNotificationAccess = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
+            (granted, error) in
+            self.isGrantedNotificationAccess = granted
+            if !granted {
+                //add alert to complain to user
+            }
+        }
         
         self.username = AuthenticateUser.getUID()
         self.loadMeals()
@@ -82,8 +92,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         //when user taps, usually keyboard comes up, disables the keyboard coming up
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PlanOptionsViewController.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
-        
-        
         
         
     }
@@ -171,6 +179,12 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     // MARK: - Navigation
 
     @IBAction func goBackToDPC(_ sender: Any) {
+        
+        if isGrantedNotificationAccess{
+            let content = RecommendMeal.makeNotiContent()
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 500, repeats: true)
+        }
+        
         if (planTextField.text == "" ||
             durationTextField.text == "" ||
             mealsperdayTextField.text == "" ||

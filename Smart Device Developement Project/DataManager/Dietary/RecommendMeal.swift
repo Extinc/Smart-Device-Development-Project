@@ -257,9 +257,13 @@ class RecommendMeal: NSObject {
         return plan
     }
     
-    static func getSimilarMeal(meal: Meal) -> [Meal]{
+    static func getSimilarMeal(meal: Meal, meals: [Meal]) -> [Meal]{
         var newMeals: [Meal] = []
-        
+        for i in 0...meals.count - 1 {
+            if(meal.calories == meals[i].calories || (meals[i].calories?.isLess(than: meal.calories!))!){
+                newMeals.append(meals[i])
+            }
+        }
         
         return newMeals
     }

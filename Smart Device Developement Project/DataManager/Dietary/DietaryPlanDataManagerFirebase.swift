@@ -39,10 +39,10 @@ class DietaryPlanDataManagerFirebase: NSObject {
         })
     }
     
-    static func loadOneMeal(onComplete: @escaping (Meal) -> Void){
+    static func loadOneMeal(id: Int, onComplete: @escaping (Meal) -> Void){
         
         var meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
-        let ref = FirebaseDatabase.Database.database().reference().child("Meal/")
+        let ref = FirebaseDatabase.Database.database().reference().child("Meal").child("id")
         ref.observeSingleEvent(of: .value, with:{(snapshot) in
             for record in snapshot.children {
                 let r = record as! DataSnapshot

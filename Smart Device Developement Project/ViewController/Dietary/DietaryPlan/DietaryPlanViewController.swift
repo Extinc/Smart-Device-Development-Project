@@ -16,7 +16,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var generatePlanButton: UIButton!
     @IBOutlet weak var loadMealsButton: UIButton!
-    @IBOutlet var editMealButton: UIButton!
+    @IBOutlet weak var notifyLabel: UILabel!
     
     private var datePicker: UIDatePicker?
     
@@ -42,8 +42,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         let date = Date()
         let formatter = DateFormatter()

@@ -71,7 +71,7 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     func loadOneMeal(){
-        DietaryPlanDataManagerFirebase.loadOneMeal(){
+        DietaryPlanDataManagerFirebase.loadOneMeal(id: mealID){
             mealFromFirebase in
             self.meal = mealFromFirebase
         }

@@ -13,8 +13,8 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButton: UIButton!
     
-    var meals: [Meal] = []
-    var mealID : Int = 0
+    var meals: [Meal] = [] // Get all aval meals 
+    var meal : Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +44,12 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
+ 
 
 }

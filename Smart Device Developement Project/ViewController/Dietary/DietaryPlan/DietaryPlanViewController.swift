@@ -16,7 +16,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var generatePlanButton: UIButton!
     @IBOutlet weak var loadMealsButton: UIButton!
-    @IBOutlet var editMealButton: UIButton!
+    @IBOutlet weak var notifyLabel: UILabel!
     
     private var datePicker: UIDatePicker?
     
@@ -43,8 +43,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
@@ -62,7 +60,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             self.loadMeals()
             self.loadLastPlanID()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
-            self.loadCalories()
         }
         
         //Load meal plans
@@ -175,8 +172,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
 
             }
         }
-    
-        
     }
     
     // MARK: - Functions
@@ -219,18 +214,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             self.planCount = planCountFromFirebase
         }
     }
-    
-    func loadCalories(){
-        NutrInfo().calReccCalories() {
-            recCaloriesFromFirebase in
-            self.totalCalories = recCaloriesFromFirebase
-        }
-    }
+
    
     @IBAction func loadMeals(_ sender: Any) {
         
         if(planCount < 1) {
-            RecommendMeal.createMealPlan(meals: meal, username: username, pID: lastPID, totalCalories: totalCalories)
         }
         
         DispatchQueue.main.async {

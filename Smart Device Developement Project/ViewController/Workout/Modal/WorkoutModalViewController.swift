@@ -11,6 +11,7 @@ import MaterialComponents
 class WorkoutModalViewController: UIViewController {
 
     @IBOutlet weak var addBtn: MDCFloatingButton!
+    @IBOutlet weak var minusBtn: MDCFloatingButton!
     
     @IBOutlet weak var modalView: UIView!
     override func viewDidLoad() {
@@ -20,8 +21,10 @@ class WorkoutModalViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.view.isOpaque = false
         self.showAnimate()
-        LifestyleTheme.styleFloatBtn(btn: addBtn, title: "", pColor: Colors.PrimaryColor())
         
+        
+        LifestyleTheme.styleFloatBtn(btn: addBtn, title: "", pColor: Colors.PrimaryColor())
+        LifestyleTheme.styleFloatBtn(btn: minusBtn, title: "", pColor: Colors.PrimaryColor())
         modalView.isOpaque = true
     }
 

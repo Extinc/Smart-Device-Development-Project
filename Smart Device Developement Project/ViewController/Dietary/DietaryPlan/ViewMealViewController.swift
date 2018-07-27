@@ -13,11 +13,17 @@ class ViewMealViewController: UIViewController {
 
     @IBOutlet weak var recipeImage: UIImageView!
     var mealPlan: MealPlan = MealPlan(0, "", "", 0, "", "", 0, "", "")
-    var meals: [Meal] = []
+    var meals: [Meal] = [] //to parse all aval meals to other vc
+    var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
+    var mealID: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        mealID = mealPlan.mealID!
+        loadOneMeal()
         
-        // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +40,7 @@ class ViewMealViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue,
                           sender: Any?)
     {
+        var newMeals: [Meal] = RecommendMeal.getSimilarMeal(meal: meal, meals: meals)
         let mealid: Int = mealPlan.mealID!
         if(segue.identifier == "showHawkerSegue")
         {
@@ -45,7 +52,17 @@ class ViewMealViewController: UIViewController {
         }
         else if(segue.identifier == "editMealSegue"){
             let ChangeMealViewController = segue.destination as! ChangeMealViewController
+            ChangeMealViewController.meals = newMeals
+            ChangeMealViewController.meal = meal
             
+        }
+    }
+    
+    // MARK: - Functions
+    func loadOneMeal(){
+        DietaryPlanDataManagerFirebase.loadOneMeal(id: mealID){
+            mealFromFirebase in
+            self.meal = mealFromFirebase
         }
     }
 }

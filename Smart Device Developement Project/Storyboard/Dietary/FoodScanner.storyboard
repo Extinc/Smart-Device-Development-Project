@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
                                         <state key="normal" title="Choose Meal"/>
                                         <connections>
-                                            <segue destination="Cqj-dm-waD" kind="show" id="EPB-ic-Ynb"/>
+                                            <segue destination="Cqj-dm-waD" kind="push" id="EPB-ic-Ynb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR6-iI-y9w">
@@ -116,7 +116,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vBy-v5-Zes">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="101" id="ve6-mp-1Nt" customClass="MealPlanTableViewCell" customModule="Smart_Device_Developement_Project" customModuleProvider="target">
@@ -156,6 +156,7 @@
                                         <connections>
                                             <outlet property="mimage" destination="7jP-l5-mrj" id="P1D-qa-hXB"/>
                                             <outlet property="mname" destination="FoC-yl-hal" id="LaN-bZ-vOn"/>
+                                            <segue destination="o9Z-iL-bkE" kind="presentation" identifier="ShowAddMeal" id="sMD-yA-tuw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -177,6 +178,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lic-vb-L2p"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="HrT-4b-uzp"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="search" destination="Bet-yC-AIK" id="ppL-QF-9iE"/>
                         <outlet property="tableView" destination="vBy-v5-Zes" id="L44-36-isA"/>
@@ -284,9 +288,11 @@
                     <connections>
                         <outlet property="calories" destination="9lb-Bn-JlU" id="gUz-gD-dtu"/>
                         <outlet property="mealImg" destination="SHm-ua-BGe" id="NAc-ZI-Lse"/>
+                        <segue destination="Btx-ct-ThV" kind="unwind" identifier="unwindback" unwindAction="unwindToDietaryPlanControllerWithSegue:" id="CdP-VO-rv1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpF-KV-tL8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Btx-ct-ThV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1637.5999999999999" y="151.57421289355324"/>
         </scene>

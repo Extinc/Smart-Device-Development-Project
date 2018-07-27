@@ -19,6 +19,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var takePicture: UIButton!
     @IBOutlet weak var chooseMeal: UIButton!
 
+    @IBAction func unwindtopic(segue:UIStoryboardSegue) { }
     
     override func viewDidLoad() {
         super.viewDidLoad()

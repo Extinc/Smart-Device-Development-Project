@@ -58,6 +58,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         
         //Firebase load meals and plans
         DispatchQueue.main.async {
+            DietaryPlanDataManagerFirebase.createMealData()
             self.loadMeals()
             self.loadLastPlanID()
             self.loadPlanCount(date: self.selectedDate, username: self.username)

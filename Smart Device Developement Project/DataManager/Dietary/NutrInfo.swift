@@ -69,4 +69,18 @@ class NutrInfo: NSObject {
                                 onComplete(w)
         })
     }
+    
+    func getGoal(onComplete: @escaping (Int) -> Void){
+        let user = AuthenticateUser.getUID()
+        var ref: DatabaseReference
+        //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
+        ref = Database.database().reference().child("Profile").child(user)
+        
+        ref.observeSingleEvent(of: .value,
+                               with: { (snapshot) in
+                                let goal = snapshot.childSnapshot(forPath: "goal").value as? Int
+                                onComplete(goal!)
+        })
+    }
+    
 }

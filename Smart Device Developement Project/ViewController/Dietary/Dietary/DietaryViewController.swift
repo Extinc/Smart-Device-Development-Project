@@ -45,8 +45,17 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
             self.intakeCal.text = "1500"
             
+            NutrInfo().getGoal(){
+                goal in
+                
+                self.picker.selectRow(goal, inComponent: 0, animated: true)
+            }
+            
             if(self.picker.selectedRow(inComponent: 0) == 1){
                 print("loseweight")
+            }
+            else if(self.picker.selectedRow(inComponent: 0) == 2){
+                print("gainweight")
             }
             else{
                 print("none")

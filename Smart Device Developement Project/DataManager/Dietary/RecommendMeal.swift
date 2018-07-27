@@ -269,7 +269,7 @@ class RecommendMeal: NSObject {
         content.title = ""
         content.body = ""
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         return content
     }
     

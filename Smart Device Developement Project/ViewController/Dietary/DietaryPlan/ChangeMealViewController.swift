@@ -11,10 +11,13 @@ import UIKit
 class ChangeMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var doneButton: UIButton!
+    @IBOutlet weak var chooseMealButton: UIButton!
+    @IBOutlet weak var removeMealButton: UIButton!
+    
     
     var meals: [Meal] = [] // Get all aval meals 
     var meal : Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
+    var selectedIndexPath: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,10 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         cell.rMealImage.image = UIImage(named: meals[indexPath.row].mealImage!)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+    }
 
     
     // MARK: - Navigation
@@ -51,5 +58,9 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         
     }
  
-
+    @IBAction func chooseMealAction(_ sender: Any) {
+        //let mealPlan: MealPlan =
+        //DietaryPlanDataManagerFirebase.updatePlan(mealPlan: <#T##MealPlan#>)
+    }
+    
 }

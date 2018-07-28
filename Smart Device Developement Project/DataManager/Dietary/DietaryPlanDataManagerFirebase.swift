@@ -216,7 +216,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     static func loadMealPlans(date: String, username: String, onComplete: @escaping ([MealPlan]) -> Void) {
         //Create empty list
         var mealPlanList : [MealPlan] = []
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username)
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
         // Load full list of movies and execute "with" closure once, when download is complete
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
@@ -292,10 +292,9 @@ class DietaryPlanDataManagerFirebase: NSObject {
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
         for i in 0...mealPlanList.count - 1{
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!)
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date)
             ref.setValue([
                 "planid" : mealPlanList[i].planID,
-                "date" : mealPlanList[i].date,
                 "mealID" : mealPlanList[i].mealID,
                 "mealName" : mealPlanList[i].mealName,
                 "mealImage" : mealPlanList[i].mealImage,
@@ -308,17 +307,17 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     static func updatePlan(mealPlan: MealPlan) {
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!)
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date)
         ref.setValue([
             "planid" : mealPlan.planID,
-            "date" : mealPlan.date,
             "mealID" : mealPlan.mealID,
             "mealName" : mealPlan.mealName,
             "mealImage" : mealPlan.mealImage,
             "calories" : mealPlan.calories,
             "isDiary" : mealPlan.isDiary,
             "recipeImage" : mealPlan.recipeImage
-            ])
+            ]
+        )
     }
     
    /* static func create1Plan() {

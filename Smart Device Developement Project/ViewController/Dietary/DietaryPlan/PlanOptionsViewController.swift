@@ -38,7 +38,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var username = ""
     var totalCalories: Int = 0
     var meal: [Meal] = []
-    var lastPID: Int = 0
+
     var reminders: String = "Yes"
     var isGrantedNotificationAccess = false
     
@@ -56,7 +56,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.username = AuthenticateUser.getUID()
         self.loadMeals()
         self.loadCalories()
-        self.loadLastPlanID()
         
         
         picker1.delegate = self
@@ -227,7 +226,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, mti!, reminders, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
-            RecommendMeal.createMealPlan(meals: meal, username: username, pID: lastPID, totalCalories: totalCalories)
+            RecommendMeal.createMealPlan(meals: meal, username: username, totalCalories: totalCalories)
             
             performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
         }
@@ -249,12 +248,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
-    func loadLastPlanID(){
-        DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
-            planIDFromFirebase in
-            self.lastPID = planIDFromFirebase
-        }
-    }
+
     @IBAction func switchChanged(_ sender: Any) {
         if (remindersSwitch.isOn) {
             reminders = "Yes"

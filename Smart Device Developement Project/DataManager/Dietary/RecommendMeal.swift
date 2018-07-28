@@ -12,7 +12,7 @@ import UserNotifications
 class RecommendMeal: NSObject {
     
     
-    static func createMealPlan(meals: [Meal], username: String, pID: Int, totalCalories: Int){
+    static func createMealPlan(meals: [Meal], username: String, totalCalories: Int){
         var plan: [MealPlan] = []
         let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
         let planType = preferences.mealPlanType!
@@ -29,16 +29,16 @@ class RecommendMeal: NSObject {
             
             
             if (planType == "Gluten Free"){
-                plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+                plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
             }
             else if (planType == "Dash") {
-                plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+                plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
             }
             else if (planType == "Keto") {
-                plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+                plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
             }
             else if (planType == "Normal"){
-                plan = normalPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), pID: pID)
+                plan = normalPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
             }
           
             DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
@@ -47,12 +47,8 @@ class RecommendMeal: NSObject {
         
     }
     
-    static func getLastPlanID() -> Int{
-        var planid: Int = 0
-        return planid
-    }
     
-    static func dashPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan] {
+    static func dashPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
         var plan: [MealPlan] = []
         let maxSodium: Float = 1500
         let sodiumPerMeal: Float = maxSodium / Float(planPreferences.mealsperday!)
@@ -78,7 +74,6 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planID: Int = pID + 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
             let username = "1"
@@ -89,8 +84,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             
-            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
-            planID = planID + 1
+            plan.append(MealPlan(username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
             
         }
         
@@ -99,7 +93,7 @@ class RecommendMeal: NSObject {
         return plan
     }
     
-    static func ketoPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan]{
+    static func ketoPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan]{
         var plan: [MealPlan] = []
         let maxCarbs: Float = 50
         let carbsPerMeal: Float = maxCarbs / Float(planPreferences.mealsperday!)
@@ -125,7 +119,6 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planID: Int = pID + 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
             let username = "1"
@@ -136,13 +129,12 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             
-            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
-            planID = planID + 1
+            plan.append(MealPlan(username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
         }
         return plan
     }
     
-    static func glutenFreePlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID : Int ) -> [MealPlan] {
+    static func glutenFreePlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
         
         var plan: [MealPlan] = []
         var mealList: [Meal] = []
@@ -196,7 +188,6 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planID: Int = pID + 1
         //Append into Meal Plan List 
         for b in 0...mealListCount{
             let username = "1"
@@ -207,8 +198,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             
-            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
-            planID = planID + 1
+            plan.append(MealPlan(username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
             
         }
         
@@ -216,7 +206,7 @@ class RecommendMeal: NSObject {
     }
     
     //Normal Plan
-    static func normalPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, pID: Int) -> [MealPlan] {
+    static func normalPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
         var plan: [MealPlan] = []
        
         let Count = meals.count - 1
@@ -239,7 +229,6 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planID: Int = pID + 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
             let username = "1"
@@ -250,8 +239,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             
-            plan.append(MealPlan(planID, username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
-            planID = planID + 1
+            plan.append(MealPlan(username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
         }
         
         return plan

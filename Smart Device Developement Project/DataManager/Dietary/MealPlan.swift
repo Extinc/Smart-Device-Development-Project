@@ -9,7 +9,7 @@
 import UIKit
 
 class MealPlan: NSObject {
-    var planID: Int?
+
     var username: String?
     var date: String?
     var mealID: Int?
@@ -20,8 +20,7 @@ class MealPlan: NSObject {
     var isDiary: String?
     
     
-    init(_ planID: Int ,_ username:String, _ date: String, _ mealID:Int, _ mealName: String, _ mealImage: String, _ calories: Float,_ recipeImage: String, _ isDiary: String) {
-        self.planID = planID
+    init(_ username:String, _ date: String, _ mealID:Int, _ mealName: String, _ mealImage: String, _ calories: Float,_ recipeImage: String, _ isDiary: String) {
         self.username = username
         self.date = date
         self.mealID = mealID

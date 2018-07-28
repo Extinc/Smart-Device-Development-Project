@@ -47,9 +47,9 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndexPath = indexPath
-    }
+    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //selectedIndexPath = indexPath
+    }*/
 
     
     // MARK: - Navigation

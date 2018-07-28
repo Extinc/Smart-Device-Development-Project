@@ -1,5 +1,5 @@
 //
-//  DietaryCreateData.swift
+//  DietaryPlanDataManagerFirebase.swift
 //  Smart Device Developement Project
 //
 //  Created by Guan Wei on 5/7/18.
@@ -18,7 +18,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
         //Create empty list
         var mealList : [Meal] = []
         let ref = FirebaseDatabase.Database.database().reference().child("Meal/")
-        // Load full list of movies and execute "with" closure once, when download is complete
+        
         ref.observeSingleEvent(of: .value, with:{(snapshot) in
                 for record in snapshot.children {
                     let r = record as! DataSnapshot
@@ -217,7 +217,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
         //Create empty list
         var mealPlanList : [MealPlan] = []
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
-        // Load full list of movies and execute "with" closure once, when download is complete
+      
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
                 
@@ -228,7 +228,6 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let r = record as! DataSnapshot
                         let userName = r.key as! String
                         let Date = r.childSnapshot(forPath: "date").value as! String
-                        let id = r.childSnapshot(forPath: "planid").value as! Int
                         let mealid = r.childSnapshot(forPath: "mealID").value as! Int
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
@@ -238,12 +237,12 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let fCalories = Float(calories)
                         
                         if(userName == username && Date == date) {
-                            mealPlanList.append(MealPlan(id,userName,Date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
+                            mealPlanList.append(MealPlan(userName,Date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
                         }
                     }
                 }
                 else {
-                    mealPlanList.append(MealPlan(0,"","",0,"","",0,"", ""))
+                    mealPlanList.append(MealPlan("","",0,"","",0,"", ""))
                 }
             onComplete(mealPlanList)
         })
@@ -254,7 +253,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
         //Create empty list
         var mealPlanList : [MealPlan] = []
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
-        // Load full list of movies and execute "with" closure once, when download is complete
+        
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
             for record in snapshot.children{
@@ -271,30 +270,14 @@ class DietaryPlanDataManagerFirebase: NSObject {
         
     }
     
-    static func loadMealPlanLastID(onComplete: @escaping (Int) -> Void){
-        var planid: Int = 0
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
-        // Load full list of movies and execute "with" closure once, when download is complete
-        ref.observeSingleEvent(of: .value, with:
-            {(snapshot) in
-                for record in snapshot.children{
-                    let r = record as! DataSnapshot
-                    let id = Int(r.key)!
-                    planid = id
-                }
-                onComplete(planid)
-        })
-        
-
-    }
+  
     
     
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
         for i in 0...mealPlanList.count - 1{
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date)
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date!).child(mealPlanList[i].mealID as! String)
             ref.setValue([
-                "planid" : mealPlanList[i].planID,
                 "mealID" : mealPlanList[i].mealID,
                 "mealName" : mealPlanList[i].mealName,
                 "mealImage" : mealPlanList[i].mealImage,
@@ -307,9 +290,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     static func updatePlan(mealPlan: MealPlan) {
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date)
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(mealPlan.mealID as! String)
         ref.setValue([
-            "planid" : mealPlan.planID,
             "mealID" : mealPlan.mealID,
             "mealName" : mealPlan.mealName,
             "mealImage" : mealPlan.mealImage,
@@ -338,10 +320,10 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }*/
     
     //Delete
-    static func deleteMealPlan(_ mealPlan: MealPlan){
+    /*static func deleteMealPlan(_ mealPlan: MealPlan){
         let ref = FirebaseDatabase.Database.database().reference().child("Meal/\(mealPlan.planID)/")
         ref.removeValue()
-    }
+    }*/
     
     //MARK: - Hawker Centres
     
@@ -350,7 +332,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
         //Create empty list
         var hawkerCentreList : [HawkerCentres] = []
         let ref = FirebaseDatabase.Database.database().reference().child("HawkerCentres/")
-        // Load full list of movies and execute "with" closure once, when download is complete
+
         ref.observeSingleEvent(of: .value, with:{(snapshot) in
             for record in snapshot.children {
                 let r = record as! DataSnapshot

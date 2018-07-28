@@ -35,7 +35,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     var totalCalories:Int = 0
     var selectedDate:String = ""
     var preferences: [UserPlanPreferences] = []
-    var lastPID: Int = 0
     var planCount: Int = 0
     
     
@@ -58,7 +57,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         DispatchQueue.main.async {
             DietaryPlanDataManagerFirebase.createMealData()
             self.loadMeals()
-            self.loadLastPlanID()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
         }
         
@@ -198,13 +196,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             
             self.tableView.reloadData()
             
-        }
-    }
-    
-    func loadLastPlanID(){
-        DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
-            planIDFromFirebase in
-            self.lastPID = planIDFromFirebase
         }
     }
     

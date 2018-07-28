@@ -12,7 +12,7 @@ class ViewMealViewController: UIViewController {
   
 
     @IBOutlet weak var recipeImage: UIImageView!
-    var mealPlan: MealPlan = MealPlan(0, "", "", 0, "", "", 0, "", "")
+    var mealPlan: MealPlan = MealPlan("", "", 0, "", "", 0, "", "")
     var meals: [Meal] = [] //to parse all aval meals to other vc
     var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
     var mealID: Int = 0

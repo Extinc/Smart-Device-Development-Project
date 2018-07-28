@@ -19,7 +19,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: MDCCard!
     
-    let color = Colors()
     var lifeStyle = LifestyleTheme()
     var accInfo: AccountProfile?
     var height: Double = 0.0
@@ -101,7 +100,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return cell
             }else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! ProfileBtnCustomCell
-                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Email & Password", pColor: color.primaryDarkColor)
+                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Email & Password", pColor: Colors.PrimaryDarkColor())
                 return cell
             }
             
@@ -119,7 +118,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! ProfileBtnCustomCell
-                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Height & Weight", pColor: color.primaryDarkColor)
+                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Height & Weight", pColor: Colors.PrimaryDarkColor())
                 return cell
             }
 

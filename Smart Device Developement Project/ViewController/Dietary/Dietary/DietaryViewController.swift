@@ -18,18 +18,6 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var progressBar: KDCircularProgress!
     
-    @IBAction func Test(_ sender: Any) {
-        let angle = progressBar.angle + 80
-        progressBar.animate(fromAngle: progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
-        let a = intakeCal.text
-        let x: Int = Int(a!)!
-        let y = x + 300
-        intakeCal.text = String(y)
-        if (progressBar.angle >= 350 ) {
-            progressBar.animate(fromAngle: 360, toAngle: 360, duration: 0.5, completion: nil)
-        }
-    }
-    
     var pickerData: [String] = ["None","Lose Weight", "Gain Weight"]
 
     override func viewDidLoad() {

@@ -15,7 +15,6 @@ class FoodViewController: UIViewController {
     var cal: Float?
     var mealInfo: [MealPlan] = []
     var meal: [Meal] = []
-    var id: Int?
     
     @IBOutlet weak var mealImg: UIImageView!
     @IBOutlet weak var calories: UILabel!
@@ -44,7 +43,6 @@ class FoodViewController: UIViewController {
         let todayDate = formatter.string(from: date)
         
         var mealInfo: [MealPlan] = []
-        let newid = self.id! + 1
         let username = AuthenticateUser.getUID()
         let mealID = meal[0].mealID
         let mealName = meal[0].name
@@ -52,12 +50,10 @@ class FoodViewController: UIViewController {
         let calories = meal[0].calories
         let recipeImage = meal[0].recipeImage
         
-        mealInfo.insert(MealPlan(newid, username, todayDate, mealID!, mealName!, mealImage!, calories!, recipeImage!, "Yes" ), at: 0)
+        mealInfo.insert(MealPlan(username, todayDate, mealID!, mealName!, mealImage!, calories!, recipeImage!, "Yes" ), at: 0)
         //DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
         
         print(newid)
-        //self.dismiss(animated: true, completion: nil)
-        
         performSegue(withIdentifier: "unwindback", sender: self)
     }
     

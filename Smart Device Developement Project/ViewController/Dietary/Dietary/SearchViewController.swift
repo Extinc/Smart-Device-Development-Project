@@ -26,11 +26,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         DietaryPlanDataManagerFirebase.loadMeals(){
             meals in
             self.mealList = meals
-            
-            DietaryPlanDataManagerFirebase.loadMealPlanLastID(){
-                id in
-                self.id = id
-            }
             self.tableView.reloadData()
         }
         
@@ -62,8 +57,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             cell.mname.text = mealList[indexPath.row].name
             cell.mimage.image = UIImage(named: mealList[indexPath.row].mealImage!)
         }
-        
-        
         return cell
     }
     
@@ -75,7 +68,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let popup = segue.destination as! FoodViewController
         let indexPath = tableView.indexPathForSelectedRow!
         
-        popup.id = self.id
         popup.img = UIImage(named: mealList[indexPath.row].mealImage!)
         popup.cal = mealList[indexPath.row].calories
         popup.mName = mealList[indexPath.row].name

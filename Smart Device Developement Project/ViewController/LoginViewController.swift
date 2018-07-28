@@ -94,8 +94,8 @@ class LoginViewController: UIViewController {
         let colors = Colors()
         let lifestyleTheme = LifestyleTheme()
 
-        lifestyleTheme.styleBtn(btn: loginBtn, title: "Login", pColor: colors.secondaryDarkColor)
-        lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.secondaryDarkColor)
+        lifestyleTheme.styleBtn(btn: loginBtn, title: "Login", pColor: colors.primaryDarkColor)
+        lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.primaryDarkColor)
         
         DataManager.createUserInfoTable()
         

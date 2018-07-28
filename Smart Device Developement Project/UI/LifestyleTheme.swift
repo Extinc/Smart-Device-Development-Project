@@ -23,7 +23,7 @@ class LifestyleTheme: NSObject {
         btncolorScheme.primaryColor = pColor
         btn.setTitle(title, for: UIControlState())
         MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
-        btn.titleLabel?.textColor = colors.secondaryTextColor
+        btn.titleLabel?.textColor = colors.primaryTextColor
     }
     
     static func styleBtn2(btn: MDCFlatButton, title: String, pColor: UIColor){
@@ -34,7 +34,7 @@ class LifestyleTheme: NSObject {
         btncolorScheme.primaryColor = pColor
         btn.setTitle(title, for: UIControlState())
         MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
-        btn.titleLabel?.textColor = color.secondaryTextColor
+        btn.titleLabel?.textColor = color.primaryTextColor
     }
     
     static func styleFloatBtn(btn: MDCFloatingButton, title: String, pColor: UIColor){
@@ -45,7 +45,7 @@ class LifestyleTheme: NSObject {
         btncolorScheme.primaryColor = pColor
         btn.setTitle(title, for: UIControlState())
         MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
-        btn.titleLabel?.textColor = color.secondaryTextColor
+        btn.titleLabel?.textColor = color.primaryTextColor
     }
     
     

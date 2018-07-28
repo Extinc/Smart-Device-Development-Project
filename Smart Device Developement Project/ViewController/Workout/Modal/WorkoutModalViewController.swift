@@ -13,7 +13,27 @@ class WorkoutModalViewController: UIViewController {
     @IBOutlet weak var addBtn: MDCFloatingButton!
     @IBOutlet weak var minusBtn: MDCFloatingButton!
     
+    @IBOutlet weak var repTextField: UITextField!
     @IBOutlet weak var modalView: UIView!
+
+    @IBAction func addRepCount(_ sender: Any) {
+        if let parsedInt: Int = Int(repTextField.text!)! {
+            var finalInt = parsedInt + 	1
+            repTextField.text = "\(finalInt)"	
+        }
+    }
+    
+    @IBAction func minuRepCount(_ sender: Any) {
+        if repTextField.text != "0" {
+            if let parsedInt: Int = Int(repTextField.text!)! {
+                var finalInt = parsedInt - 1
+                repTextField.text = "\(finalInt)"
+            }
+        }
+    }
+    @IBAction func doneClick(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +46,9 @@ class WorkoutModalViewController: UIViewController {
         LifestyleTheme.styleFloatBtn(btn: addBtn, title: "", pColor: Colors.PrimaryColor())
         LifestyleTheme.styleFloatBtn(btn: minusBtn, title: "", pColor: Colors.PrimaryColor())
         modalView.isOpaque = true
+        
+        repTextField.delegate = self
+        repTextField.keyboardType = .numberPad
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,4 +90,11 @@ class WorkoutModalViewController: UIViewController {
     }
     */
 
+}
+
+extension WorkoutModalViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters, options: [], range: string.startIndex ..< string.endIndex) == nil
+    }
 }

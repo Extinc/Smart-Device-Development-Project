@@ -78,7 +78,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(DietaryPlanViewController.dateChanged(datePicker:)), for: .valueChanged)
+        datePicker?.addTarget(self, action: #selector(PlanOptionsViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         planTextField.inputView = picker1
         durationTextField.inputView = picker3
@@ -107,7 +107,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         startDateTextField.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
     }
@@ -180,8 +180,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func goBackToDPC(_ sender: Any) {
         
         if isGrantedNotificationAccess{
-            let content = RecommendMeal.makeNotiContent()
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 500, repeats: true)
+            //let content = RecommendMeal.makeNotiContent()
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 500, repeats: true)
         }
         
         if (planTextField.text == "" ||

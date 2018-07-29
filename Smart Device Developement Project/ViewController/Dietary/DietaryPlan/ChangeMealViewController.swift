@@ -18,10 +18,12 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
     var meals: [Meal] = [] // Get all aval meals 
     var meal : Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
     var selectedIndexPath: Int = 0
-    
+    var selectedMeal : Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
+    var username = ""
+    var previousMealPlan: MealPlan = MealPlan("", "", 0, "", "", 0, "", "")
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        username = AuthenticateUser.getUID()
         
     }
 
@@ -47,9 +49,9 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    /*func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //selectedIndexPath = indexPath
-    }*/
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMeal = meals[indexPath.row]
+    }
 
     
     // MARK: - Navigation
@@ -59,8 +61,16 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
     }
  
     @IBAction func chooseMealAction(_ sender: Any) {
-        //let mealPlan: MealPlan =
-        //DietaryPlanDataManagerFirebase.updatePlan(mealPlan: <#T##MealPlan#>)
+        let date = previousMealPlan.date!
+        let mealID = selectedMeal.mealID!
+        let mealName = selectedMeal.name!
+        let mealImage = selectedMeal.mealImage!
+        let calories = selectedMeal.calories!
+        let recipeImage = selectedMeal.recipeImage!
+        let isDiary = previousMealPlan.isDiary!
+        
+        let mealPlan: MealPlan = MealPlan(username, date, mealID, mealName, mealImage, calories, recipeImage, isDiary)
+        DietaryPlanDataManagerFirebase.updatePlan(mealPlan: mealPlan)
     }
     
 }

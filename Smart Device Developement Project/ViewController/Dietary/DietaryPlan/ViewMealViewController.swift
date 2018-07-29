@@ -22,8 +22,6 @@ class ViewMealViewController: UIViewController {
         mealID = mealPlan.mealID!
         loadOneMeal()
         
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,8 +50,15 @@ class ViewMealViewController: UIViewController {
         }
         else if(segue.identifier == "editMealSegue"){
             let ChangeMealViewController = segue.destination as! ChangeMealViewController
-            ChangeMealViewController.meals = newMeals
+            if (mealPlan.isDiary == "No"){
+                ChangeMealViewController.meals = newMeals
+            }
+            else {
+                ChangeMealViewController.meals = meals
+            }
+            
             ChangeMealViewController.meal = meal
+            ChangeMealViewController.previousMealPlan = mealPlan
             
         }
     }

@@ -17,16 +17,24 @@ class RecommendMeal: NSObject {
         let preferences: UserPlanPreferences = DietaryPlanDataManager.loadPreferences(username: username)[0]
         let planType = preferences.mealPlanType!
         let planDays: Int = Int(preferences.duration!)!
-        var dateComponent = DateComponents()
+
         let daysToAdd = 1
-        var currentDate = preferences.startDate!
+        let bFormatDate = preferences.startDate!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        var aFormatDate = dateFormatter.date(from: bFormatDate)
+        
+        var currentDate = ""
+        let unitFlags:Set<Calendar.Component> = [.day, .month, .year, .hour]
+        var date = Calendar.current.dateComponents(unitFlags, from: aFormatDate!)
+    
+        
         
         for i in 0...planDays {
-            
-            dateComponent.day = i
-            dateComponent.month = 0
-            dateComponent.year = 0
-            
+            date.day = date.day! + 1
+            let fDate = NSCalendar.current.date(from: date)
+            currentDate = dateFormatter.string(from: fDate!)
+            makeNotiContent(planPreferences: preferences, notiDate: fDate!)
             
             if (planType == "Gluten Free"){
                 plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
@@ -256,13 +264,55 @@ class RecommendMeal: NSObject {
         return newMeals
     }
     
-    static func makeNotiContent() -> UNMutableNotificationContent{
-        let content = UNMutableNotificationContent()
-        content.title = ""
-        content.body = ""
+    // MARK: - Notifcations
+    static func makeNotiContent(planPreferences: UserPlanPreferences, notiDate: Date){
+        var mealsinterval: Double = 0
+        if(planPreferences.mealsperday == 1) {
+            //Stop eating at 6pm
+        }
+        else if (planPreferences.mealsperday == 2){
+            //Stop eating at 6pm
+            mealsinterval = 8
+        }
+        else if (planPreferences.mealsperday == 3){
+            //Stop eating at 6pm
+            mealsinterval = 5
+        }
+        else if (planPreferences.mealsperday == 4) {
+            //Stop eating at 7pm
+            mealsinterval = 3.5
+        }
+        else if(planPreferences.mealsperday == 5){
+            //Stop eating at 8pm
+            mealsinterval = 3
+        }
+        else {
+            //6 meals per day
+            //Stop eating at 8pm
+            mealsinterval = 2
+        }
         
-        //let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
-        return content
+        let content = UNMutableNotificationContent()
+        content.title = "Meal Reminder"
+        content.body = "Remember to follow the meal plan and don't miss your meals!"
+        
+        let unitFlags:Set<Calendar.Component> = [.minute,.hour,.second]
+        var date = Calendar.current.dateComponents(unitFlags, from: notiDate)
+        date.second = date.second! + 10
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+        
+        addNotification(trigger: trigger, content: content, identifier: "message.remindmeal")
+    }
+    
+    static func addNotification(trigger: UNNotificationTrigger?, content: UNMutableNotificationContent, identifier: String){
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request){
+            (error) in
+            if error != nil {
+                print("error adding notification:\(error?.localizedDescription)")
+            }
+        }
     }
     
     

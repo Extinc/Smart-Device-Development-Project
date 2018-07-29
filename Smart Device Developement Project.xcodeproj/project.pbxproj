@@ -47,7 +47,6 @@
 		51ED27CF20F4873A0054E053 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51ED27CE20F4873A0054E053 /* Profile.storyboard */; };
 		51FC308D20E6247400A5E685 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC308C20E6247400A5E685 /* CameraViewController.swift */; };
 		51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FC308E20E62A5900A5E685 /* SummaryViewController.swift */; };
-		6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
 		692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692D5D0720DAA253007A31D3 /* MealPlanTableViewCell.swift */; };
 		692E473320E0E1B2009519C4 /* UserPlanPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692E473220E0E1B2009519C4 /* UserPlanPreferences.swift */; };
 		693F6ACB20F25C7600F3FA95 /* ChangeMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693F6ACA20F25C7600F3FA95 /* ChangeMealViewController.swift */; };
@@ -910,7 +909,6 @@
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
-				6925CF7520CF5EED00EC86CC /* DietaryPlanViewController.swift in Sources */,
 				5116A7D020FDC551006C2EA3 /* HawkerCentres.swift in Sources */,
 				69E13BA4210A0045004630E5 /* checkForHawker.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,

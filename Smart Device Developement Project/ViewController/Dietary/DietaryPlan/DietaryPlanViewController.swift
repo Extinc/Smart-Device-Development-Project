@@ -44,7 +44,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd-MM-yyyy"
         let todayDate = formatter.string(from: date)
         dateTextField.text = todayDate
         selectedDate = dateTextField.text!
@@ -116,7 +116,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         selectedDate = dateTextField.text!
         view.endEditing(true)

@@ -146,25 +146,21 @@
                                 <rect key="frame" x="0.0" y="222" width="414" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moO-fo-4s6">
-                                        <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Choose A New Plan"/>
                                         <connections>
                                             <segue destination="2z4-X2-tjR" kind="show" id="43s-IX-PH9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvA-tk-aGu">
-                                        <rect key="frame" x="103.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
+                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Load Meals"/>
                                         <connections>
                                             <action selector="loadMeals:" destination="RH4-Sf-Dwc" eventType="touchUpInside" id="Lg7-P4-tJ9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0y-b7-QiH">
-                                        <rect key="frame" x="206.99999999999997" y="0.0" width="103.66666666666666" height="30"/>
-                                        <state key="normal" title="Edit Meals"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ued-Zx-tcd">
-                                        <rect key="frame" x="310.66666666666669" y="0.0" width="103.33333333333331" height="30"/>
+                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
                                         <state key="normal" title="Add Meal"/>
                                         <connections>
                                             <segue destination="jOM-fY-TxS" kind="show" id="caT-9B-PbL"/>
@@ -411,7 +407,7 @@
                                         <rect key="frame" x="0.0" y="57" width="414" height="667"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1k-bO-XdG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                        <rect key="frame" x="0.0" y="2" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Where to find?"/>

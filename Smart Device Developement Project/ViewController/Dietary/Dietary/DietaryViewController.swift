@@ -22,33 +22,39 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(AuthenticateUser.getUID()	)
-        
+
         NutrInfo().calReccCalories(){
             cal in
             self.reccCal.text = cal.description
 
-            let calories = Double(cal)
-            let percent = (1500.0/calories)*100
-            let angle = (360/100)*percent
-            self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
-            self.intakeCal.text = "1500"
-
-            NutrInfo().getGoal(){
-                goal in
-
-                self.picker.selectRow(goal, inComponent: 0, animated: true)
-            }
-
-            if(self.picker.selectedRow(inComponent: 0) == 1){
-                print("loseweight")
-            }
-            else if(self.picker.selectedRow(inComponent: 0) == 2){
-                print("gainweight")
-            }
-            else{
-                print("none")
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let today = formatter.string(from: date)
+            
+            let email = AuthenticateUser.getCurrEmail()
+            print(email)
+            DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: "1"){
+                meals in
+                
+                var plans:[MealPlan] = []
+                plans = meals
+                
+                let intake: Double = 0.0
+            
+                print(meals.count)
+                
+                let calories = Double(cal)
+                let percent = (intake/calories)*100
+                let angle = (360/100)*percent
+                self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
+                self.intakeCal.text = intake.description
+                
+                NutrInfo().getGoal(){
+                    goal in
+                    
+                    self.picker.selectRow(goal, inComponent: 0, animated: true)
+                }
             }
         }
         

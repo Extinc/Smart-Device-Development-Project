@@ -8,28 +8,32 @@
 
 import UIKit
 
-class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate {
 
-    @IBOutlet weak var tableview: UITableView!
+class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate{
     
-    var authUID: String = ""
-    var runningsections: [Session] = [] 
+    @IBOutlet weak var tableview: UITableView!
+    var authUID = AuthenticateUser.getUID()
+   var runningsections : [Session] = []
    /* var runningsections : [Session] {
-        get{
             return RunningDataManager.loadallsession(authUID)
-       }
         }
  */
+ 
     var selectedid : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        authUID = AuthenticateUser.getUID()
         runningsections = RunningDataManager.loadallsession(authUID)
+       
+        
         // Do any additional setup after loading the view.
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.lighttextcolor
+    }
 
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,9 +67,9 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")!
-        cell.textLabel?.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
-        cell.detailTextLabel?.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell") as! RunningCustomCell
+        cell.datelabel.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
+        cell.timinglabel.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
        // cell.detailTextLabel?.text = runningsections[indexPath.section].totaldistance![indexPath.row]
         return cell
     }

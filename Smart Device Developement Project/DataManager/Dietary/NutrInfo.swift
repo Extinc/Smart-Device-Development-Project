@@ -11,9 +11,10 @@ import FirebaseDatabase
 
 class NutrInfo: NSObject {
     
+    let user = AuthenticateUser.getUID()
+    
     func calcBMI(onComplete: @escaping (Double) -> Void){
         
-        let user = AuthenticateUser.getUID()
         var ref: DatabaseReference
         //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)
@@ -33,8 +34,7 @@ class NutrInfo: NSObject {
     }
     
     func calReccCalories(onComplete: @escaping (Int) -> Void){
-        
-        let user = AuthenticateUser.getUID()
+
         var ref: DatabaseReference
         //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)
@@ -56,8 +56,7 @@ class NutrInfo: NSObject {
     }
     
     func getWeight(onComplete: @escaping (Double) -> Void){
-        
-        let user = AuthenticateUser.getUID()
+
         var ref: DatabaseReference
         //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)
@@ -71,7 +70,7 @@ class NutrInfo: NSObject {
     }
     
     func getGoal(onComplete: @escaping (Int) -> Void){
-        let user = AuthenticateUser.getUID()
+        
         var ref: DatabaseReference
         //let user = "dQsolOJTwjNSaGiEfMEnBObUkXH3"
         ref = Database.database().reference().child("Profile").child(user)
@@ -82,5 +81,4 @@ class NutrInfo: NSObject {
                                 onComplete(goal!)
         })
     }
-    
 }

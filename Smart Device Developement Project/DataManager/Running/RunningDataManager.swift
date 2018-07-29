@@ -67,6 +67,36 @@ class RunningDataManager: NSObject {
         )
     }
     
+    static func checkUserScheduleComplete(_ user:String) -> Int{
+        var count = 0
+        let ScheduleRows = SQLiteDB.sharedInstance.query(sql:
+            "Select count(scheduleID) FROM trainingschedule where forfeit = 0 AND complete = 1 AND userID =  \"\(user)\"" )
+        
+        if ScheduleRows.count >= 1 {
+            for row in ScheduleRows{
+                count = row["count(scheduleID)"] as! Int
+            }
+            } else
+        {
+           count = 0               
+        }
+        return count
+    }
+    static func checkUserScheduleforfeit(_ user:String) -> Int{
+        var count = 0
+        let ScheduleRows = SQLiteDB.sharedInstance.query(sql:
+            "Select count(scheduleID) FROM trainingschedule where forfeit = 1 AND complete = 0 AND userID =  \"\(user)\"" )
+        
+        if ScheduleRows.count >= 1 {
+            for row in ScheduleRows{
+                count = row["count(scheduleID)"] as! Int
+            }
+        } else
+        {
+            count = 0
+        }
+        return count
+    }
     static func checkUserScheduleExist(_ user:String) -> Bool{
         var exist = false
         let ScheduleRows = SQLiteDB.sharedInstance.query(sql:
@@ -148,7 +178,7 @@ class RunningDataManager: NSObject {
     }
     
     static func loadallsession(_ userID:String) -> [Session]{
-       let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month,totaltime from Session Where sessionComplete = 1")
+        let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month,totaltime from Session Where sessionComplete = 1 AND userID = \"\(userID)\"" )
         var call: Int = 1
    /*      var jandate : [String] = []
         var febdate : [String] = []
@@ -205,8 +235,8 @@ class RunningDataManager: NSObject {
         }
         return id
     }
-    static func selectlastScheduleTableId() -> Int{
-        let currentid = SQLiteDB.sharedInstance.query(sql: "Select Max(scheduleID) from trainingschedule")
+    static func selectlastScheduleTableId(_ userID:String) -> Int{
+        let currentid = SQLiteDB.sharedInstance.query(sql: "Select Max(scheduleID) from trainingschedule where userID =  \"\(userID)\"")
         var id : Int = 0
         for row in currentid{
             if(row["Max(scheduleID)"] == nil)
@@ -225,7 +255,7 @@ class RunningDataManager: NSObject {
     
     static func insertOrReplaceSession(session: Session)
     {
-        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt,month) " + "Values (?,?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt, session.month])
+        SQLiteDB.sharedInstance.execute(sql: "INSERT OR REPLACE INTO Session(scheduleID,currentdistance,totaldistance,finishdate,totaltime,totalcaloriesburnt,month,userID) " + "Values (?,?,?,?,?,?,?,?)", parameters: [session.scheduleID,session.currentdistance, session.totaldistance, session.finishdate,session.totaltime, session.totalcaloriesburnt, session.month,session.userID])
     }
     static func UpdateSessionSpeed(session: Session)
     {

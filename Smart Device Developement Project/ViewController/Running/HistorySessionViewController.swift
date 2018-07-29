@@ -8,31 +8,46 @@
 
 import UIKit
 import MapKit
+import Charts
 
+private class CubicLineSampleFillFormatter: IFillFormatter {
+    func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
+        return -10
+    }
+}
 
-class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource{
+class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate{
     
-     let data: [String] = ["item1","item2","item3"]
+     var data = [[String]]()
+     let header: [String] = ["Time taken","Distance","Calories","Average Speed"]
     
+    @IBOutlet weak var Linechart: LineChartView!
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return data[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = data[indexPath.section][indexPath.row]
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return header[section]
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.00001
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.00001
+    }
     
-   
-    
-
-
     @IBOutlet weak var historyMap: MKMapView!
     
     @IBOutlet weak var btnAverageSpeed: UIButton!
@@ -69,8 +84,27 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Linechart.delegate = self as! ChartViewDelegate
+        Linechart.setViewPortOffsets(left: 0, top: 20, right: 0, bottom: 0)
+        Linechart.backgroundColor = UIColor(red: 104/225, green: 241/225, blue:175/255, alpha: 1)
         
+        Linechart.dragEnabled = true
+        Linechart.setScaleEnabled(true)
+        Linechart.pinchZoomEnabled = false
+        Linechart.maxHighlightDistance = 300
         
+        Linechart.xAxis.enabled = false
+        let yAxis = Linechart.leftAxis
+        yAxis.labelFont = UIFont(name: "HelveticaNeue-Light",size:12)!
+        yAxis.setLabelCount(6, force: false)
+        yAxis.labelTextColor = .white
+        yAxis.labelPosition = .insideChart
+        yAxis.axisLineColor = .white
+        
+        Linechart.rightAxis.enabled = false
+        Linechart.legend.enabled = false
+        
+        Linechart.animate(xAxisDuration: 2, yAxisDuration: 2)
         
         var selectedID : Int = Int(currentid)!
         print("Selecte ID \(selectedID)")
@@ -87,6 +121,32 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
                 mylocations.append(coordinate)
                 
         }
+        
+        func setDataCount(_ count: Int, range: UInt32){
+            let yVals1 = (0..<count).map { (i) -> ChartDataEntry in
+                let mult = range + 1
+                let val = Double(arc4random_uniform(mult) + 20)
+                return ChartDataEntry(x: Double(i), y:val)
+            }
+            
+            let set1 = LineChartDataSet(values: yVals1, label: "DataSet 1")
+            set1.mode = .cubicBezier
+            set1.drawCirclesEnabled = false
+            set1.lineWidth = 1.8
+            set1.circleRadius = 4
+            set1.setCircleColor(.white)
+            set1.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+            set1.fillColor = .white
+            set1.fillAlpha = 1
+            set1.drawHorizontalHighlightIndicatorEnabled = false
+            set1.fillFormatter = CubicLineSampleFillFormatter()
+            
+            let data = LineChartData(dataSet: set1)
+            data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 9)!)
+            data.setDrawValues(false)
+            
+          Linechart.data = data
+        }
   
 
         for i in 0 ..< longitude.count - 1 {
@@ -102,14 +162,23 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
             historyMap.add(polyline)
             
         }
-        lblTotalTime.text = selectedSession.totaltime
-         var time = selectedSession.totaltime
-        var distance = String(format: "%.2f",selectedSession.totaldistance!)
-        var calories = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
-        var speed =  String(format: "%.2f", selectedSession.totalspeed!)
-        lblTotalDistance.text = String(format: "%.2f",selectedSession.totaldistance!)
-        lblTotalCaloriesBurnt.text = String(format: "%.2f", selectedSession.totalcaloriesburnt!)
-        lblavgspeed.text = String(format: "%.2f", selectedSession.totalspeed!)
+   
+         var time = (selectedSession.totaltime)
+        var distance = "\(String(format: "%.2f",selectedSession.totaldistance!)) Km"
+        var calories = "\(String(format: "%.2f", selectedSession.totalcaloriesburnt!)) Cal"
+        var speed = "\(String(format: "%.2f", selectedSession.totalspeed!)) m/s"
+       
+        var timearray : [String] = [time!]
+        var distancearray : [String] = [distance]
+        var caloriesarray : [String] = [calories]
+        var speedarray : [String] = [speed]
+        
+        data.append(timearray)
+        data.append(distancearray)
+        data.append(caloriesarray)
+        data.append(speedarray)
+        
+        
         
         
         

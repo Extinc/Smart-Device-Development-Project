@@ -8,28 +8,28 @@
 
 import UIKit
 
-class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate {
 
-    @IBOutlet weak var tableview: UITableView!
+class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate{
     
-    var authUID: String = ""
-    var runningsections: [Session] = [] 
+    @IBOutlet weak var tableview: UITableView!
+    var authUID = AuthenticateUser.getUID()
+   var runningsections : [Session] = []
    /* var runningsections : [Session] {
-        get{
             return RunningDataManager.loadallsession(authUID)
-       }
         }
  */
+ 
     var selectedid : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        authUID = AuthenticateUser.getUID()
         runningsections = RunningDataManager.loadallsession(authUID)
+       
+        
         // Do any additional setup after loading the view.
     }
 
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

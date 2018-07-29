@@ -50,7 +50,7 @@ class Session: NSObject {
     var rangeoflongitude: String?
     var rangeoflatitude: String?
     
-    init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double,_ month: String)
+    init(_ scheduleID:Int,_ currentdistance:Double,_ totaldistance:Double,_ totaltime: String,_ finishdate:String,_ totalcaloriesburnt: Double,_ month: String,_ userID:String)
     {
         self.currentdistance = currentdistance
         self.totaldistance = totaldistance
@@ -59,6 +59,7 @@ class Session: NSObject {
         self.totaltime = totaltime
         self.scheduleID = scheduleID
         self.month = month
+        self.userID = userID
     }
     
     init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fivespeed lap5speed:String,_ sessionid:Int)

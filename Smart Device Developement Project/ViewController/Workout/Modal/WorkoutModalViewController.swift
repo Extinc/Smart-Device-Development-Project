@@ -32,6 +32,12 @@ class WorkoutModalViewController: UIViewController {
         }
     }
     @IBAction func doneClick(_ sender: Any) {
+        // To get the unix time stamp to replace hmac_timestamp
+        // Get the Unix timestamp
+        let timestamp = NSDate().timeIntervalSince1970
+        
+        print("UTC Timestamp: ",timestamp)
+        
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {

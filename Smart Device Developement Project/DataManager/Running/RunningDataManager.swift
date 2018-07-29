@@ -179,44 +179,245 @@ class RunningDataManager: NSObject {
     
     static func loadallsession(_ userID:String) -> [Session]{
         let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month,totaltime from Session Where sessionComplete = 1 AND userID = \"\(userID)\"" )
+        var jancall: Int = 0
+        var febcall: Int = 0
+        var marcall: Int = 0
+        var aprcall: Int = 0
+        var maycall: Int = 0
+        var juncall: Int = 0
+        var julcall: Int = 0
+        var augcall: Int = 0
+        var sepcall: Int = 0
+        var octcall: Int = 0
+        var novcall: Int = 0
+        var deccall: Int = 0
+        
         var call: Int = 1
-   /*      var jandate : [String] = []
+        //January
+         var jandate : [String] = []
+        var  janid: [Int] = []
+        var  jandistance: [Double] = []
+        var  jantime: [String] = []
+        //February
         var febdate : [String] = []
+        var febid: [Int] = []
+        var febdistance: [Double] = []
+        var febtime: [String] = []
+        //March
         var mardate : [String] = []
+        var marid: [Int] = []
+        var mardistance: [Double] = []
+        var martime: [String] = []
+        //April
         var aprdate : [String] = []
+        var aprid: [Int] = []
+        var aprdistance: [Double] = []
+        var aprtime: [String] = []
+        //May
         var maydate : [String] = []
+        var mayid: [Int] = []
+        var maydistance: [Double] = []
+        var maytime: [String] = []
+        //June
         var jundate : [String] = []
- */
+        var junid: [Int] = []
+        var jundistance: [Double] = []
+        var juntime: [String] = []
         //July
         var juldate : [String] = []
         var julid: [Int] = []
         var juldistance: [Double] = []
         var jultime: [String] = []
-        
-     /*   var augdate : [String] = []
+        //Aug
+        var augdate : [String] = []
+        var augid: [Int] = []
+        var augdistance: [Double] = []
+        var augtime: [String] = []
+        //Sep
         var sepdate : [String] = []
+        var sepid: [Int] = []
+        var sepdistance: [Double] = []
+        var septime: [String] = []
+        //Oct
         var octdate : [String] = []
+        var octid: [Int] = []
+        var octdistance: [Double] = []
+        var octtime: [String] = []
+        //Nov
         var novdate : [String] = []
+        var novid: [Int] = []
+        var novdistance: [Double] = []
+        var novtime: [String] = []
+        //Dec
         var decdate : [String] = []
- */
+        var decid: [Int] = []
+        var decdistance: [Double] = []
+        var dectime: [String] = []
+        //All session
         var allSession : [Session] = []
         var eachsession = Session(Month :"", sessionid :0 , totaldistance :0.0, finishDate:"")
         for row in allsession
         {
-          
+            if(row["month"] as! String == "January")
+            {
+                jancall = 1
+                jandate.append(row["finishdate"] as! String)
+                janid.append(row["sessionID"] as! Int)
+                jandistance.append(row["totaldistance"] as! Double)
+                jantime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "February")
+            {
+                febcall = 1
+                febdate.append(row["finishdate"] as! String)
+                febid.append(row["sessionID"] as! Int)
+                febdistance.append(row["totaldistance"] as! Double)
+                febtime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "March")
+            {
+                marcall = 1
+                mardate.append(row["finishdate"] as! String)
+                marid.append(row["sessionID"] as! Int)
+                mardistance.append(row["totaldistance"] as! Double)
+                martime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "April")
+            {
+                aprcall = 1
+                aprdate.append(row["finishdate"] as! String)
+                aprid.append(row["sessionID"] as! Int)
+                aprdistance.append(row["totaldistance"] as! Double)
+                aprtime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "May")
+            {
+                maycall = 1
+                maydate.append(row["finishdate"] as! String)
+                mayid.append(row["sessionID"] as! Int)
+                maydistance.append(row["totaldistance"] as! Double)
+                maytime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "June")
+            {
+                juncall = 1
+                jundate.append(row["finishdate"] as! String)
+                junid.append(row["sessionID"] as! Int)
+                jundistance.append(row["totaldistance"] as! Double)
+                juntime.append(row["totaltime"] as! String)
+            }
             if(row["month"] as! String == "July")
             {
+                julcall = 1
                 juldate.append(row["finishdate"] as! String)
-               julid.append(row["sessionID"] as! Int)
+                julid.append(row["sessionID"] as! Int)
                 juldistance.append(row["totaldistance"] as! Double)
                 jultime.append(row["totaltime"] as! String)
             }
+            if(row["month"] as! String == "August")
+            {
+                augcall = 1
+                augdate.append(row["finishdate"] as! String)
+                augid.append(row["sessionID"] as! Int)
+                augdistance.append(row["totaldistance"] as! Double)
+                augtime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "September")
+            {
+                sepcall = 1
+                sepdate.append(row["finishdate"] as! String)
+                sepid.append(row["sessionID"] as! Int)
+                sepdistance.append(row["totaldistance"] as! Double)
+                septime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "October")
+            {
+                octcall = 1
+                octdate.append(row["finishdate"] as! String)
+                octid.append(row["sessionID"] as! Int)
+                octdistance.append(row["totaldistance"] as! Double)
+                octtime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "November")
+            {
+                novcall = 1
+                novdate.append(row["finishdate"] as! String)
+                novid.append(row["sessionID"] as! Int)
+                novdistance.append(row["totaldistance"] as! Double)
+                novtime.append(row["totaltime"] as! String)
+            }
+            if(row["month"] as! String == "December")
+            {
+                deccall = 1
+                decdate.append(row["finishdate"] as! String)
+                decid.append(row["sessionID"] as! Int)
+                decdistance.append(row["totaldistance"] as! Double)
+                dectime.append(row["totaltime"] as! String)
+            }
             
         }
-       
-        eachsession = Session(Month : "July" ,allsessionid : julid ,alltotalDistance :juldistance ,totalfinishDate: juldate,alltotaltime :jultime)
+       if (jancall == 1)
+       {
+        eachsession = Session(Month : "January" ,allsessionid : janid ,alltotalDistance :jandistance ,totalfinishDate: jandate,alltotaltime :jantime)
+         allSession.append(eachsession)
+        }
+        if (febcall == 1)
+        {
+            eachsession = Session(Month : "February" ,allsessionid : febid ,alltotalDistance :febdistance ,totalfinishDate: febdate,alltotaltime :febtime)
+            allSession.append(eachsession)
+        }
+        if (marcall == 1)
+        {
+            eachsession = Session(Month : "March" ,allsessionid : marid ,alltotalDistance :mardistance ,totalfinishDate: mardate,alltotaltime :martime)
+            allSession.append(eachsession)
+        }
+        if (aprcall == 1)
+        {
+            eachsession = Session(Month : "April" ,allsessionid : aprid ,alltotalDistance :aprdistance ,totalfinishDate: aprdate,alltotaltime :aprtime)
+            allSession.append(eachsession)
+        }
+        if (maycall == 1)
+        {
+            eachsession = Session(Month : "May" ,allsessionid : mayid ,alltotalDistance :maydistance ,totalfinishDate: maydate,alltotaltime :maytime)
+            allSession.append(eachsession)
+        }
+        if (juncall == 1)
+        {
+            eachsession = Session(Month : "June" ,allsessionid : junid ,alltotalDistance :jundistance ,totalfinishDate: jundate,alltotaltime :juntime)
+            allSession.append(eachsession)
+        }
+        if (julcall == 1)
+        {
+            eachsession = Session(Month : "July" ,allsessionid : julid ,alltotalDistance :juldistance ,totalfinishDate: juldate,alltotaltime :jultime)
+            allSession.append(eachsession)
+        }
+        if (augcall == 1)
+        {
+            eachsession = Session(Month : "August" ,allsessionid : augid ,alltotalDistance :augdistance ,totalfinishDate: augdate,alltotaltime :augtime)
+            allSession.append(eachsession)
+        }
+        if (sepcall == 1)
+        {
+            eachsession = Session(Month : "September" ,allsessionid : sepid ,alltotalDistance :sepdistance ,totalfinishDate: sepdate,alltotaltime :septime)
+            allSession.append(eachsession)
+        }
+        if (novcall == 1)
+        {
+            eachsession = Session(Month : "November" ,allsessionid : octid ,alltotalDistance :octdistance ,totalfinishDate: octdate,alltotaltime :octtime)
+            allSession.append(eachsession)
+        }
+        if (deccall == 1)
+        {
+            allSession.append(eachsession)
+            eachsession = Session(Month : "July" ,allsessionid : novid ,alltotalDistance :novdistance ,totalfinishDate: novdate,alltotaltime :novtime)
+        }
+        if (jancall == 1)
+        {
+            eachsession = Session(Month : "December" ,allsessionid : decid ,alltotalDistance :decdistance ,totalfinishDate: decdate,alltotaltime :dectime)
+            allSession.append(eachsession)
+        }
         
-        allSession.append(eachsession)
+       
             return allSession
         
     }

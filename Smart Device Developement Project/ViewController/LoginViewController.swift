@@ -9,7 +9,7 @@
 import UIKit
 import MaterialComponents
 import FirebaseAuth
-
+import FirebaseDatabase
 class LoginViewController: UIViewController {
 
     
@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
     var success: Bool = false
     
     @IBAction func loginAction(_ sender: Any) {
+        // need to 
         if loginUser.text!.isEmpty == true && loginPwd.text!.isEmpty == true{
             let alertController = UIAlertController(title: "Error", message: "Email and Password cannot be empty", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -45,7 +46,7 @@ class LoginViewController: UIViewController {
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             
             alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)			
         } else if loginUser.text!.isEmpty == false && loginPwd.text!.isEmpty == true {
             let alertController = UIAlertController(title: "Error", message: "Password cannot be empty", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -53,22 +54,38 @@ class LoginViewController: UIViewController {
             alertController.addAction(defaultAction)
             self.present(alertController, animated: true, completion: nil)
         }
-        else{
-            Auth.auth().signIn(withEmail: loginUser.text!, password: loginPwd.text!) { (user, error) in
-                if error == nil {
-                    let userID: String? = user?.user.uid
-                    let email: String? = user?.user.email
-                    if DataManager.checkUserExist(params: [userID!, email!]) == false {
-                        print(DataManager.checkUserExist(params: [userID!, email!]))
-                        DataManager.insertUserInfo(uid: userID!, email: email!)
-                        
-                    }
-                } else {
+        else if loginUser.text!.isEmpty == false && loginPwd.text!.isEmpty == false {
+            Auth.auth().signIn(withEmail: self.loginUser.text!, password: self.loginPwd.text!) { (user, error) in
+
+                if error != nil {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
+                } else {
+                    
+                    let databaseRef = FirebaseDatabase.Database.database().reference()
+                    print("Login")
+                    databaseRef.child("Users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                        
+                        if snapshot.hasChild(self.loginUser.text!){
+                            
+                            print("User exist")
+                            let userID: String? = user?.user.uid
+                            let email: String? = user?.user.email
+                            if DataManager.checkUserExist(params: [userID!, email!]) == false {
+                                print(DataManager.checkUserExist(params: [userID!, email!]))
+                                DataManager.insertUserInfo(uid: userID!, email: email!)
+                            }
+
+                        }else{
+                            
+                            print("User no exist")
+                        }
+                    
+                    })
+
                 }
             }
         }

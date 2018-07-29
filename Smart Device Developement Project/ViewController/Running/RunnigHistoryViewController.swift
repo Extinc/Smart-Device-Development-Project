@@ -28,6 +28,10 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
         
         // Do any additional setup after loading the view.
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.lighttextcolor
+    }
 
    
     override func didReceiveMemoryWarning() {
@@ -63,9 +67,9 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")!
-        cell.textLabel?.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
-        cell.detailTextLabel?.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell") as! RunningCustomCell
+        cell.datelabel.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
+        cell.timinglabel.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
        // cell.detailTextLabel?.text = runningsections[indexPath.section].totaldistance![indexPath.row]
         return cell
     }

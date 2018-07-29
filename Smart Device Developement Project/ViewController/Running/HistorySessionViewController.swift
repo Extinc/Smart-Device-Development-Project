@@ -41,12 +41,9 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return header[section]
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.00001
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.00001
-    }
+ 
+   
+ 
     
     @IBOutlet weak var historyMap: MKMapView!
     
@@ -61,6 +58,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     
     @IBOutlet weak var lblTotalCaloriesBurnt: UILabel!
     
+    @IBOutlet weak var historytable: UITableView!
     var currentid = String()
     
     var mylocations: [CLLocation] = []
@@ -84,9 +82,20 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        historytable.delegate = self
+        historytable.dataSource = self
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.darktextcolor
+        headerView.frame = CGRect(x:0, y:0, width: view.frame.width, height: 30)
+        
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.darktextcolor
+        footerView.frame = CGRect(x:0, y:0, width: view.frame.width, height: 30)
         Linechart.delegate = self as! ChartViewDelegate
         Linechart.setViewPortOffsets(left: 0, top: 20, right: 0, bottom: 0)
         Linechart.backgroundColor = UIColor(red: 104/225, green: 241/225, blue:175/255, alpha: 1)
+    
         
         Linechart.dragEnabled = true
         Linechart.setScaleEnabled(true)
@@ -121,7 +130,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
                 mylocations.append(coordinate)
                 
         }
-        
+      
         func setDataCount(_ count: Int, range: UInt32){
             let yVals1 = (0..<count).map { (i) -> ChartDataEntry in
                 let mult = range + 1

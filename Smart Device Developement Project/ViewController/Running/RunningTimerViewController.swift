@@ -25,6 +25,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     let weatherService = WeatherService()
     
+    @IBOutlet weak var lblprogress: UILabel!
     @IBOutlet weak var desclbl: UILabel!
     
     @IBOutlet weak var templbl: UILabel!
@@ -125,6 +126,9 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     @IBOutlet weak var imagescrollView: UIScrollView!
     
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    
+    @IBOutlet weak var BackProgress: UIView!
     
     var runningimage: [String] = ["running1","running2","running3"]
     var frame = CGRect(x:0,y:0,width:0,height:0)
@@ -247,6 +251,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             InstructionView.isHidden = false
             imagescrollView.isHidden = false
             pageControl.isHidden = false
+            BackProgress.isHidden = true
+           
            
            
             
@@ -263,6 +269,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         pageControl.isHidden = true
         imagescrollView.isHidden = true
         InstructionView.isHidden = true
+        BackProgress.isHidden = false
+            
         
 
         }
@@ -336,10 +344,13 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             InstructionView.isHidden = false
             imagescrollView.isHidden = false
             pageControl.isHidden = false
+            BackProgress.isHidden = true
+            lblprogress.isHidden = true
 
         }
         else
         {
+            lblprogress.isHidden = false
             btncontinue.isHidden = true
             buttonPause.isHidden = true
             btnStart.isHidden = false
@@ -353,6 +364,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             InstructionView.isHidden = true
             imagescrollView.isHidden = true
             pageControl.isHidden = true
+            BackProgress.isHidden = false
         }
         mapView.delegate = self
         //Create Database When entered this page
@@ -396,6 +408,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         btnCreateSchedules.isHidden = true
         btnStart.isHidden = false
     }
+    
     func distanceAlert(){
         
         var Prevspeed : Double = 0
@@ -603,6 +616,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     //Start Timer
 
     @IBAction func start(_ sender: UIButton) {
+        BackProgress.isHidden = true
+        lblprogress.isHidden = true
         lblNumberofProgress.isHidden = true
         lblProgress.isHidden = true
         mapView.isHidden = false

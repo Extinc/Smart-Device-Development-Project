@@ -5,15 +5,17 @@
 //  Created by ITP312 on 10/7/18.
 //  Copyright © 2018 ITP312. All rights reserved.
 //
-
-import UIKit
+	import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 class AuthenticateUser: NSObject {
     static func getUID()->String{
         var uid: String!
-        if Auth.auth().currentUser!.uid.isEmpty == false && Auth.auth().currentUser!.uid != nil {
-            uid = Auth.auth().currentUser!.uid
+//        if Auth.auth().currentUser!.uid.isEmpty == false && Auth.auth().currentUser!.uid != nil {
+//            uid = Auth.auth().currentUser!.uid
+////        }
+        if let userID: String! = Auth.auth().currentUser!.uid{
+            uid = userID
         }
         return uid
     }
@@ -21,7 +23,7 @@ class AuthenticateUser: NSObject {
     static func getCurrEmail()-> String{
         var email: String!
         if Auth.auth().currentUser!.email!.isEmpty == false && Auth.auth().currentUser!.email != nil {
-            email = Auth.auth().currentUser!.email
+	            email = Auth.auth().currentUser!.email
         }
         return email
     }

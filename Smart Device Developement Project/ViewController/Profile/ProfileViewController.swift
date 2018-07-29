@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: MDCCard!
-    
+    	
     var lifeStyle = LifestyleTheme()
     var accInfo: AccountProfile?
     var height: Double = 0.0
@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }
+        }	
     }
     
     override func viewDidLoad() {

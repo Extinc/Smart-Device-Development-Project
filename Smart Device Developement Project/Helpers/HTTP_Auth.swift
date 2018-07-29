@@ -162,3 +162,10 @@ class HTTP_Auth: NSObject {
         }
     }
 }
+
+class SecretKey: NSObject{
+    static func getKey() -> String{
+        var key: String = "nOe1VpiczjADS8ZEtwugjqDYTBTrG8bYe9DvUrdreJFAbJ0ngOkbXdbAEN9xaeL6"
+        return key
+    }
+}

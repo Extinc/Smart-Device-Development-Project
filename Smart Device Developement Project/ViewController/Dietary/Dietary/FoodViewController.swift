@@ -51,7 +51,7 @@ class FoodViewController: UIViewController {
         let recipeImage = meal[0].recipeImage
         
         mealInfo.insert(MealPlan(username, todayDate, mealID!, mealName!, mealImage!, calories!, recipeImage!, "Yes" ), at: 0)
-        //DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
+        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
         performSegue(withIdentifier: "unwindback", sender: self)
     }
     

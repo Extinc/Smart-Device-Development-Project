@@ -13,8 +13,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var mealList: [Meal] = []
     var searchActive : Bool = false
     var filtered:[Meal] = []
-    
-    //let popup = UIStoryboard(name: "FoodScanner", bundle: nil).instantiateViewController(withIdentifier: "popupMeal") as! FoodViewController
 
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet weak var tableView: UITableView!

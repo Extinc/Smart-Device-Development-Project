@@ -276,7 +276,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
         for i in 0...mealPlanList.count - 1{
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date!).child(mealPlanList[i].mealID as! String)
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date!).child(String(mealPlanList[i].mealID!))
             ref.setValue([
                 "mealID" : mealPlanList[i].mealID,
                 "mealName" : mealPlanList[i].mealName,

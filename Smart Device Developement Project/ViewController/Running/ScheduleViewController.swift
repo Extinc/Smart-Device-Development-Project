@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 
+
 class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBOutlet weak var lblDistance: UILabel!
@@ -17,12 +18,14 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     @IBOutlet weak var lblNumber: UITextField!
     var mainevents:EKEvent!
     var maineventStore: EKEventStore!
-
+    
     @IBOutlet weak var daypicker: UIPickerView!
     @IBOutlet weak var buttonCreate: UIButton!
     @IBOutlet weak var buttonDelete: UIButton!
     @IBOutlet weak var distanceslider: UISlider!
     @IBOutlet weak var lbldaydescript: UILabel!
+    
+    
     var savedevent = ""
     var savedevevntstore =  ""
     var username = AuthenticateUser.getUID()

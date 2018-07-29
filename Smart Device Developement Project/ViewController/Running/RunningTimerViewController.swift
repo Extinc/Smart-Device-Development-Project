@@ -12,7 +12,7 @@ import AVFoundation
 import CoreData
 
 
-class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate, WeatherServiceDelegate{
+class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate, WeatherServiceDelegate,UIScrollViewDelegate{
     
     var audioPlayer = AVAudioPlayer()
     var synth = AVSpeechSynthesizer()
@@ -57,7 +57,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var weatherIcon: UIImageView!
     
- 
+    @IBOutlet weak var forfeitedcount: UILabel!
+    
+    @IBOutlet weak var completecount: UILabel!
+    
     var mylocations: [CLLocation] = []
     var targetDistance: Double = 0
     var startDate: Date!
@@ -102,8 +105,29 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var callfifth : Int = 1
     var latitude : String = ""
     var longitude : String = ""
-
+    
+    var noofcomplete : Int = 0
+    var noofforfeit : Int = 0
+    
+    @IBOutlet weak var iconcross: UIImageView!
+    @IBOutlet weak var icontick: UIImageView!
+    
+    @IBOutlet weak var Measure1view: UIStackView!
+    
+    @IBOutlet weak var measure2view: UIStackView!
+    
+    @IBOutlet weak var WeatherViewBeforeStart: UIView!
+    
+    @IBOutlet weak var InstructionView: UIView!
+    
     @IBOutlet weak var lblspeed: UILabel!
+    
+    @IBOutlet weak var imagescrollView: UIScrollView!
+    
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    var runningimage: [String] = ["running1","running2","running3"]
+    var frame = CGRect(x:0,y:0,width:0,height:0)
     //timer
     weak var timer = Timer()
     //Mark Weather Service
@@ -120,6 +144,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         
     }
+    
+    
     
     @IBAction func btnPause(_ sender: Any) {
         if self.resumeTapped == false
@@ -143,14 +169,50 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var locationManager = CLLocationManager()
     var coordinate2D = CLLocationCoordinate2DMake(40.8367321, 14.2468856)
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = Int(pageNumber)
+    }
+    
+    func FinishedCurrentSchedule()
+    {
+        var currentSchedule = RunningDataManager.loadScheduleInformation(username)
+        if(currentSchedule.progress == currentSchedule.numberoftimes)
+        {
+            RunningDataManager.UpdateComplete(currentSchedule.scheduleId!)
+            if(RunningDataManager.checkUserScheduleFinished(currentSchedule.scheduleId!) == true)
+            {
+                FinishAlert(title: "Successful Completed Schedule", message: "Congratulation, you have cleared your schedule , time to create a new schedule!")
+            }
+            
+            
+        }
+    }
+    
     override func viewDidLoad() {
         //Get Weather
         
+        noofcomplete = RunningDataManager.checkUserScheduleComplete(username)
+        completecount.text = String(noofcomplete)
+        noofforfeit = RunningDataManager.checkUserScheduleforfeit(username)
+        forfeitedcount.text = String(noofforfeit)
        NutrInfo().getWeight(){
             weight in
             self.weight = weight
             
         }
+        pageControl.numberOfPages = runningimage.count
+        for index in 0..<runningimage.count{
+            frame.origin.x = imagescrollView.frame.size.width * CGFloat(index)
+            frame.size = imagescrollView.frame.size
+            
+            let imgView = UIImageView(frame : frame)
+            imgView.image = UIImage(named: runningimage[index])
+            self.imagescrollView.addSubview(imgView)
+            
+        }
+        imagescrollView.contentSize = CGSize(width:(imagescrollView.frame.size.width * CGFloat(runningimage.count)), height: imagescrollView.frame.size.height)
+        imagescrollView.delegate = self
  
       
        
@@ -163,19 +225,31 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         super.viewDidLoad()
         
+        mapView.isHidden = true
+        
+        
         self.weatherService.delegate = self
         self.weatherService.getWeatherForCity(lat: "40.8367321", lon :"14.2468856")
 
         btnComplete.isHidden = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
-        print(RunningDataManager.selectlastScheduleTableId())
+        print(RunningDataManager.selectlastScheduleTableId(username))
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
+            mapView.isHidden = true
             btnStart.isHidden = true
             btncontinue.isHidden = true
             buttonPause.isHidden = true
+            Measure1view.isHidden = true
+            measure2view.isHidden = true
+            InstructionView.isHidden = false
+            imagescrollView.isHidden = false
+            pageControl.isHidden = false
+           
+           
+            
         }
         else
         {
@@ -183,6 +257,14 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         buttonPause.isHidden = true
         btnStart.isHidden = false
         btnCreateSchedules.isHidden = true
+        mapView.isHidden = true
+        Measure1view.isHidden = true
+        measure2view.isHidden = true
+        pageControl.isHidden = true
+        imagescrollView.isHidden = true
+        InstructionView.isHidden = true
+        
+
         }
         mapView.delegate = self
         //Create Database When entered this page
@@ -223,6 +305,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
 
     }
     override func viewWillAppear(_ animated: Bool) {
+        noofcomplete = RunningDataManager.checkUserScheduleComplete(username)
+        completecount.text = String(noofcomplete)
+        noofforfeit = RunningDataManager.checkUserScheduleforfeit(username)
+        forfeitedcount.text = String(noofforfeit)
+        
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
             audioPlayer.prepareToPlay()
@@ -234,13 +321,22 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         btnComplete.isHidden = true
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
-        print(RunningDataManager.selectlastScheduleTableId())
+        print(RunningDataManager.selectlastScheduleTableId(username))
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
             btnStart.isHidden = true
             btncontinue.isHidden = true
             buttonPause.isHidden = true
+            Measure1view.isHidden = true
+            measure2view.isHidden = true
+            lblProgress.isHidden = true
+            lblNumberofProgress.isHidden = true
+            WeatherViewBeforeStart.isHidden = false
+            InstructionView.isHidden = false
+            imagescrollView.isHidden = false
+            pageControl.isHidden = false
+
         }
         else
         {
@@ -248,6 +344,15 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             buttonPause.isHidden = true
             btnStart.isHidden = false
             btnCreateSchedules.isHidden = true
+            Measure1view.isHidden = true
+            measure2view.isHidden = true
+            mapView.isHidden = true
+            lblProgress.isHidden = false
+            lblNumberofProgress.isHidden = false
+            WeatherViewBeforeStart.isHidden = false
+            InstructionView.isHidden = true
+            imagescrollView.isHidden = true
+            pageControl.isHidden = true
         }
         mapView.delegate = self
         //Create Database When entered this page
@@ -498,6 +603,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     //Start Timer
 
     @IBAction func start(_ sender: UIButton) {
+        lblNumberofProgress.isHidden = true
+        lblProgress.isHidden = true
+        mapView.isHidden = false
+        measure2view.isHidden = false
+        Measure1view.isHidden = false
+        WeatherViewBeforeStart.isHidden = true
         setupCoreLocation()
         //Creating Timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
@@ -515,7 +626,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         
-        let currentSession = Session(RunningDataManager.selectlastScheduleTableId(),0.0,targetDistance,lblTime.text!,myStringafd,0,letnameofmonth)
+        let currentSession = Session(RunningDataManager.selectlastScheduleTableId(username),0.0,targetDistance,lblTime.text!,myStringafd,0,letnameofmonth,username)
       
             
         RunningDataManager.insertOrReplaceSession(session: currentSession)
@@ -722,6 +833,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             var currentprogress: String = String(thisprogress + 1)
             var currentcomplete: Schedule = Schedule(currentprogress,scheduleid)
             RunningDataManager.UpdateProgress(Schedule: currentcomplete)
+           // FinishedCurrentSchedule()
             
             var thisSessionSpeed = Session(firstspeed : lap1Speed,secondspeed : lap2Speed,thirdspeed : lap3Speed,fourthspeed : lap4Speed,fivespeed : lap5Speed,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateSessionSpeed(session: thisSessionSpeed)
@@ -748,6 +860,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             var thistotalspeed = Session(sessionid: RunningDataManager.selectlastSessionTableId(),totalspeed : (travelledDistance/time))
             RunningDataManager.UpdateTotalSpeed(session: thistotalspeed)
+            
+      
             
             var RunLongitude : [String] = []
             var RunLatitude : [String] = []

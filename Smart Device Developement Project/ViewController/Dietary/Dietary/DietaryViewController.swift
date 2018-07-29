@@ -29,7 +29,7 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
             let date = Date()
             let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
+            formatter.dateFormat = "dd-MM-yyyy"
             let today = formatter.string(from: date)
             
             let email = AuthenticateUser.getCurrEmail()

@@ -79,4 +79,8 @@ class NutrInfo: NSObject {
                                 onComplete(goal)
         })
     }
+    
+    static func updateGoals(goal: Int){
+        Database.database().reference().child("Profile").child(AuthenticateUser.getUID()).updateChildValues(["goal": goal])
+    }
 }

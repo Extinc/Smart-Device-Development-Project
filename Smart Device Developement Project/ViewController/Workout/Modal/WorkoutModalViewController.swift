@@ -8,9 +8,11 @@
 
 import UIKit
 import MaterialComponents
-import AWSAPIGateway
+
 class WorkoutModalViewController: UIViewController {
 
+    var passedExerciseName: String!
+    
     @IBOutlet weak var addBtn: MDCFloatingButton!
     @IBOutlet weak var minusBtn: MDCFloatingButton!
     
@@ -38,8 +40,14 @@ class WorkoutModalViewController: UIViewController {
         let timestamp = NSDate().timeIntervalSince1970
         
         print("UTC Timestamp: ",timestamp)
-
-        self.dismiss(animated: true, completion: nil)
+        
+        if let reps = Int(repTextField.text!)
+        {
+            self.dismiss(animated: true) {
+                ExerciseDataManager.saveCompletedWorkout(uid: AuthenticateUser.getUID(), exercises: self.passedExerciseName, repCount: reps)
+            }
+        }
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +64,8 @@ class WorkoutModalViewController: UIViewController {
         
         repTextField.delegate = self
         repTextField.keyboardType = .numberPad
+        
+        print(passedExerciseName)
     }
 
     override func didReceiveMemoryWarning() {

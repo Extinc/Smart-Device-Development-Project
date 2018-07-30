@@ -4,7 +4,7 @@
 //
 //  Created by lim kei yiang on 14/6/18.
 //  Copyright © 2018 NYP. All rights reserved.
-//
+// FOr workout also
 
 import UIKit
 import FirebaseDatabase
@@ -157,6 +157,17 @@ class ExerciseDataManager: NSObject{
             }
             onComplete?(eqList)
         })
+        
+    }
+    
+    static func saveCompletedWorkout(uid: String, exercises: String, repCount: Int){
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("WorkoutHistory").child(uid).childByAutoId().child("exerciseName").setValue(exercises)
+        ref.child("WorkoutHistory").child(uid).childByAutoId().child("count").setValue(repCount)
+        ref.child("WorkoutHistory").child(uid).childByAutoId().child("timestamp").setValue(NSDate().timeIntervalSince1970)
         
     }
     

@@ -27,7 +27,7 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         super.viewDidLoad()
         hawkerMapView.delegate = self
         locationManager.delegate = self
-        updateMapRegion(rangeSpan: 100)
+        updateMapRegion(rangeSpan: 50)
         
         checkForHawker.loadHawkerWithMeal(meal: meal, hawkers: hawkerCentres)
         if (hawkerSegment.selectedSegmentIndex == 0) {

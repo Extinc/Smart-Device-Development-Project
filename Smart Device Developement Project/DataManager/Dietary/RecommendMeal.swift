@@ -166,15 +166,21 @@ class RecommendMeal: NSObject {
                 if(meals[i].ingredients?.contains(noIngredients[j]) == false ){
                     if (arrayOfMealIndex.isEmpty) {
                         arrayOfMealIndex.append(i)
-                        }
+                        break
                     }
                     else {
-                    for m in 0...arrayOfMealIndex.count{
-                        if(arrayOfMealIndex.contains(meals[i].mealID!) == false) {
-                            arrayOfMealIndex.append(i)
-                            break
+                        for m in 0...arrayOfMealIndex.count{
+                            if(arrayOfMealIndex.contains(meals[i].mealID!) == false) {
+                                arrayOfMealIndex.append(i)
+                                break
+                            }
+                            else{
+                                break
+                            }
                         }
+
                     }
+                    
                 }
             }
         }
@@ -191,7 +197,7 @@ class RecommendMeal: NSObject {
         let mealsperdayCount: Int = planPreferences.mealsperday! - 1
         
         //Randomly pick from meals that have satisfied conditions
-        for a in 0...mealsperdayCount {
+        for a in 0...mealsperdayCount - 1 {
             let randomNumber = Int(arc4random_uniform(UInt32(arrayOfMealIDAfterCalories.count-1)))
             let mealId = arrayOfMealIDAfterCalories[randomNumber]
             arrayOfMealIDAfterCalories.remove(at: randomNumber)
@@ -270,13 +276,13 @@ class RecommendMeal: NSObject {
     // MARK: - Notifcations
     static func makeNotiContent(planPreferences: UserPlanPreferences, notiDate: Date){
       
-        let mealInterval = Int(planPreferences.mealtiming!)
+        let mealInterval = Int(planPreferences.mealtiming!)!
         var mealTiming = 8
         //Assume first meal is 8am,
         for i in 0...planPreferences.mealsperday! - 1 {
             
             if (i != 0){
-                mealTiming += mealInterval!
+                mealTiming += mealInterval
             }
             
             let content = UNMutableNotificationContent()

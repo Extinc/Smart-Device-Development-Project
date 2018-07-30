@@ -19,6 +19,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var startDateTextField: UITextField!
     @IBOutlet weak var remindersSwitch: UISwitch!
     
+    @IBOutlet weak var intervalStackView: UIStackView!
+    
     var picker1 = UIPickerView()
     var picker3 = UIPickerView()
     var picker4 = UIPickerView()
@@ -32,18 +34,19 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var dataDuration = ["1 Week", "2 Weeks", "1 Month", "3 Months", "6 Months"]
     var dataMealsPD = ["1", "2", "3", "4", "5", "6"]
     var dataMealsT = ["2 Hours","3 Hours", "4 Hours", "5 Hours", "6 Hours"]
-    var dataReminders = ["Yes", "No"]
     
     var planpreferences = [UserPlanPreferences]()
     var username = ""
     var totalCalories: Int = 0
     var meal: [Meal] = []
 
-    var reminders: String = "Yes"
+    var reminders: String = "No"
     var isGrantedNotificationAccess = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        intervalStackView.isHidden = true
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
             (granted, error) in
@@ -54,7 +57,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         
         self.username = AuthenticateUser.getUID()
-        self.loadMeals()
+        self.meal = LoadingData.shared.mealList
         self.loadCalories()
         
         
@@ -234,13 +237,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
      // MARK: - Functions
-    func loadMeals() {
-        DietaryPlanDataManagerFirebase.loadMeals(){
-            mealListFromFirebase in
-            self.meal = mealListFromFirebase
-        }
-    }
-    
     func loadCalories(){
         NutrInfo().calReccCalories() {
             recCaloriesFromFirebase in
@@ -252,9 +248,11 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func switchChanged(_ sender: Any) {
         if (remindersSwitch.isOn) {
             reminders = "Yes"
+            intervalStackView.isHidden = false
         }
         else {
             reminders = "No"
+            intervalStackView.isHidden = true
         }
     }
     

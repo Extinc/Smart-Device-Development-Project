@@ -16,11 +16,18 @@ class ViewMealViewController: UIViewController {
     var meals: [Meal] = [] //to parse all aval meals to other vc
     var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
     var mealID: Int = 0
+    var hawkerCentres : [HawkerCentres] = []
+    var hawkerCentresWithMeal : [HawkerCentres] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mealID = mealPlan.mealID!
-        loadOneMeal()
+        meals = LoadingData.shared.mealList
+        
+        DispatchQueue.main.async{
+            self.loadOneMeal()
+        }
+        loadAllHawkers()
         
     }
 
@@ -30,7 +37,7 @@ class ViewMealViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        recipeImage.image = UIImage(named: mealPlan.mealImage!)
+        recipeImage.image = UIImage(named: mealPlan.recipeImage!)
     }
 
     
@@ -38,14 +45,17 @@ class ViewMealViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue,
                           sender: Any?)
     {
-        var newMeals: [Meal] = RecommendMeal.getSimilarMeal(meal: meal, meals: meals)
+        let newMeals: [Meal] = RecommendMeal.getSimilarMeal(meal: meal, meals: meals)
         let mealid: Int = mealPlan.mealID!
+        hawkerCentresWithMeal = checkForHawker.loadHawkerWithMeal(meal: self.meal, hawkers: self.hawkerCentres)
         if(segue.identifier == "showHawkerSegue")
         {
             let ViewHawkerViewController =
                 segue.destination as! HawkerViewController
             
-            ViewHawkerViewController.mealID = mealid 
+            ViewHawkerViewController.meal = meal
+            ViewHawkerViewController.hawkerCentres = hawkerCentres
+            ViewHawkerViewController.hawkerCenteresWithMeal = hawkerCentresWithMeal
             
         }
         else if(segue.identifier == "editMealSegue"){
@@ -70,4 +80,13 @@ class ViewMealViewController: UIViewController {
             self.meal = mealFromFirebase
         }
     }
+    
+    func loadAllHawkers(){
+        DietaryPlanDataManagerFirebase.loadHawkerCentres(){
+            hawkerFromFirebase in
+            self.hawkerCentres = hawkerFromFirebase
+        }
+    }
+    
+    @IBAction func unwindToRecipeVC(segue:UIStoryboardSegue){}
 }

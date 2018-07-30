@@ -82,6 +82,9 @@
             if segue.identifier == "tableViewEmbed" {
                 var viewController = segue.destination as! WorkoutDetailInfoViewController
                 viewController.passedExercise = passedExercise
+            }else if segue.identifier == "startExercise"{
+                var viewController = segue.destination as! WorkoutStartViewController
+                viewController.passedExercise = passedExercise
             }
         }
         

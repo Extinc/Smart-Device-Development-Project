@@ -9,20 +9,28 @@
 import UIKit
 import AVFoundation
 import Vision
+import MaterialComponents
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet weak var test: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var selectPicture: UIButton!
-    @IBOutlet weak var takePicture: UIButton!
-    @IBOutlet weak var chooseMeal: UIButton!
+    @IBOutlet weak var selectPicture: MDCFlatButton!
+    @IBOutlet weak var takePicture: MDCFlatButton!
+    @IBOutlet weak var chooseMeal: MDCFlatButton!
 
     @IBAction func unwindtopic(segue:UIStoryboardSegue) { }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // UI stuff
+        let colors = Colors()
+        let lifestyleTheme = LifestyleTheme()
+        lifestyleTheme.styleBtn(btn: selectPicture, title: "Select Image", pColor: colors.primaryDarkColor)
+        lifestyleTheme.styleBtn(btn: takePicture, title: "Take Picture", pColor: colors.primaryDarkColor)
+        lifestyleTheme.styleBtn(btn: chooseMeal, title: "Choose Meal", pColor: colors.primaryDarkColor)
 
         if !(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)){
             takePicture.isHidden = true
@@ -82,7 +90,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                     self?.chooseMeal.isHidden = false
                     
                 }else{
-                    self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
+                    self?.test.text = topResult.identifier
                     self?.test.backgroundColor = UIColor.black
                     print(self?.test.text as Any)
                     

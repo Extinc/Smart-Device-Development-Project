@@ -42,11 +42,10 @@ class DietaryPlanDataManagerFirebase: NSObject {
     static func loadOneMeal(id: Int, onComplete: @escaping (Meal) -> Void){
         
         var meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
-        let ref = FirebaseDatabase.Database.database().reference().child("Meal").child("id")
+        let ref = FirebaseDatabase.Database.database().reference().child("Meal/").child(String(id))
         ref.observeSingleEvent(of: .value, with:{(snapshot) in
             for record in snapshot.children {
                 let r = record as! DataSnapshot
-                let id = Int(r.key)!
                 let image = r.childSnapshot(forPath: "image").value as! String
                 let name = r.childSnapshot(forPath: "name").value as! String
                 let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
@@ -217,7 +216,6 @@ class DietaryPlanDataManagerFirebase: NSObject {
         //Create empty list
         var mealPlanList : [MealPlan] = []
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
-      
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
                 
@@ -226,9 +224,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if (exists == true){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                        let userName = r.key as! String
-                        let Date = r.childSnapshot(forPath: "date").value as! String
-                        let mealid = r.childSnapshot(forPath: "mealID").value as! Int
+                        let mealid = Int(	r.key as! String)
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
                         let calories = r.childSnapshot(forPath: "calories").value as! Int
@@ -236,9 +232,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
                         
-                        if(userName == username && Date == date) {
-                            mealPlanList.append(MealPlan(userName,Date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
-                        }
+                        mealPlanList.append(MealPlan(username,date,mealid!,mealname,mealimage,fCalories,recipeimage,isDiary))
+                        
                     }
                 }
                 else {
@@ -252,15 +247,14 @@ class DietaryPlanDataManagerFirebase: NSObject {
         var count: Int = 0
         //Create empty list
         var mealPlanList : [MealPlan] = []
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
         
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
             for record in snapshot.children{
                 let r = record as! DataSnapshot
-                let uname = r.childSnapshot(forPath: "username").value as! String
-                let Date = r.childSnapshot(forPath: "date").value as! String
-                if(uname == username && Date == date) {
+                let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
+                if(isDiary == "No") {
                     count = count + 1
                 }
                 
@@ -302,28 +296,11 @@ class DietaryPlanDataManagerFirebase: NSObject {
         )
     }
     
-   /* static func create1Plan() {
-        
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(1)/")
-            ref.setValue([
-                "username" : "1",
-                "date" : "09/07/2018",
-                "mealID" : "1",
-                "mealName" : "Chicken Rice",
-                "mealImage" : "chickenrice",
-                "calories" : "510",
-                "isDiary" : "No",
-                "recipeImage" : "chickenricerecipe"
-                ]
-            )
-        
-    }*/
-    
     //Delete
-    /*static func deleteMealPlan(_ mealPlan: MealPlan){
-        let ref = FirebaseDatabase.Database.database().reference().child("Meal/\(mealPlan.planID)/")
+    static func deleteMealPlan(_ mealPlan: MealPlan){
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.mealID!))
         ref.removeValue()
-    }*/
+    }
     
     //MARK: - Hawker Centres
     

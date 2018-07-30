@@ -121,7 +121,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-K6-5HG" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="backgroundwebsite-1000x675"/>
@@ -151,7 +151,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDP-Bm-0h7" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
@@ -466,17 +466,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr6-ge-sRg" customClass="MDCFloatingButton">
-                                        <rect key="frame" x="212" y="133" width="39" height="39"/>
+                                        <rect key="frame" x="214" y="135" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="baseline_add_white_36pt"/>
+                                        <state key="normal" image="baseline_add_white_36pt">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="addRepCount:" destination="MIY-DC-aMs" eventType="touchUpInside" id="DT7-Nx-IJ0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px2-bq-mGM" customClass="MDCFloatingButton">
-                                        <rect key="frame" x="25" y="133" width="39" height="39"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px2-bq-mGM" customClass="MDCFloatingButton">
+                                        <rect key="frame" x="27" y="135" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="baseline_remove_white_36pt">
+                                        <state key="normal" image="baseline_remove_white_36pt">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>

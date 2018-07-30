@@ -15,16 +15,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var generatePlanButton: UIButton!
-    @IBOutlet weak var loadMealsButton: UIButton!
     @IBOutlet weak var notifyLabel: UILabel!
+    
     
     private var datePicker: UIDatePicker?
     
-    
-    /*let mealType = [[MealType("Vegan", "No animal products", "vegan")],
-                [MealType("Clean Eating", "Ideal if you are looking to make a healthy change in your eating habits", "cleaneating")],
-                [MealType("High Protein", "High Protein", "highprotein")],
-                [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
@@ -42,7 +37,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //dateTextField.backgroundColor = primaryColor
         
         let date = Date()
         let formatter = DateFormatter()
@@ -58,18 +53,32 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         //Firebase load meals and plans
         DispatchQueue.main.async {
             DietaryPlanDataManagerFirebase.createMealData()
-            self.loadMeals()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
         }
         
+        //Load mealplans to display in table
+        mealplan = LoadingData.shared.mealPlan
+        for j in 0...self.mealplan.count-1 {
+            if (self.mealplan[j].isDiary == "No") {
+                self.mealPlans[0].append(self.mealplan[j])
+            }
+            else if (self.mealplan[j].isDiary == "Yes"){
+                self.mealPlans[1].append(self.mealplan[j])
+            }
+            else{
+                break
+            }
+        }
+        
+        
         //Load meal plans
-        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+        if(planCount < 1) {
             generatePlanButton.isHidden = false
-            loadMealsButton.isHidden = true
+            notifyLabel.text = "You do not have any meal plans planned today, press start a new plan to generate one. "
         }
         else{
             generatePlanButton.isHidden = true
-            loadMealsButton.isHidden = false
+            notifyLabel.text = ""
         }
         
         //Date picker
@@ -90,21 +99,17 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         //Load Preferences
         preferences = DietaryPlanDataManager.loadPreferences(username: username)
         
-        //Check if there is a plan in selected date
-        if(DietaryPlanDataManager.countPreferences(userName: username) >= 1 ) {
-            let days = preferences[0].duration!
-        }
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+        if(planCount < 1) {
             generatePlanButton.isHidden = false
-            loadMealsButton.isHidden = true
         }
         else{
             generatePlanButton.isHidden = true
-            loadMealsButton.isHidden = false
         }
+        loadPlanMeals(date: selectedDate, username: username)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -121,10 +126,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         dateFormatter.dateFormat = "dd-MM-yyyy"
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         selectedDate = dateTextField.text!
+        loadPlanMeals(date: selectedDate, username: username)
         view.endEditing(true)
     }
 
-    // Segue unwind
+    // MARK: - Segue unwind
     @IBAction func unwindToDietaryPlanController(segue: UIStoryboardSegue) {}
    
     
@@ -166,23 +172,20 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                 // Set the mealItem field with the meal
                 // object selected by the user.
                 //
-                let selectedMeal: MealPlan = mealPlans[myIndexPath!.section][myIndexPath!.row]
-                ViewMealViewController.mealPlan = selectedMeal
+                let selectedMealPlan: MealPlan = mealPlans[myIndexPath!.section][myIndexPath!.row]
+   
+                ViewMealViewController.mealPlan = selectedMealPlan
                 ViewMealViewController.meals = meal
+                ViewMealViewController.mealID = selectedMealPlan.mealID!
 
             }
         }
     }
     
-    // MARK: - Functions
-    func loadMeals() {
-        DietaryPlanDataManagerFirebase.loadMeals(){
-            mealListFromFirebase in
-            self.meal = mealListFromFirebase
-        }
-    }
     
     func loadPlanMeals (date: String, username: String) {
+        mealPlans.removeAll()
+        mealPlans = [[],[]]
         DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
             mealPlanListFromFirebase in
             self.mealplan = mealPlanListFromFirebase
@@ -191,8 +194,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                     if (self.mealplan[j].isDiary == "No") {
                         self.mealPlans[0].append(self.mealplan[j])
                     }
-                    else {
+                    else if (self.mealplan[j].isDiary == "Yes"){
                         self.mealPlans[1].append(self.mealplan[j])
+                    }
+                    else{
+                        break
                     }
                 }
             

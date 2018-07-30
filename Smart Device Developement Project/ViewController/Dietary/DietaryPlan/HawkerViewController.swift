@@ -16,9 +16,8 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var hawkerMapView: MKMapView!
     
     var locationManager = CLLocationManager()
-    var coordinate2D = CLLocationCoordinate2DMake(123131, 123123)
+    var coordinate2D = CLLocationCoordinate2DMake(1.3800709, 103.8490213)
     
-    var mealID: Int = 0
     var hawkerCentres : [HawkerCentres] = []
     var hawkerCenteresWithMeal : [HawkerCentres] = []
     var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
@@ -29,8 +28,6 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         hawkerMapView.delegate = self
         locationManager.delegate = self
         updateMapRegion(rangeSpan: 100)
-        loadAllHawkers()
-        loadOneMeal()
         
         checkForHawker.loadHawkerWithMeal(meal: meal, hawkers: hawkerCentres)
         if (hawkerSegment.selectedSegmentIndex == 0) {
@@ -63,19 +60,6 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     
     // MARK: - Functions
-    func loadAllHawkers(){
-        DietaryPlanDataManagerFirebase.loadHawkerCentres(){
-            hawkerFromFirebase in
-            self.hawkerCentres = hawkerFromFirebase
-        }
-    }
-    
-    func loadOneMeal(){
-        DietaryPlanDataManagerFirebase.loadOneMeal(id: mealID){
-            mealFromFirebase in
-            self.meal = mealFromFirebase
-        }
-    }
     
     func updateMapRegion(rangeSpan: CLLocationDistance){
         let region = MKCoordinateRegionMakeWithDistance(coordinate2D, rangeSpan, rangeSpan)

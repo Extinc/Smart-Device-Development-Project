@@ -58,7 +58,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         //Load meal plans
-        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+        if(planCount < 1) {
             generatePlanButton.isHidden = false
             loadMealsButton.isHidden = true
         }
@@ -85,14 +85,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         //Load Preferences
         preferences = DietaryPlanDataManager.loadPreferences(username: username)
         
-        //Check if there is a plan in selected date
-        if(DietaryPlanDataManager.countPreferences(userName: username) >= 1 ) {
-            let days = preferences[0].duration!
-        }
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if(DietaryPlanDataManager.countPreferences(userName: username) < 1) {
+        if(planCount < 1) {
             generatePlanButton.isHidden = false
             loadMealsButton.isHidden = true
         }
@@ -116,6 +113,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         dateFormatter.dateFormat = "dd-MM-yyyy"
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         selectedDate = dateTextField.text!
+        loadPlanMeals(date: selectedDate, username: username)
         view.endEditing(true)
     }
 
@@ -161,9 +159,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                 // Set the mealItem field with the meal
                 // object selected by the user.
                 //
-                let selectedMeal: MealPlan = mealPlans[myIndexPath!.section][myIndexPath!.row]
-                ViewMealViewController.mealPlan = selectedMeal
+                let selectedMealPlan: MealPlan = mealPlans[myIndexPath!.section][myIndexPath!.row]
+   
+                ViewMealViewController.mealPlan = selectedMealPlan
                 ViewMealViewController.meals = meal
+                ViewMealViewController.mealID = selectedMealPlan.mealID!
 
             }
         }

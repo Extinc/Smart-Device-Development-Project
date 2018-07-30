@@ -84,7 +84,7 @@ class RecommendMeal: NSObject {
         let mealListCount: Int = mealList.count - 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
-            let username = "1"
+            let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
             let mealImage = mealList[b].mealImage
@@ -129,7 +129,7 @@ class RecommendMeal: NSObject {
         let mealListCount: Int = mealList.count - 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
-            let username = "1"
+            let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
             let mealImage = mealList[b].mealImage
@@ -158,19 +158,16 @@ class RecommendMeal: NSObject {
         for i in 0...Count {
             for j in 0...ingredientsCount{
                 if(meals[i].ingredients?.contains(noIngredients[j]) == false ){
-                    if (arrayOfMealIndex.count > 0) {
-                        for m in 0...arrayOfMealIndex.count{
-                            if(arrayOfMealIndex.contains(meals[i].mealID!) == false) {
-                                arrayOfMealIndex.append(i)
-                                break
-                            }
-                            else {
-                                break 
-                            }
+                    if (arrayOfMealIndex.isEmpty) {
+                        arrayOfMealIndex.append(i)
                         }
                     }
                     else {
-                        arrayOfMealIndex.append(i)
+                    for m in 0...arrayOfMealIndex.count{
+                        if(arrayOfMealIndex.contains(meals[i].mealID!) == false) {
+                            arrayOfMealIndex.append(i)
+                            break
+                        }
                     }
                 }
             }
@@ -198,7 +195,7 @@ class RecommendMeal: NSObject {
         let mealListCount: Int = mealList.count - 1
         //Append into Meal Plan List 
         for b in 0...mealListCount{
-            let username = "1"
+            let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
             let mealImage = mealList[b].mealImage
@@ -239,7 +236,7 @@ class RecommendMeal: NSObject {
         let mealListCount: Int = mealList.count - 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
-            let username = "1"
+            let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
             let mealImage = mealList[b].mealImage

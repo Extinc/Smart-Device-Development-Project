@@ -16,11 +16,16 @@ class ViewMealViewController: UIViewController {
     var meals: [Meal] = [] //to parse all aval meals to other vc
     var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
     var mealID: Int = 0
+    var hawkerCentres : [HawkerCentres] = []
+    var hawkerCentresWithMeal : [HawkerCentres] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mealID = mealPlan.mealID!
+        
         loadOneMeal()
+        loadAllHawkers()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +34,7 @@ class ViewMealViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        recipeImage.image = UIImage(named: mealPlan.mealImage!)
+        recipeImage.image = UIImage(named: mealPlan.recipeImage!)
     }
 
     
@@ -44,7 +49,9 @@ class ViewMealViewController: UIViewController {
             let ViewHawkerViewController =
                 segue.destination as! HawkerViewController
             
-            ViewHawkerViewController.mealID = mealid 
+            ViewHawkerViewController.meal = meal
+            ViewHawkerViewController.hawkerCentres = hawkerCentres
+            ViewHawkerViewController.hawkerCenteresWithMeal = hawkerCentresWithMeal
             
         }
         else if(segue.identifier == "editMealSegue"){
@@ -67,6 +74,14 @@ class ViewMealViewController: UIViewController {
         DietaryPlanDataManagerFirebase.loadOneMeal(id: mealID){
             mealFromFirebase in
             self.meal = mealFromFirebase
+        }
+    }
+    
+    func loadAllHawkers(){
+        DietaryPlanDataManagerFirebase.loadHawkerCentres(){
+            hawkerFromFirebase in
+            self.hawkerCentres = hawkerFromFirebase
+            checkForHawker.loadHawkerWithMeal(meal: self.meal, hawkers: self.hawkerCentres)
         }
     }
     

@@ -217,7 +217,6 @@ class DietaryPlanDataManagerFirebase: NSObject {
         //Create empty list
         var mealPlanList : [MealPlan] = []
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
-      
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
                 
@@ -226,9 +225,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if (exists == true){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                        let userName = r.key as! String
-                        let Date = r.childSnapshot(forPath: "date").value as! String
-                        let mealid = r.childSnapshot(forPath: "mealID").value as! Int
+                        let mealid = Int(r.key as! String)
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
                         let calories = r.childSnapshot(forPath: "calories").value as! Int
@@ -236,9 +233,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
                         
-                        if(userName == username && Date == date) {
-                            mealPlanList.append(MealPlan(userName,Date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
-                        }
+                        mealPlanList.append(MealPlan(username,date,mealid!,mealname,mealimage,fCalories,recipeimage,isDiary))
+                        
                     }
                 }
                 else {
@@ -252,15 +248,14 @@ class DietaryPlanDataManagerFirebase: NSObject {
         var count: Int = 0
         //Create empty list
         var mealPlanList : [MealPlan] = []
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/")
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
         
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in
             for record in snapshot.children{
                 let r = record as! DataSnapshot
-                let uname = r.childSnapshot(forPath: "username").value as! String
-                let Date = r.childSnapshot(forPath: "date").value as! String
-                if(uname == username && Date == date) {
+                let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
+                if(isDiary == "No") {
                     count = count + 1
                 }
                 

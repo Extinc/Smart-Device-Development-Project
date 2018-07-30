@@ -13,6 +13,7 @@ class LoadingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = Colors.PrimaryColor()
 
         LoadingData.shared.loadData(){
             done in

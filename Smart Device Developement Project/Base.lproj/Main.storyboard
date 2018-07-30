@@ -231,7 +231,23 @@
                     <view key="view" contentMode="scaleToFill" id="Wc9-4w-aBe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zai-YB-TMM">
+                                <rect key="frame" x="120" y="344.66666666666669" width="174" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="70s-qs-Jww"/>
+                                    <constraint firstAttribute="width" constant="174" id="uqx-Wq-Xfh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.85887545350000005" green="0.2628725764" blue="0.1934135189" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Zai-YB-TMM" firstAttribute="centerY" secondItem="Wc9-4w-aBe" secondAttribute="centerY" id="7IW-gA-zt5"/>
+                            <constraint firstItem="Zai-YB-TMM" firstAttribute="centerX" secondItem="Wc9-4w-aBe" secondAttribute="centerX" id="qDx-gg-u3s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Dps-Ih-nA9"/>
                     </view>
                     <connections>
@@ -240,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dE6-py-EUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="564"/>
+            <point key="canvasLocation" x="-355.07246376811599" y="795.6521739130435"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -259,7 +275,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823" y="40"/>
+            <point key="canvasLocation" x="401" y="40"/>
         </scene>
         <!--dietary-->
         <scene sceneID="yVq-Rp-IHs">
@@ -269,7 +285,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBh-0T-bbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="-3"/>
+            <point key="canvasLocation" x="978" y="-3"/>
         </scene>
         <!--DietaryStoryboard-->
         <scene sceneID="jAA-Ar-57i">
@@ -279,7 +295,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBf-ua-OJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453" y="64"/>
+            <point key="canvasLocation" x="1033" y="64"/>
         </scene>
         <!--ExerciseStoryboard-->
         <scene sceneID="xQT-GK-Jts">
@@ -289,7 +305,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWt-AQ-2Eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1458" y="130"/>
+            <point key="canvasLocation" x="1038" y="130"/>
         </scene>
         <!--profile-->
         <scene sceneID="v0i-na-ERh">
@@ -299,7 +315,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwN-Fz-Hb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="205"/>
+            <point key="canvasLocation" x="1046" y="205"/>
         </scene>
     </scenes>
 </document>

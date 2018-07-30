@@ -21,7 +21,6 @@ class ViewMealViewController: UIViewController {
         super.viewDidLoad()
         mealID = mealPlan.mealID!
         loadOneMeal()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,4 +69,6 @@ class ViewMealViewController: UIViewController {
             self.meal = mealFromFirebase
         }
     }
+    
+    @IBAction func unwindToRecipeVC(segue:UIStoryboardSegue){}
 }

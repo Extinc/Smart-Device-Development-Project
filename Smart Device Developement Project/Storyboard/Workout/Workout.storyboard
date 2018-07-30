@@ -121,7 +121,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-K6-5HG" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="backgroundwebsite-1000x675"/>
@@ -151,7 +151,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDP-Bm-0h7" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.3333333333333321"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
@@ -268,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTc-aq-6an" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="-81"/>
+            <point key="canvasLocation" x="249" y="-22"/>
         </scene>
         <!--Title-->
         <scene sceneID="6oT-qD-PWW">
@@ -520,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qld-RW-Ckp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="309" y="-815"/>
+            <point key="canvasLocation" x="239" y="-854"/>
         </scene>
         <!--Title-->
         <scene sceneID="Nek-2Y-43M">
@@ -635,7 +635,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="309" y="665"/>
+            <point key="canvasLocation" x="206" y="977"/>
         </scene>
         <!--Workout Detail Info View Controller-->
         <scene sceneID="Etk-2l-cG3">
@@ -787,6 +787,6 @@
         <image name="baseline_remove_white_36pt" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mVK-SU-nxC"/>
+        <segue reference="hTc-HS-z7G"/>
     </inferredMetricsTieBreakers>
 </document>

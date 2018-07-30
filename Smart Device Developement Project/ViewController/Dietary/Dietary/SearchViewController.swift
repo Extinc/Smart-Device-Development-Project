@@ -20,7 +20,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         mealList = LoadingData.shared.mealList
         self.tableView.reloadData()
         

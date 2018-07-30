@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smart Device Developement Project/ViewController/Dietary/Dietary/CameraViewController.swift"
-            timestampString = "554646982.2093461"
+            timestampString = "554655045.631987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "detect(image:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smart Device Developement Project/ViewController/Dietary/Dietary/CameraViewController.swift"
-            timestampString = "554646982.209435"
+            timestampString = "554655045.6320519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "detect(image:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class FoodViewController: UIViewController {
 
@@ -18,8 +19,18 @@ class FoodViewController: UIViewController {
     
     @IBOutlet weak var mealImg: UIImageView!
     @IBOutlet weak var calories: UILabel!
+    @IBOutlet weak var addBtn: MDCFlatButton!
+    @IBOutlet weak var closeBtn: MDCFlatButton!
     
+    @IBOutlet weak var popupView: UIView!
     override func viewDidLoad() {
+        
+        // UI stuff
+        let colors = Colors()
+        let lifestyleTheme = LifestyleTheme()
+        popupView.backgroundColor = colors.primaryColor
+        lifestyleTheme.styleBtn(btn: addBtn, title: "Add", pColor: colors.primaryLightColor)
+        lifestyleTheme.styleBtn(btn: closeBtn, title: "Close", pColor: colors.primaryDarkColor)
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.view.isOpaque = false
         self.showAnimate()
@@ -39,7 +50,7 @@ class FoodViewController: UIViewController {
     @IBAction func addMeal(_ sender: Any) {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd-MM-yyyy"
         let todayDate = formatter.string(from: date)
         
         var mealInfo: [MealPlan] = []
@@ -47,10 +58,10 @@ class FoodViewController: UIViewController {
         let mealID = meal[0].mealID
         let mealName = meal[0].name
         let mealImage = meal[0].mealImage
-        let calories = meal[0].calories
+        let calories = Int(meal[0].calories!)
         let recipeImage = meal[0].recipeImage
         
-        mealInfo.insert(MealPlan(username, todayDate, mealID!, mealName!, mealImage!, calories!, recipeImage!, "Yes" ), at: 0)
+        mealInfo.insert(MealPlan(username, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes" ), at: 0)
         DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
         performSegue(withIdentifier: "unwindback", sender: self)
     }

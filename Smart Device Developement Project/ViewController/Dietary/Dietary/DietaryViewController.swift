@@ -22,6 +22,9 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var summary: MDCFlatButton!
     
     var pickerData: [String] = ["None","Lose Weight", "Gain Weight"]
+    
+    let date = Date()
+    let formatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,10 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.picker.selectRow(goal, inComponent: 0, animated: true)
         
         // today calorie intake
+        let mealPlan:[MealPlan] = LoadingData.shared.mealPlan
         var rcalories = LoadingData.shared.rcalories
+        var icalories:Int = 0
+        
         let extra = (rcalories/100)*10
         if goal == 1 {
             rcalories = rcalories - extra
@@ -47,8 +53,14 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         else if goal == 2{
             rcalories = rcalories + extra
         }
+
+        //loop for today calories
+        for i in 0..<mealPlan.count{
+            icalories = Int(mealPlan[i].calories!) + icalories
+        }
         
-        let intake: Double = 500.0
+        //calculate and display
+        let intake: Double = Double(icalories)
         let calories = Double(LoadingData.shared.rcalories)
         let percent = (intake/calories)*100
         let angle = (360/100)*percent
@@ -91,6 +103,42 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.reccCal.text = rcalories.description
         }
         else{
+            self.reccCal.text = rcalories.description
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        formatter.dateFormat = "dd-MM-yyyy"
+        let today = formatter.string(from: date)
+        let user = AuthenticateUser.getUID()
+        
+        DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: user){
+            plan in
+            var rcalories = LoadingData.shared.rcalories
+            var icalories:Int = 0
+            let goal = self.picker.selectedRow(inComponent: 0)
+            
+            let extra = (rcalories/100)*10
+            if goal == 1 {
+                rcalories = rcalories - extra
+            }
+            else if goal == 2{
+                rcalories = rcalories + extra
+            }
+            
+            //loop for today calories
+            for i in 0..<plan.count{
+                icalories = Int(plan[i].calories!) + icalories
+            }
+            
+            //calculate and display
+            let intake: Double = Double(icalories)
+            let calories = Double(LoadingData.shared.rcalories)
+            let percent = (intake/calories)*100
+            let angle = (360/100)*percent
+            self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
+            self.intakeCal.text = Int(intake).description
             self.reccCal.text = rcalories.description
         }
     }

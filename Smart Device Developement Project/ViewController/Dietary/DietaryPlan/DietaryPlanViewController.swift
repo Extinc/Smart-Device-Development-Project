@@ -53,9 +53,9 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         //Firebase load meals and plans
         DispatchQueue.main.async {
             DietaryPlanDataManagerFirebase.createMealData()
-            self.loadMeals()
             self.loadPlanCount(date: self.selectedDate, username: self.username)
         }
+        
         
         //Load meal plans
         if(planCount < 1) {
@@ -169,15 +169,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    // MARK: - Functions
-    func loadMeals() {
-        DietaryPlanDataManagerFirebase.loadMeals(){
-            mealListFromFirebase in
-            self.meal = mealListFromFirebase
-        }
-    }
     
     func loadPlanMeals (date: String, username: String) {
+        mealPlans.removeAll()
+        mealPlans = [[],[]]
         DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
             mealPlanListFromFirebase in
             self.mealplan = mealPlanListFromFirebase
@@ -186,8 +181,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                     if (self.mealplan[j].isDiary == "No") {
                         self.mealPlans[0].append(self.mealplan[j])
                     }
-                    else {
+                    else if (self.mealplan[j].isDiary == "Yes"){
                         self.mealPlans[1].append(self.mealplan[j])
+                    }
+                    else{
+                        break
                     }
                 }
             

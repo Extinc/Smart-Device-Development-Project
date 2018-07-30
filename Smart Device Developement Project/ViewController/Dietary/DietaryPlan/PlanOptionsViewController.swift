@@ -57,7 +57,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         
         self.username = AuthenticateUser.getUID()
-        self.loadMeals()
+        self.meal = LoadingData.shared.mealList
         self.loadCalories()
         
         
@@ -237,13 +237,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
      // MARK: - Functions
-    func loadMeals() {
-        DietaryPlanDataManagerFirebase.loadMeals(){
-            mealListFromFirebase in
-            self.meal = mealListFromFirebase
-        }
-    }
-    
     func loadCalories(){
         NutrInfo().calReccCalories() {
             recCaloriesFromFirebase in

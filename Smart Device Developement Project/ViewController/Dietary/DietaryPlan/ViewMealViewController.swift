@@ -83,6 +83,7 @@ class ViewMealViewController: UIViewController {
             self.hawkerCentres = hawkerFromFirebase
             checkForHawker.loadHawkerWithMeal(meal: self.meal, hawkers: self.hawkerCentres)
         }
+        
     }
     
     @IBAction func unwindToRecipeVC(segue:UIStoryboardSegue){}

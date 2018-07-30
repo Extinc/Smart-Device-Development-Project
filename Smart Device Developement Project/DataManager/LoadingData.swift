@@ -10,7 +10,7 @@ import UIKit
 
 class LoadingData: NSObject {
 
-    var bmi:Double = 0.0
+    var bmi:Double?
     var rcalories:Int = 0
     var weight:Double = 0.0
     var goals:Int = 0

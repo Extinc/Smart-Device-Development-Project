@@ -65,26 +65,14 @@ class LoginViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 } else {
                     
-                    let databaseRef = FirebaseDatabase.Database.database().reference()
-                    print("Login")
-                    databaseRef.child("Users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-                        
-                        if snapshot.hasChild(self.loginUser.text!){
-                            
-                            print("User exist")
-                            let userID: String? = user?.user.uid
-                            let email: String? = user?.user.email
-                            if DataManager.checkUserExist(params: [userID!, email!]) == false {
-                                print(DataManager.checkUserExist(params: [userID!, email!]))
-                                DataManager.insertUserInfo(uid: userID!, email: email!)
-                            }
-
-                        }else{
-                            
-                            print("User no exist")
-                        }
                     
-                    })
+                    print("User exist")
+                    let userID: String? = user?.user.uid
+                    let email: String? = user?.user.email
+                    if DataManager.checkUserExist(params: [userID!, email!]) == false {
+                        print(DataManager.checkUserExist(params: [userID!, email!]))
+                        DataManager.insertUserInfo(uid: userID!, email: email!)
+                    }
 
                 }
             }

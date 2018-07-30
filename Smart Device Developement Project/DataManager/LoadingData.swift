@@ -9,11 +9,31 @@
 import UIKit
 
 class LoadingData: NSObject {
+    
+    // Singleton
+    static var _shared : LoadingData?
+    static var shared : LoadingData
+    {
+        get
+        {
+            if _shared == nil
+            {
+                _shared = LoadingData()
+            }
+            return _shared!
+        }
+    }
 
-    var bmi:Double?
+    var bmi:Double = 0.0
     var rcalories:Int = 0
     var weight:Double = 0.0
     var goals:Int = 0
+    var mealList: [Meal] = []
+    
+    let date = Date()
+    let formatter = DateFormatter()
+    //formatter.dateFormat = "dd-MM-yyyy"
+    //let today = formatter.string(from: date)
 
     func loadData(completion: @escaping (Bool) -> ()){
         let dg = DispatchGroup()
@@ -48,12 +68,15 @@ class LoadingData: NSObject {
                 dg.leave()
             }
             
+            dg.enter()
+            DietaryPlanDataManagerFirebase.loadMeals(){
+                meals in
+                self.mealList = meals
+                dg.leave()
+            }
+            
             dg.wait()
             DispatchQueue.main.async {
-                print(self.rcalories)
-                print(self.bmi)
-                print(self.weight)
-                print(self.goals)
                 completion(true)
             }
         }

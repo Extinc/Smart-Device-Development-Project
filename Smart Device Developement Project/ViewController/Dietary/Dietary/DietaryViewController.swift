@@ -11,6 +11,11 @@ import FirebaseDatabase
 
 class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    var bmi:Double = 0.0
+    var rcalories:Int = 0
+    var weight:Double = 0.0
+    var goals:Int = 0
+    
     @IBOutlet weak var reccCal: UILabel!
     @IBOutlet weak var intakeCal: UILabel!
     
@@ -23,33 +28,17 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.reccCal.text = "28700"
-        let goal = 1
-        self.picker.selectRow(goal, inComponent: 0, animated: true)
+        self.reccCal.text = LoadingData.shared.rcalories.description
+        self.picker.selectRow(LoadingData.shared.goals, inComponent: 0, animated: true)
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        let today = formatter.string(from: date)
+        let intake: Double = 0.0
         
-        let email = AuthenticateUser.getCurrEmail()
-        print(email)
-        DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: "1"){
-            meals in
-            
-            var plans:[MealPlan] = []
-            plans = meals
-            
-            let intake: Double = 0.0
-            
-            print(meals.count)
-            
-            let calories = 1500.0
-            let percent = (intake/calories)*100
-            let angle = (360/100)*percent
-            self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
-            self.intakeCal.text = intake.description
-        }
+        let calories = 1500.0
+        let percent = (intake/calories)*100
+        let angle = (360/100)*percent
+        self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
+        self.intakeCal.text = intake.description
+
         
         self.picker.dataSource = self;
         self.picker.delegate = self;

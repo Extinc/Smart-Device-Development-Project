@@ -28,7 +28,6 @@ class NutrInfo: NSObject {
                                 let h1 = h/100
                                 let BMI = w / (h1 * h1)
                                 let x = Double(BMI * 100).rounded() / 100
-                                print("BMI:",x)
                                 onComplete(x)
         })
     }
@@ -50,7 +49,6 @@ class NutrInfo: NSObject {
                                 let b3 = 6.75 * 20
                                 let recc = 66.47 + b1 + b2 - b3
                                 let calories = Int(recc.rounded())
-                                print("Cal:",calories)
                                 onComplete(calories)
         })
     }

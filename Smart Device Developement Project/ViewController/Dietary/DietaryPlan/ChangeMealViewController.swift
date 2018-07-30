@@ -71,6 +71,13 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         
         let mealPlan: MealPlan = MealPlan(username, date, mealID, mealName, mealImage, calories, recipeImage, isDiary)
         DietaryPlanDataManagerFirebase.updatePlan(mealPlan: mealPlan)
+        
+        performSegue(withIdentifier: "unwindSegueToRecipeVC", sender: self)
     }
     
+    @IBAction func removeMealAction(_ sender: Any) {
+        
+        DietaryPlanDataManagerFirebase.deleteMealPlan(previousMealPlan)
+        performSegue(withIdentifier: "unwindSegueToDietaryPVC", sender: self)
+    }
 }

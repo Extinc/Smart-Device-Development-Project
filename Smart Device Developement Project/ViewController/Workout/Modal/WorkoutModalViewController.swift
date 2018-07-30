@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
+import AWSAPIGateway
 class WorkoutModalViewController: UIViewController {
 
     @IBOutlet weak var addBtn: MDCFloatingButton!
@@ -19,7 +20,7 @@ class WorkoutModalViewController: UIViewController {
     @IBAction func addRepCount(_ sender: Any) {
         if let parsedInt: Int = Int(repTextField.text!)! {
             var finalInt = parsedInt + 	1
-            repTextField.text = "\(finalInt)"	
+            repTextField.text = "\(finalInt)"
         }
     }
     
@@ -37,7 +38,7 @@ class WorkoutModalViewController: UIViewController {
         let timestamp = NSDate().timeIntervalSince1970
         
         print("UTC Timestamp: ",timestamp)
-        
+
         self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
@@ -88,7 +89,7 @@ class WorkoutModalViewController: UIViewController {
 
     /*
     // MARK: - Navigation
-
+	
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

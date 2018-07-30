@@ -302,28 +302,11 @@ class DietaryPlanDataManagerFirebase: NSObject {
         )
     }
     
-   /* static func create1Plan() {
-        
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan/\(1)/")
-            ref.setValue([
-                "username" : "1",
-                "date" : "09/07/2018",
-                "mealID" : "1",
-                "mealName" : "Chicken Rice",
-                "mealImage" : "chickenrice",
-                "calories" : "510",
-                "isDiary" : "No",
-                "recipeImage" : "chickenricerecipe"
-                ]
-            )
-        
-    }*/
-    
     //Delete
-    /*static func deleteMealPlan(_ mealPlan: MealPlan){
-        let ref = FirebaseDatabase.Database.database().reference().child("Meal/\(mealPlan.planID)/")
+    static func deleteMealPlan(_ mealPlan: MealPlan){
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.mealID!))
         ref.removeValue()
-    }*/
+    }
     
     //MARK: - Hawker Centres
     

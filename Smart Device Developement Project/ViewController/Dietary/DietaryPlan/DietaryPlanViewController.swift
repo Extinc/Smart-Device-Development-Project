@@ -20,11 +20,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     
     private var datePicker: UIDatePicker?
     
-    
-    /*let mealType = [[MealType("Vegan", "No animal products", "vegan")],
-                [MealType("Clean Eating", "Ideal if you are looking to make a healthy change in your eating habits", "cleaneating")],
-                [MealType("High Protein", "High Protein", "highprotein")],
-                [MealType("Keto", "Low in carbohydrates, high in fats. If you get hungry easily and struggle with weight loss this is the plan.", "keto")]]*/
     let headers:[String] = ["Planned Meals", "Dietary Diary"]
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
@@ -42,7 +37,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        dateTextField.backgroundColor = primaryColor
         
         let date = Date()
         let formatter = DateFormatter()
@@ -124,7 +119,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         view.endEditing(true)
     }
 
-    // Segue unwind
+    // MARK: - Segue unwind
     @IBAction func unwindToDietaryPlanController(segue: UIStoryboardSegue) {}
    
     

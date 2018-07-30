@@ -11,12 +11,10 @@ import FirebaseDatabase
 class AuthenticateUser: NSObject {
     static func getUID()->String{
         var uid: String!
-//        if Auth.auth().currentUser!.uid.isEmpty == false && Auth.auth().currentUser!.uid != nil {
-//            uid = Auth.auth().currentUser!.uid
-////        }
-        if let userID: String! = Auth.auth().currentUser!.uid{
-            uid = userID
+        if Auth.auth().currentUser!.uid.isEmpty == false && Auth.auth().currentUser!.uid != nil {
+            uid = Auth.auth().currentUser!.uid
         }
+
         return uid
     }
     

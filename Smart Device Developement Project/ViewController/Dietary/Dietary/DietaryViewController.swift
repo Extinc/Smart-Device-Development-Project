@@ -21,6 +21,9 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet weak var picker: UIPickerView!
     
+    @IBAction func test(_ sender: Any) {
+        self.picker.selectRow(1, inComponent: 0, animated: true)
+    }
     @IBOutlet weak var progressBar: KDCircularProgress!
     
     var pickerData: [String] = ["None","Lose Weight", "Gain Weight"]
@@ -29,6 +32,11 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         
         self.reccCal.text = LoadingData.shared.rcalories.description
+        
+        
+        self.picker.dataSource = self;
+        self.picker.delegate = self;
+        self.picker.reloadAllComponents()
         self.picker.selectRow(LoadingData.shared.goals, inComponent: 0, animated: true)
         
         let intake: Double = 0.0
@@ -40,8 +48,6 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.intakeCal.text = intake.description
 
         
-        self.picker.dataSource = self;
-        self.picker.delegate = self;
         
     }
 

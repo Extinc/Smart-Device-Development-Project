@@ -37,7 +37,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateTextField.backgroundColor = primaryColor
+        //dateTextField.backgroundColor = primaryColor
         
         let date = Date()
         let formatter = DateFormatter()

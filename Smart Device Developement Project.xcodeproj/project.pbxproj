@@ -99,6 +99,7 @@
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
 		F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192FE7420F2162B005C76E8 /* BMIViewController.swift */; };
 		F192FE7720F25801005C76E8 /* NutrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192FE7620F25801005C76E8 /* NutrInfo.swift */; };
+		F19AC74C210F0F6B005B66B2 /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
 		F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B6D020EB60190026A962 /* HTTP.swift */; };
 /* End PBXBuildFile section */
 
@@ -952,6 +953,7 @@
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,
 				F127A9DD210EB3910054F3E5 /* LoadingData.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
+				F19AC74C210F0F6B005B66B2 /* DietaryPlanViewController.swift in Sources */,
 				516C779620FDB1C10042F8CE /* Model.xcdatamodeld in Sources */,
 				F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */,
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,

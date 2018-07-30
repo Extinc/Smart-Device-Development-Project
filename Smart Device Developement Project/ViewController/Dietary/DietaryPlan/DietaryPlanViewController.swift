@@ -15,8 +15,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var generatePlanButton: UIButton!
-    @IBOutlet weak var loadMealsButton: UIButton!
     @IBOutlet weak var notifyLabel: UILabel!
+    
     
     private var datePicker: UIDatePicker?
     
@@ -56,15 +56,29 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             self.loadPlanCount(date: self.selectedDate, username: self.username)
         }
         
+        //Load mealplans to display in table
+        mealplan = LoadingData.shared.mealPlan
+        for j in 0...self.mealplan.count-1 {
+            if (self.mealplan[j].isDiary == "No") {
+                self.mealPlans[0].append(self.mealplan[j])
+            }
+            else if (self.mealplan[j].isDiary == "Yes"){
+                self.mealPlans[1].append(self.mealplan[j])
+            }
+            else{
+                break
+            }
+        }
+        
         
         //Load meal plans
         if(planCount < 1) {
             generatePlanButton.isHidden = false
-            loadMealsButton.isHidden = true
+            notifyLabel.text = "You do not have any meal plans planned today, press start a new plan to generate one. "
         }
         else{
             generatePlanButton.isHidden = true
-            loadMealsButton.isHidden = false
+            notifyLabel.text = ""
         }
         
         //Date picker
@@ -91,12 +105,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(_ animated: Bool) {
         if(planCount < 1) {
             generatePlanButton.isHidden = false
-            loadMealsButton.isHidden = true
         }
         else{
             generatePlanButton.isHidden = true
-            loadMealsButton.isHidden = false
         }
+        loadPlanMeals(date: selectedDate, username: username)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

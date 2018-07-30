@@ -22,8 +22,11 @@ class ViewMealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mealID = mealPlan.mealID!
+        meals = LoadingData.shared.mealList
         
-        loadOneMeal()
+        DispatchQueue.main.async{
+            self.loadOneMeal()
+        }
         loadAllHawkers()
         
     }
@@ -42,8 +45,9 @@ class ViewMealViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue,
                           sender: Any?)
     {
-        var newMeals: [Meal] = RecommendMeal.getSimilarMeal(meal: meal, meals: meals)
+        let newMeals: [Meal] = RecommendMeal.getSimilarMeal(meal: meal, meals: meals)
         let mealid: Int = mealPlan.mealID!
+        hawkerCentresWithMeal = checkForHawker.loadHawkerWithMeal(meal: self.meal, hawkers: self.hawkerCentres)
         if(segue.identifier == "showHawkerSegue")
         {
             let ViewHawkerViewController =
@@ -81,9 +85,7 @@ class ViewMealViewController: UIViewController {
         DietaryPlanDataManagerFirebase.loadHawkerCentres(){
             hawkerFromFirebase in
             self.hawkerCentres = hawkerFromFirebase
-            checkForHawker.loadHawkerWithMeal(meal: self.meal, hawkers: self.hawkerCentres)
         }
-        
     }
     
     @IBAction func unwindToRecipeVC(segue:UIStoryboardSegue){}

@@ -30,8 +30,14 @@ class RecommendMeal: NSObject {
     
         
         
-        for i in 0...planDays {
-            date.day = date.day! + 1
+        for i in 0...planDays - 1 {
+            if (i != 0) {
+                date.day = date.day! + 1
+            }
+            else {
+                //remain same day
+            }
+            
             let fDate = NSCalendar.current.date(from: date)
             currentDate = dateFormatter.string(from: fDate!)
             makeNotiContent(planPreferences: preferences, notiDate: fDate!)
@@ -263,43 +269,30 @@ class RecommendMeal: NSObject {
     
     // MARK: - Notifcations
     static func makeNotiContent(planPreferences: UserPlanPreferences, notiDate: Date){
-        var mealsinterval: Double = 0
-        if(planPreferences.mealsperday == 1) {
-            //Stop eating at 6pm
-        }
-        else if (planPreferences.mealsperday == 2){
-            //Stop eating at 6pm
-            mealsinterval = 8
-        }
-        else if (planPreferences.mealsperday == 3){
-            //Stop eating at 6pm
-            mealsinterval = 5
-        }
-        else if (planPreferences.mealsperday == 4) {
-            //Stop eating at 7pm
-            mealsinterval = 3.5
-        }
-        else if(planPreferences.mealsperday == 5){
-            //Stop eating at 8pm
-            mealsinterval = 3
-        }
-        else {
-            //6 meals per day
-            //Stop eating at 8pm
-            mealsinterval = 2
+      
+        let mealInterval = Int(planPreferences.mealtiming!)
+        var mealTiming = 8
+        //Assume first meal is 8am,
+        for i in 0...planPreferences.mealsperday! - 1 {
+            
+            if (i != 0){
+                mealTiming += mealInterval!
+            }
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Meal Reminder"
+            content.body = "Remember to follow the meal plan and don't miss your meals!"
+            
+            let unitFlags:Set<Calendar.Component> = [.minute,.hour,.second]
+            var date = Calendar.current.dateComponents(unitFlags, from: notiDate)
+            date.hour = mealTiming
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
+            
+            addNotification(trigger: trigger, content: content, identifier: "message.remindmeal")
         }
         
-        let content = UNMutableNotificationContent()
-        content.title = "Meal Reminder"
-        content.body = "Remember to follow the meal plan and don't miss your meals!"
         
-        let unitFlags:Set<Calendar.Component> = [.minute,.hour,.second]
-        var date = Calendar.current.dateComponents(unitFlags, from: notiDate)
-        date.second = date.second! + 10
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
-        
-        addNotification(trigger: trigger, content: content, identifier: "message.remindmeal")
     }
     
     static func addNotification(trigger: UNNotificationTrigger?, content: UNMutableNotificationContent, identifier: String){

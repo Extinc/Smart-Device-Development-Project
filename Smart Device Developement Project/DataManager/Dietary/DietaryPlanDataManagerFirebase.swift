@@ -42,11 +42,10 @@ class DietaryPlanDataManagerFirebase: NSObject {
     static func loadOneMeal(id: Int, onComplete: @escaping (Meal) -> Void){
         
         var meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
-        let ref = FirebaseDatabase.Database.database().reference().child("Meal").child("id")
+        let ref = FirebaseDatabase.Database.database().reference().child("Meal/").child(String(id))
         ref.observeSingleEvent(of: .value, with:{(snapshot) in
             for record in snapshot.children {
                 let r = record as! DataSnapshot
-                let id = Int(r.key)!
                 let image = r.childSnapshot(forPath: "image").value as! String
                 let name = r.childSnapshot(forPath: "name").value as! String
                 let calories = Float(r.childSnapshot(forPath: "calories").value as! String)!
@@ -225,7 +224,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if (exists == true){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                        let mealid = Int(r.key as! String)
+                        let mealid = Int(	r.key as! String)
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
                         let calories = r.childSnapshot(forPath: "calories").value as! Int

@@ -29,17 +29,22 @@ class LoadingData: NSObject {
     var weight:Double = 0.0
     var goals:Int = 0
     var mealList: [Meal] = []
+    var mealPlan: [MealPlan] = []
     
     let date = Date()
     let formatter = DateFormatter()
-    //formatter.dateFormat = "dd-MM-yyyy"
-    //let today = formatter.string(from: date)
 
     func loadData(completion: @escaping (Bool) -> ()){
+        formatter.dateFormat = "dd-MM-yyyy"
+        let today = formatter.string(from: date)
+        
+        let user = AuthenticateUser.getUID()
+        
         let dg = DispatchGroup()
         
         let workerQueue = DispatchQueue.global(qos: .userInitiated)
         workerQueue.async{
+            
             dg.enter()
             NutrInfo().calReccCalories(){
                 cal in
@@ -72,6 +77,13 @@ class LoadingData: NSObject {
             DietaryPlanDataManagerFirebase.loadMeals(){
                 meals in
                 self.mealList = meals
+                dg.leave()
+            }
+            
+            dg.enter()
+            DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: user){
+                plan in
+                self.mealPlan = plan
                 dg.leave()
             }
             

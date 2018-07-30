@@ -20,10 +20,7 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var intakeCal: UILabel!
     
     @IBOutlet weak var picker: UIPickerView!
-    
-    @IBAction func test(_ sender: Any) {
-        self.picker.selectRow(1, inComponent: 0, animated: true)
-    }
+
     @IBOutlet weak var progressBar: KDCircularProgress!
     
     var pickerData: [String] = ["None","Lose Weight", "Gain Weight"]
@@ -32,8 +29,8 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         
         self.reccCal.text = LoadingData.shared.rcalories.description
-        
-        
+
+        //pickerView
         self.picker.dataSource = self;
         self.picker.delegate = self;
         self.picker.reloadAllComponents()
@@ -48,7 +45,7 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.intakeCal.text = intake.description
 
         
-        
+        print(LoadingData.shared.mealPlan.count)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,5 +65,9 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(row)
     }
 }

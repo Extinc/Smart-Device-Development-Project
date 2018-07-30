@@ -36,13 +36,13 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.picker.reloadAllComponents()
         self.picker.selectRow(LoadingData.shared.goals, inComponent: 0, animated: true)
         
-        let intake: Double = 0.0
-        
-        let calories = 1500.0
+        // today calorie intake
+        let intake: Double = 500.0
+        let calories = Double(LoadingData.shared.rcalories)
         let percent = (intake/calories)*100
         let angle = (360/100)*percent
         self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
-        self.intakeCal.text = intake.description
+        self.intakeCal.text = Int(intake).description
 
         
         print(LoadingData.shared.mealPlan.count)

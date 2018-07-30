@@ -92,6 +92,8 @@
 		90F1EE6420E8EFAF004353F7 /* MaterialComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F1EE6320E8EFAF004353F7 /* MaterialComponents.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		90F9C75020FB715100D111DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9C74F20FB715100D111DC /* MediaPlayer.framework */; };
 		90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */; };
+		F127A9DD210EB3910054F3E5 /* LoadingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127A9DC210EB3910054F3E5 /* LoadingData.swift */; };
+		F127A9DF210EB5720054F3E5 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */; };
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
 		F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */; };
@@ -223,6 +225,8 @@
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F127A9DC210EB3910054F3E5 /* LoadingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingData.swift; sourceTree = "<group>"; };
+		F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		F12F23EB20EDEEB900836A83 /* foodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodData.swift; sourceTree = "<group>"; };
 		F147301820D7A4B700C63470 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
 		F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressBarViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +408,7 @@
 				90C601EC20B01596002FFF5D /* LoginViewController.swift */,
 				9030537420B83C860084534E /* TabBarController.swift */,
 				51862EBC20AE6D5E0058CE01 /* MainViewController.swift */,
+				F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				6939311B20DA8F6F00C8775F /* Dietary */,
 				90F9C7D920D39F45005BA228 /* Exercise */,
 				51ED27C920F475D40054E053 /* AuthenticateUser.swift */,
+				F127A9DC210EB3910054F3E5 /* LoadingData.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -890,6 +896,7 @@
 				51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */,
 				69D026DB20EE67FD008E450E /* DietaryPlanDataManagerFirebase.swift in Sources */,
 				51ED27CC20F483640054E053 /* WorkoutImageDataManager.swift in Sources */,
+				F127A9DF210EB5720054F3E5 /* LoadingViewController.swift in Sources */,
 				693F6ACB20F25C7600F3FA95 /* ChangeMealViewController.swift in Sources */,
 				900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */,
 				7053561420F39FDC00D72FF0 /* Weather.swift in Sources */,
@@ -945,6 +952,7 @@
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
 				F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,
+				F127A9DD210EB3910054F3E5 /* LoadingData.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				516C779620FDB1C10042F8CE /* Model.xcdatamodeld in Sources */,
 				F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */,

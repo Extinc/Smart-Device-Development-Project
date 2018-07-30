@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     @IBOutlet weak var reccCal: UILabel!
     @IBOutlet weak var intakeCal: UILabel!
     
@@ -22,40 +22,33 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        NutrInfo().calReccCalories(){
-            cal in
-            self.reccCal.text = cal.description
-
-            let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy"
-            let today = formatter.string(from: date)
+        
+        self.reccCal.text = "28700"
+        let goal = 1
+        self.picker.selectRow(goal, inComponent: 0, animated: true)
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let today = formatter.string(from: date)
+        
+        let email = AuthenticateUser.getCurrEmail()
+        print(email)
+        DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: "1"){
+            meals in
             
-            let email = AuthenticateUser.getCurrEmail()
-            print(email)
-            DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: "1"){
-                meals in
-                
-                var plans:[MealPlan] = []
-                plans = meals
-                
-                let intake: Double = 0.0
+            var plans:[MealPlan] = []
+            plans = meals
             
-                print(meals.count)
-                
-                let calories = Double(cal)
-                let percent = (intake/calories)*100
-                let angle = (360/100)*percent
-                self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
-                self.intakeCal.text = intake.description
-                
-                NutrInfo().getGoal(){
-                    goal in
-                    
-                    self.picker.selectRow(goal, inComponent: 0, animated: true)
-                }
-            }
+            let intake: Double = 0.0
+            
+            print(meals.count)
+            
+            let calories = 1500.0
+            let percent = (intake/calories)*100
+            let angle = (360/100)*percent
+            self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
+            self.intakeCal.text = intake.description
         }
         
         self.picker.dataSource = self;

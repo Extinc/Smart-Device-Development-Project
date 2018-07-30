@@ -82,7 +82,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                     self?.chooseMeal.isHidden = false
                     
                 }else{
-                    self?.test.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
+                    self?.test.text = topResult.identifier
                     self?.test.backgroundColor = UIColor.black
                     print(self?.test.text as Any)
                     

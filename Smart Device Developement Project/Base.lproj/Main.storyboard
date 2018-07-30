@@ -50,7 +50,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="XAB-83-5Lk" eventType="touchUpInside" id="DWK-XA-REb"/>
-                                    <segue destination="49e-Tb-3d3" kind="showDetail" identifier="loginToHome" id="s5i-mW-bum"/>
+                                    <segue destination="g1v-PY-8gN" kind="showDetail" id="YVI-Je-OYy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -224,6 +224,24 @@
             </objects>
             <point key="canvasLocation" x="-1646" y="40"/>
         </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="iBg-s8-tit">
+            <objects>
+                <viewController id="g1v-PY-8gN" customClass="LoadingViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wc9-4w-aBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.85887545350000005" green="0.2628725764" blue="0.1934135189" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="Dps-Ih-nA9"/>
+                    </view>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="loginOK" id="JIl-df-Ogn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dE6-py-EUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="80" y="564"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -241,7 +259,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="40"/>
+            <point key="canvasLocation" x="823" y="40"/>
         </scene>
         <!--dietary-->
         <scene sceneID="yVq-Rp-IHs">
@@ -251,7 +269,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBh-0T-bbZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="631" y="-5"/>
+            <point key="canvasLocation" x="1399" y="-3"/>
         </scene>
         <!--DietaryStoryboard-->
         <scene sceneID="jAA-Ar-57i">
@@ -261,7 +279,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBf-ua-OJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="63"/>
+            <point key="canvasLocation" x="1453" y="64"/>
         </scene>
         <!--ExerciseStoryboard-->
         <scene sceneID="xQT-GK-Jts">
@@ -271,7 +289,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWt-AQ-2Eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="688" y="128"/>
+            <point key="canvasLocation" x="1458" y="130"/>
         </scene>
         <!--profile-->
         <scene sceneID="v0i-na-ERh">
@@ -281,7 +299,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwN-Fz-Hb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698" y="204"/>
+            <point key="canvasLocation" x="1468" y="205"/>
         </scene>
     </scenes>
 </document>

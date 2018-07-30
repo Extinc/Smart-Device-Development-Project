@@ -77,8 +77,8 @@ class NutrInfo: NSObject {
         
         ref.observeSingleEvent(of: .value,
                                with: { (snapshot) in
-                                let goal = snapshot.childSnapshot(forPath: "goal").value as? Int
-                                onComplete(goal!)
+                                let goal = (snapshot.childSnapshot(forPath: "goal").value as? Int)!
+                                onComplete(goal)
         })
     }
 }

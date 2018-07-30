@@ -46,7 +46,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(runningsections[indexPath.section].expanded){
-            return 44
+            return 80
         }
         else {
             return 0
@@ -66,7 +66,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell") as! RunningCustomCell
         cell.datelabel.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
         cell.timinglabel.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
-        cell.calorieslabel.text = "Calories Burnt :" + String(runningsections[indexPath.section].AllCalories![indexPath.row])
+        cell.calorieslabel.text = "Calories Burnt :" + String(format: "%.2f",runningsections[indexPath.section].AllCalories![indexPath.row])
         return cell
     }
     func toggleSection(header: ExpandableHeaderView, section: Int) {

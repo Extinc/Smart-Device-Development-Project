@@ -148,6 +148,18 @@ class RunningDataManager: NSObject {
         return previousScheduleLapTime
         
     }
+    
+    static func loadSessionSpeed(_ sessionID:Int) -> Session{
+        let ScheduleSpeed = SQLiteDB.sharedInstance.query(sql: "Select lap1speed,lap2speed,lap3speed,lap4speed,lap5speed from Session where sessionID = \(sessionID)")
+        var previousScheduleSpeed = Session(firstspeed : "", secondspeed: "", thirdspeed: "", fourthspeed: "", fifthspeed: "")
+        for row in ScheduleSpeed
+        {
+            previousScheduleSpeed = Session(firstspeed: row["lap1speed"] as! String,secondspeed: row["lap2speed"] as! String,thirdspeed: row["lap3speed"] as! String,fourthspeed: row["lap4speed"] as! String,fifthspeed: row["lap5speed"] as! String)
+        }
+        
+        return previousScheduleSpeed
+        
+    }
     static func loadSessionByID(_ sessionID:Int) -> Session{
         let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select totalcaloriesburnt,totaldistance,totaltime,totalspeed from Session where sessionID = \(sessionID)")
         
@@ -160,6 +172,19 @@ class RunningDataManager: NSObject {
         
         return selectedinfo
     
+    }
+    static func loadSessionLapDistancebyID(_ sessionID:Int) -> String{
+        let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select lap1distance from Session where sessionID = \(sessionID)")
+        
+        var selecteddistance = ""
+        
+        for row in selectSessionInfo
+        {
+            selecteddistance = row["lap1distance"] as! String
+        }
+        
+        return selecteddistance
+        
     }
     static func loadSessionlocationByID(_ sessionID:Int) -> Session{
         let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select Runlogitude,Runlatitude from Session where sessionID = \(sessionID)")

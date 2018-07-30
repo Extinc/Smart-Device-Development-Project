@@ -129,6 +129,24 @@ class Session: NSObject {
         self.lap5distance = lap5distance
         self.sessionID = sessionID
     }
+    init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fifthspeed lap5speed:String,_ sessionID:Int)
+    {
+        self.lap1speed = lap1speed
+        self.lap2speed = lap2speed
+        self.lap3speed = lap3speed
+        self.lap4speed = lap4speed
+        self.lap5speed = lap5speed
+        self.sessionID = sessionID
+    }
+    
+    init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fifthspeed lap5speed:String)
+    {
+        self.lap1speed = lap1speed
+        self.lap2speed = lap2speed
+        self.lap3speed = lap3speed
+        self.lap4speed = lap4speed
+        self.lap5speed = lap5speed
+    }
     init(sessionid sessionID:Int,totalcalories totalcaloriesburnt:Double)
     {
         self.sessionID = sessionID

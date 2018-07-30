@@ -9,14 +9,15 @@
 import UIKit
 
 class LoadingViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LoadingData().loadData(){
+        LoadingData.shared.loadData(){
             done in
             
-            print(LoadingData().goals.description)
+            print(LoadingData.shared.rcalories)
             if done == true{
                 self.performSegue(withIdentifier: "loginOK", sender: nil)
             }
@@ -37,6 +38,8 @@ class LoadingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+     
+        segue.destinationViewContrloadedData
     }
     */
 

@@ -20,12 +20,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DietaryPlanDataManagerFirebase.loadMeals(){
-            meals in
-            self.mealList = meals
-            self.tableView.reloadData()
-        }
+        
+        mealList = LoadingData.shared.mealList
+        self.tableView.reloadData()
         
         search.delegate = self
     }

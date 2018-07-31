@@ -13,6 +13,9 @@ class SummaryViewController: UIViewController {
     let date = Date()
     let formatter = DateFormatter()
     
+    //UI
+    @IBOutlet weak var titleView: UIView!
+    
     //date picker
     @IBOutlet weak var datePick: UIDatePicker!
     
@@ -22,46 +25,50 @@ class SummaryViewController: UIViewController {
     @IBOutlet weak var fat: UILabel!
     @IBOutlet weak var protein: UILabel!
     @IBOutlet weak var sodium: UILabel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //UI
+        self.titleView.backgroundColor = Colors.PrimaryColor()
+        
+        
+        //var
         formatter.dateFormat = "dd-MM-yyyy"
         let today = formatter.string(from: date)
         let user = AuthenticateUser.getUID()
         let meals:[Meal] = LoadingData.shared.mealList
         
+        
+        //method
         DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: user){
             plan in
-            var rcalories = LoadingData.shared.rcalories
-            var icalories:Int = 0
             
-            //today carb intake
-            let carbRecc = Double((rcalories/100)*60)
-            var carbIntake:Double = 0.0
+            var calories:Int = 0
+            var carb:Double = 0.0
+            var fat:Double = 0.0
+            var protein:Double = 0.0
+            var sodium:Double = 0.0
             
-            //loop for today calories and carbohydrates
+            //loop for calories and carbohydrates
             for i in 0..<plan.count{
-                icalories = Int(plan[i].calories!) + icalories
+                calories = Int(plan[i].calories!) + calories
                 for x in 0..<meals.count{
                     if(plan[i].mealID == meals[x].mealID){
-                        carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+                        carb = Double(meals[x].carbohydrates!) + carb
+                        fat = Double(meals[x].fat!) + fat
+                        protein = Double(meals[x].protein!) + protein
+                        sodium = Double(meals[x].sodium!) + sodium
                     }
                 }
             }
+            //loop end
             
-            //calculate and display
-            let intake: Double = Double(icalories)
-            let calories = Double(LoadingData.shared.rcalories)
-            let percent = (intake/calories)*100
-            let angle = (360/100)*percent
-
-            
-            //carbohydrates
-            let C_percent = (carbIntake/carbRecc)*100
-            let C_angle = (360/100)*C_percent
-
+            self.calories.text = calories.description + " Kcal"
+            self.carbs.text = String(format: "%.2f", carb) + " g"
+            self.fat.text = String(format: "%.2f", fat) + " g"
+            self.protein.text = String(format: "%.2f", protein) + " g"
+            self.sodium.text = String(format: "%.2f", sodium) + " mg"
         }
     }
 
@@ -70,15 +77,41 @@ class SummaryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func dateChange(_ sender: UIDatePicker) {
+        
+        formatter.dateFormat = "dd-MM-yyyy"
+        let today = formatter.string(from: datePick.date)
+        let user = AuthenticateUser.getUID()
+        let meals:[Meal] = LoadingData.shared.mealList
+        
+        DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: user){
+            plan in
+            
+            var calories:Int = 0
+            var carb:Double = 0.0
+            var fat:Double = 0.0
+            var protein:Double = 0.0
+            var sodium:Double = 0.0
+            
+            //loop for calories and carbohydrates
+            for i in 0..<plan.count{
+                calories = Int(plan[i].calories!) + calories
+                for x in 0..<meals.count{
+                    if(plan[i].mealID == meals[x].mealID){
+                        carb = Double(meals[x].carbohydrates!) + carb
+                        fat = Double(meals[x].fat!) + fat
+                        protein = Double(meals[x].protein!) + protein
+                        sodium = Double(meals[x].sodium!) + sodium
+                    }
+                }
+            }
+            //loop end
+            
+            self.calories.text = calories.description + " Kcal"
+            self.carbs.text = String(format: "%.2f", carb) + " g"
+            self.fat.text = String(format: "%.2f", fat) + " g"
+            self.protein.text = String(format: "%.2f", protein) + " g"
+            self.sodium.text = String(format: "%.2f", sodium) + " mg"
+        }
     }
-    */
-
 }

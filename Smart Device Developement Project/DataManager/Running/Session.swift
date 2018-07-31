@@ -45,6 +45,7 @@ class Session: NSObject {
     var totalfinishdate: [String]?
     var AllSessionID: [Int]?
     var AllDistance: [Double]?
+    var AllCalories: [Double]?
     var allTotalTime : [String]?
     var expanded: Bool!
     var rangeoflongitude: String?
@@ -128,6 +129,24 @@ class Session: NSObject {
         self.lap5distance = lap5distance
         self.sessionID = sessionID
     }
+    init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fifthspeed lap5speed:String,_ sessionID:Int)
+    {
+        self.lap1speed = lap1speed
+        self.lap2speed = lap2speed
+        self.lap3speed = lap3speed
+        self.lap4speed = lap4speed
+        self.lap5speed = lap5speed
+        self.sessionID = sessionID
+    }
+    
+    init(firstspeed lap1speed:String,secondspeed lap2speed:String,thirdspeed lap3speed:String,fourthspeed lap4speed:String,fifthspeed lap5speed:String)
+    {
+        self.lap1speed = lap1speed
+        self.lap2speed = lap2speed
+        self.lap3speed = lap3speed
+        self.lap4speed = lap4speed
+        self.lap5speed = lap5speed
+    }
     init(sessionid sessionID:Int,totalcalories totalcaloriesburnt:Double)
     {
         self.sessionID = sessionID
@@ -148,21 +167,23 @@ class Session: NSObject {
         self.sessionID = sessionID
         self.sessionComplete = sessionComplete
     }
-    init(Month month:String, sessionid sessionID:Int , totaldistance totaldistance:Double, finishDate finishdate:String)
+    init(Month month:String, sessionid sessionID:Int , totaldistance totaldistance:Double, finishDate finishdate:String, totalCalories caloriesburnt: Double)
     {
         self.month = month
         self.sessionID = sessionID
         self.totaldistance = totaldistance
         self.finishdate = finishdate
+        self.totalcaloriesburnt = caloriesburnt
     
     }
-    init(Month month:String, allsessionid ALLsessionID:[Int] , alltotalDistance Alldistance:[Double],totalfinishDate totalfinishdate:[String],alltotaltime Alltotaltime:[String])
+    init(Month month:String, allsessionid ALLsessionID:[Int] , alltotalDistance Alldistance:[Double],totalfinishDate totalfinishdate:[String],alltotaltime Alltotaltime:[String],allCalories AllCalories:[Double])
     {
         self.month = month
         self.AllSessionID = ALLsessionID
         self.AllDistance = Alldistance
         self.totalfinishdate = totalfinishdate
         self.allTotalTime = Alltotaltime
+        self.AllCalories = AllCalories
         self.expanded = false
     }
     init(Totalcalories totalcaloriesburnt:Double,TotalDistance totaldistance:Double,Totaltime totaltime: String,totalspeed TotalSpeed: Double)

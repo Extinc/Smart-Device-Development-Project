@@ -63,6 +63,8 @@
 		704CE37B210DC7F100ADA30C /* RunningCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CE37A210DC7F100ADA30C /* RunningCustomCell.swift */; };
 		7053561220F39A6800D72FF0 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561120F39A6800D72FF0 /* WeatherService.swift */; };
 		7053561420F39FDC00D72FF0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561320F39FDC00D72FF0 /* Weather.swift */; };
+		70657D61210EEE0F0063F3A0 /* RunningPaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70657D60210EEE0F0063F3A0 /* RunningPaceViewController.swift */; };
+		70657D63210F4A6C0063F3A0 /* MultiColorPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70657D62210F4A6C0063F3A0 /* MultiColorPolyline.swift */; };
 		70A3D92A20EB96DF003392C0 /* ZombieChase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */; };
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
@@ -186,6 +188,8 @@
 		704CE37A210DC7F100ADA30C /* RunningCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningCustomCell.swift; sourceTree = "<group>"; };
 		7053561120F39A6800D72FF0 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		7053561320F39FDC00D72FF0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		70657D60210EEE0F0063F3A0 /* RunningPaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningPaceViewController.swift; sourceTree = "<group>"; };
+		70657D62210F4A6C0063F3A0 /* MultiColorPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiColorPolyline.swift; sourceTree = "<group>"; };
 		70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieChase.mp3; sourceTree = "<group>"; };
 		70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySessionViewController.swift; sourceTree = "<group>"; };
 		70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
@@ -526,6 +530,8 @@
 				7053561320F39FDC00D72FF0 /* Weather.swift */,
 				704CE37A210DC7F100ADA30C /* RunningCustomCell.swift */,
 				70440BCE210DFA8A0080A21E /* Extension.swift */,
+				70657D60210EEE0F0063F3A0 /* RunningPaceViewController.swift */,
+				70657D62210F4A6C0063F3A0 /* MultiColorPolyline.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -926,6 +932,7 @@
 				900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */,
 				5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */,
 				70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */,
+				70657D61210EEE0F0063F3A0 /* RunningPaceViewController.swift in Sources */,
 				5169C62520AAA4460014E15D /* AppDelegate.swift in Sources */,
 				692D5D0820DAA253007A31D3 /* MealPlanTableViewCell.swift in Sources */,
 				F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */,
@@ -951,6 +958,7 @@
 				513F09E120E209E2009806D8 /* Session.swift in Sources */,
 				51860BFF20E5CF6200DF498A /* Meal.swift in Sources */,
 				5169C67120AAAA210014E15D /* ExerciseViewController.swift in Sources */,
+				70657D63210F4A6C0063F3A0 /* MultiColorPolyline.swift in Sources */,
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
 				F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,

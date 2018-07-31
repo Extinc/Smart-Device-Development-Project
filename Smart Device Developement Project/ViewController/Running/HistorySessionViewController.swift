@@ -9,14 +9,19 @@
 import UIKit
 import MapKit
 import Charts
+import JBChartView
 
-private class CubicLineSampleFillFormatter: IFillFormatter {
+/*private class CubicLineSampleFillFormatter: IFillFormatter {
     func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
         return -10
     }
-}
+ 
+}*/
+
 
 class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate{
+ 
+    let tableimages : [[UIImage]] = [[#imageLiteral(resourceName: "table1")],[#imageLiteral(resourceName: "table2")],[#imageLiteral(resourceName: "table3")],[#imageLiteral(resourceName: "table4")]]
     
      var data = [[String]]()
      let header: [String] = ["Time taken","Distance","Calories","Average Speed"]
@@ -35,6 +40,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row]
+        cell.imageView?.image = tableimages[indexPath.section][indexPath.row]
         return cell
     }
     
@@ -59,6 +65,11 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     @IBOutlet weak var lblTotalCaloriesBurnt: UILabel!
     
     @IBOutlet weak var historytable: UITableView!
+    
+    @IBOutlet weak var barChart: JBBarChartView!
+    
+   
+    
     var currentid = String()
     
     var mylocations: [CLLocation] = []
@@ -82,38 +93,18 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var startpin = MKPointAnnotation()
+        startpin.title = "Starting Spot"
+        startpin.subtitle = "Started from here"
+        var endpin = MKPointAnnotation()
+        endpin.title = "End Spot"
+        endpin.subtitle = "Ended here"
         historytable.delegate = self
         historytable.dataSource = self
         let headerView = UIView()
         headerView.backgroundColor = UIColor.darktextcolor
         headerView.frame = CGRect(x:0, y:0, width: view.frame.width, height: 30)
-        
-        let footerView = UIView()
-        footerView.backgroundColor = UIColor.darktextcolor
-        footerView.frame = CGRect(x:0, y:0, width: view.frame.width, height: 30)
-        Linechart.delegate = self as! ChartViewDelegate
-        Linechart.setViewPortOffsets(left: 0, top: 20, right: 0, bottom: 0)
-        Linechart.backgroundColor = UIColor(red: 104/225, green: 241/225, blue:175/255, alpha: 1)
     
-        
-        Linechart.dragEnabled = true
-        Linechart.setScaleEnabled(true)
-        Linechart.pinchZoomEnabled = false
-        Linechart.maxHighlightDistance = 300
-        
-        Linechart.xAxis.enabled = false
-        let yAxis = Linechart.leftAxis
-        yAxis.labelFont = UIFont(name: "HelveticaNeue-Light",size:12)!
-        yAxis.setLabelCount(6, force: false)
-        yAxis.labelTextColor = .white
-        yAxis.labelPosition = .insideChart
-        yAxis.axisLineColor = .white
-        
-        Linechart.rightAxis.enabled = false
-        Linechart.legend.enabled = false
-        
-        Linechart.animate(xAxisDuration: 2, yAxisDuration: 2)
         
         var selectedID : Int = Int(currentid)!
         print("Selecte ID \(selectedID)")
@@ -128,38 +119,22 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
                 let coordinate:CLLocation = CLLocation(latitude: Double(latitude[i])!, longitude: Double(longitude[i])!)
                 
                 mylocations.append(coordinate)
+                if i == 0 {
+                    var startlocation:CLLocationCoordinate2D = mylocations[0].coordinate
+                    startpin.coordinate = startlocation
+                    historyMap.addAnnotation(startpin)
+                }
+                if i == longitude.count - 1 {
+                     var endlocation:CLLocationCoordinate2D = mylocations[mylocations.count - 1].coordinate
+                      endpin.coordinate = endlocation
+                    historyMap.addAnnotation(endpin)
+                }
                 
         }
       
-        func setDataCount(_ count: Int, range: UInt32){
-            let yVals1 = (0..<count).map { (i) -> ChartDataEntry in
-                let mult = range + 1
-                let val = Double(arc4random_uniform(mult) + 20)
-                return ChartDataEntry(x: Double(i), y:val)
-            }
-            
-            let set1 = LineChartDataSet(values: yVals1, label: "DataSet 1")
-            set1.mode = .cubicBezier
-            set1.drawCirclesEnabled = false
-            set1.lineWidth = 1.8
-            set1.circleRadius = 4
-            set1.setCircleColor(.white)
-            set1.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
-            set1.fillColor = .white
-            set1.fillAlpha = 1
-            set1.drawHorizontalHighlightIndicatorEnabled = false
-            set1.fillFormatter = CubicLineSampleFillFormatter()
-            
-            let data = LineChartData(dataSet: set1)
-            data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 9)!)
-            data.setDrawValues(false)
-            
-          Linechart.data = data
-        }
-  
-
+       
         for i in 0 ..< longitude.count - 1 {
-      //this loop got error
+   
          var sourceIndex = i
     
             destinationIndex = i + 1;
@@ -172,12 +147,12 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
             
         }
    
-         var time = (selectedSession.totaltime)
+         var time = (selectedSession.totaltime!) + " hours"
         var distance = "\(String(format: "%.2f",selectedSession.totaldistance!)) Km"
         var calories = "\(String(format: "%.2f", selectedSession.totalcaloriesburnt!)) Cal"
         var speed = "\(String(format: "%.2f", selectedSession.totalspeed!)) m/s"
        
-        var timearray : [String] = [time!]
+        var timearray : [String] = [time]
         var distancearray : [String] = [distance]
         var caloriesarray : [String] = [calories]
         var speedarray : [String] = [speed]
@@ -191,11 +166,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         
         
         
-   /*
-         Not done yet
-         objectArray = [Objects(sectionName: "Time", sectionObject: ["Time taken :\(time)"]),Objects(sectionName: "Distance", sectionObject: ["Distance ran :\(distance)"]),Objects(sectionName: "Calories", sectionObject: ["Calories Burnt :\(calories)"]),Objects(sectionName: "Speed", sectionObject: ["Average speed:\(speed)"])]
- */
-        
+  
         
         
         historyMap.delegate = self
@@ -206,6 +177,44 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     }
     
     
+ /*   func viewDidAppear(animated: Bool){
+        super.viewDidAppear(animated)
+        barChart.reloadData()
+        var timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+    }
+    
+    func viewDidDisappear(animated: Bool){
+        super.viewDidDisappear(animated)
+        hideChart()
+    }
+    func hideChart(){
+        barChart.setState(.collapsed, animated: true)
+    }
+    func showChart(){
+        barChart.setState(.expanded, animated: true)
+    }
+    
+    //MARK: JBBarChartView
+    
+    func barChartView(_ barChartView: JBBarChartView!, heightForBarViewAt index: UInt) -> CGFloat {
+        return CGFloat(chartData[Int(index)])
+    }
+    
+    func numberOfBars(in barChartView: JBBarChartView!) -> UInt {
+        return UInt(chartData.count)
+    }
+    
+    func barChartView(_ barChartView: JBBarChartView!, colorForBarViewAt index: UInt) -> UIColor! {
+        return (index % 2 == 0) ? UIColor.lightGray : UIColor.white
+    }
+    
+    func barChartView(_ barChartView: JBBarChartView!, didSelectBarAt index: UInt) {
+        let data = chartData[Int(index)]
+        let key = chartLegend[Int(index)]
+
+    }*/
+    
+ 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         
@@ -218,6 +227,8 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         return MKOverlayRenderer(overlay: overlay)
     }
     
+    
+    
     func updateMapRegion(rangeSpan:CLLocationDistance){
         var selectedID : Int = Int(currentid)!
         print("Selecte ID \(selectedID)")
@@ -227,6 +238,14 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         let region = MKCoordinateRegionMakeWithDistance(mylocations[0].coordinate, rangeSpan, rangeSpan)
          historyMap.region = region
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var nextcontroller = segue.destination as! RunningPaceViewController
+        nextcontroller.selectedid = Int(currentid)!
+    }
+    
+    
 
 
     /*

@@ -148,6 +148,18 @@ class RunningDataManager: NSObject {
         return previousScheduleLapTime
         
     }
+    
+    static func loadSessionSpeed(_ sessionID:Int) -> Session{
+        let ScheduleSpeed = SQLiteDB.sharedInstance.query(sql: "Select lap1speed,lap2speed,lap3speed,lap4speed,lap5speed from Session where sessionID = \(sessionID)")
+        var previousScheduleSpeed = Session(firstspeed : "", secondspeed: "", thirdspeed: "", fourthspeed: "", fifthspeed: "")
+        for row in ScheduleSpeed
+        {
+            previousScheduleSpeed = Session(firstspeed: row["lap1speed"] as! String,secondspeed: row["lap2speed"] as! String,thirdspeed: row["lap3speed"] as! String,fourthspeed: row["lap4speed"] as! String,fifthspeed: row["lap5speed"] as! String)
+        }
+        
+        return previousScheduleSpeed
+        
+    }
     static func loadSessionByID(_ sessionID:Int) -> Session{
         let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select totalcaloriesburnt,totaldistance,totaltime,totalspeed from Session where sessionID = \(sessionID)")
         
@@ -160,6 +172,19 @@ class RunningDataManager: NSObject {
         
         return selectedinfo
     
+    }
+    static func loadSessionLapDistancebyID(_ sessionID:Int) -> String{
+        let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select lap1distance from Session where sessionID = \(sessionID)")
+        
+        var selecteddistance = ""
+        
+        for row in selectSessionInfo
+        {
+            selecteddistance = row["lap1distance"] as! String
+        }
+        
+        return selecteddistance
+        
     }
     static func loadSessionlocationByID(_ sessionID:Int) -> Session{
         let selectSessionInfo = SQLiteDB.sharedInstance.query(sql: "Select Runlogitude,Runlatitude from Session where sessionID = \(sessionID)")
@@ -178,7 +203,7 @@ class RunningDataManager: NSObject {
     }
     
     static func loadallsession(_ userID:String) -> [Session]{
-        let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month,totaltime from Session Where sessionComplete = 1 AND userID = \"\(userID)\"" )
+        let allsession = SQLiteDB.sharedInstance.query(sql: "Select sessionID,totaldistance,finishdate,month,totaltime,totalcaloriesburnt from Session Where sessionComplete = 1 AND userID = \"\(userID)\"" )
         var jancall: Int = 0
         var febcall: Int = 0
         var marcall: Int = 0
@@ -198,64 +223,76 @@ class RunningDataManager: NSObject {
         var  janid: [Int] = []
         var  jandistance: [Double] = []
         var  jantime: [String] = []
+        var  jancalories: [Double] = []
         //February
         var febdate : [String] = []
         var febid: [Int] = []
         var febdistance: [Double] = []
         var febtime: [String] = []
+        var  febcalories: [Double] = []
         //March
         var mardate : [String] = []
         var marid: [Int] = []
         var mardistance: [Double] = []
         var martime: [String] = []
+        var marcalories: [Double] = []
         //April
         var aprdate : [String] = []
         var aprid: [Int] = []
         var aprdistance: [Double] = []
         var aprtime: [String] = []
+        var aprcalories: [Double] = []
         //May
         var maydate : [String] = []
         var mayid: [Int] = []
         var maydistance: [Double] = []
         var maytime: [String] = []
+        var maycalories: [Double] = []
         //June
         var jundate : [String] = []
         var junid: [Int] = []
         var jundistance: [Double] = []
         var juntime: [String] = []
+        var juncalories: [Double] = []
         //July
         var juldate : [String] = []
         var julid: [Int] = []
         var juldistance: [Double] = []
         var jultime: [String] = []
+        var julcalories: [Double] = []
         //Aug
         var augdate : [String] = []
         var augid: [Int] = []
         var augdistance: [Double] = []
         var augtime: [String] = []
+        var augcalories: [Double] = []
         //Sep
         var sepdate : [String] = []
         var sepid: [Int] = []
         var sepdistance: [Double] = []
         var septime: [String] = []
+        var sepcalories: [Double] = []
         //Oct
         var octdate : [String] = []
         var octid: [Int] = []
         var octdistance: [Double] = []
         var octtime: [String] = []
+        var octcalories: [Double] = []
         //Nov
         var novdate : [String] = []
         var novid: [Int] = []
         var novdistance: [Double] = []
         var novtime: [String] = []
+        var novcalories: [Double] = []
         //Dec
         var decdate : [String] = []
         var decid: [Int] = []
         var decdistance: [Double] = []
         var dectime: [String] = []
+        var deccalories: [Double] = []
         //All session
         var allSession : [Session] = []
-        var eachsession = Session(Month :"", sessionid :0 , totaldistance :0.0, finishDate:"")
+        var eachsession = Session(Month :"", sessionid :0 , totaldistance :0.0, finishDate:"",totalCalories: 0)
         for row in allsession
         {
             if(row["month"] as! String == "January")
@@ -265,6 +302,7 @@ class RunningDataManager: NSObject {
                 janid.append(row["sessionID"] as! Int)
                 jandistance.append(row["totaldistance"] as! Double)
                 jantime.append(row["totaltime"] as! String)
+                jancalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "February")
             {
@@ -273,6 +311,7 @@ class RunningDataManager: NSObject {
                 febid.append(row["sessionID"] as! Int)
                 febdistance.append(row["totaldistance"] as! Double)
                 febtime.append(row["totaltime"] as! String)
+                febcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "March")
             {
@@ -281,6 +320,7 @@ class RunningDataManager: NSObject {
                 marid.append(row["sessionID"] as! Int)
                 mardistance.append(row["totaldistance"] as! Double)
                 martime.append(row["totaltime"] as! String)
+                marcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "April")
             {
@@ -289,6 +329,7 @@ class RunningDataManager: NSObject {
                 aprid.append(row["sessionID"] as! Int)
                 aprdistance.append(row["totaldistance"] as! Double)
                 aprtime.append(row["totaltime"] as! String)
+                aprcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "May")
             {
@@ -297,6 +338,7 @@ class RunningDataManager: NSObject {
                 mayid.append(row["sessionID"] as! Int)
                 maydistance.append(row["totaldistance"] as! Double)
                 maytime.append(row["totaltime"] as! String)
+                maycalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "June")
             {
@@ -305,6 +347,7 @@ class RunningDataManager: NSObject {
                 junid.append(row["sessionID"] as! Int)
                 jundistance.append(row["totaldistance"] as! Double)
                 juntime.append(row["totaltime"] as! String)
+                juncalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "July")
             {
@@ -313,6 +356,7 @@ class RunningDataManager: NSObject {
                 julid.append(row["sessionID"] as! Int)
                 juldistance.append(row["totaldistance"] as! Double)
                 jultime.append(row["totaltime"] as! String)
+                julcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "August")
             {
@@ -321,6 +365,7 @@ class RunningDataManager: NSObject {
                 augid.append(row["sessionID"] as! Int)
                 augdistance.append(row["totaldistance"] as! Double)
                 augtime.append(row["totaltime"] as! String)
+                augcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "September")
             {
@@ -329,6 +374,7 @@ class RunningDataManager: NSObject {
                 sepid.append(row["sessionID"] as! Int)
                 sepdistance.append(row["totaldistance"] as! Double)
                 septime.append(row["totaltime"] as! String)
+                sepcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "October")
             {
@@ -337,6 +383,7 @@ class RunningDataManager: NSObject {
                 octid.append(row["sessionID"] as! Int)
                 octdistance.append(row["totaldistance"] as! Double)
                 octtime.append(row["totaltime"] as! String)
+                octcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "November")
             {
@@ -345,6 +392,7 @@ class RunningDataManager: NSObject {
                 novid.append(row["sessionID"] as! Int)
                 novdistance.append(row["totaldistance"] as! Double)
                 novtime.append(row["totaltime"] as! String)
+                novcalories.append(row["totalcaloriesburnt"] as! Double)
             }
             if(row["month"] as! String == "December")
             {
@@ -353,67 +401,68 @@ class RunningDataManager: NSObject {
                 decid.append(row["sessionID"] as! Int)
                 decdistance.append(row["totaldistance"] as! Double)
                 dectime.append(row["totaltime"] as! String)
+                deccalories.append(row["totalcaloriesburnt"] as! Double)
             }
             
         }
        if (jancall == 1)
        {
-        eachsession = Session(Month : "January" ,allsessionid : janid ,alltotalDistance :jandistance ,totalfinishDate: jandate,alltotaltime :jantime)
+        eachsession = Session(Month : "January" ,allsessionid : janid ,alltotalDistance :jandistance ,totalfinishDate: jandate,alltotaltime :jantime, allCalories : jancalories)
          allSession.append(eachsession)
         }
         if (febcall == 1)
         {
-            eachsession = Session(Month : "February" ,allsessionid : febid ,alltotalDistance :febdistance ,totalfinishDate: febdate,alltotaltime :febtime)
+            eachsession = Session(Month : "February" ,allsessionid : febid ,alltotalDistance :febdistance ,totalfinishDate: febdate,alltotaltime :febtime, allCalories : febcalories)
             allSession.append(eachsession)
         }
         if (marcall == 1)
         {
-            eachsession = Session(Month : "March" ,allsessionid : marid ,alltotalDistance :mardistance ,totalfinishDate: mardate,alltotaltime :martime)
+            eachsession = Session(Month : "March" ,allsessionid : marid ,alltotalDistance :mardistance ,totalfinishDate: mardate,alltotaltime :martime, allCalories : marcalories)
             allSession.append(eachsession)
         }
         if (aprcall == 1)
         {
-            eachsession = Session(Month : "April" ,allsessionid : aprid ,alltotalDistance :aprdistance ,totalfinishDate: aprdate,alltotaltime :aprtime)
+            eachsession = Session(Month : "April" ,allsessionid : aprid ,alltotalDistance :aprdistance ,totalfinishDate: aprdate,alltotaltime :aprtime, allCalories : aprcalories)
             allSession.append(eachsession)
         }
         if (maycall == 1)
         {
-            eachsession = Session(Month : "May" ,allsessionid : mayid ,alltotalDistance :maydistance ,totalfinishDate: maydate,alltotaltime :maytime)
+            eachsession = Session(Month : "May" ,allsessionid : mayid ,alltotalDistance :maydistance ,totalfinishDate: maydate,alltotaltime :maytime, allCalories : maycalories)
             allSession.append(eachsession)
         }
         if (juncall == 1)
         {
-            eachsession = Session(Month : "June" ,allsessionid : junid ,alltotalDistance :jundistance ,totalfinishDate: jundate,alltotaltime :juntime)
+            eachsession = Session(Month : "June" ,allsessionid : junid ,alltotalDistance :jundistance ,totalfinishDate: jundate,alltotaltime :juntime, allCalories : juncalories)
             allSession.append(eachsession)
         }
         if (julcall == 1)
         {
-            eachsession = Session(Month : "July" ,allsessionid : julid ,alltotalDistance :juldistance ,totalfinishDate: juldate,alltotaltime :jultime)
+            eachsession = Session(Month : "July" ,allsessionid : julid ,alltotalDistance :juldistance ,totalfinishDate: juldate,alltotaltime :jultime, allCalories : julcalories)
             allSession.append(eachsession)
         }
         if (augcall == 1)
         {
-            eachsession = Session(Month : "August" ,allsessionid : augid ,alltotalDistance :augdistance ,totalfinishDate: augdate,alltotaltime :augtime)
+            eachsession = Session(Month : "August" ,allsessionid : augid ,alltotalDistance :augdistance ,totalfinishDate: augdate,alltotaltime :augtime, allCalories : augcalories)
             allSession.append(eachsession)
         }
         if (sepcall == 1)
         {
-            eachsession = Session(Month : "September" ,allsessionid : sepid ,alltotalDistance :sepdistance ,totalfinishDate: sepdate,alltotaltime :septime)
+            eachsession = Session(Month : "September" ,allsessionid : sepid ,alltotalDistance :sepdistance ,totalfinishDate: sepdate,alltotaltime :septime, allCalories : sepcalories)
+            allSession.append(eachsession)
+        }
+        if (octcall == 1)
+        {
+            eachsession = Session(Month : "November" ,allsessionid : octid ,alltotalDistance :octdistance ,totalfinishDate: octdate,alltotaltime :octtime, allCalories : octcalories)
             allSession.append(eachsession)
         }
         if (novcall == 1)
         {
-            eachsession = Session(Month : "November" ,allsessionid : octid ,alltotalDistance :octdistance ,totalfinishDate: octdate,alltotaltime :octtime)
             allSession.append(eachsession)
+            eachsession = Session(Month : "July" ,allsessionid : novid ,alltotalDistance :novdistance ,totalfinishDate: novdate,alltotaltime :novtime, allCalories : novcalories)
         }
         if (deccall == 1)
         {
-            allSession.append(eachsession)
-            eachsession = Session(Month : "July" ,allsessionid : novid ,alltotalDistance :novdistance ,totalfinishDate: novdate,alltotaltime :novtime)
-        }
-        if (jancall == 1)
-        {
-            eachsession = Session(Month : "December" ,allsessionid : decid ,alltotalDistance :decdistance ,totalfinishDate: decdate,alltotaltime :dectime)
+            eachsession = Session(Month : "December" ,allsessionid : decid ,alltotalDistance :decdistance ,totalfinishDate: decdate,alltotaltime :dectime, allCalories : deccalories)
             allSession.append(eachsession)
         }
         

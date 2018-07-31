@@ -39,7 +39,6 @@
 		51860BFF20E5CF6200DF498A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51860BFD20E5CF6200DF498A /* Meal.swift */; };
 		51862EBD20AE6D5E0058CE01 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51862EBC20AE6D5E0058CE01 /* MainViewController.swift */; };
 		5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */; };
-		519BF93620EFB27900F87A65 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 519BF93520EFB27900F87A65 /* food.mlmodel */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AEDE5020F49741005B44F0 /* ProfileViewController.swift */; };
 		51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27C920F475D40054E053 /* AuthenticateUser.swift */; };
@@ -95,6 +94,7 @@
 		90F9C75020FB715100D111DC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9C74F20FB715100D111DC /* MediaPlayer.framework */; };
 		90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */; };
 		90FF44C1210F2FC700CA8989 /* WorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF44C0210F2FC700CA8989 /* WorkoutHistoryViewController.swift */; };
+		F11D69AE21103EFE009EFCB0 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11D69AD21103EFD009EFCB0 /* food.mlmodel */; };
 		F127A9DD210EB3910054F3E5 /* LoadingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127A9DC210EB3910054F3E5 /* LoadingData.swift */; };
 		F127A9DF210EB5720054F3E5 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */; };
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
@@ -163,7 +163,6 @@
 		51860BFD20E5CF6200DF498A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		51862EBC20AE6D5E0058CE01 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStartViewController.swift; sourceTree = "<group>"; };
-		519BF93520EFB27900F87A65 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51AEDE5020F49741005B44F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		51ED27C920F475D40054E053 /* AuthenticateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUser.swift; sourceTree = "<group>"; };
@@ -232,6 +231,7 @@
 		BA1B7ED1271096417D94A407 /* Pods_Smart_Device_Developement_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11D69AD21103EFD009EFCB0 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
 		F127A9DC210EB3910054F3E5 /* LoadingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingData.swift; sourceTree = "<group>"; };
 		F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		F12F23EB20EDEEB900836A83 /* foodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodData.swift; sourceTree = "<group>"; };
@@ -498,7 +498,7 @@
 		69D65C7720CE3D18004DD12B /* Dietary */ = {
 			isa = PBXGroup;
 			children = (
-				519BF93520EFB27900F87A65 /* food.mlmodel */,
+				F11D69AD21103EFD009EFCB0 /* food.mlmodel */,
 				51FC308C20E6247400A5E685 /* CameraViewController.swift */,
 				F147301820D7A4B700C63470 /* DietaryViewController.swift */,
 				F147301A20D7C8DD00C63470 /* CircleProgressBarViewController.swift */,
@@ -921,13 +921,13 @@
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
 				5116A7CE20FDB3B5006C2EA3 /* HawkerViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
-				519BF93620EFB27900F87A65 /* food.mlmodel in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
 				5154F68020B78838000C9E29 /* LifestyleTheme.swift in Sources */,
 				69F9761B20DFCD5A00688C7A /* MealTypesViewController.swift in Sources */,
 				90C601EA20B00EAA002FFF5D /* Colors.swift in Sources */,
 				9008D52220D6927F00FEAC9E /* SQLiteDB.swift in Sources */,
 				51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */,
+				F11D69AE21103EFE009EFCB0 /* food.mlmodel in Sources */,
 				51FC308F20E62A5900A5E685 /* SummaryViewController.swift in Sources */,
 				900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */,
 				5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */,

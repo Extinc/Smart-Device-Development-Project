@@ -394,8 +394,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         else{
             lblNumberofProgress.text = "No Schedule Created"
         }
-        lastSessionID = RunningDataManager.selectlastSessionTableId() - 1
-        
+      
         
         
         
@@ -423,16 +422,20 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         if (travelledDistance/1000 >= lapdistance * 5 )
         {
             
-            Prevspeed = LastSessionSpeed.lap1time!
+            Prevspeed = LastSessionSpeed.lap5time!
+            print("This is Prev time \(Prevspeed)")
             speeddiff = thissessionspeed - Prevspeed
+            print("This is this time \(thissessionspeed)")
+            
             var stringspeeddiff = String(speeddiff)
+            print("This is speed diffrence \(stringspeeddiff)")
             if speeddiff < 0{
                 var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then faster round")
             }
             else {
                 
-                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+                DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             if(callfirst == 1)
             {
@@ -443,15 +446,18 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         else if (travelledDistance/1000 >= lapdistance * 4 )
         {
-            Prevspeed = LastSessionSpeed.lap2time!
+            Prevspeed = LastSessionSpeed.lap4time!
+             print("This is Prev time \(Prevspeed)")
             speeddiff = thissessionspeed - Prevspeed
+              print("This is this time \(thissessionspeed)")
             var stringspeeddiff = String(speeddiff)
+               print("This is speed diffrence \(stringspeeddiff)")
             if speeddiff < 0{
                 var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             else {
-               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) slower faster then last round")
             }
             
             if(callsecond == 1)
@@ -466,14 +472,17 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         else if (travelledDistance/1000 >= lapdistance * 3 )
         {
             Prevspeed = LastSessionSpeed.lap3time!
+             print("This is Prev time \(Prevspeed)")
             speeddiff = thissessionspeed - Prevspeed
+             print("This is this time \(thissessionspeed)")
             var stringspeeddiff = String(speeddiff)
+            print("This is speed diffrence \(stringspeeddiff)")
             if speeddiff < 0{
                 var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             else {
-               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+               DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             if(callthird == 1)
             {
@@ -485,15 +494,18 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         else if (travelledDistance/1000 >= lapdistance * 2 )
         {
-            Prevspeed = LastSessionSpeed.lap4time!
+            Prevspeed = LastSessionSpeed.lap2time!
+            print("This is Prev time \(Prevspeed)")
             speeddiff = thissessionspeed - Prevspeed
+             print("This is this time \(thissessionspeed)")
             var stringspeeddiff = String(speeddiff)
+               print("This is speed diffrence \(stringspeeddiff)")
             if speeddiff < 0{
                 var postive : String = String(speeddiff * -1)
-                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
+                DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds faster then last round")
             }
             else {
-              DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds faster then last round")
+              DistanceNotification = AVSpeechUtterance(string: "You are \(stringspeeddiff) seconds slower then last round")
             }
             if(callfourth == 1)
             {
@@ -503,9 +515,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         else if (travelledDistance/1000 >= lapdistance)
         {
-            Prevspeed = LastSessionSpeed.lap5time!
+            Prevspeed = LastSessionSpeed.lap1time!
+            print("This is Prev time \(Prevspeed)")
             speeddiff = thissessionspeed - Prevspeed
+             print("This is this time \(thissessionspeed)")
             var stringspeeddiff = String(speeddiff)
+               print("This is speed diffrence \(stringspeeddiff)")
             if speeddiff < 0{
                 var postive : String = String(speeddiff * -1)
                 DistanceNotification = AVSpeechUtterance(string: "You are \(postive) seconds slower then last round")
@@ -645,6 +660,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
       
             
         RunningDataManager.insertOrReplaceSession(session: currentSession)
+          lastSessionID = RunningDataManager.selectlastSessionTableId() - 1
         
         let estimateddistance = String(targetDistance/5)
         lapdistance = Double(estimateddistance)!

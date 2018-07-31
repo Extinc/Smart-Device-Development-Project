@@ -78,6 +78,7 @@
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */; };
 		901C96D821109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */; };
+		901C96DA2110D56D00FAFB10 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
 		904B98542106AE9D008B30A3 /* WorkoutModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */; };
@@ -212,6 +213,7 @@
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatViewController.swift; sourceTree = "<group>"; };
 		901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPersonalCreateViewController.swift; sourceTree = "<group>"; };
+		901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
 		904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModalViewController.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			children = (
 				9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */,
 				51AEDE5020F49741005B44F0 /* ProfileViewController.swift */,
+				901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				5116A7D020FDC551006C2EA3 /* HawkerCentres.swift in Sources */,
 				69E13BA4210A0045004630E5 /* checkForHawker.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
+				901C96DA2110D56D00FAFB10 /* ProfileEditViewController.swift in Sources */,
 				9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */,

@@ -160,14 +160,62 @@ class ExerciseDataManager: NSObject{
         
     }
     
-    static func saveCompletedWorkout(uid: String, exercises: String, repCount: Int){
+    // Firebase workout history
+    static func saveCompletedWorkout(uid: String, exercises: String, repCount: Int, typeofExercise: String){
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timeString = formatter.string(from: Date())
+    ref.child("WorkoutHistory").child(uid).child(timeString).child("exerciseName").setValue(exercises)
         
-        ref.child("WorkoutHistory").child(uid).childByAutoId().child("exerciseName").setValue(exercises)
-        ref.child("WorkoutHistory").child(uid).childByAutoId().child("count").setValue(repCount)
-        ref.child("WorkoutHistory").child(uid).childByAutoId().child("timestamp").setValue(NSDate().timeIntervalSince1970)
+        ref.child("WorkoutHistory").child(uid).child(timeString).child("count").setValue(repCount)
+    ref.child("WorkoutHistory").child(uid).child(timeString).child("type").setValue(typeofExercise)
+        
+        //ref.child("WorkoutHistory").child(uid).childByAutoId().child("timestamp").setValue(NSDate().timeIntervalSince1970)
+        
+    }
+    
+    
+    static func getWorkoutHistory(onComplete: ((_ : [WorkoutHist]) -> Void)?){
+        // create an empty list.
+        var histList : [WorkoutHist] = []
+        
+        let ref = FirebaseDatabase.Database.database().reference().child("WorkoutHistory/\(AuthenticateUser.getUID())/")
+        
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // This is the "with" closure that
+            // executes only when the retrieval
+            // of data from Firebase is complete.
+            // Meanwhile, before the download is complete,
+            // the user can still interact with the user
+            // interface.
+            //
+            for record in snapshot.children
+            {
+                let r = record as! DataSnapshot
+                let dt = r.key as! String
+                let name = r.childSnapshot(forPath: "exerciseName").value as! String
+                let count = r.childSnapshot(forPath: "count").value as! Int
+                let type = r.childSnapshot(forPath: "type").value as! String
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let timestamp = formatter.date(from: dt)
+                
+                
+                histList.append(WorkoutHist(name: name, count: count, type: type, timestamp: timestamp!))
+                
+            }
+            onComplete?(histList)
+        })
         
     }
     
@@ -518,3 +566,24 @@ class ExerciseDataManager: NSObject{
     
 }
 
+extension Formatter {
+    static let iso8601: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+        return formatter
+    }()
+}
+extension Date {
+    var iso8601: String {
+        return Formatter.iso8601.string(from: self)
+    }
+}
+
+extension String {
+    var dateFromISO8601: Date? {
+        return Formatter.iso8601.date(from: self)   // "Mar 22, 2017, 10:22 AM"
+    }
+}

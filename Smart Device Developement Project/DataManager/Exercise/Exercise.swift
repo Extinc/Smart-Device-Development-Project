@@ -73,3 +73,19 @@ class ImageFetchURL: NSObject {
         self.urls = urls
     }
 }
+
+class WorkoutHist: NSObject {
+    var name: String!
+    var count: Int!
+    var type: String!
+    var timeStamp: Date!
+    
+    init(name: String!, count: Int!, type: String!, timestamp: Date!) {
+        self.name = name
+        self.count = count
+        self.type = type
+        self.timeStamp = timestamp
+    }
+}
+
+

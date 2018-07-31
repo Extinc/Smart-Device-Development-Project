@@ -17,13 +17,17 @@ class checkForHawker: NSObject {
         var arrayOfNumbers: [Int] = []
         
         for j in 0...arrayOfNumbersString.count - 1  {
-            arrayOfNumbers[j] = Int(arrayOfNumbersString[j])!
+            arrayOfNumbers.append(Int(arrayOfNumbersString[j])!)
         }
         
         for i in 0...hawkers.count - 1  {
-            if(hawkers[i].hawkerID == arrayOfNumbers[i]) {
-                hawkerCentres.append(hawkers[i])
+            for j in 0...arrayOfNumbers.count - 1 {
+                if(hawkers[i].hawkerID == arrayOfNumbers[j]) {
+                    hawkerCentres.append(hawkers[i])
+                    break
+                }
             }
+            
         }
         
         return hawkerCentres

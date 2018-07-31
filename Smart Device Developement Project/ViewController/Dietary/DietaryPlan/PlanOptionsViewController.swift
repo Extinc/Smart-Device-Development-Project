@@ -204,7 +204,10 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         else{
             let duration = durationTextField.text
+            let timingField = mealtimingsTextField.text
             var days: String = "0"
+            var timing: String = "0"
+            
             if(duration == "1 Week") {
                 days = "7"
             }
@@ -221,12 +224,27 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 days = "180"
             }
             
+            if(timingField == "2 Hours"){
+                timing = "2"
+            }
+            else if (timingField == "3 Hours") {
+                timing = "3"
+            }
+            else if (timingField == "4 Hours") {
+                timing = "4"
+            }
+            else if (timingField == "5 Hours") {
+                timing = "5"
+            }
+            else if (timingField == "6 Hours") {
+                timing = "6"
+            }
+            
             let dietplan = planTextField.text
             let mpd = Int(mealsperdayTextField.text!)
-            let mti = mealtimingsTextField.text
             let startDate = startDateTextField.text
             
-            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, mti!, reminders, startDate!)
+            let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, timing, reminders, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
             RecommendMeal.createMealPlan(meals: meal, username: username, totalCalories: totalCalories)

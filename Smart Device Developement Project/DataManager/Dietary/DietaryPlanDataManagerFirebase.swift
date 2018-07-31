@@ -262,7 +262,6 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if(isDiary == "No") {
                     count = count + 1
                 }
-                
             }
             onComplete(count)
         })
@@ -289,7 +288,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     static func updatePlan(mealPlan: MealPlan) {
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(mealPlan.mealID as! String)
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.mealID!))
         ref.setValue([
             "mealID" : mealPlan.mealID,
             "mealName" : mealPlan.mealName,
@@ -321,8 +320,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 let id = Int(r.key)!
                 let name = r.childSnapshot(forPath: "name").value as! String
                 let address = r.childSnapshot(forPath: "address").value as! String
-                let longitude = Double(r.childSnapshot(forPath: "latitude").value as! String)!
-                let latitude = Double(r.childSnapshot(forPath: "longitude").value as! String)!
+                let longitude = Double(r.childSnapshot(forPath: "longitude").value as! String)!
+                let latitude = Double(r.childSnapshot(forPath: "latitude").value as! String)!
                 hawkerCentreList.append(HawkerCentres(id, name, latitude, longitude, address))
                
             }

@@ -27,9 +27,17 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         super.viewDidLoad()
         hawkerMapView.delegate = self
         locationManager.delegate = self
-        updateMapRegion(rangeSpan: 50)
+        updateMapRegion(rangeSpan: 500)
         
-        checkForHawker.loadHawkerWithMeal(meal: meal, hawkers: hawkerCentres)
+        let nyp = MKPointAnnotation()
+        nyp.coordinate = coordinate2D
+        hawkerMapView.addAnnotation(nyp)
+        
+        let test = MKPointAnnotation()
+        test.coordinate = CLLocationCoordinate2DMake(hawkerCentres[0].latitude!, hawkerCentres[0].longitude!)
+        print(test.coordinate)
+        hawkerMapView.addAnnotation(test)
+        
         if (hawkerSegment.selectedSegmentIndex == 0) {
             loadPointersWithMeal()
         }
@@ -43,11 +51,11 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     // MARK: - Segment changed
     @IBAction func segmentChanged(_ sender: Any) {
-        hawkerMapView.removeAnnotation(hawkerMapView.annotations as! MKAnnotation)
+        //hawkerMapView.removeAnnotation(hawkerMapView.annotations as! MKAnnotation)
         if (hawkerSegment.selectedSegmentIndex == 0 ){
             loadPointersWithMeal()
         }
-        else {
+        else if(hawkerSegment.selectedSegmentIndex == 1){
             loadAllPointers()
         }
     }
@@ -58,6 +66,7 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
     }
     
+    // MARK: - Annotation Delegates
     
     // MARK: - Functions
     
@@ -70,21 +79,22 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         for i in 0...self.hawkerCenteresWithMeal.count - 1
         {
             let p = MKPointAnnotation()
-            p.coordinate = CLLocationCoordinate2D(latitude: self.hawkerCenteresWithMeal[i].latitude!, longitude: self.hawkerCenteresWithMeal[i].longitude!)
-            p.title = self.hawkerCenteresWithMeal[i].hawkerName
-            p.subtitle = self.hawkerCenteresWithMeal[i].address
-            self.hawkerMapView.addAnnotation(p)
+            p.coordinate = CLLocationCoordinate2DMake(self.hawkerCenteresWithMeal[0].latitude!, self.hawkerCenteresWithMeal[0].longitude!)
+            p.title = self.hawkerCenteresWithMeal[0].hawkerName
+            p.subtitle = self.hawkerCenteresWithMeal[0].address
+            hawkerMapView.addAnnotation(p)
         }
+        
     }
     
     func loadAllPointers(){
         for i in 0...self.hawkerCentres.count - 1
         {
             let p = MKPointAnnotation()
-            p.coordinate = CLLocationCoordinate2D(latitude: self.hawkerCentres[i].latitude!, longitude: self.hawkerCentres[i].longitude!)
+            p.coordinate = CLLocationCoordinate2DMake(self.hawkerCentres[i].latitude!, self.hawkerCentres[i].longitude!)
             p.title = self.hawkerCentres[i].hawkerName
             p.subtitle = self.hawkerCentres[i].address
-            self.hawkerMapView.addAnnotation(p)
+            hawkerMapView.addAnnotation(p)
         }
     }
 }

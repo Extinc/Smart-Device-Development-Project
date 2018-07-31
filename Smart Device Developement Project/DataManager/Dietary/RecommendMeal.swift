@@ -40,7 +40,9 @@ class RecommendMeal: NSObject {
             
             let fDate = NSCalendar.current.date(from: date)
             currentDate = dateFormatter.string(from: fDate!)
-            makeNotiContent(planPreferences: preferences, notiDate: fDate!)
+            if (preferences.reminders == "Yes"){
+                makeNotiContent(planPreferences: preferences, notiDate: fDate!)
+            }
             
             if (planType == "Gluten Free"){
                 plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))

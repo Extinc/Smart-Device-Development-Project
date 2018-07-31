@@ -190,7 +190,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if (planTextField.text == "" ||
             durationTextField.text == "" ||
             mealsperdayTextField.text == "" ||
-            mealtimingsTextField.text == "" ||
             startDateTextField.text == "") {
             let alert = UIAlertController(title: "Please fill in all fields", message: "", preferredStyle: .alert)
             alert.addAction(
@@ -238,6 +237,9 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
             else if (timingField == "6 Hours") {
                 timing = "6"
+            }
+            else if (timingField == ""){
+                timing = "0"
             }
             
             let dietplan = planTextField.text

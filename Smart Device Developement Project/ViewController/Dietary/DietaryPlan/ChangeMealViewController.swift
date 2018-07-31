@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class ChangeMealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var chooseMealButton: UIButton!
-    @IBOutlet weak var removeMealButton: UIButton!
+    @IBOutlet weak var chooseMealButton: MDCFlatButton!
+    @IBOutlet weak var removeMealButton: MDCFlatButton!
     
     
     var meals: [Meal] = [] // Get all aval meals 
@@ -24,27 +25,32 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         username = AuthenticateUser.getUID()
+        print(meals)
+        let colors = Colors()
+        let lifestyleTheme = LifestyleTheme()
         
+        lifestyleTheme.styleBtn(btn: chooseMealButton, title: "Choose Meal", pColor: colors.primaryDarkColor)
+        lifestyleTheme.styleBtn(btn: removeMealButton, title: "Remove Meal", pColor: colors.primaryDarkColor)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
     // MARK : - TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return meals.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return meals.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
         cell.rMealName.text = meals[indexPath.row].name
-        cell.rMealCalories.text = String(describing: meals[indexPath.row].calories!)
+        cell.rMealCalories.text = String(describing: meals[indexPath.row].calories!) + " calories"
         cell.rMealImage.image = UIImage(named: meals[indexPath.row].mealImage!)
         return cell
     }
@@ -70,6 +76,7 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         let isDiary = previousMealPlan.isDiary!
         
         let mealPlan: MealPlan = MealPlan(username, date, mealID, mealName, mealImage, calories, recipeImage, isDiary)
+        DietaryPlanDataManagerFirebase.deleteMealPlan(previousMealPlan)
         DietaryPlanDataManagerFirebase.updatePlan(mealPlan: mealPlan)
         
         performSegue(withIdentifier: "unwindSegueToRecipeVC", sender: self)

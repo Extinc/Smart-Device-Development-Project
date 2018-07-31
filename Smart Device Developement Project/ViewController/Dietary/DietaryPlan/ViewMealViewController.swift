@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class ViewMealViewController: UIViewController {
   
 
     @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var findBtn: MDCFlatButton!
     var mealPlan: MealPlan = MealPlan("", "", 0, "", "", 0, "", "")
     var meals: [Meal] = [] //to parse all aval meals to other vc
     var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
@@ -21,6 +23,13 @@ class ViewMealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let colors = Colors()
+        let lifestyleTheme = LifestyleTheme()
+        
+        lifestyleTheme.styleBtn(btn: findBtn, title: "Find Meal", pColor: colors.primaryDarkColor)
+
+        
         mealID = mealPlan.mealID!
         meals = LoadingData.shared.mealList
         

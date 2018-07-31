@@ -232,7 +232,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let mealid = Int(r.key as! String)
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
-                        let calories = r.childSnapshot(forPath: "calories").value as! Int
+                        let calories = r.childSnapshot(forPath: "calories").value as! Double
                         let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)

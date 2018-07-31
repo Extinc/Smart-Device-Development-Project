@@ -12,15 +12,19 @@ import MaterialComponents
 
 class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    //calories
     @IBOutlet weak var reccCal: UILabel!
     @IBOutlet weak var intakeCal: UILabel!
-    
-    @IBOutlet weak var picker: UIPickerView!
-
     @IBOutlet weak var progressBar: KDCircularProgress!
+
+    //carbs
+    @IBOutlet weak var intakeCarb: UILabel!
+    @IBOutlet weak var reccCarb: UILabel!
+    @IBOutlet weak var carbs: KDCircularProgress!
     
+    //goals
     @IBOutlet weak var summary: MDCFlatButton!
-    
+    @IBOutlet weak var picker: UIPickerView!
     var pickerData: [String] = ["None","Lose Weight", "Gain Weight"]
     
     let date = Date()
@@ -41,25 +45,42 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let goal = LoadingData.shared.goals
         self.picker.selectRow(goal, inComponent: 0, animated: true)
         
-        // today calorie intake
+        //today calorie intake
         let mealPlan:[MealPlan] = LoadingData.shared.mealPlan
+        let meals:[Meal] = LoadingData.shared.mealList
         var rcalories = LoadingData.shared.rcalories
         var icalories:Int = 0
+
+        //today carb intake
+        let carbRecc = Double((rcalories/100)*60)
+        var carbIntake:Double = 0.0
+
+        //loop for today calories and carbohydrates
+        for i in 0..<mealPlan.count{
+            icalories = Int(mealPlan[i].calories!) + icalories
+            for x in 0..<meals.count{
+                if(mealPlan[i].mealID == meals[x].mealID){
+                    carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+                }
+            }
+        }
         
+        //loop for goals
         let extra = (rcalories/100)*10
+        let extra2 = (carbRecc/100)*10
         if goal == 1 {
             rcalories = rcalories - extra
+            carbIntake = carbIntake - extra2
         }
         else if goal == 2{
             rcalories = rcalories + extra
-        }
-
-        //loop for today calories
-        for i in 0..<mealPlan.count{
-            icalories = Int(mealPlan[i].calories!) + icalories
+            carbIntake = carbIntake + extra2
         }
         
-        //calculate and display
+        
+        //----------------calculate and display----------------------
+        
+        //calories
         let intake: Double = Double(icalories)
         let calories = Double(LoadingData.shared.rcalories)
         let percent = (intake/calories)*100
@@ -67,6 +88,13 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
         self.intakeCal.text = Int(intake).description
         self.reccCal.text = rcalories.description
+        
+        //carbohydrates
+        let C_percent = (carbIntake/carbRecc)*100
+        let C_angle = (360/100)*C_percent
+        self.carbs.animate(fromAngle: self.carbs.angle, toAngle: C_angle, duration: 0.5, completion: nil)
+        self.reccCarb.text = Int(carbRecc).description
+        self.intakeCarb.text = Int(carbIntake).description
 
     }
 
@@ -112,24 +140,38 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         formatter.dateFormat = "dd-MM-yyyy"
         let today = formatter.string(from: date)
         let user = AuthenticateUser.getUID()
+        let meals:[Meal] = LoadingData.shared.mealList
         
         DietaryPlanDataManagerFirebase.loadMealPlans(date: today, username: user){
             plan in
             var rcalories = LoadingData.shared.rcalories
             var icalories:Int = 0
             let goal = self.picker.selectedRow(inComponent: 0)
+
+            //today carb intake
+            let carbRecc = Double((rcalories/100)*60)
+            var carbIntake:Double = 0.0
             
+            //loop for today calories and carbohydrates
+            for i in 0..<plan.count{
+                icalories = Int(plan[i].calories!) + icalories
+                for x in 0..<meals.count{
+                    if(plan[i].mealID == meals[x].mealID){
+                        carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+                    }
+                }
+            }
+            
+            //loop for goals
             let extra = (rcalories/100)*10
+            let extra2 = (carbRecc/100)*10
             if goal == 1 {
                 rcalories = rcalories - extra
+                carbIntake = carbIntake - extra2
             }
             else if goal == 2{
                 rcalories = rcalories + extra
-            }
-            
-            //loop for today calories
-            for i in 0..<plan.count{
-                icalories = Int(plan[i].calories!) + icalories
+                carbIntake = carbIntake + extra2
             }
             
             //calculate and display
@@ -140,6 +182,13 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
             self.intakeCal.text = Int(intake).description
             self.reccCal.text = rcalories.description
+            
+            //carbohydrates
+            let C_percent = (carbIntake/carbRecc)*100
+            let C_angle = (360/100)*C_percent
+            self.carbs.animate(fromAngle: self.carbs.angle, toAngle: C_angle, duration: 0.5, completion: nil)
+            self.reccCarb.text = Int(carbRecc).description
+            self.intakeCarb.text = Int(carbIntake).description
         }
     }
 }

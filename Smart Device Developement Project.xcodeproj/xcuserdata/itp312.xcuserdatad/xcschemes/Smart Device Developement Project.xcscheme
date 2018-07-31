@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "73F6C1D24981A64A9535947D87A28324"
-               BuildableName = "Pods_Smart_Device_Developement_ProjectUITests.framework"
-               BlueprintName = "Pods-Smart Device Developement ProjectUITests"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "5169C62020AAA4460014E15D"
+               BuildableName = "Smart Device Developement Project.app"
+               BlueprintName = "Smart Device Developement Project"
+               ReferencedContainer = "container:Smart Device Developement Project.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,6 +30,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5169C62020AAA4460014E15D"
+            BuildableName = "Smart Device Developement Project.app"
+            BlueprintName = "Smart Device Developement Project"
+            ReferencedContainer = "container:Smart Device Developement Project.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -44,15 +53,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "73F6C1D24981A64A9535947D87A28324"
-            BuildableName = "Pods_Smart_Device_Developement_ProjectUITests.framework"
-            BlueprintName = "Pods-Smart Device Developement ProjectUITests"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "5169C62020AAA4460014E15D"
+            BuildableName = "Smart Device Developement Project.app"
+            BlueprintName = "Smart Device Developement Project"
+            ReferencedContainer = "container:Smart Device Developement Project.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -62,6 +72,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5169C62020AAA4460014E15D"
+            BuildableName = "Smart Device Developement Project.app"
+            BlueprintName = "Smart Device Developement Project"
+            ReferencedContainer = "container:Smart Device Developement Project.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

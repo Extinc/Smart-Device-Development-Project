@@ -168,10 +168,10 @@ class ExerciseDataManager: NSObject{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let timeString = formatter.string(from: Date())
-    ref.child("WorkoutHistory").child(uid).child(timeString).child("exerciseName").setValue(exercises)
         
+        ref.child("WorkoutHistory").child(uid).child(timeString).child("exerciseName").setValue(exercises)
         ref.child("WorkoutHistory").child(uid).child(timeString).child("count").setValue(repCount)
-    ref.child("WorkoutHistory").child(uid).child(timeString).child("type").setValue(typeofExercise)
+        ref.child("WorkoutHistory").child(uid).child(timeString).child("type").setValue(typeofExercise)
         
         //ref.child("WorkoutHistory").child(uid).childByAutoId().child("timestamp").setValue(NSDate().timeIntervalSince1970)
         
@@ -203,7 +203,12 @@ class ExerciseDataManager: NSObject{
                 let r = record as! DataSnapshot
                 let dt = r.key as! String
                 let name = r.childSnapshot(forPath: "exerciseName").value as! String
-                let count = r.childSnapshot(forPath: "count").value as! Int
+                var count = 0
+                if let countt: Int! = r.childSnapshot(forPath: "count").value as! Int
+                {
+                    count = countt
+                }
+                
                 let type = r.childSnapshot(forPath: "type").value as! String
                 
                 let formatter = DateFormatter()

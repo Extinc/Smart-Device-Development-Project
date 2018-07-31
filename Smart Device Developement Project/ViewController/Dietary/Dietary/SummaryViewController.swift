@@ -12,7 +12,18 @@ class SummaryViewController: UIViewController {
     
     let date = Date()
     let formatter = DateFormatter()
-
+    
+    //date picker
+    @IBOutlet weak var datePick: UIDatePicker!
+    
+    //nutrition values
+    @IBOutlet weak var calories: UILabel!
+    @IBOutlet weak var carbs: UILabel!
+    @IBOutlet weak var fat: UILabel!
+    @IBOutlet weak var protein: UILabel!
+    @IBOutlet weak var sodium: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

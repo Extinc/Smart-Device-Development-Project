@@ -50,7 +50,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="XAB-83-5Lk" eventType="touchUpInside" id="DWK-XA-REb"/>
-                                    <segue destination="g1v-PY-8gN" kind="showDetail" id="YVI-Je-OYy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -227,7 +226,7 @@
         <!--Loading View Controller-->
         <scene sceneID="iBg-s8-tit">
             <objects>
-                <viewController id="g1v-PY-8gN" customClass="LoadingViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadView" id="g1v-PY-8gN" customClass="LoadingViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wc9-4w-aBe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,13 +10,18 @@ import UIKit
 import MZTimerLabel
 import AVKit
 import MaterialComponents
-class WorkoutStartViewController: UIViewController {
+class WorkoutStartViewController: UIViewController,UIScrollViewDelegate {
+    
+    var passedExercise: Exercise!
+    var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
     
     @IBOutlet weak var timerLabel: MZTimerLabel!
     
-    var passedExercise: Exercise!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var playVideo: UIBarButtonItem!
+    
+    @IBOutlet weak var playBtn: MDCFloatingButton!
+    
     @IBAction func playVideoClick(_ sender: Any) {
         if let path = URL(string: passedExercise.videoLink!)
         {
@@ -43,6 +48,15 @@ class WorkoutStartViewController: UIViewController {
         timerLabel.timeFormat = "mm:ss"
         timerLabel.setCountDownTime(TimeInterval(2))
 
+        scrollView.delegate = self
+        let contentSize = CGSize(width: scrollView.bounds.width * CGFloat(passedExercise.imageLink.count+1),
+                                 height: scrollView.bounds.height)
+        scrollView.contentSize = contentSize
+
+        
+        addImagetoPaging()
+        
+        LifestyleTheme.styleFloatBtn(btn: playBtn, title: "Play", pColor: Colors.PrimaryDarkColor())
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +65,33 @@ class WorkoutStartViewController: UIViewController {
     }
  
     
+    
+    @objc func didChangePage(sender: MDCPageControl){
+        var offset = scrollView.contentOffset
+        offset.x = CGFloat(sender.currentPage) * scrollView.bounds.size.width;
+        scrollView.setContentOffset(offset, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        //pageControls.scrollViewDidScroll(scrollView)
+        
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        //pageControls.scrollViewDidEndScrollingAnimation(scrollView)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tableViewEmbed2" {
+            var viewController = segue.destination as! WorkoutDetailInfoViewController
+            viewController.passedExercise = passedExercise
+        }
+    }
     /*
      // MARK: - Navigation
      
@@ -60,6 +101,34 @@ class WorkoutStartViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func addImagetoPaging(){
+        for count in 0..<passedExercise.imageLink.count {
+            frame.origin.x = scrollView.frame.size.width * CGFloat(count)
+            frame.size = scrollView.frame.size
+            var imageView = UIImageView()
+            imageView.frame = frame
+            imageView.contentMode = .scaleAspectFit
+            if let url = URL.init(string: passedExercise.imageLink[count]) {
+                imageView.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
+                    if error != nil {
+                        print("Image View Error: \(error.debugDescription)")
+                    }
+                })
+            }
+            scrollView.addSubview(imageView)
+            //print("Scrollview subcviews ", scrollView.subviews)
+        }
+        //scrollingPageControl.pageCount = passedExercise.imageLink.count
+        
+        //pageControls.numberOfPages = passedExercise.imageLink.count
+        //let pageControlSize = pageControls.sizeThatFits(stackView.bounds.size)
+        //pageControls.frame = CGRect(x: 0, y: stackView.bounds.height - pageControlSize.height, width: stackView.bounds.width, height: pageControlSize.height)
+        
+        // pageControls.addTarget(self, action: #selector(didChangePage), for: .valueChanged)
+        //pageControls.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+        //stackView.addSubview(pageControls)
+    }
     
 }
 

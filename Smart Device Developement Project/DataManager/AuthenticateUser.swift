@@ -69,6 +69,26 @@ class AuthenticateUser: NSObject {
         })
     }
     
+    static func getZombieSpeed(onComplete: ((_ : Double) -> Void)?){
+        var speed: Double!
+        let ref = FirebaseDatabase.Database.database().reference().child("Profile").child(self.getUID()).child("zombiespeed")
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        
+        print(ref)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if !snapshot.exists() {return}
+            
+            //print("Snapshot : ", Double(snapshot.value! as! String))
+            speed = snapshot.value! as! Double
+            onComplete!(speed)
+        })
+    }
+    
     static func logout(){
         let firebaseAuth = Auth.auth()
         do {
@@ -86,6 +106,16 @@ class AuthenticateUser: NSObject {
 
         return accInfo
     }
+    
+    static func updateProfile(uid: String, height: Double, weight: Double, speed: Double){
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        ref.child("Profile").child(uid).child("height").setValue("\(height)")
+        ref.child("Profile").child(uid).child("weight").setValue("\(weight)")
+        ref.child("Profile").child(uid).child("zombiespeed").setValue(speed)
+    }
+    
 }
 
 class AccountProfile: NSObject {

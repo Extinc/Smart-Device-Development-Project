@@ -78,6 +78,10 @@
 		900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFB20D4E60B00220298 /* Exercise.swift */; };
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */; };
+		901C96D821109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */; };
+		901C96DA2110D56D00FAFB10 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */; };
+		901C96DC2110DFE800FAFB10 /* WorkoutPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96DB2110DFE800FAFB10 /* WorkoutPersonalViewController.swift */; };
+		901C96DE2110E41E00FAFB10 /* WorkoutPersonalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96DD2110E41E00FAFB10 /* WorkoutPersonalDetailViewController.swift */; };
 		9030537520B83C860084534E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9030537420B83C860084534E /* TabBarController.swift */; };
 		9030ED8220C0305600D28D92 /* acc.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9030ED8120C0305600D28D92 /* acc.rtf */; };
 		904B98542106AE9D008B30A3 /* WorkoutModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */; };
@@ -212,6 +216,10 @@
 		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatViewController.swift; sourceTree = "<group>"; };
+		901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPersonalCreateViewController.swift; sourceTree = "<group>"; };
+		901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		901C96DB2110DFE800FAFB10 /* WorkoutPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPersonalViewController.swift; sourceTree = "<group>"; };
+		901C96DD2110E41E00FAFB10 /* WorkoutPersonalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPersonalDetailViewController.swift; sourceTree = "<group>"; };
 		9030537420B83C860084534E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9030ED8120C0305600D28D92 /* acc.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = acc.rtf; sourceTree = "<group>"; };
 		904B98532106AE9D008B30A3 /* WorkoutModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModalViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +311,9 @@
 				5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */,
 				900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */,
 				90FF44C0210F2FC700CA8989 /* WorkoutHistoryViewController.swift */,
+				901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */,
+				901C96DB2110DFE800FAFB10 /* WorkoutPersonalViewController.swift */,
+				901C96DD2110E41E00FAFB10 /* WorkoutPersonalDetailViewController.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -456,6 +467,7 @@
 			children = (
 				9053B50120F9A20A00C72DA1 /* ProfileBtnCustomCell.swift */,
 				51AEDE5020F49741005B44F0 /* ProfileViewController.swift */,
+				901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -863,6 +875,7 @@
 				"${BUILT_PRODUCTS_DIR}/ExpyTableView/ExpyTableView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQDropDownTextField/IQDropDownTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
 				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
@@ -881,6 +894,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpyTableView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQDropDownTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
@@ -925,6 +939,7 @@
 				9053B50220F9A20A00C72DA1 /* ProfileBtnCustomCell.swift in Sources */,
 				70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */,
 				69F9761920DFCBE900688C7A /* ViewMealViewController.swift in Sources */,
+				901C96D821109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift in Sources */,
 				5116A7CE20FDB3B5006C2EA3 /* HawkerViewController.swift in Sources */,
 				F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */,
 				69B42A2C20DA4FA4008925D0 /* PlanOptionsViewController.swift in Sources */,
@@ -945,6 +960,7 @@
 				5116A7D020FDC551006C2EA3 /* HawkerCentres.swift in Sources */,
 				69E13BA4210A0045004630E5 /* checkForHawker.swift in Sources */,
 				9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */,
+				901C96DA2110D56D00FAFB10 /* ProfileEditViewController.swift in Sources */,
 				9053B4FE20F99C0000C72DA1 /* WorkoutDetailInfoViewController.swift in Sources */,
 				9030537520B83C860084534E /* TabBarController.swift in Sources */,
 				9068A3F220F1A10C00973C88 /* WorkoutDetailViewController.swift in Sources */,
@@ -978,6 +994,8 @@
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				90FF44C1210F2FC700CA8989 /* WorkoutHistoryViewController.swift in Sources */,
 				704CE37B210DC7F100ADA30C /* RunningCustomCell.swift in Sources */,
+				901C96DC2110DFE800FAFB10 /* WorkoutPersonalViewController.swift in Sources */,
+				901C96DE2110E41E00FAFB10 /* WorkoutPersonalDetailViewController.swift in Sources */,
 				513F09D520E20156009806D8 /* RunningDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

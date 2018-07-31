@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var accInfo: AccountProfile?
     var height: Double = 0.0
     var weight: Double = 0.0
-    
+     var speed: Double = 0.0
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -39,7 +39,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }	
+        }
+        
+        AuthenticateUser.getZombieSpeed { (speed) in
+            self.speed = speed
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -76,12 +83,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int?
         if section == 0 {
-            count = 3
+            return 2
         } else {
-            count = 3
+            return 4
         }
         
-        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,17 +99,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.textLabel?.text = "Email: "
                 cell.detailTextLabel?.text = AuthenticateUser.getCurrEmail()
                 return cell
-            } else if indexPath.row == 1 {
+            } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
                 cell.textLabel?.text = "Password: "
                 cell.detailTextLabel?.text = "********"
                 return cell
-            }else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! ProfileBtnCustomCell
-                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Email & Password", pColor: Colors.PrimaryDarkColor())
-                return cell
             }
-            
         } else {
             
             if indexPath.row == 0 {
@@ -114,17 +115,41 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
                 cell.textLabel?.text = "Weight: "
-                
+                cell.detailTextLabel?.text = "\(Int(self.weight)) kg"
                 return cell
-            } else {
+            }
+            else if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AccCell", for: indexPath)
+                cell.textLabel?.text = "Zombie Speed: "
+                cell.detailTextLabel?.text = "\(Int(self.speed)) "
+                return cell
+            }
+            else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "btnCell", for: indexPath) as! ProfileBtnCustomCell
-                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Change Height & Weight", pColor: Colors.PrimaryDarkColor())
+                LifestyleTheme.styleBtn2(btn: cell.btn, title: "Edit", pColor: Colors.PrimaryDarkColor())
                 return cell
             }
 
         }
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openEdit" {
+            var vc = segue.destination as! ProfileEditViewController
+            if let passedHeight:Double = self.height{
+                vc.passedHeight = passedHeight
+            }
+            if let passedWeight:Double = self.weight{
+                vc.passedWeight = passedWeight
+            }
+            
+            if let passedzs:Double = self.speed{
+                vc.passedZS = passedzs
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -136,3 +161,4 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     */
 
 }
+

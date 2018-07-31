@@ -80,6 +80,9 @@ extension WorkoutStartViewController: MZTimerLabelDelegate {
             if let passedName = passedExercise.name {
                 vc.passedExerciseName = passedName
             }
+            if let passedType: String = ExerciseDataManager.getCategory(catid: passedExercise.category!){
+                vc.passedType = passedType
+            }
             vc.modalPresentationStyle = .overCurrentContext
             present(vc, animated: true, completion: nil)
         }

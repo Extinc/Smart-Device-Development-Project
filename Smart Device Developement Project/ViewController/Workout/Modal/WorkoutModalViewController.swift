@@ -12,6 +12,7 @@ import MaterialComponents
 class WorkoutModalViewController: UIViewController {
 
     var passedExerciseName: String!
+    var passedType: String!
     
     @IBOutlet weak var addBtn: MDCFloatingButton!
     @IBOutlet weak var minusBtn: MDCFloatingButton!
@@ -44,7 +45,7 @@ class WorkoutModalViewController: UIViewController {
         if let reps = Int(repTextField.text!)
         {
             self.dismiss(animated: true) {
-                ExerciseDataManager.saveCompletedWorkout(uid: AuthenticateUser.getUID(), exercises: self.passedExerciseName, repCount: reps)
+                ExerciseDataManager.saveCompletedWorkout(uid: AuthenticateUser.getUID(), exercises: self.passedExerciseName, repCount: reps, typeofExercise: self.passedType)
             }
         }
     

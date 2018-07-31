@@ -8,14 +8,16 @@
 
 import UIKit
 import UserNotifications
+import MaterialComponents
 
 class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var generatePlanButton: UIButton!
+    @IBOutlet weak var generatePlanButton: MDCFlatButton!
     @IBOutlet weak var notifyLabel: UILabel!
+    @IBOutlet weak var addMeal: MDCFlatButton!
     
     
     private var datePicker: UIDatePicker?
@@ -37,7 +39,11 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //dateTextField.backgroundColor = primaryColor
+        let colors = Colors()
+        let lifestyleTheme = LifestyleTheme()
+        
+        lifestyleTheme.styleBtn(btn: generatePlanButton, title: "Start a new plan", pColor: colors.primaryDarkColor)
+        lifestyleTheme.styleBtn(btn: addMeal, title: "Add Meal", pColor: colors.primaryDarkColor)
         
         let date = Date()
         let formatter = DateFormatter()
@@ -56,6 +62,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             self.loadPlanCount(date: self.selectedDate, username: self.username)
         }
         
+        
         //Load mealplans to display in table
         mealplan = LoadingData.shared.mealPlan
         for j in 0...self.mealplan.count-1 {
@@ -72,14 +79,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         
         
         //Load meal plans
-        if(planCount < 1) {
-            generatePlanButton.isHidden = false
-            notifyLabel.text = "You do not have any meal plans planned today, press start a new plan to generate one. "
-        }
-        else{
-            generatePlanButton.isHidden = true
-            notifyLabel.text = ""
-        }
+        
         
         //Date picker
         datePicker = UIDatePicker()
@@ -103,11 +103,14 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadPlanCount(date: selectedDate, username: username)
         if(planCount < 1) {
             generatePlanButton.isHidden = false
+            notifyLabel.text = "You do not have any meal plans planned today, press start a new plan to generate one."
         }
-        else{
+        else if (planCount > 1){
             generatePlanButton.isHidden = true
+            notifyLabel.text = ""
         }
         loadPlanMeals(date: selectedDate, username: username)
     }
@@ -127,6 +130,15 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         selectedDate = dateTextField.text!
         loadPlanMeals(date: selectedDate, username: username)
+        loadPlanCount(date: selectedDate, username: username)
+        if(planCount < 1) {
+            generatePlanButton.isHidden = false
+            notifyLabel.text = "You do not have any meal plans planned today, press start a new plan to generate one."
+        }
+        else if (planCount > 1){
+            generatePlanButton.isHidden = true
+            notifyLabel.text = ""
+        }
         view.endEditing(true)
     }
 
@@ -150,7 +162,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealPlanTableViewCell
         cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
-        cell.mealCalories.text = String(describing: mealPlans[indexPath.section][indexPath.row].calories!)
+        cell.mealCalories.text = String(describing: mealPlans[indexPath.section][indexPath.row].calories!) + " calories"
         cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
         
         return cell
@@ -211,7 +223,16 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         DietaryPlanDataManagerFirebase.loadMealPlansCount(date: date, username: username) {
             planCountFromFirebase in
             self.planCount = planCountFromFirebase
+            if(self.planCount < 1) {
+                self.generatePlanButton.isHidden = false
+                self.notifyLabel.text = "You do not have any meal plans planned today, press start a new plan to generate one."
+            }
+            else if (self.planCount > 1){
+                self.generatePlanButton.isHidden = true
+                self.notifyLabel.text = ""
+            }
         }
+        
     }
 
    

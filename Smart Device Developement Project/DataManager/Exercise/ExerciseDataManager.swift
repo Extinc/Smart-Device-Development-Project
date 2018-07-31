@@ -236,6 +236,41 @@ class ExerciseDataManager: NSObject{
         
     }
     
+    static func getCustomWorkout(onComplete: ((_ : [CustomWorkout]) -> Void)?){
+        // create an empty list.
+        var list : [CustomWorkout] = []
+        
+        let ref = FirebaseDatabase.Database.database().reference().child("CustomWorkoutSets/\(AuthenticateUser.getUID())/")
+        
+        // observeSingleEventOfType tells Firebase
+        // to load the full list of Movies, and execute the
+        // "with" closure once, when the download
+        // is complete.
+        //
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // This is the "with" closure that
+            // executes only when the retrieval
+            // of data from Firebase is complete.
+            // Meanwhile, before the download is complete,
+            // the user can still interact with the user
+            // interface.
+            //
+            for record in snapshot.children
+            {
+                let r = record as! DataSnapshot
+                let name = r.key as! String
+                let workouts = r.childSnapshot(forPath: "exercises").value as! String
+                
+
+                list.append(CustomWorkout(name: name, data: convertArrInStringToStrArr2(sArray: workouts)))
+                
+            }
+            onComplete?(list)
+        })
+        
+    }
+    
     // *************************************************************************************
     //  Below is Code for SQLite Database
     // *************************************************************************************
@@ -544,17 +579,6 @@ class ExerciseDataManager: NSObject{
     // *************************************************************************************
     
     // Below is to Convert Array inside string into Int Array
-    static func convertArrInStringToIntArr(sArray: String) -> [Int]{
-        var array1 = sArray
-        
-        array1.removeFirst()
-        array1.removeLast()
-        array1 = array1.replacingOccurrences(of: ",", with: "")
-        let sArray1 = array1.split(separator: " ")
-        let intArray = sArray1.map {Int($0)!}
-        
-        return intArray
-    }
     
     // Below is to Convert Array inside string into String Array
    
@@ -571,6 +595,19 @@ class ExerciseDataManager: NSObject{
         return intArray
     }
  
+    static func convertArrInStringToStrArr2(sArray: String) -> [String]{
+        var array1 = sArray
+        
+        array1.removeFirst()
+        array1.removeLast()
+        array1 = array1.replacingOccurrences(of: "\"", with: "")
+        let sArray1 = array1.split(separator: ",")
+        let intArray = sArray1.map {String($0)}
+        
+        return intArray
+    }
+    
+    
     static func substringLevel(level: String) -> String{
         let str = "level:"
         let index = level.index(after: str.endIndex)

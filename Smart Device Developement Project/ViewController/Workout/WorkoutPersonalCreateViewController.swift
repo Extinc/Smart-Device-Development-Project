@@ -12,16 +12,25 @@ import MaterialComponents
 class WorkoutPersonalCreateViewController: UIViewController, IQDropDownTextFieldDataSource, IQDropDownTextFieldDelegate {
     
     
+    @IBAction func close(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func createCustomWorkoutSet(_ sender: Any) {
         var workouts: [String] = []
-        //workouts.append(workoutTextField.text(in: UITextRange.init().end))
-        //workouts.append(workoutTextField2.text(in: UITextRange.init().end))
+        workouts.append(workoutTextField.selectedItem!)
+        workouts.append(workoutTextField.selectedItem!)
+        ExerciseDataManager.createWorkout(uid: AuthenticateUser.getUID(), setName:
+            nameTextField.text! , exercises: workouts)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var createBtn: MDCFlatButton!
     
     @IBOutlet weak var workoutTextField: IQDropDownTextField!
     @IBOutlet weak var workoutTextField2: IQDropDownTextField!
+    @IBOutlet weak var nameTextField: UITextField!
     
     
     var itemList: [String] = []

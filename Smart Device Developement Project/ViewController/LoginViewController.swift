@@ -61,11 +61,12 @@ class LoginViewController: UIViewController {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     
+                    
+                    
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
                 } else {
-                    
-                    
+ 
                     print("User exist")
                     let userID: String? = user?.user.uid
                     let email: String? = user?.user.email
@@ -73,7 +74,11 @@ class LoginViewController: UIViewController {
                         print(DataManager.checkUserExist(params: [userID!, email!]))
                         DataManager.insertUserInfo(uid: userID!, email: email!)
                     }
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoadView") as? LoadingViewController
+                    {
 
+                        self.present(vc, animated: true, completion: nil)
+                    }
                 }
             }
         }

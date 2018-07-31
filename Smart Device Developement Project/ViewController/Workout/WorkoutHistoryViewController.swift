@@ -72,7 +72,7 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = filteredHist[indexPath.row].name
-        cell.detailTextLabel?.text = "Count: \(filteredHist[indexPath.row].count)      Type: \(filteredHist[indexPath.row].type)"
+        cell.detailTextLabel?.text = "Count: \(filteredHist[indexPath.row].count!)      Type: \(filteredHist[indexPath.row].type!)"
         return cell
     }
     

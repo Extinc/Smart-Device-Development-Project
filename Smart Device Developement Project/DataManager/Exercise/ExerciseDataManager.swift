@@ -224,6 +224,17 @@ class ExerciseDataManager: NSObject{
         
     }
     
+    // For customizing own workout
+    
+    static func createWorkout(uid: String, setName: String, exercises: [String]){
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        ref.child("CustomWorkoutSets").child(uid).child(setName).child("exercises").setValue("\(exercises)")
+        
+        //ref.child("WorkoutHistory").child(uid).childByAutoId().child("timestamp").setValue(NSDate().timeIntervalSince1970)
+        
+    }
     
     // *************************************************************************************
     //  Below is Code for SQLite Database

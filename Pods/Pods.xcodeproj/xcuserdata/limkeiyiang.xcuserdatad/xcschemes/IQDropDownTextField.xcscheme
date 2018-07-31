@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42FD17D195FA3B5B05CE79F0B6CF447D"
-               BlueprintName = "FirebaseCore"
+               BlueprintIdentifier = "2B53101EC29FFFF7B80D815E9E4763C9"
+               BlueprintName = "IQDropDownTextField"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "FirebaseCore.framework">
+               BuildableName = "IQDropDownTextField.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

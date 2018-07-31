@@ -69,6 +69,7 @@
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
 		70E2CA1520F0AA000010FCBC /* RunnigHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */; };
+		70E4D2AC2110DB7700C35453 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E4D2AB2110DB7700C35453 /* PopUpViewController.swift */; };
 		9008B30B20D3EE540096D9F2 /* HTTP_Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30920D3EE540096D9F2 /* HTTP_Auth.swift */; };
 		9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008B30A20D3EE540096D9F2 /* SwiftyJSON.swift */; };
 		9008D52020D6186800FEAC9E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9008D51F20D6186800FEAC9E /* WorkoutViewController.swift */; };
@@ -195,6 +196,7 @@
 		70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySessionViewController.swift; sourceTree = "<group>"; };
 		70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
 		70E2CA1420F0AA000010FCBC /* RunnigHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnigHistoryViewController.swift; sourceTree = "<group>"; };
+		70E4D2AB2110DB7700C35453 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		79ADE2F87818DD9DC91939DB /* Pods-Smart Device Developement ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectUITests/Pods-Smart Device Developement ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85E31B8A2FD15CE7A0458FDD /* Pods-Smart Device Developement ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9004FB0920FA209700380722 /* SJFluidSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SJFluidSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -535,6 +537,7 @@
 				70440BCE210DFA8A0080A21E /* Extension.swift */,
 				70657D60210EEE0F0063F3A0 /* RunningPaceViewController.swift */,
 				70657D62210F4A6C0063F3A0 /* MultiColorPolyline.swift */,
+				70E4D2AB2110DB7700C35453 /* PopUpViewController.swift */,
 			);
 			path = Running;
 			sourceTree = "<group>";
@@ -971,6 +974,7 @@
 				F19AC74C210F0F6B005B66B2 /* DietaryPlanViewController.swift in Sources */,
 				516C779620FDB1C10042F8CE /* Model.xcdatamodeld in Sources */,
 				F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */,
+				70E4D2AC2110DB7700C35453 /* PopUpViewController.swift in Sources */,
 				90726C0F20D797B700FCFB28 /* DataManager.swift in Sources */,
 				90FF44C1210F2FC700CA8989 /* WorkoutHistoryViewController.swift in Sources */,
 				704CE37B210DC7F100ADA30C /* RunningCustomCell.swift in Sources */,

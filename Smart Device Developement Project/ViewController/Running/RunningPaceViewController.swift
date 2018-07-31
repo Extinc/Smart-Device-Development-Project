@@ -22,7 +22,10 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
     var RunningChartDistance : Double = 0
     var RunningTime : [String] = []
     
+    @IBOutlet weak var handgestureinstruction: UIView!
     
+    @IBOutlet weak var lblinstruction: UILabel!
+    @IBOutlet weak var tapView: UIImageView!
     @IBOutlet weak var linechart: JBLineChartView!
     @IBOutlet weak var informationLabel: UILabel!
     var chartLegend = ["11-14","11-15","11-16","11-17","11-18","11-19","11-20"]
@@ -53,11 +56,13 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         intspeedlist.append(speed4)
         intspeedlist.append(speed5)
 
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.someAction(_sender:)))
+        
+        handgestureinstruction.addGestureRecognizer(gesture)
         
         
-        
-        view.backgroundColor = UIColor.darktextcolor
-        linechart.backgroundColor = UIColor.darktextcolor
+        view.backgroundColor = UIColor.graphcolorbrown
+        linechart.backgroundColor = UIColor.graphcolorbrown
         linechart.delegate = self
         linechart.dataSource = self
         linechart.minimumValue = 0
@@ -112,6 +117,12 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         super.viewDidAppear(animated)
         linechart.reloadData()
         var timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
+    }
+    
+    @objc func someAction(_sender:UITapGestureRecognizer){
+        handgestureinstruction.isHidden = true
+        tapView.isHidden = true
+        lblinstruction.isHidden = true
     }
     
     func viewDidDisappear(animated: Bool){

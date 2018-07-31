@@ -39,6 +39,14 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let itemSize = CGSize.init(width: 25, height: 25)
+        let imageRect = CGRect.init(origin: CGPoint.zero, size: itemSize)
+        UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.main.scale)
+        cell.imageView?.image?.draw(in: imageRect)
+        cell.imageView?.image? = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        cell.detailTextLabel?.text = ""
+      
         cell.textLabel?.text = data[indexPath.section][indexPath.row]
         cell.imageView?.image = tableimages[indexPath.section][indexPath.row]
         return cell
@@ -99,6 +107,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         var endpin = MKPointAnnotation()
         endpin.title = "End Spot"
         endpin.subtitle = "Ended here"
+   
         historytable.delegate = self
         historytable.dataSource = self
         let headerView = UIView()
@@ -147,7 +156,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
             
         }
    
-         var time = (selectedSession.totaltime!) + " hours"
+         var time = (selectedSession.totaltime!)
         var distance = "\(String(format: "%.2f",selectedSession.totaldistance!)) Km"
         var calories = "\(String(format: "%.2f", selectedSession.totalcaloriesburnt!)) Cal"
         var speed = "\(String(format: "%.2f", selectedSession.totalspeed!)) m/s"

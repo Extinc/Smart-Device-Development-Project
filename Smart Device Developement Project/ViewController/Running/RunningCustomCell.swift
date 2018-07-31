@@ -14,7 +14,11 @@ class RunningCustomCell: UITableViewCell {
     
     @IBOutlet weak var timinglabel: UILabel!
     
+    @IBOutlet weak var timingdescriplbl: UILabel!
+    
     @IBOutlet weak var calorieslabel: UILabel!
+    
+    @IBOutlet weak var caloriesdescriptlbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

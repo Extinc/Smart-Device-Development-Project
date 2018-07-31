@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ExpandableHeaderViewDelegate{
     
     @IBOutlet weak var tableview: UITableView!
@@ -16,7 +17,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
    var runningsections : [Session] = []
 
     var selectedid : Int = 0
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         runningsections = RunningDataManager.loadallsession(authUID)
@@ -26,7 +27,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.lighttextcolor
+        cell.backgroundColor = UIColor.graphcolorbrown
     }
 
    
@@ -64,9 +65,11 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell") as! RunningCustomCell
-        cell.datelabel.text = "Date :" + runningsections[indexPath.section].totalfinishdate![indexPath.row]
-        cell.timinglabel.text = "Time taken :" + runningsections[indexPath.section].allTotalTime![indexPath.row]
-        cell.calorieslabel.text = "Calories Burnt :" + String(format: "%.2f",runningsections[indexPath.section].AllCalories![indexPath.row])
+        cell.datelabel.text =  runningsections[indexPath.section].totalfinishdate![indexPath.row]
+        cell.timingdescriplbl.text = "Time Taken :"
+        cell.timinglabel.text =  runningsections[indexPath.section].allTotalTime![indexPath.row]
+        cell.caloriesdescriptlbl.text = "Calories Burnt:"
+        cell.calorieslabel.text =  String(format: "%.2f",runningsections[indexPath.section].AllCalories![indexPath.row])
         return cell
     }
     func toggleSection(header: ExpandableHeaderView, section: Int) {

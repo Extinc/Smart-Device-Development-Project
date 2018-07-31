@@ -32,6 +32,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var btnViewAddTask: UIButton!
+    
     @IBOutlet weak var btnStart: UIButton!
     
     @IBOutlet weak var lblDistance: UILabel!
@@ -142,7 +144,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         var celsius : Double = kelvin - 273.15
         var stringcelsius = String(celsius)
         DispatchQueue.main.async {
-        self.templbl.text = "\(stringcelsius)" + " Degree"
+        self.templbl.text = "\(stringcelsius)" + " ℃"
         self.desclbl.text = weather.description
         self.weatherIcon.image = UIImage(named: weather.icon)
         }
@@ -195,7 +197,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     override func viewDidLoad() {
         //Get Weather
-        
+        btnViewAddTask.layer.borderWidth = 1
+        btnViewAddTask.layer.borderColor = UIColor.yellow.cgColor
         noofcomplete = RunningDataManager.checkUserScheduleComplete(username)
         completecount.text = String(noofcomplete)
         noofforfeit = RunningDataManager.checkUserScheduleforfeit(username)
@@ -602,11 +605,11 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         if (sender.isOn == true)
         {
-            lblZombie.isHidden = false
+            lblZombie.text = "Zombie Mode!"
         }
         else
         {
-            lblZombie.isHidden = true
+            lblZombie.text = "Default Mode"
         }
     }
     

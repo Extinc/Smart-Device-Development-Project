@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension UIColor{
     
     static let darktextcolor = UIColor().colorFromHex("#c2373e")
     static let lighttextcolor = UIColor().colorFromHex("#ff9c97")
+    static let graphcolor = UIColor().colorFromHex("#2E8B57")
+    static let graphcolorbrown = UIColor().colorFromHex("#9A7B4F")
     func colorFromHex(_ hex: String) -> UIColor {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
@@ -31,4 +34,9 @@ extension UIColor{
                             alpha: 1.0)
     }
 
+}
+extension MKPinAnnotationView {
+    class func greenpinColor() -> UIColor {
+        return UIColor.green
+    }
 }

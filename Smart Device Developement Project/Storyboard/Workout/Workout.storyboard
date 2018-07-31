@@ -121,7 +121,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-K6-5HG" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="backgroundwebsite-1000x675"/>
@@ -151,7 +151,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDP-Bm-0h7" customClass="CardHighlight" customModule="Cards">
-                                                            <rect key="frame" x="20" y="20" width="374" height="3"/>
+                                                            <rect key="frame" x="20" y="20" width="374" height="3.6666666666666679"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
@@ -502,23 +502,52 @@
             </objects>
             <point key="canvasLocation" x="2573.913043478261" y="664.4021739130435"/>
         </scene>
-        <!--View Controller-->
+        <!--Workout History View Controller-->
         <scene sceneID="bnh-Jd-9J1">
             <objects>
-                <viewController id="nTg-6y-bfU" sceneMemberID="viewController">
+                <viewController id="nTg-6y-bfU" customClass="WorkoutHistoryViewController" customModule="Smart_Device_Developement_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xjf-ba-aKs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJ2-GY-zXk">
-                                <rect key="frame" x="0.0" y="20" width="375" height="368"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BKI-CH-bkY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lko-1Z-XNW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="73.666666666666671"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FUf-8k-EKp">
+                                        <rect key="frame" x="0.0" y="73.666666666666657" width="414" height="294.33333333333337"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VZ-wi-nfs" customClass="LineChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="294.33333333333331"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Slz-dq-fA1">
+                                        <rect key="frame" x="0.0" y="368" width="414" height="368"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Lko-1Z-XNW" firstAttribute="height" secondItem="BKI-CH-bkY" secondAttribute="height" multiplier="0.1" id="9Xa-uz-VyT"/>
+                                    <constraint firstItem="FUf-8k-EKp" firstAttribute="height" secondItem="BKI-CH-bkY" secondAttribute="height" multiplier="0.4" id="JVj-B6-kNB"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BKI-CH-bkY" firstAttribute="leading" secondItem="OxZ-tE-Bzj" secondAttribute="leading" id="136-5L-GBB"/>
+                            <constraint firstItem="BKI-CH-bkY" firstAttribute="height" secondItem="Xjf-ba-aKs" secondAttribute="height" id="CX1-ki-x48"/>
+                            <constraint firstItem="BKI-CH-bkY" firstAttribute="top" secondItem="Xjf-ba-aKs" secondAttribute="top" id="K36-uE-usO"/>
+                            <constraint firstItem="OxZ-tE-Bzj" firstAttribute="trailing" secondItem="BKI-CH-bkY" secondAttribute="trailing" id="TVa-6h-ZhL"/>
+                            <constraint firstItem="OxZ-tE-Bzj" firstAttribute="bottom" secondItem="BKI-CH-bkY" secondAttribute="bottom" id="fta-8a-tsR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OxZ-tE-Bzj"/>
                     </view>
+                    <connections>
+                        <outlet property="chart" destination="6VZ-wi-nfs" id="2l2-qb-aIc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qld-RW-Ckp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

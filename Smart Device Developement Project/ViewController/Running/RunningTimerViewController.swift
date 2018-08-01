@@ -493,7 +493,6 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
                 callthird = 0
             }
             
-       
         }
         else if (travelledDistance/1000 >= lapdistance * 2 )
         {
@@ -535,8 +534,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             {
                 synth.speak(DistanceNotification)
                 callfifth = 0
-            }
-        
+            }        
         }
     }
 

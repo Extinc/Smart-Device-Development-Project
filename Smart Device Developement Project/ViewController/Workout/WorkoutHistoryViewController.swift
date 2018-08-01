@@ -188,19 +188,19 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         let weekDay = components.weekday
         switch weekDay {
-        case 1:
+        case 1?:
             return "Sun"
-        case 2:
+        case 2?:
             return "Mon"
-        case 3:
+        case 3?:
             return "Tue"
-        case 4:
+        case 4?:
             return "Wed"
-        case 5:
+        case 5?:
             return "Thu"
-        case 6:
+        case 6?:
             return "Fri"
-        case 7:
+        case 7?:
             return "Sat"
         default:
             print("Error fetching days")

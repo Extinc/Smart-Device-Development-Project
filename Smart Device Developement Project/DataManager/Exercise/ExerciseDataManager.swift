@@ -204,9 +204,9 @@ class ExerciseDataManager: NSObject{
                 let dt = r.key as! String
                 let name = r.childSnapshot(forPath: "exerciseName").value as! String
                 var count = 0
-                if let countt: Int! = r.childSnapshot(forPath: "count").value as! Int
+                if let countt: Int? = r.childSnapshot(forPath: "count").value as! Int
                 {
-                    count = countt
+                    count = countt!
                 }
                 
                 let type = r.childSnapshot(forPath: "type").value as! String

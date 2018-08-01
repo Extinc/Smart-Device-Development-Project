@@ -10,11 +10,9 @@ import UIKit
 import MaterialComponents
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBAction func signOut(_ sender: Any) {
         AuthenticateUser.logout()
     }
-    
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: MDCCard!

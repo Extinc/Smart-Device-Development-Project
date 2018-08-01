@@ -85,6 +85,10 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let calories = Double(LoadingData.shared.rcalories)
         let percent = (intake/calories)*100
         let angle = (360/100)*percent
+        
+        if (intake > calories) {
+            self.progressBar.progressColors = [UIColor.red]
+        }
         self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
         self.intakeCal.text = Int(intake).description
         self.reccCal.text = rcalories.description
@@ -92,6 +96,10 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         //carbohydrates
         let C_percent = (carbIntake/carbRecc)*100
         let C_angle = (360/100)*C_percent
+        
+        if (carbIntake > carbRecc) {
+            self.carbs.progressColors = [UIColor.red]
+        }
         self.carbs.animate(fromAngle: self.carbs.angle, toAngle: C_angle, duration: 0.5, completion: nil)
         self.reccCarb.text = Int(carbRecc).description
         self.intakeCarb.text = Int(carbIntake).description
@@ -187,6 +195,10 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let calories = Double(LoadingData.shared.rcalories)
             let percent = (intake/calories)*100
             let angle = (360/100)*percent
+            
+            if (intake > calories) {
+                self.progressBar.progressColors = [UIColor.red]
+            }
             self.progressBar.animate(fromAngle: self.progressBar.angle, toAngle: angle, duration: 0.5, completion: nil)
             self.intakeCal.text = Int(intake).description
             self.reccCal.text = rcalories.description
@@ -194,6 +206,10 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             //carbohydrates
             let C_percent = (carbIntake/carbRecc)*100
             let C_angle = (360/100)*C_percent
+            
+            if (carbIntake > carbRecc) {
+                self.carbs.progressColors = [UIColor.red]
+            }
             self.carbs.animate(fromAngle: self.carbs.angle, toAngle: C_angle, duration: 0.5, completion: nil)
             self.reccCarb.text = Int(carbRecc).description
             self.intakeCarb.text = Int(carbIntake).description

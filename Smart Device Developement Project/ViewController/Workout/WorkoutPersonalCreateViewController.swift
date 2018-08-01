@@ -40,6 +40,7 @@ class WorkoutPersonalCreateViewController: UIViewController, IQDropDownTextField
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
         workoutTextField.isOptionalDropDown = false
         LifestyleTheme.styleBtn2(btn: createBtn, title: "Create", pColor: Colors.PrimaryDarkColor())
         ExerciseDataManager.getExercise { (exercise) in
@@ -68,5 +69,16 @@ class WorkoutPersonalCreateViewController: UIViewController, IQDropDownTextField
         // Pass the selected object to the new view controller.
     }
     */
+
+//    func setupTextField(){
+//        let loginUserController = MDCTextInputControllerOutlined(textInput: loginUser)
+//        loginUserController.placeholderText = "Email"
+//        allTextFieldControllers.append(loginUserController)
+//
+//        let loginPwdController = MDCTextInputControllerOutlined(textInput: loginPwd)
+//        loginPwdController.placeholderText = "Password"
+//        loginPwd.isSecureTextEntry = true
+//        allTextFieldControllers.append(loginPwdController)
+//    }
     
 }

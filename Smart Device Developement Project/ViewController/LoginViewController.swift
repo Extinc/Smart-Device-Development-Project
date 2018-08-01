@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 } else {
  
-                    print("User exist")
+                    //print("User exist")
                     let userID: String? = user?.user.uid
                     let email: String? = user?.user.email
                     if DataManager.checkUserExist(params: [userID!, email!]) == false {
@@ -97,12 +97,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
         
-        let colors = Colors()
+        
         let lifestyleTheme = LifestyleTheme()
 
-        lifestyleTheme.styleBtn(btn: loginBtn, title: "Login", pColor: colors.primaryDarkColor)
-        lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: colors.primaryDarkColor)
+        lifestyleTheme.styleBtn(btn: loginBtn, title: "Login", pColor: Colors.PrimaryDarkColor())
+        lifestyleTheme.styleBtn(btn: signupBtn, title: "Sign Up", pColor: Colors.PrimaryDarkColor())
         
         DataManager.createUserInfoTable()
         

@@ -52,7 +52,7 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         var icalories:Int = 0
 
         //today carb intake
-        let carbRecc = Double((rcalories/100)*60)
+        var carbRecc = Double((rcalories/100)*60)
         var carbIntake:Double = 0.0
 
         //loop for today calories and carbohydrates
@@ -70,11 +70,11 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let extra2 = (carbRecc/100)*10
         if goal == 1 {
             rcalories = rcalories - extra
-            carbIntake = carbIntake - extra2
+            carbRecc = carbRecc - extra2
         }
         else if goal == 2{
             rcalories = rcalories + extra
-            carbIntake = carbIntake + extra2
+            carbRecc = carbRecc + extra2
         }
         
         
@@ -121,17 +121,25 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         NutrInfo.updateGoals(goal: row)
         
         var rcalories = LoadingData.shared.rcalories
+        var carbRecc = Double((rcalories/100)*60)
+        
         let extra = (rcalories/100)*10
+        let extra2 = (carbRecc/100)*10
         if row == 1 {
             rcalories = rcalories - extra
+            carbRecc = carbRecc - extra2
             self.reccCal.text = rcalories.description
+            self.reccCarb.text = Int(carbRecc).description
         }
         else if row == 2{
             rcalories = rcalories + extra
+            carbRecc = carbRecc + extra2
             self.reccCal.text = rcalories.description
+            self.reccCarb.text = Int(carbRecc).description
         }
         else{
             self.reccCal.text = rcalories.description
+            self.reccCarb.text = Int(carbRecc).description
         }
     }
     
@@ -149,7 +157,7 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let goal = self.picker.selectedRow(inComponent: 0)
 
             //today carb intake
-            let carbRecc = Double((rcalories/100)*60)
+            var carbRecc = Double((rcalories/100)*60)
             var carbIntake:Double = 0.0
             
             //loop for today calories and carbohydrates
@@ -167,11 +175,11 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let extra2 = (carbRecc/100)*10
             if goal == 1 {
                 rcalories = rcalories - extra
-                carbIntake = carbIntake - extra2
+                carbRecc = carbRecc - extra2
             }
             else if goal == 2{
                 rcalories = rcalories + extra
-                carbIntake = carbIntake + extra2
+                carbRecc = carbRecc + extra2
             }
             
             //calculate and display

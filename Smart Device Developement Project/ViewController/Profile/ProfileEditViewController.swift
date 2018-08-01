@@ -15,9 +15,24 @@ class ProfileEditViewController: UIViewController {
     var passedWeight: Double = 0.0
     var passedZS: Double = 0.0
     
-    @IBOutlet weak var heightTextField: UITextField!
-    @IBOutlet weak var weightTextField: UITextField!
-    @IBOutlet weak var zsTextField: UITextField!
+    var allTextFieldControllers = [MDCTextInputControllerFloatingPlaceholder]()
+    
+    @IBOutlet weak var heightTextField: MDCTextField! = {
+        let height = MDCTextField()
+        height.backgroundColor = .white
+        return height
+    }()
+    
+    @IBOutlet weak var weightTextField: MDCTextField! = {
+        let weight = MDCTextField()
+        weight.backgroundColor = .white
+        return weight
+    }()
+    @IBOutlet weak var zsTextField: MDCTextField! = {
+        let zs = MDCTextField()
+        zs.backgroundColor = .white
+        return zs
+    }()
     
     @IBOutlet weak var updateBtn: MDCFlatButton!
     @IBAction func updateProfile(_ sender: Any) {
@@ -36,6 +51,8 @@ class ProfileEditViewController: UIViewController {
         weightTextField.text = "\(passedWeight)"
         zsTextField.text = "\(passedZS)"
         LifestyleTheme.styleBtn2(btn: updateBtn, title: "Update", pColor: Colors.PrimaryDarkColor())
+        
+        setupTextField()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,5 +71,19 @@ class ProfileEditViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setupTextField(){
+        let heightController = MDCTextInputControllerOutlined(textInput: heightTextField)
+        heightController.placeholderText = "Height"
+        allTextFieldControllers.append(heightController)
+        
+        let weightController = MDCTextInputControllerOutlined(textInput: weightTextField)
+        weightController.placeholderText = "Weight"
+        allTextFieldControllers.append(weightController)
+        
+        let zsController = MDCTextInputControllerOutlined(textInput: zsTextField)
+        zsController.placeholderText = "Zombie Speed"
+        allTextFieldControllers.append(zsController)
+    }
 
 }

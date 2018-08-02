@@ -33,11 +33,6 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         nyp.coordinate = coordinate2D
         hawkerMapView.addAnnotation(nyp)
         
-        let test = MKPointAnnotation()
-        test.coordinate = CLLocationCoordinate2DMake(hawkerCentres[0].latitude!, hawkerCentres[0].longitude!)
-        print(test.coordinate)
-        hawkerMapView.addAnnotation(test)
-        
         if (hawkerSegment.selectedSegmentIndex == 0) {
             loadPointersWithMeal()
         }
@@ -79,9 +74,9 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         for i in 0...self.hawkerCenteresWithMeal.count - 1
         {
             let p = MKPointAnnotation()
-            p.coordinate = CLLocationCoordinate2DMake(self.hawkerCenteresWithMeal[0].latitude!, self.hawkerCenteresWithMeal[0].longitude!)
-            p.title = self.hawkerCenteresWithMeal[0].hawkerName
-            p.subtitle = self.hawkerCenteresWithMeal[0].address
+            p.coordinate = CLLocationCoordinate2DMake(self.hawkerCenteresWithMeal[i].latitude!, self.hawkerCenteresWithMeal[i].longitude!)
+            p.title = self.hawkerCenteresWithMeal[i].hawkerName
+            p.subtitle = self.hawkerCenteresWithMeal[i].address
             hawkerMapView.addAnnotation(p)
         }
         

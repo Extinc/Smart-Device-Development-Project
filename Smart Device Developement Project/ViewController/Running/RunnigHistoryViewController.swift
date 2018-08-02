@@ -27,7 +27,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.graphcolorbrown
+        cell.backgroundColor = UIColor.white
     }
 
    

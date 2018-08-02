@@ -51,6 +51,7 @@ target 'Smart Device Developement Project' do
   # Chart
   pod 'Charts'
   pod 'JBChartView'
+  pod 'SwiftCharts', '~> 0.6.1'
   
   # Firebase
   pod 'Firebase/Core'
@@ -73,4 +74,6 @@ target 'Smart Device Developement Project' do
   #pod 'CryptoSwift'
   
   pod 'IQDropDownTextField'
+  
+  
 end

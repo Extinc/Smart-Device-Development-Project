@@ -80,10 +80,10 @@
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "tableViewEmbed" {
-                var viewController = segue.destination as! WorkoutDetailInfoViewController
+                let viewController = segue.destination as! WorkoutDetailInfoViewController
                 viewController.passedExercise = passedExercise
             }else if segue.identifier == "startExercise"{
-                var viewController = segue.destination as! WorkoutStartViewController
+                let viewController = segue.destination as! WorkoutStartViewController
                 viewController.passedExercise = passedExercise
             }
         }

@@ -39,6 +39,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var username = ""
     var totalCalories: Int = 0
     var meal: [Meal] = []
+    var planID: Int = 0
+    var selectedDate: String = ""
 
     var reminders: String = "No"
     var isGrantedNotificationAccess = false
@@ -60,6 +62,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.meal = LoadingData.shared.mealList
         self.loadCalories()
         
+        startDateTextField.text = selectedDate
         
         picker1.delegate = self
         picker3.delegate = self
@@ -78,10 +81,13 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         picker4.tag = 4
         picker5.tag = 5
  
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dDate = dateFormatter.date(from: selectedDate)
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(PlanOptionsViewController.dateChanged(datePicker:)), for: .valueChanged)
+        datePicker?.minimumDate = dDate
         
         planTextField.inputView = picker1
         durationTextField.inputView = picker3
@@ -249,7 +255,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let UP : UserPlanPreferences = UserPlanPreferences(username, dietplan!, days, mpd!, timing, reminders, startDate!)
             DietaryPlanDataManager.insertOrReplacePreferences(userPlanPreferences: UP)
             
-            RecommendMeal.createMealPlan(meals: meal, username: username, totalCalories: totalCalories)
+            RecommendMeal.createMealPlan(meals: meal, username: username, totalCalories: totalCalories, planid: planID)
             
             performSegue(withIdentifier: "unwindSegueToDPC", sender: self)
         }
@@ -261,6 +267,13 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         NutrInfo().calReccCalories() {
             recCaloriesFromFirebase in
             self.totalCalories = recCaloriesFromFirebase
+        }
+    }
+    
+    func loadPlanID(date: String, username: String) {
+        DietaryPlanDataManagerFirebase.loadPlanID(date: date, username: username){
+            planIDFromFirebase in
+            self.planID = planIDFromFirebase
         }
     }
     

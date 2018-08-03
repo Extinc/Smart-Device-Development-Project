@@ -229,7 +229,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if (exists == true){
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
-                        let mealid = Int(r.key as! String)
+                        let planid = Int(r.key as! String)!
+                        let mealid = Int(r.childSnapshot(forPath: "mealID").value as! String)
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
                         let calories = r.childSnapshot(forPath: "calories").value as! Double
@@ -237,12 +238,12 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
                         
-                        mealPlanList.append(MealPlan(username,date,mealid!,mealname,mealimage,fCalories,recipeimage,isDiary))
+                        mealPlanList.append(MealPlan(username,planid, date,mealid!,mealname,mealimage,fCalories,recipeimage,isDiary))
                         
                     }
                 }
                 else {
-                    mealPlanList.append(MealPlan("","",0,"","",0,"", ""))
+                    mealPlanList.append(MealPlan("",0 ,"",0,"","",0,"", ""))
                 }
             onComplete(mealPlanList)
         })
@@ -268,13 +269,35 @@ class DietaryPlanDataManagerFirebase: NSObject {
         
     }
     
+    static func loadPlanID(date: String, username: String, onComplete: @escaping (Int) -> Void){
+        var planID: Int = 0
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
+        
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                let exists: Bool = snapshot.exists()
+                
+                if (exists == true){
+                    for record in snapshot.children{
+                        let r = record as! DataSnapshot
+                        let planid = Int(r.key as! String)!
+                            planID = planid
+                    
+                    }
+                }else {
+                    planID = 0
+                }
+                onComplete(planID)
+        })
+    }
   
     
     
     //Create / Update
     static func createPlanData(mealPlanList: [MealPlan]) {
         for i in 0...mealPlanList.count - 1{
-            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date!).child(String(mealPlanList[i].mealID!))
+            let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlanList[i].username!).child(mealPlanList[i].date!).child(String(mealPlanList[i].planID!))
             ref.setValue([
                 "mealID" : mealPlanList[i].mealID,
                 "mealName" : mealPlanList[i].mealName,
@@ -288,7 +311,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     static func updatePlan(mealPlan: MealPlan) {
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.mealID!))
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.planID!))
         ref.setValue([
             "mealID" : mealPlan.mealID,
             "mealName" : mealPlan.mealName,
@@ -302,7 +325,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     
     //Delete
     static func deleteMealPlan(_ mealPlan: MealPlan){
-        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.mealID!))
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(mealPlan.username!).child(mealPlan.date!).child(String(mealPlan.planID!))
         ref.removeValue()
     }
     

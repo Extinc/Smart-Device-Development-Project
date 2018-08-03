@@ -34,6 +34,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     var preferences: [UserPlanPreferences] = []
     var planCount: Int = 0
     
+    var planID: Int = 0
     
     
     override func viewDidLoad() {
@@ -76,9 +77,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                 break
             }
         }
-        
-        
-        //Load meal plans
         
         
         //Date picker
@@ -192,6 +190,10 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
 
             }
         }
+        else if(segue.identifier == "viewmealtypessegue"){
+            let MealTypeViewController = segue.destination as! MealTypesViewController
+            MealTypeViewController.date = selectedDate
+        }
     }
     
     
@@ -234,6 +236,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
     }
+    
+ 
 
    
     @IBAction func loadMeals(_ sender: Any) {

@@ -21,7 +21,7 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
     var selectedIndexPath: Int = 0
     var selectedMeal : Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")
     var username = ""
-    var previousMealPlan: MealPlan = MealPlan("", "", 0, "", "", 0, "", "")
+    var previousMealPlan: MealPlan = MealPlan("", 0,"", 0, "", "", 0, "", "")
     override func viewDidLoad() {
         super.viewDidLoad()
         username = AuthenticateUser.getUID()
@@ -74,8 +74,9 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         let calories = selectedMeal.calories!
         let recipeImage = selectedMeal.recipeImage!
         let isDiary = previousMealPlan.isDiary!
+        let planID = previousMealPlan.planID!
         
-        let mealPlan: MealPlan = MealPlan(username, date, mealID, mealName, mealImage, calories, recipeImage, isDiary)
+        let mealPlan: MealPlan = MealPlan(username, planID, date, mealID, mealName, mealImage, calories, recipeImage, isDiary)
         DietaryPlanDataManagerFirebase.deleteMealPlan(previousMealPlan)
         DietaryPlanDataManagerFirebase.updatePlan(mealPlan: mealPlan)
         

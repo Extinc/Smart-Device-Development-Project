@@ -18,6 +18,8 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
     var images: [String] = ["normal1", "dash1", "keto1"]
     var frame = CGRect(x:0, y:0, width:0, height:0)
     
+    var date: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,12 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
 
     
     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if(segue.identifier == "choosePlanSegue"){
+            let PlanMealViewController = segue.destination as! PlanOptionsViewController
+            PlanMealViewController.selectedDate = date
+        }
+    }
 
  
 

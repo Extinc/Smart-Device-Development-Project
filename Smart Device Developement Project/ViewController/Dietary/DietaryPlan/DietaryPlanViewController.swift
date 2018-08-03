@@ -26,6 +26,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
     var mealPlans: [[MealPlan]] = [[],[]]
+    var quantity: [Int] = []
 
     var contentWidth:CGFloat = 0.0
     var username = ""
@@ -206,7 +207,20 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
           
                 for j in 0...self.mealplan.count-1 {
                     if (self.mealplan[j].isDiary == "No") {
-                        self.mealPlans[0].append(self.mealplan[j])
+                        if (self.mealPlans[0].count != 0) {
+                            for i in 0...self.mealPlans[0].count - 1{
+                                if(self.mealPlans[0][i].mealID == self.mealplan[j].mealID){
+                                    self.mealplan.remove(at: j)
+                                }
+                                else {
+                                    self.mealPlans[0].append(self.mealplan[j])
+                                }
+                                
+                            }
+                        }
+                        else{
+                            self.mealPlans[0].append(self.mealplan[j])
+                        }
                     }
                     else if (self.mealplan[j].isDiary == "Yes"){
                         self.mealPlans[1].append(self.mealplan[j])

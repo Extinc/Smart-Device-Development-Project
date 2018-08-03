@@ -53,17 +53,23 @@ class FoodViewController: UIViewController {
         formatter.dateFormat = "dd-MM-yyyy"
         let todayDate = formatter.string(from: date)
         
-        var mealInfo: [MealPlan] = []
         let username = AuthenticateUser.getUID()
-        let mealID = meal[0].mealID
-        let mealName = meal[0].name
-        let mealImage = meal[0].mealImage
-        let calories = Int(meal[0].calories!)
-        let recipeImage = meal[0].recipeImage
-        
-        mealInfo.insert(MealPlan(username, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes" ), at: 0)
-        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
-        performSegue(withIdentifier: "unwindback", sender: self)
+        DietaryPlanDataManagerFirebase.loadPlanID(date: todayDate, username: username){
+            id in
+            
+            let planID = id + 1
+            var mealInfo: [MealPlan] = []
+            let username = AuthenticateUser.getUID()
+            let mealID = self.meal[0].mealID
+            let mealName = self.meal[0].name
+            let mealImage = self.meal[0].mealImage
+            let calories = Int(self.meal[0].calories!)
+            let recipeImage = self.meal[0].recipeImage
+            
+            mealInfo.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes"), at: 0)
+            DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
+            self.performSegue(withIdentifier: "unwindback", sender: self)
+        }
     }
     
     func showAnimate()

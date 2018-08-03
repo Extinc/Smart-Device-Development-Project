@@ -77,6 +77,7 @@
 		900A3DFE20D4E60B00220298 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFB20D4E60B00220298 /* Exercise.swift */; };
 		900A3DFF20D4E60B00220298 /* ExerciseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */; };
 		900BCBF5210476A100E9A78B /* WorkoutCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */; };
+		901C88132113E7B300B8983A /* ChartDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C88122113E7B300B8983A /* ChartDefaults.swift */; };
 		901C96D821109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */; };
 		901C96DA2110D56D00FAFB10 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */; };
 		901C96DC2110DFE800FAFB10 /* WorkoutPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C96DB2110DFE800FAFB10 /* WorkoutPersonalViewController.swift */; };
@@ -214,6 +215,7 @@
 		900A3DFB20D4E60B00220298 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		900A3DFC20D4E60B00220298 /* ExerciseDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDataManager.swift; sourceTree = "<group>"; };
 		900BCBF4210476A100E9A78B /* WorkoutCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatViewController.swift; sourceTree = "<group>"; };
+		901C88122113E7B300B8983A /* ChartDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDefaults.swift; sourceTree = "<group>"; };
 		901C96D721109FF400FAFB10 /* WorkoutPersonalCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPersonalCreateViewController.swift; sourceTree = "<group>"; };
 		901C96D92110D56D00FAFB10 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		901C96DB2110DFE800FAFB10 /* WorkoutPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPersonalViewController.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 		9008B30820D3EDF40096D9F2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				901C88122113E7B300B8983A /* ChartDefaults.swift */,
 				90FF3C61210C7512002CA885 /* Smart Device Developement Project-Bridging-Header.h */,
 				F1A1B6D020EB60190026A962 /* HTTP.swift */,
 				9008D52120D6927F00FEAC9E /* SQLiteDB.swift */,
@@ -964,6 +967,7 @@
 				51CAE39721104F850032EB04 /* HawkerAnnotation.swift in Sources */,
 				F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */,
 				69BE096E20DB6EEE0008BF25 /* DietaryPlanDataManager.swift in Sources */,
+				901C88132113E7B300B8983A /* ChartDefaults.swift in Sources */,
 				51762D1820F615CF000CBFE8 /* FoodViewController.swift in Sources */,
 				90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */,
 				9008B30C20D3EE540096D9F2 /* SwiftyJSON.swift in Sources */,
@@ -1158,7 +1162,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QK2M283PN2;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods",
@@ -1180,7 +1184,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QK2M283PN2;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods",

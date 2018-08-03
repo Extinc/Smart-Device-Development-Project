@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import AVFoundation
 import CoreData
+import AudioToolbox
 
 
 class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate, WeatherServiceDelegate,UIScrollViewDelegate{
@@ -862,6 +863,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         {
         if(travelledDistance/1000 >= targetDistance)
         {
+            AudioServicesPlayAlertSound(SystemSoundID(1304))
             var currentFinishTime = Session(time: finishingtime,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateTotalTime(session: currentFinishTime)
             FinishAlert(title:"Finish",message:"You have completed the jog/run")

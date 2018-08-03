@@ -9,18 +9,22 @@
 
 // TODO: Remove this https://github.com/i-schuetz/SwiftCharts`
 import UIKit
-import JBChartView
-import Charts
+import SwiftCharts
+
 class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    fileprivate var chart: Chart? // arc
+    
     @IBAction func closeClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBOutlet weak var chart: LineChartView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var dateTF: UITextField!
+    @IBOutlet weak var chartHolder: UIStackView!
+    @IBOutlet weak var chView: UIView!
+    @IBOutlet weak var chartDisplay: UIStackView!
     
     let datePicker = UIDatePicker()
     
@@ -38,6 +42,7 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         showDatePicker()
         
+        swiftChart()
         print(ExerciseDataManager.getWorkoutHistory(onComplete: nil))
     }
 
@@ -49,9 +54,10 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        
         ExerciseDataManager.getWorkoutHistory { (hist) in
             self.workoutHist = hist
-            self.updateGraph(self.week)
+            //self.updateGraph(self.week)
             
             self.filteredHist = self.workoutHist.filter({ (hist) -> Bool in
                 return Calendar.current.isDate(hist.timeStamp, inSameDayAs:Date())
@@ -131,56 +137,161 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
     }
     */
     
-    func updateGraph(_ dataPoints: [String]){
+    func swiftChart(){
         
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         
-        var histGrped: [[WorkoutHist]] = []
-        var lines: [LineChartDataSet] = []
-        var lineChartEntries: [[ChartDataEntry]] = []
-        var muscforLine: [String] = []
-        for muscle in muscles {
-            if workoutHist.contains(where: { $0.type == muscle }) {
-                histGrped.append(workoutHist.filter({ (hist) -> Bool in
-                    print("Muscles: \(muscle) , type: \(hist.type)")
-                    return hist.type == muscle
-                }))
-            } else {
-                // not
-            }
-            
-        }
-        print("newGrp: ", histGrped)
-        let data = LineChartData() //This is the object that will be added to the chart
-        for i in 0..<histGrped.count {
-            var lineChartEntry  = [ChartDataEntry]() //this is the Array that will eventually be displayed on the graph.
-            var muscle: String!
-            for j in 0..<histGrped[i].count{
-                
-                if checkisWithinDays(date: histGrped[i][j].timeStamp) == true {
-                    
-                    var weekindex: Int =  week.index(of: getDayOfWeekString(date: histGrped[i][j].timeStamp))!
-                    print("T!: ", weekindex)
-                    let value = ChartDataEntry(x: Double(weekindex), y: Double(histGrped[i][j].count)) // here we set the X and Y status in a data chart entry
-                    lineChartEntry.append(value) // here we add it to the data set
-                    muscle = histGrped[i][j].type
-                }
-            }
-            print("LineEntry Count: ", lineChartEntry.count)
-            lineChartEntries.append(lineChartEntry)
-            print("Lines:", i)
-            let line1 = LineChartDataSet(values: lineChartEntry, label: muscle) //Here we convert lineChartEntry to a LineChartDataSet
-            line1.colors = [NSUIColor.blue] //Sets the colour to blue
-            data.addDataSet(line1) //Adds the line to the dataSet
-            
+        var displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "dd MMM"
+        
+        let date = Date() // gets current date
+        let calendar = Calendar.current
+        let strStartMth = dateFormatter.string(from: Date().startOfMonth())
+        let strEndMth = dateFormatter.string(from: Date().endOfMonth())
+        
+        let labelSettings = ChartLabelSettings(font: ChartDefaults.labelFont)
+
+        var chartSettings = ChartDefaults.chartSettingsWithPanZoom
+        // Set a fixed (horizontal) scrollable area 2x than the original width, with zooming disabled.
+        chartSettings.zoomPan.maxZoomX = 2
+        chartSettings.zoomPan.minZoomX = 2
+        chartSettings.zoomPan.minZoomY = 1
+        chartSettings.zoomPan.maxZoomY = 1
+        
+        let chartPoints = [(0, "Mon"), (4, "Tues"), (8, "Tue"), (9, "Tues"), (11, "Thur"), (12, "Thur"), (15, "Thur"), (18, "Thur"), (20, "Thur")].map{ChartPoint(x: ChartAxisValueInt($0.0, labelSettings: labelSettings), y: ChartAxisValueString($0.1, order: $0.0, labelSettings: labelSettings))}
+        	
+        var xValues: [ChartAxisValue] = []
+        
+        for date in weeksInMonths() {
+            xValues.append(createDateAxisValue(dateFormatter.string(from: date), readFormatter: dateFormatter, displayFormatter: displayFormatter))
         }
         
         
-        chart.data = data //finally - it adds the chart data to the chart and causes an update
-        chart.chartDescription?.text = "My awesome chart" // Here we set the description for the graph
-        chart.xAxis.drawGridLinesEnabled = false
-        chart.rightAxis.enabled = false
-        chart.xAxis.labelPosition = .bottom
-        chart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
+        let yValues = stride(from: 0, through: 100, by: 10).map {ChartAxisValuePercent($0, labelSettings: labelSettings)}
+        
+       let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings))
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Axis title", settings: labelSettings.defaultVertical()))
+        let chartFrame = ChartDefaults.chartFrame(chartDisplay.bounds)
+
+        let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
+        let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
+        
+        let lineModel = ChartLineModel(chartPoints: chartPoints, lineColor: UIColor.purple, lineWidth: 2, animDuration: 1, animDelay: 0)
+        let chartPointsLineLayer = ChartPointsLineLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, lineModels: [lineModel], pathGenerator: CatmullPathGenerator()) // || CubicLinePathGenerator
+        
+        let settings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth: ChartDefaults.guidelinesWidth)
+        let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
+        
+        let chart = Chart(
+            frame: chartFrame,
+            innerFrame: innerFrame,
+            settings: chartSettings,
+            layers: [
+                xAxisLayer,
+                yAxisLayer,
+                guidelinesLayer,
+                chartPointsLineLayer
+            ]
+        )
+        
+        chartDisplay.addSubview(chart.view)
+        self.chart = chart
+    }
+    
+    
+    
+    
+//    func updateGraph(_ dataPoints: [String]){
+//
+//
+//        var histGrped: [[WorkoutHist]] = []
+//        var lines: [LineChartDataSet] = []
+//        var lineChartEntries: [[ChartDataEntry]] = []
+//        var muscforLine: [String] = []
+//        for muscle in muscles {
+//            if workoutHist.contains(where: { $0.type == muscle }) {
+//                histGrped.append(workoutHist.filter({ (hist) -> Bool in
+//                    print("Muscles: \(muscle) , type: \(hist.type)")
+//                    return hist.type == muscle
+//                }))
+//            } else {
+//                // not
+//            }
+//
+//        }
+//        print("newGrp: ", histGrped)
+//        let data = LineChartData() //This is the object that will be added to the chart
+//        for i in 0..<histGrped.count {
+//            var lineChartEntry  = [ChartDataEntry]() //this is the Array that will eventually be displayed on the graph.
+//            var muscle: String!
+//            for j in 0..<histGrped[i].count{
+//
+//                if checkisWithinDays(date: histGrped[i][j].timeStamp) == true {
+//
+//                    var weekindex: Int =  week.index(of: getDayOfWeekString(date: histGrped[i][j].timeStamp))!
+//                    print("T!: ", weekindex)
+//                    let value = ChartDataEntry(x: Double(weekindex), y: Double(histGrped[i][j].count)) // here we set the X and Y status in a data chart entry
+//                    lineChartEntry.append(value) // here we add it to the data set
+//                    muscle = histGrped[i][j].type
+//                }
+//            }
+//            print("LineEntry Count: ", lineChartEntry.count)
+//            lineChartEntries.append(lineChartEntry)
+//            print("Lines:", i)
+//            let line1 = LineChartDataSet(values: lineChartEntry, label: muscle) //Here we convert lineChartEntry to a LineChartDataSet
+//            line1.colors = [NSUIColor.blue] //Sets the colour to blue
+//            data.addDataSet(line1) //Adds the line to the dataSet
+//
+//        }
+//
+//
+//        chart.data = data //finally - it adds the chart data to the chart and causes an update
+//        chart.chartDescription?.text = "My awesome chart" // Here we set the description for the graph
+//        chart.xAxis.drawGridLinesEnabled = false
+//        chart.rightAxis.enabled = false
+//        chart.xAxis.labelPosition = .bottom
+//        chart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
+//    }
+    
+    
+    func weeksInMonths() -> [Date]{
+        print()
+        print("weeksInMonths")
+        
+        var calendar = Calendar.current
+        let date = Date()
+        let weekOfYearRange = calendar.range(of: .weekOfYear, in: .month, for: date)
+        //print(weekOfYearRange as Any)
+        var dates: [Date] = []
+        if let weekOfYearRange = weekOfYearRange {
+            let year = calendar.component(.year, from: date)
+            
+            for weekOfYear in (weekOfYearRange.lowerBound..<weekOfYearRange.upperBound) {
+                let components = DateComponents(weekOfYear: weekOfYear, yearForWeekOfYear: year)
+                guard let date = Calendar.current.date(from: components) else { continue }
+                dates.append(date)
+                print(date.description(with: Locale.current))
+            }
+        }
+        
+        return dates
+    }
+    
+    func createChartPoint(dateStr: String, percent: Double, readFormatter: DateFormatter, displayFormatter: DateFormatter) -> ChartPoint {
+        return ChartPoint(x: createDateAxisValue(dateStr, readFormatter: readFormatter, displayFormatter: displayFormatter), y: ChartAxisValuePercent(percent))
+    }
+    
+    func createDateAxisValue(_ dateStr: String, readFormatter: DateFormatter, displayFormatter: DateFormatter) -> ChartAxisValue {
+        let date = readFormatter.date(from: dateStr)!
+        let labelSettings = ChartLabelSettings(font: ChartDefaults.labelFont, rotation: 0, rotationKeep: .top)
+        return ChartAxisValueDate(date: date, formatter: displayFormatter, labelSettings: labelSettings)
+    }
+    
+    class ChartAxisValuePercent: ChartAxisValueDouble {
+        override var description: String {
+            return "\(formatter.string(from: NSNumber(value: scalar))!)"
+        }
     }
     
     func getDayOfWeekString(date: Date)->String! {
@@ -223,5 +334,13 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
 extension Date {
     func isBetweeen(date date1: Date, andDate date2: Date) -> Bool {
         return date1.compare(self as Date) == self.compare(date2)
+    }
+    
+    func startOfMonth() -> Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
+    }
+    
+    func endOfMonth() -> Date {
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startOfMonth())!
     }
 }

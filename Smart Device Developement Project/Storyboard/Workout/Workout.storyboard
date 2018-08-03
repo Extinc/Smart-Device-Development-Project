@@ -800,11 +800,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FUf-8k-EKp">
                                         <rect key="frame" x="0.0" y="73.666666666666657" width="414" height="294.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VZ-wi-nfs" customClass="LineChartView" customModule="Charts">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="294.33333333333331"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgY-tV-gno">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-zY-72j">
+                                                <rect key="frame" x="0.0" y="44.000000000000014" width="414" height="250.33333333333337"/>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="FgY-tV-gno" firstAttribute="height" secondItem="FUf-8k-EKp" secondAttribute="height" multiplier="0.15" id="yke-jK-n6d"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Slz-dq-fA1">
                                         <rect key="frame" x="0.0" y="368" width="414" height="368"/>
@@ -904,7 +910,8 @@
                         <viewLayoutGuide key="safeArea" id="OxZ-tE-Bzj"/>
                     </view>
                     <connections>
-                        <outlet property="chart" destination="6VZ-wi-nfs" id="2l2-qb-aIc"/>
+                        <outlet property="chartDisplay" destination="xHH-zY-72j" id="wQH-7p-DZv"/>
+                        <outlet property="chartHolder" destination="FUf-8k-EKp" id="lCd-Pf-kbq"/>
                         <outlet property="dateTF" destination="LIl-fg-MCL" id="gxN-qO-uwx"/>
                         <outlet property="labelDate" destination="euJ-DN-3TB" id="Pji-y6-oUP"/>
                         <outlet property="tableView" destination="fOc-db-kzd" id="7re-pc-IWY"/>
@@ -1182,7 +1189,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zlm-PB-omb"/>
-        <segue reference="6Te-yw-9xY"/>
+        <segue reference="hTc-HS-z7G"/>
         <segue reference="bL2-Vb-ksU"/>
     </inferredMetricsTieBreakers>
 </document>

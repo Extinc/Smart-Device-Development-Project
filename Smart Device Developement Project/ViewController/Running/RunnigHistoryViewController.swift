@@ -87,8 +87,16 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
         var runningid : Int =  (runningsections[indexPath.section].AllSessionID![indexPath.row])
         selectedid = runningid
         tableView.deselectRow(at: indexPath, animated: true)
-        
- 
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
+            RunningDataManager.deleteSession(runningsections[indexPath.section].AllSessionID![indexPath.row])
+            runningsections = RunningDataManager.loadallsession(authUID)
+            DispatchQueue.main.async {
+            tableView.reloadData()
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       

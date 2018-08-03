@@ -84,7 +84,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             DispatchQueue.main.async {
                 if ((topResult.confidence * 100) < 80)
                 {
-                    self?.test.text = "Invalid Image/Take Again"
+                    self?.test.text = "Could not find meal, please take again"
                     self?.test.backgroundColor = UIColor.black
                     print(self?.test.text as Any)
                     self?.chooseMeal.isHidden = false
@@ -98,28 +98,34 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                     formatter.dateFormat = "dd-MM-yyyy"
                     let todayDate = formatter.string(from: date)
                     var mealPlan:[MealPlan] = []
-                    
-                    var mealInfo: [Meal] = LoadingData.shared.mealList
-                    for index in  0..<mealInfo.count{
-                        if (mealName == mealInfo[index].name){
+                    DietaryPlanDataManagerFirebase.loadPlanID(date: todayDate, username: username){
+                        id in
+                        
+                        let planID = id + 1
+                        var mealInfo: [Meal] = LoadingData.shared.mealList
+                        for index in  0..<mealInfo.count{
+                            if (mealName == mealInfo[index].name){
+                                
+                                let mealID = mealInfo[index].mealID
+                                let mealName = mealInfo[index].name
+                                let mealImage = mealInfo[index].mealImage
+                                let calories = Int(mealInfo[index].calories!)
+                                let recipeImage = mealInfo[index].recipeImage
+                                
+                                mealPlan.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes"), at: 0)
+                            }else{
+                                self?.test.text = "Could not find meal, please take again"
+                                self?.test.backgroundColor = UIColor.black
+                                print(self?.test.text as Any)
+                                self?.chooseMeal.isHidden = false
+                            }
                             
-                            let mealID = mealInfo[index].mealID
-                            let mealName = mealInfo[index].name
-                            let mealImage = mealInfo[index].mealImage
-                            let calories = Int(mealInfo[index].calories!)
-                            let recipeImage = mealInfo[index].recipeImage
+                            DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealPlan)
                             
-                            mealPlan.insert(MealPlan(username, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes" ), at: 0)
-                        }else{
-                            self?.test.text = "Invalid Image/Take Again"
-                            self?.test.backgroundColor = UIColor.black
-                            print(self?.test.text as Any)
-                            self?.chooseMeal.isHidden = false
-                        }
+                            self?.performSegue(withIdentifier: "unwindback2", sender: self)
                     }
-                    DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealPlan)
+                    }
                     
-                    self?.performSegue(withIdentifier: "unwindback2", sender: self)
                 }
             }
         })

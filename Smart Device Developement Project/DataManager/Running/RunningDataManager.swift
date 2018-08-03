@@ -125,6 +125,10 @@ class RunningDataManager: NSObject {
         SQLiteDB.sharedInstance.query(sql: "Update trainingschedule SET forfeit = 1 where complete = 0 AND forfeit = 0")
         return true
     }
+    static func deleteSession(_ sessionID:Int) -> Bool{
+        SQLiteDB.sharedInstance.query(sql: "Delete from Session where sessionID = \(sessionID)")
+        return true
+    }
     
     static func loadScheduleInformation(_ user:String) -> Schedule{
         let currentSchedulerow = SQLiteDB.sharedInstance.query(sql: "Select scheduleID,startdate,day,distance,numberoftimes, progress,eventstoresaved, eventsaved, userID from trainingschedule where forfeit = 0 AND complete = 0 AND userID= \"\(user)\"" )

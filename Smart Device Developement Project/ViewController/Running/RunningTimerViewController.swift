@@ -236,7 +236,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         
         self.weatherService.delegate = self
-        self.weatherService.getWeatherForCity(lat: "40.8367321", lon :"14.2468856")
+        self.weatherService.getWeatherForCity(lat: "1.3521", lon :"103.8198")
 
         btnComplete.isHidden = true
         locationManager.stopUpdatingLocation()
@@ -656,6 +656,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         formatter.dateFormat = "dd-MMM-yyyy"
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
+    
         
         let currentSession = Session(RunningDataManager.selectlastScheduleTableId(username),0.0,targetDistance,lblTime.text!,myStringafd,0,letnameofmonth,username)
       
@@ -803,8 +804,14 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             lastLocation = locations.last
         
             var speed = travelledDistance/time
+        
+        if(speed.isNaN || speed.isInfinite){
+            lblspeed.text = "0"
+        }
+        else{
         //Convert time to meter/second
         self.lblspeed.text = String(format :"%.2f",speed)
+        }
         
         
         

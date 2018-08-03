@@ -15,7 +15,7 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var choosePlanButton: MDCFlatButton!
     
-    var images: [String] = ["normal1", "dash1", "glutenfree1", "keto1"]
+    var images: [String] = ["normal1", "dash1", "keto1"]
     var frame = CGRect(x:0, y:0, width:0, height:0)
     
     

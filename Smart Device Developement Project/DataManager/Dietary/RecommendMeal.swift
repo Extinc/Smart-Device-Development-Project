@@ -44,10 +44,7 @@ class RecommendMeal: NSObject {
                 makeNotiContent(planPreferences: preferences, notiDate: fDate!)
             }
             
-            if (planType == "Gluten Free"){
-                plan = glutenFreePlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
-            }
-            else if (planType == "Dash") {
+            if (planType == "Dash") {
                 plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories))
             }
             else if (planType == "Keto") {
@@ -147,80 +144,6 @@ class RecommendMeal: NSObject {
             
             plan.append(MealPlan(username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
         }
-        return plan
-    }
-    
-    static func glutenFreePlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float) -> [MealPlan] {
-        
-        var plan: [MealPlan] = []
-        var mealList: [Meal] = []
-        let noIngredients = ["Wheat", "Wheat germ", "Rye", "Barley", "Bulgur", "Couscous", "Farina", "Graham flour", "Kamut Matzo", "Semolina", "Spelt", "Triticale", "Soy Sauce", "Roux"]
-        let Count = meals.count - 1
-        let ingredientsCount = noIngredients.count - 1
-        var arrayOfMealIndex: [Int] = []
-        var arrayOfMealIDAfterCalories: [Int] = []
-        let eachMealCalories: Float = totalCalories / Float(planPreferences.mealsperday!)
-
-        
-        //Check for ingredients
-        for i in 0...Count {
-            for j in 0...ingredientsCount{
-                if(meals[i].ingredients?.contains(noIngredients[j]) == false ){
-                    if (arrayOfMealIndex.isEmpty) {
-                        arrayOfMealIndex.append(i)
-                        break
-                    }
-                    else {
-                        for m in 0...arrayOfMealIndex.count{
-                            if(arrayOfMealIndex.contains(meals[i].mealID!) == false) {
-                                arrayOfMealIndex.append(i)
-                                break
-                            }
-                            else{
-                                break
-                            }
-                        }
-
-                    }
-                    
-                }
-            }
-        }
-        
-        let arrayCount: Int = arrayOfMealIndex.count - 1
-        
-        //Check calories
-        for k in 0...arrayCount {
-            if(meals[arrayOfMealIndex[k]].calories! <= eachMealCalories){
-                arrayOfMealIDAfterCalories.append(meals[arrayOfMealIndex[k]].mealID!)
-            }
-        }
-        
-        let mealsperdayCount: Int = planPreferences.mealsperday! - 1
-        
-        //Randomly pick from meals that have satisfied conditions
-        for a in 0...mealsperdayCount - 1 {
-            let randomNumber = Int(arc4random_uniform(UInt32(arrayOfMealIDAfterCalories.count-1)))
-            let mealId = arrayOfMealIDAfterCalories[randomNumber]
-            arrayOfMealIDAfterCalories.remove(at: randomNumber)
-            mealList.append(meals[mealId])
-        }
-        
-        let mealListCount: Int = mealList.count - 1
-        //Append into Meal Plan List 
-        for b in 0...mealListCount{
-            let username = planPreferences.username!
-            let mealID = mealList[b].mealID
-            let mealName = mealList[b].name
-            let mealImage = mealList[b].mealImage
-            let calories = mealList[b].calories
-            let recipeImage = mealList[b].recipeImage
-            
-            
-            plan.append(MealPlan(username, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
-            
-        }
-        
         return plan
     }
     

@@ -14,6 +14,7 @@ class ViewMealViewController: UIViewController {
 
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var findBtn: MDCFlatButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     var mealPlan: MealPlan = MealPlan("", "", 0, "", "", 0, "", "")
     var meals: [Meal] = [] //to parse all aval meals to other vc
     var meal: Meal = Meal(0, "", "", 0, 0, 0, 0, 0, "", "", "")

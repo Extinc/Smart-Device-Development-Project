@@ -238,7 +238,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
                         let planType = r.childSnapshot(forPath: "planType").value as! String
-                        let count = Int(r.childSnapshot(forPath: "count").value as! String)!
+                        let count = r.childSnapshot(forPath: "count").value as! Int
                         
                         mealPlanList.append(MealPlan(username,planid, date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary, planType, count))
                         

@@ -137,7 +137,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
         cell.mealCalories.text = String(describing: mealPlans[indexPath.section][indexPath.row].calories!) + " calories"
         cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
-        cell.mealQuantity.text = mealPlans[indexPath.section][indexPath.row].count + "x"
+        cell.mealQuantity.text = String(mealPlans[indexPath.section][indexPath.row].count!) + "x"
         return cell
     }
     

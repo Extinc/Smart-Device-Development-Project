@@ -48,12 +48,15 @@ class DataManager: NSObject {
         return exist
     }
     
-    static func insertHWIntoDB(uid: String, height: String, weight: String){
+    static func insertOthersIntoDB(uid: String, height: String, weight: String){
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
-        
+        let goal = 0
+        let zombiespeed = 30
         ref.child("Profile").child(uid).child("height").setValue(height)
         ref.child("Profile").child(uid).child("weight").setValue(weight)
+        ref.child("Profile").child(uid).child("goal").setValue(goal)
+        ref.child("Profile").child(uid).child("zombiespeed").setValue(zombiespeed)
     }
 }

@@ -119,7 +119,7 @@ class SignUpViewController: UIViewController {
             if regHeightTF.text?.isEmpty == false && regWeightTF.text?.isEmpty == false {
                 Auth.auth().createUser(withEmail: reguser.text!, password: regpass.text!){ (user, error) in
                     if error == nil {
-                        DataManager.insertHWIntoDB(uid: (user?.user.uid)!, height: self.regHeightTF.text!, weight: self.regWeightTF.text!)
+                        DataManager.insertOthersIntoDB(uid: (user?.user.uid)!, height: self.regHeightTF.text!, weight: self.regWeightTF.text!)
                         
                         self.navigationController?.popViewController(animated: true)
                         self.dismiss(animated: true, completion: nil)

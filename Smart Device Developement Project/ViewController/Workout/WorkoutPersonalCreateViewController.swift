@@ -9,7 +9,9 @@
 import UIKit
 import IQDropDownTextField
 import MaterialComponents
-class WorkoutPersonalCreateViewController: UIViewController, IQDropDownTextFieldDataSource, IQDropDownTextFieldDelegate {
+import SelectionList
+
+class WorkoutPersonalCreateViewController: UIViewController, UISearchBarDelegate{
     
     
     @IBAction func close(_ sender: Any) {
@@ -17,49 +19,92 @@ class WorkoutPersonalCreateViewController: UIViewController, IQDropDownTextField
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func createCustomWorkoutSet(_ sender: Any) {
-        var workouts: [String] = []
-        workouts.append(workoutTextField.selectedItem!)
-        workouts.append(workoutTextField.selectedItem!)
-        ExerciseDataManager.createWorkout(uid: AuthenticateUser.getUID(), setName:
-            nameTextField.text! , exercises: workouts)
         
+        
+        ExerciseDataManager.createWorkout(uid: AuthenticateUser.getUID(), setName:
+            nameTextField.text! , exercises: workoutsSelected)
+        workoutsSelected.removeAll()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var createBtn: MDCFlatButton!
     
-    @IBOutlet weak var workoutTextField: IQDropDownTextField!
-    @IBOutlet weak var workoutTextField2: IQDropDownTextField!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: MDCTextField! = {
+        let tf = MDCTextField()
+        tf.backgroundColor = .white
+        return tf
+    }()
+    @IBOutlet weak var selectList: SelectionList!
     
-    
+    var allTextFieldControllers = [MDCTextInputControllerFloatingPlaceholder]()
     var itemList: [String] = []
     var currTextField: Int = 0
     var exercises: [Exercise] = []
+    var filtered: [Exercise] = []
+    var workoutsSelected: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
-        workoutTextField.isOptionalDropDown = false
+        setupTextField()
         LifestyleTheme.styleBtn2(btn: createBtn, title: "Create", pColor: Colors.PrimaryDarkColor())
+        self.selectList.addTarget(self, action: #selector(self.selectionChanged), for: .valueChanged)
+        self.selectList.allowsMultipleSelection = true
+        self.selectList.selectionImage = UIImage(named: "baseline_check_circle_outline_black_24pt")
+        self.selectList.deselectionImage = UIImage(named: "baseline_radio_button_unchecked_black_24pt")
+        self.selectList.isSelectionMarkTrailing = false // to put checkmark on left side
         ExerciseDataManager.getExercise { (exercise) in
             self.exercises = exercise
             
             for ex in exercise {
                 self.itemList.append(ex.name!)
-                self.workoutTextField.itemList = self.itemList
-                self.workoutTextField2.itemList = self.itemList
             }
+
+            self.selectList.items = self.itemList
+
         }
+
     }
 
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.isEmpty {
+            self.itemList = []
+            for ex in exercises {
+                self.itemList.append(ex.name!)
+            }
+        } else {
+            filtered = exercises.filter({ (e) -> Bool in
+                return (e.name?.contains(searchText))!
+            })
+            for e in filtered {
+                self.itemList = []
+                self.itemList.append(e.name!)
+            }
+        }
+        self.selectList.items = self.itemList
+        
+        DispatchQueue.main.async {
+            self.selectList.tableView.reloadData()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    
+    @objc func selectionChanged() {
+        print(workoutsSelected)
+        //        selectionList.items.append("\(selectionList.selectedIndexes)")
+        //        selectionList.selectedIndexes = [0, 2, 4]
+        for i in selectList.selectedIndexes {
+            if !self.workoutsSelected.contains(where: { ($0 as! String) == selectList.items[i] }) {
+                self.workoutsSelected.append(selectList.items[i])
+            }
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -81,5 +126,11 @@ class WorkoutPersonalCreateViewController: UIViewController, IQDropDownTextField
 //        loginPwd.isSecureTextEntry = true
 //        allTextFieldControllers.append(loginPwdController)
 //    }
+    func setupTextField(){
+        let nameController = MDCTextInputControllerOutlined(textInput: nameTextField)
+        nameController.placeholderText = "Workout Set Title:"
+        allTextFieldControllers.append(nameController)
+
+    }
     
 }

@@ -40,9 +40,6 @@ class RecommendMeal: NSObject {
             
             let fDate = NSCalendar.current.date(from: date)
             currentDate = dateFormatter.string(from: fDate!)
-            if (preferences.reminders == "Yes"){
-                makeNotiContent(planPreferences: preferences, notiDate: fDate!)
-            }
             
             if (planType == "Dash") {
                 plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
@@ -202,43 +199,7 @@ class RecommendMeal: NSObject {
         return newMeals
     }
     
-    // MARK: - Notifcations
-    static func makeNotiContent(planPreferences: UserPlanPreferences, notiDate: Date){
-      
-        let mealInterval = Int(planPreferences.mealtiming!)!
-        var mealTiming = 8
-        //Assume first meal is 8am,
-        for i in 0...planPreferences.mealsperday! - 1 {
-            
-            if (i != 0){
-                mealTiming += mealInterval
-            }
-            
-            let content = UNMutableNotificationContent()
-            content.title = "Meal Reminder"
-            content.body = "Remember to follow the meal plan and don't miss your meals!"
-            
-            let unitFlags:Set<Calendar.Component> = [.minute,.hour,.second]
-            var date = Calendar.current.dateComponents(unitFlags, from: notiDate)
-            date.hour = mealTiming
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
-            
-            addNotification(trigger: trigger, content: content, identifier: "message.remindmeal")
-        }
-        
-        
-    }
     
-    static func addNotification(trigger: UNNotificationTrigger?, content: UNMutableNotificationContent, identifier: String){
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request){
-            (error) in
-            if error != nil {
-                print("error adding notification:\(error?.localizedDescription)")
-            }
-        }
-    }
     
     
 }

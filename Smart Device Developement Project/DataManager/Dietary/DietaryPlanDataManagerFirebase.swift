@@ -346,7 +346,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 if (exists == true){
                     for record in snapshot.children{
                         let r = record as! DataSnapshot
-                        let planid = Int(r.key as! String)!
+                        let planid = Int(r.key)!
                         let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
                         let pType = r.childSnapshot(forPath: "planType").value as! String
                         

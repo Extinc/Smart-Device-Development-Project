@@ -102,13 +102,19 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        if regpass.text != regRepeatPass.text {
+        if (regpass.text?.isEmpty)! && (reguser.text?.isEmpty)! {
+            let alertController = UIAlertController(title: "Email & Password Empty", message: "Please enter email and password", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else if regpass.text != regRepeatPass.text {
             let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             
             alertController.addAction(defaultAction)
             self.present(alertController, animated: true, completion: nil)
-        } else {
+        }else {
         
             if regHeightTF.text?.isEmpty == false && regWeightTF.text?.isEmpty == false {
                 Auth.auth().createUser(withEmail: reguser.text!, password: regpass.text!){ (user, error) in
@@ -116,6 +122,7 @@ class SignUpViewController: UIViewController {
                         DataManager.insertHWIntoDB(uid: (user?.user.uid)!, height: self.regHeightTF.text!, weight: self.regWeightTF.text!)
                         
                         self.navigationController?.popViewController(animated: true)
+                        self.dismiss(animated: true, completion: nil)
                     }
                     else{
                         let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -136,7 +143,7 @@ class SignUpViewController: UIViewController {
         
         }
         
-        self.dismiss(animated: true, completion: nil)
+
     }
     /*
      // MARK: - Navigation

@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseCore	
 import MaterialComponents.MaterialPalettes
+import IQKeyboardManagerSwift
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -30,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        
+        IQKeyboardManager.shared.enable = true
         return true
     }
 

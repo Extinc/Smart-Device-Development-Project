@@ -45,7 +45,7 @@ struct ChartDefaults {
     fileprivate static var iPhoneChartSettings: ChartSettings {
         var chartSettings = ChartSettings()
         chartSettings.leading = 10
-        chartSettings.top = 10
+        chartSettings.top = 0
         chartSettings.trailing = 10
         chartSettings.bottom = 10
         chartSettings.labelsToAxisSpacingX = 5

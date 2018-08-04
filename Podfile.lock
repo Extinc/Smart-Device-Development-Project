@@ -37,6 +37,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
   - IQDropDownTextField (1.1.1)
+  - IQKeyboardManagerSwift (6.1.0)
   - JBChartView (3.0.13)
   - leveldb-library (1.20)
   - MaterialComponents/AnimationTiming (57.0.0)
@@ -226,6 +227,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - IQDropDownTextField
+  - IQKeyboardManagerSwift
   - JBChartView
   - MaterialComponents/AppBar
   - "MaterialComponents/AppBar+ColorThemer"
@@ -269,6 +271,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GTMSessionFetcher
     - IQDropDownTextField
+    - IQKeyboardManagerSwift
     - JBChartView
     - leveldb-library
     - MaterialComponents
@@ -295,6 +298,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   IQDropDownTextField: 3d2e5728a2b83ff5dbb14cb9b497a80005124cbe
+  IQKeyboardManagerSwift: f5004f5860d9a8ed23a7ef7a156ae168828eb018
   JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MaterialComponents: 0dfd3bf21642f205ecd59d633a4492e14571e53f
@@ -307,6 +311,6 @@ SPEC CHECKSUMS:
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SwiftCharts: 77378d6cf667e95f9c79a745b6778e66eed5339c
 
-PODFILE CHECKSUM: 3be70e11eafb7bd44169364be940d0737057631f
+PODFILE CHECKSUM: d344d6829bc00359154af8efc84cf251be97ee63
 
 COCOAPODS: 1.5.3

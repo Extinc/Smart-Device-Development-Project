@@ -74,6 +74,6 @@ target 'Smart Device Developement Project' do
   #pod 'CryptoSwift'
   
   pod 'IQDropDownTextField'
-  
+  pod 'IQKeyboardManagerSwift'
   
 end

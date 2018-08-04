@@ -26,6 +26,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     var meal : [Meal] = []
     var mealplan: [MealPlan] = []
     var mealPlans: [[MealPlan]] = [[],[]]
+    var quantity: [[Int]] = [[],[]]
 
     var contentWidth:CGFloat = 0.0
     var username = ""
@@ -34,6 +35,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     var preferences: [UserPlanPreferences] = []
     var planCount: Int = 0
     
+    var planID: Int = 0
     
     
     override func viewDidLoad() {
@@ -76,9 +78,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
                 break
             }
         }
-        
-        
-        //Load meal plans
         
         
         //Date picker
@@ -164,6 +163,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         cell.mealName.text = mealPlans[indexPath.section][indexPath.row].mealName
         cell.mealCalories.text = String(describing: mealPlans[indexPath.section][indexPath.row].calories!) + " calories"
         cell.mealImage.image = UIImage(named: mealPlans[indexPath.section][indexPath.row].mealImage!)
+        cell.mealQuantity.text = String(quantity[indexPath.section][indexPath.row]) + "x"
         
         return cell
     }
@@ -192,30 +192,62 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
 
             }
         }
+        else if(segue.identifier == "viewmealtypessegue"){
+            let MealTypeViewController = segue.destination as! MealTypesViewController
+            MealTypeViewController.date = selectedDate
+        }
     }
     
     
     func loadPlanMeals (date: String, username: String) {
         mealPlans.removeAll()
         mealPlans = [[],[]]
+        quantity.removeAll()
+        quantity = [[],[]]
         DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
             mealPlanListFromFirebase in
             self.mealplan = mealPlanListFromFirebase
           
-                for j in 0...self.mealplan.count-1 {
-                    if (self.mealplan[j].isDiary == "No") {
+            for j in 0...self.mealplan.count - 1 {
+                if(self.mealplan[j].isDiary == "No"){
+                    if (self.mealPlans[0].count > 0){
+                        for i in 0...self.mealPlans[0].count - 1 {
+                            if(self.mealPlans[0][i].mealID == self.mealplan[j].mealID){
+                                self.quantity[0][j] += 1
+                            }
+                            else if(self.mealPlans[0][i].mealID != self.mealplan[j].mealID) {
+                                self.mealPlans[0].append(self.mealplan[j])
+                                self.quantity[0].append(1)
+                            }
+                        }
+                    }
+                    else if (self.mealPlans[0].count == 0){
                         self.mealPlans[0].append(self.mealplan[j])
-                    }
-                    else if (self.mealplan[j].isDiary == "Yes"){
-                        self.mealPlans[1].append(self.mealplan[j])
-                    }
-                    else{
-                        break
+                        self.quantity[0].append(1)
                     }
                 }
+                else if(self.mealplan[j].isDiary == "Yes"){
+                    if(self.mealPlans[1].count != 0){
+                        for i in 0...self.mealPlans[1].count - 1 {
+                            if(self.mealPlans[1][i].mealID == self.mealplan[j].mealID){
+                                self.quantity[1][j] += 1
+                            }
+                            else{
+                                self.mealPlans[1].append(self.mealplan[j])
+                                self.quantity[1].append(1)
+                            }
+                        }
+                    }
+                    else {
+                        self.mealPlans[1].append(self.mealplan[j])
+                        self.quantity[1].append(1)
+                        
+                    }
+                }
+            }
+        
             
             self.tableView.reloadData()
-            
         }
     }
     
@@ -234,6 +266,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
     }
+    
+ 
 
    
     @IBAction func loadMeals(_ sender: Any) {

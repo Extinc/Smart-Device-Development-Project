@@ -13,6 +13,7 @@ class MealPlanTableViewCell: UITableViewCell {
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var mealCalories: UILabel!
+    @IBOutlet weak var mealQuantity: UILabel!
     
     
     @IBOutlet weak var mimage: UIImageView!

@@ -679,7 +679,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6T-Vd-ijl">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Check your Average running Pace"/>
+                                                <state key="normal" title="Check your average running pace"/>
                                                 <connections>
                                                     <segue destination="OLG-n0-wWK" kind="show" id="f1m-YU-S7M"/>
                                                 </connections>

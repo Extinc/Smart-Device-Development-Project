@@ -157,6 +157,22 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         }
    
          var time = (selectedSession.totaltime!)
+        var timehoursecond = time.components(separatedBy: ":")
+        for i in 0 ... timehoursecond.count{
+            if(i == 0){
+                time = ""
+                time.append(timehoursecond[i])
+                time.append("h ")
+            }
+            if(i == 1){
+                time.append(timehoursecond[i])
+                time.append("m ")
+            }
+            if(i == 2){
+                time.append(timehoursecond[i])
+                time.append("s ")
+            }
+        }
         var distance = "\(String(format: "%.2f",selectedSession.totaldistance!)) Km"
         var calories = "\(String(format: "%.2f", selectedSession.totalcaloriesburnt!)) Cal"
         var speed = "\(String(format: "%.2f", selectedSession.totalspeed!)) m/s"
@@ -170,12 +186,6 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         data.append(distancearray)
         data.append(caloriesarray)
         data.append(speedarray)
-        
-        
-        
-        
-        
-  
         
         
         historyMap.delegate = self

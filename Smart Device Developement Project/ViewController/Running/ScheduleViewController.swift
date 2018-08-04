@@ -48,13 +48,15 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         CheckCurrentSchedule()
         dayrepeatpicker.delegate = self
         dayrepeatpicker.dataSource = self
-        
+        lblNumber.keyboardType = UIKeyboardType.numberPad
         createDayPicker()
         createDatePicker()
         // Do any additional setup after loading the view.
     }
     func FinishedCurrentSchedule()
     {
+ 
+        
         var currentSchedule = RunningDataManager.loadScheduleInformation(username)
         if(currentSchedule.progress == currentSchedule.numberoftimes)
         {
@@ -62,10 +64,23 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
             if(RunningDataManager.checkUserScheduleFinished(currentSchedule.scheduleId!) == true)
             {
             FinishAlert(title: "Successful Completed Schedule", message: "Congratulation, you have cleared your schedule , time to create a new schedule!")
+                var currentID = RunningDataManager.selectlastScheduleTableId(username)
+                var currentEvent = RunningDataManager.loadScheduleInformationComplete(String(currentID))
+                
+                let eventstore  = EKEventStore()
+                let event = eventstore.event(withIdentifier: currentEvent.eventsaved!)
+                
+                do{
+                    try eventstore.remove(event!,span:EKSpan.thisEvent,commit:true)
+                }catch{
+                    print("Error while deleting event: \(error.localizedDescription)")
+                }
+                
             }
             
             
         }
+       
     }
     func CheckCurrentSchedule()
     {

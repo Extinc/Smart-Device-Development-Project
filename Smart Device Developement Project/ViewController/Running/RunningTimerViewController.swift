@@ -197,18 +197,21 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     }
     
     override func viewDidLoad() {
-        //Get Weather
+       //Design View Task Button
         btnViewAddTask.layer.borderWidth = 1
         btnViewAddTask.layer.borderColor = UIColor.yellow.cgColor
+        //Display Current Goal
         noofcomplete = RunningDataManager.checkUserScheduleComplete(username)
         completecount.text = String(noofcomplete)
         noofforfeit = RunningDataManager.checkUserScheduleforfeit(username)
         forfeitedcount.text = String(noofforfeit)
+        //Get Weight For User
        NutrInfo().getWeight(){
             weight in
             self.weight = weight
             
         }
+        //Provide Image to persuade User the idea using page
         pageControl.numberOfPages = runningimage.count
         for index in 0..<runningimage.count{
             frame.origin.x = imagescrollView.frame.size.width * CGFloat(index)
@@ -233,9 +236,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         super.viewDidLoad()
         
+        //Hide Map View
         mapView.isHidden = true
         
-        
+        //Pass Value to get weather for current location
         self.weatherService.delegate = self
         self.weatherService.getWeatherForCity(lat: "1.3521", lon :"103.8198")
 
@@ -243,6 +247,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
         print(RunningDataManager.selectlastScheduleTableId(username))
+        //Switch View
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
@@ -334,6 +339,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
         print(RunningDataManager.selectlastScheduleTableId(username))
+        self.weatherService.delegate = self
+        self.weatherService.getWeatherForCity(lat: "1.3521", lon :"103.8198")
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
@@ -604,10 +611,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         
         if (sender.isOn == true)
         {
+            lblZombie.textColor = UIColor.darktextcolor
             lblZombie.text = "Zombie Mode!"
         }
         else
         {
+            lblZombie.textColor = UIColor.black
             lblZombie.text = "Default Mode"
         }
     }
@@ -739,10 +748,10 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     func enableLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.startUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = 5
         mapView.setUserTrackingMode(.follow, animated: true)
         }
     }

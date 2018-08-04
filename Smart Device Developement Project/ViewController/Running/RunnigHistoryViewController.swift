@@ -62,7 +62,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
         header.customInit(title: runningsections[section].month!, section: section, delegate: self)
         return header
     }
-    
+    //Using indexpath, populate the information to the cell based on the array
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell") as! RunningCustomCell
         cell.datelabel.text =  runningsections[indexPath.section].totalfinishdate![indexPath.row]
@@ -72,6 +72,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
         cell.calorieslabel.text =  String(format: "%.2f",runningsections[indexPath.section].AllCalories![indexPath.row])
         return cell
     }
+    //Expandable header,When clicked upon, it will display base on size of array
     func toggleSection(header: ExpandableHeaderView, section: Int) {
         runningsections[section].expanded = !runningsections[section].expanded
         
@@ -88,6 +89,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
         selectedid = runningid
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    //Delete Column and data
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete
         {
@@ -98,6 +100,7 @@ class RunnigHistoryViewController: UIViewController,UITableViewDelegate,UITableV
             }
         }
     }
+    //get the session id n pass to the next page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
         selectedid  =  (runningsections[tableview.indexPathForSelectedRow!.section].AllSessionID![tableview.indexPathForSelectedRow!.row])

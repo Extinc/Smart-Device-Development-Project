@@ -68,15 +68,13 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         linechart.minimumValue = 0
         
         linechart.maximumValue = 15
+        //Add label
         var footerView = UIView(frame: CGRect(x: 0, y: 0, width: linechart.frame.width, height: 30))
         
         var footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: linechart.frame.width/2 - 8, height: 16))
         footer1.textColor = UIColor.white
         footer1.text = "\(RunningChartLegend[0])"
      
-      
-  
-        
         var footer2 = UILabel(frame: CGRect(x: linechart.frame.width/2 - 8, y: 0 ,width: linechart.frame.width/2 - 8, height: 16))
         footer2.textColor = UIColor.white
         footer2.text = "\(RunningChartLegend[RunningChartLegend.count - 1])"
@@ -87,7 +85,7 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         footerView.addSubview(footer1)
         footerView.addSubview(footer2)
    
-        
+        //Add title for the graph
         var header = UILabel(frame: CGRect(x: 0, y: 0, width: linechart.frame.width, height: 50))
         header.textColor = UIColor.white
         header.font = UIFont.systemFont(ofSize: 18)
@@ -118,7 +116,7 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         linechart.reloadData()
         var timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: Selector("showChart"), userInfo: nil, repeats: false)
     }
-    
+    //When the user click , instruction disappear
     @objc func someAction(_sender:UITapGestureRecognizer){
         handgestureinstruction.isHidden = true
         tapView.isHidden = true
@@ -167,6 +165,7 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         return true
     }
     
+    // When the user hover in the graph the text display the information
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
         if(lineIndex == 0)
         {

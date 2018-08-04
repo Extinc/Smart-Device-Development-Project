@@ -802,6 +802,25 @@
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgY-tV-gno">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YYh-yn-hDE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="165.66666666666666" height="44"/>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-QW-8BO">
+                                                        <rect key="frame" x="165.66666666666663" y="0.0" width="248.33333333333337" height="44"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-Od-eod" customClass="IQDropDownTextField">
+                                                                <rect key="frame" x="0.0" y="0.0" width="248.33333333333334" height="44"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="YYh-yn-hDE" firstAttribute="width" secondItem="FgY-tV-gno" secondAttribute="width" multiplier="0.4" id="wdv-d2-lxm"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-zY-72j">
                                                 <rect key="frame" x="0.0" y="44.000000000000014" width="414" height="250.33333333333337"/>
@@ -914,6 +933,7 @@
                         <outlet property="chartHolder" destination="FUf-8k-EKp" id="lCd-Pf-kbq"/>
                         <outlet property="dateTF" destination="LIl-fg-MCL" id="gxN-qO-uwx"/>
                         <outlet property="labelDate" destination="euJ-DN-3TB" id="Pji-y6-oUP"/>
+                        <outlet property="muscGrpPicker" destination="1Kc-Od-eod" id="ZPZ-fc-5ch"/>
                         <outlet property="tableView" destination="fOc-db-kzd" id="7re-pc-IWY"/>
                     </connections>
                 </viewController>

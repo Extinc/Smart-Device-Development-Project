@@ -504,6 +504,17 @@ class RunningDataManager: NSObject {
         }
         return id
     }
+    static func loadScheduleInformationComplete(_ user:String) -> Schedule{
+        let currentSchedulerow = SQLiteDB.sharedInstance.query(sql: "Select scheduleID,startdate,day,distance,numberoftimes, progress,eventstoresaved, eventsaved, userID from trainingschedule where scheduleID= \"\(user)\"" )
+        
+        var currentschedule = Schedule(0,"","","","","","","","")
+        for row in currentSchedulerow
+        {
+            currentschedule = Schedule(row["scheduleID"] as! Int,row["startdate"] as! String,row["day"] as! String,row["distance"] as! String,row["numberoftimes"] as! String,row["progress"] as! String,row["userID"] as! String,row["eventstoresaved"] as! String, row["eventsaved"] as! String)
+        }
+        
+        return currentschedule
+    }
   
    
     

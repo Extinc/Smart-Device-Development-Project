@@ -230,7 +230,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                     for record in snapshot.children {
                         let r = record as! DataSnapshot
                         let planid = Int(r.key as! String)!
-                        let mealid = Int(r.childSnapshot(forPath: "mealID").value as! String)
+                        let mealid = r.childSnapshot(forPath: "mealID").value as! Int
                         let mealname = r.childSnapshot(forPath: "mealName").value as! String
                         let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
                         let calories = r.childSnapshot(forPath: "calories").value as! Double
@@ -238,7 +238,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
                         
-                        mealPlanList.append(MealPlan(username,planid, date,mealid!,mealname,mealimage,fCalories,recipeimage,isDiary))
+                        mealPlanList.append(MealPlan(username,planid, date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
                         
                     }
                 }

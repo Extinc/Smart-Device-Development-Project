@@ -99,7 +99,7 @@ class RecommendMeal: NSObject {
             
             planid += 1
             
-            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Dash"))
+            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Dash", 1))
             
         }
         
@@ -145,7 +145,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             planid += 1
-            plan.append(MealPlan(username,planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Keto"))
+            plan.append(MealPlan(username,planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Ketogenic", 1))
         }
         return plan
     }
@@ -185,7 +185,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             planid += 1
-            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Normal"))
+            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Normal", 1))
         }
         
         return plan

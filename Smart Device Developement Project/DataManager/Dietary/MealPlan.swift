@@ -20,10 +20,10 @@ class MealPlan: NSObject {
     var recipeImage: String?
     var isDiary: String?
     var planType: String?
+    var count: Int?
     
     
-    
-    init(_ username:String, _ planID:Int, _ date: String, _ mealID:Int, _ mealName: String, _ mealImage: String, _ calories: Float,_ recipeImage: String, _ isDiary: String, _ planType: String) {
+    init(_ username:String, _ planID:Int, _ date: String, _ mealID:Int, _ mealName: String, _ mealImage: String, _ calories: Float,_ recipeImage: String, _ isDiary: String, _ planType: String,_ count: Int) {
         self.username = username
         self.planID = planID
         self.date = date
@@ -34,6 +34,7 @@ class MealPlan: NSObject {
         self.recipeImage = recipeImage
         self.isDiary = isDiary
         self.planType = planType
+        self.count = count
     }
     
 }

@@ -238,13 +238,14 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
                         let planType = r.childSnapshot(forPath: "planType").value as! String
+                        let count = Int(r.childSnapshot(forPath: "count").value as! String)!
                         
-                        mealPlanList.append(MealPlan(username,planid, date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary, planType))
+                        mealPlanList.append(MealPlan(username,planid, date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary, planType, count))
                         
                     }
                 }
                 else {
-                    mealPlanList.append(MealPlan("",0 ,"",0,"","",0,"", "", ""))
+                    mealPlanList.append(MealPlan("",0 ,"",0,"","",0,"", "", "", 0))
                 }
             onComplete(mealPlanList)
         })
@@ -297,6 +298,70 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 onComplete(planID)
         })
     }
+    
+    static func loadOneMealPlan(date: String, username: String, mealID: Int, onComplete: @escaping (MealPlan) -> Void){
+        var mealPlan : MealPlan = MealPlan("", 0, "", 0, "", "", 0, "", "", "", 0)
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                
+                let exists: Bool = snapshot.exists()
+                if (exists == true){
+                    for record in snapshot.children{
+                        let r = record as! DataSnapshot
+                        let planid = Int(r.key)!
+                        let mealid = r.childSnapshot(forPath: "mealID").value as! Int
+                        let mealname = r.childSnapshot(forPath: "mealName").value as! String
+                        let mealimage = r.childSnapshot(forPath: "mealImage").value as! String
+                        let calories = r.childSnapshot(forPath: "calories").value as! Double
+                        let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
+                        let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
+                        let fCalories = Float(calories)
+                        let planType = r.childSnapshot(forPath: "planType").value as! String
+                        let count = Int(r.childSnapshot(forPath: "count").value as! String)!
+                        
+                        if(isDiary == "Yes") {
+                            if(mealid == mealID){
+                                mealPlan = MealPlan(username, planid, date, mealid, mealname, mealimage, fCalories, recipeimage, isDiary, planType, count)
+                            }
+                        }
+                    }
+                }
+                
+                onComplete(mealPlan)
+        })
+    }
+    
+    
+    static func loadPlanType(date: String, username: String, onComplete: @escaping (String) -> Void){
+        var planType: String = ""
+        let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
+        
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                let exists: Bool = snapshot.exists()
+                
+                if (exists == true){
+                    for record in snapshot.children{
+                        let r = record as! DataSnapshot
+                        let planid = Int(r.key as! String)!
+                        let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
+                        let pType = r.childSnapshot(forPath: "planType").value as! String
+                        
+                        if(isDiary == "No"){
+                           planType = pType
+                        }
+                    }
+                }else {
+                    
+                }
+                onComplete(planType)
+        })
+    }
+    
+    
   
     
     
@@ -311,7 +376,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 "calories" : mealPlanList[i].calories,
                 "isDiary" : mealPlanList[i].isDiary,
                 "recipeImage" : mealPlanList[i].recipeImage,
-                "planType" : mealPlanList[i].planType
+                "planType" : mealPlanList[i].planType,
+                "count" : mealPlanList[i].count
                 ]
             )
         }
@@ -326,7 +392,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "calories" : mealPlan.calories,
             "isDiary" : mealPlan.isDiary,
             "recipeImage" : mealPlan.recipeImage,
-            "planType" : mealPlan.planType
+            "planType" : mealPlan.planType,
+            "count" : mealPlan.count
             ]
         )
     }

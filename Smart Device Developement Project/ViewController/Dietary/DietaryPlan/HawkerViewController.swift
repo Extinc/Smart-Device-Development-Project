@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class HawkerViewController: UIViewController, CLLocationManagerDelegate {
 
     //MARK: - Outlets
     @IBOutlet var hawkerSegment: UISegmentedControl!
@@ -27,9 +27,10 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         super.viewDidLoad()
         hawkerMapView.delegate = self
         locationManager.delegate = self
-        updateMapRegion(rangeSpan: 500)
+        updateMapRegion(rangeSpan: 750)
         
         let nyp = MKPointAnnotation()
+        nyp.title = "Nanyang Polytechnic"
         nyp.coordinate = coordinate2D
         hawkerMapView.addAnnotation(nyp)
         
@@ -91,5 +92,32 @@ class HawkerViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             p.subtitle = self.hawkerCentres[i].address
             hawkerMapView.addAnnotation(p)
         }
+    }
+    
+  
+}
+
+extension HawkerViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
+        }
+        
+        if let title = annotation.title, title == "Nanyang Polytechnic" {
+            
+        }
+        else {
+            annotationView?.image = UIImage(named: "markersmall")
+        }
+        
+        annotationView?.canShowCallout = true
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("The annotation was selected: \(view.annotation?.title)")
     }
 }

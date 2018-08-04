@@ -68,7 +68,6 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         
         //Load mealplans to display in table
         mealplan = LoadingData.shared.mealPlan
-       
         
         //Date picker
         datePicker = UIDatePicker()
@@ -216,7 +215,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         DietaryPlanDataManagerFirebase.loadPlanType(date: date, username: username){
             planTypeFromFirebase in
             self.planType = planTypeFromFirebase
-            self.notifyLabel.text = "Meal plan type for the day is the \(self.planType) meal plan"
+            self.notifyLabel.text = "\(self.planType) \nPlan"
             
         }
     }

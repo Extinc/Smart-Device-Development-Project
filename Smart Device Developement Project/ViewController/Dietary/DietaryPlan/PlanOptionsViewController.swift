@@ -50,14 +50,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         intervalStackView.isHidden = true
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
-            (granted, error) in
-            self.isGrantedNotificationAccess = granted
-            if !granted {
-                //add alert to complain to user
-            }
-        }
-        
         self.username = AuthenticateUser.getUID()
         self.meal = LoadingData.shared.mealList
         self.loadCalories()
@@ -188,10 +180,10 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     @IBAction func goBackToDPC(_ sender: Any) {
         
-        if isGrantedNotificationAccess{
-            //let content = RecommendMeal.makeNotiContent()
-            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 500, repeats: true)
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dDate = dateFormatter.date(from: selectedDate)
+        //datePicker?.minimumDate = dDate
         
         if (planTextField.text == "" ||
             durationTextField.text == "" ||

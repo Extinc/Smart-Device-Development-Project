@@ -18,6 +18,8 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var generatePlanButton: MDCFlatButton!
     @IBOutlet weak var notifyLabel: UILabel!
     @IBOutlet weak var addMeal: MDCFlatButton!
+    @IBOutlet weak var planCircleImage: UILabel!
+    @IBOutlet weak var planLabel: UILabel!
     
     
     private var datePicker: UIDatePicker?
@@ -201,11 +203,14 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             if(self.planCount < 1) {
                 self.generatePlanButton.isHidden = false
                 self.notifyLabel.text = "You do not have any meal plans planned for this date, press start a new plan to generate one."
+                self.planLabel.text = ""
+                self.planCircleImage.isHidden = true
             }
             else if (self.planCount > 1){
                 self.generatePlanButton.isHidden = true
                 self.notifyLabel.text = ""
                 self.loadPlanType(date: date, username: username)
+                self.planCircleImage.isHidden = false
             }
         }
         
@@ -215,7 +220,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
         DietaryPlanDataManagerFirebase.loadPlanType(date: date, username: username){
             planTypeFromFirebase in
             self.planType = planTypeFromFirebase
-            self.notifyLabel.text = "\(self.planType) \nPlan"
+            self.planLabel.text = "\(self.planType) \nPlan"
             
         }
     }

@@ -112,7 +112,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 let calories = Int(mealInfo[index].calories!)
                                 let recipeImage = mealInfo[index].recipeImage
                                 
-                                mealPlan.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes"), at: 0)
+                                mealPlan.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes", "Nil"), at: 0)
                             }else{
                                 self?.test.text = "Could not find meal, please take again"
                                 self?.test.backgroundColor = UIColor.black

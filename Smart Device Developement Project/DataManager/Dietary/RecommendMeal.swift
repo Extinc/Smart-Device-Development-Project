@@ -99,7 +99,7 @@ class RecommendMeal: NSObject {
             
             planid += 1
             
-            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
+            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Dash"))
             
         }
         
@@ -110,7 +110,7 @@ class RecommendMeal: NSObject {
     
     static func ketoPlan(meals: [Meal], planPreferences: UserPlanPreferences, date: String, totalCalories: Float, planID: Int) -> [MealPlan]{
         var plan: [MealPlan] = []
-        let maxCarbs: Float = 50
+        let maxCarbs: Float = 150
         let carbsPerMeal: Float = maxCarbs / Float(planPreferences.mealsperday!)
         let Count = meals.count - 1
         var mealIDBefore: [Int] = []
@@ -145,7 +145,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             planid += 1
-            plan.append(MealPlan(username,planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
+            plan.append(MealPlan(username,planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Keto"))
         }
         return plan
     }
@@ -185,7 +185,7 @@ class RecommendMeal: NSObject {
             let recipeImage = mealList[b].recipeImage
             
             planid += 1
-            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No"))
+            plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Normal"))
         }
         
         return plan

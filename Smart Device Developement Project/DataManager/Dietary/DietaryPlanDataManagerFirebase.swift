@@ -237,13 +237,14 @@ class DietaryPlanDataManagerFirebase: NSObject {
                         let isDiary = r.childSnapshot(forPath: "isDiary").value as! String
                         let recipeimage = r.childSnapshot(forPath: "recipeImage").value as! String
                         let fCalories = Float(calories)
+                        let planType = r.childSnapshot(forPath: "planType").value as! String
                         
-                        mealPlanList.append(MealPlan(username,planid, date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary))
+                        mealPlanList.append(MealPlan(username,planid, date,mealid,mealname,mealimage,fCalories,recipeimage,isDiary, planType))
                         
                     }
                 }
                 else {
-                    mealPlanList.append(MealPlan("",0 ,"",0,"","",0,"", ""))
+                    mealPlanList.append(MealPlan("",0 ,"",0,"","",0,"", "", ""))
                 }
             onComplete(mealPlanList)
         })
@@ -270,6 +271,7 @@ class DietaryPlanDataManagerFirebase: NSObject {
     }
     
     static func loadPlanID(date: String, username: String, onComplete: @escaping (Int) -> Void){
+        var arrayOfID: [Int] = []
         var planID: Int = 0
         let ref = FirebaseDatabase.Database.database().reference().child("MealPlan").child(username).child(date)
         
@@ -282,9 +284,13 @@ class DietaryPlanDataManagerFirebase: NSObject {
                     for record in snapshot.children{
                         let r = record as! DataSnapshot
                         let planid = Int(r.key as! String)!
-                            planID = planid
-                    
+                        arrayOfID.append(planid)
                     }
+                    for i in 0...arrayOfID.count - 1 {
+                        planID = arrayOfID[i]
+                    }
+                    
+                    
                 }else {
                     planID = 0
                 }
@@ -304,7 +310,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
                 "mealImage" : mealPlanList[i].mealImage,
                 "calories" : mealPlanList[i].calories,
                 "isDiary" : mealPlanList[i].isDiary,
-                "recipeImage" : mealPlanList[i].recipeImage
+                "recipeImage" : mealPlanList[i].recipeImage,
+                "planType" : mealPlanList[i].planType
                 ]
             )
         }
@@ -318,7 +325,8 @@ class DietaryPlanDataManagerFirebase: NSObject {
             "mealImage" : mealPlan.mealImage,
             "calories" : mealPlan.calories,
             "isDiary" : mealPlan.isDiary,
-            "recipeImage" : mealPlan.recipeImage
+            "recipeImage" : mealPlan.recipeImage,
+            "planType" : mealPlan.planType
             ]
         )
     }
@@ -448,8 +456,5 @@ class DietaryPlanDataManagerFirebase: NSObject {
             ]
         )
     }
-    
-    
-    
-    
+   
 }

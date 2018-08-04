@@ -202,53 +202,50 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     func loadPlanMeals (date: String, username: String) {
         mealPlans.removeAll()
         mealPlans = [[],[]]
+        quantity.removeAll()
+        quantity = [[],[]]
         DietaryPlanDataManagerFirebase.loadMealPlans(date: date, username: username){
             mealPlanListFromFirebase in
             self.mealplan = mealPlanListFromFirebase
           
-            if(self.mealPlans.count != 0){
-                for i in 0...self.mealPlans[0].count - 1 {
-                    for j in 0...self.mealplan.count - 1 {
-                        if(self.mealplan[j].isDiary == "No") {
-                            if(self.mealPlans[0].count != 0) {
-                                if(self.mealPlans[0][i].mealID == self.mealplan[j].mealID) {
-                                    self.mealplan.remove(at: j)
-                                    self.quantity[0][j] += 1
-                                    break
-                                }
-                                else {
-                                    self.mealPlans[0].append(self.mealplan[j])
-                                    self.quantity[0][j] = 1
-                                }
+            for j in 0...self.mealplan.count - 1 {
+                if(self.mealplan[j].isDiary == "No"){
+                    if (self.mealPlans[0].count > 0){
+                        for i in 0...self.mealPlans[0].count - 1 {
+                            if(self.mealPlans[0][i].mealID == self.mealplan[j].mealID){
+                                self.quantity[0][j] += 1
                             }
-                            else {
+                            else if(self.mealPlans[0][i].mealID != self.mealplan[j].mealID) {
                                 self.mealPlans[0].append(self.mealplan[j])
-                                self.quantity[0][j] = 1
+                                self.quantity[0].append(1)
                             }
                         }
-                        else if(self.mealplan[j].isDiary == "Yes") {
-                            if(self.mealPlans[1].count != 0){
-                                if(self.mealPlans[1][i].mealID == self.mealplan[j].mealID) {
-                                    self.mealplan.remove(at: j)
-                                    self.quantity[1][j] += 1
-                                    break
-                                }
-                                else {
-                                    self.mealPlans[1].append(self.mealplan[j])
-                                    self.quantity[1][j] = 1
-                                }
+                    }
+                    else if (self.mealPlans[0].count == 0){
+                        self.mealPlans[0].append(self.mealplan[j])
+                        self.quantity[0].append(1)
+                    }
+                }
+                else if(self.mealplan[j].isDiary == "Yes"){
+                    if(self.mealPlans[1].count != 0){
+                        for i in 0...self.mealPlans[1].count - 1 {
+                            if(self.mealPlans[1][i].mealID == self.mealplan[j].mealID){
+                                self.quantity[1][j] += 1
                             }
-                            else {
+                            else{
                                 self.mealPlans[1].append(self.mealplan[j])
-                                self.quantity[1][j] = 1
+                                self.quantity[1].append(1)
                             }
                         }
-                        else {
-                            break
-                        }
+                    }
+                    else {
+                        self.mealPlans[1].append(self.mealplan[j])
+                        self.quantity[1].append(1)
+                        
                     }
                 }
             }
+        
             
             self.tableView.reloadData()
         }

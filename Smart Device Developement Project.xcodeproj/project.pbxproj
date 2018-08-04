@@ -40,7 +40,6 @@
 		5192A4DC20FD8BC500C64F9C /* WorkoutStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */; };
 		51A9CB0220B5184500BD18BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CB0120B5184500BD18BB /* CustomCell.swift */; };
 		51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AEDE5020F49741005B44F0 /* ProfileViewController.swift */; };
-		51CAE39721104F850032EB04 /* HawkerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CAE39621104F850032EB04 /* HawkerAnnotation.swift */; };
 		51ED27CA20F475D40054E053 /* AuthenticateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27C920F475D40054E053 /* AuthenticateUser.swift */; };
 		51ED27CC20F483640054E053 /* WorkoutImageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */; };
 		51ED27CF20F4873A0054E053 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51ED27CE20F4873A0054E053 /* Profile.storyboard */; };
@@ -171,7 +170,6 @@
 		5192A4DB20FD8BC500C64F9C /* WorkoutStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStartViewController.swift; sourceTree = "<group>"; };
 		51A9CB0120B5184500BD18BB /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		51AEDE5020F49741005B44F0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		51CAE39621104F850032EB04 /* HawkerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HawkerAnnotation.swift; sourceTree = "<group>"; };
 		51ED27C920F475D40054E053 /* AuthenticateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUser.swift; sourceTree = "<group>"; };
 		51ED27CB20F483640054E053 /* WorkoutImageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutImageDataManager.swift; sourceTree = "<group>"; };
 		51ED27CE20F4873A0054E053 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -487,7 +485,6 @@
 				F192FE7620F25801005C76E8 /* NutrInfo.swift */,
 				5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */,
 				69E13BA3210A0045004630E5 /* checkForHawker.swift */,
-				51CAE39621104F850032EB04 /* HawkerAnnotation.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -970,7 +967,6 @@
 				69BE096C20DB6E980008BF25 /* MealPlan.swift in Sources */,
 				69E22A2220F0E4F40054D552 /* RecommendMeal.swift in Sources */,
 				51AEDE5120F49741005B44F0 /* ProfileViewController.swift in Sources */,
-				51CAE39721104F850032EB04 /* HawkerAnnotation.swift in Sources */,
 				F147301B20D7C8DD00C63470 /* CircleProgressBarViewController.swift in Sources */,
 				69BE096E20DB6EEE0008BF25 /* DietaryPlanDataManager.swift in Sources */,
 				901C88132113E7B300B8983A /* ChartDefaults.swift in Sources */,

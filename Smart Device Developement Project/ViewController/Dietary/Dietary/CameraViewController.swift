@@ -105,25 +105,38 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                         var mealInfo: [Meal] = LoadingData.shared.mealList
                         for index in  0..<mealInfo.count{
                             if (mealName == mealInfo[index].name){
-                                
                                 let mealID = mealInfo[index].mealID
                                 let mealName = mealInfo[index].name
                                 let mealImage = mealInfo[index].mealImage
                                 let calories = Int(mealInfo[index].calories!)
                                 let recipeImage = mealInfo[index].recipeImage
                                 
-                                mealPlan.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes", "Nil"), at: 0)
+                                DietaryPlanDataManagerFirebase.loadOneMealPlan(date: todayDate, username: username, mealID: mealID!){
+                                    plan in
+                                    
+                                    if plan.count == 0 {
+                                        mealPlan.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes", "Nil", 1), at: 0)
+                                        
+                                        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealPlan)
+                                        
+                                        self?.performSegue(withIdentifier: "unwindback2", sender: self)
+                                    }
+                                    else{
+                                        let quantity = plan.count! + 1
+                                        mealPlan.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes", "Nil", quantity), at: 0)
+                                        
+                                        DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealPlan)
+                                        
+                                        self?.performSegue(withIdentifier: "unwindback2", sender: self)
+                                    }
+                                }
                             }else{
                                 self?.test.text = "Could not find meal, please take again"
                                 self?.test.backgroundColor = UIColor.black
                                 print(self?.test.text as Any)
                                 self?.chooseMeal.isHidden = false
                             }
-                            
-                            DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealPlan)
-                            
-                            self?.performSegue(withIdentifier: "unwindback2", sender: self)
-                    }
+                        }
                     }
                     
                 }

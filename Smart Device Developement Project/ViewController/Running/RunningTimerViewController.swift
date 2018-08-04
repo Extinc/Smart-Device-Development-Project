@@ -137,7 +137,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     var frame = CGRect(x:0,y:0,width:0,height:0)
     //timer
     weak var timer = Timer()
-    //Mark Weather Service
+    //Mark Weather Service, get the weather and display
     func setWeather(weather: Weather) {
         print("set Weather")
         print("City \(weather.cityName) temp\(weather.temp) desc: \(weather.description)")
@@ -153,7 +153,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     }
     
     
-    
+    //Pause the timer
     @IBAction func btnPause(_ sender: Any) {
         if self.resumeTapped == false
         {
@@ -181,20 +181,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         pageControl.currentPage = Int(pageNumber)
     }
     
-    func FinishedCurrentSchedule()
-    {
-        var currentSchedule = RunningDataManager.loadScheduleInformation(username)
-        if(currentSchedule.progress == currentSchedule.numberoftimes)
-        {
-            RunningDataManager.UpdateComplete(currentSchedule.scheduleId!)
-            if(RunningDataManager.checkUserScheduleFinished(currentSchedule.scheduleId!) == true)
-            {
-                FinishAlert(title: "Successful Completed Schedule", message: "Congratulation, you have cleared your schedule , time to create a new schedule!")
-            }
-            
-            
-        }
-    }
+    
     
     override func viewDidLoad() {
        //Design View Task Button
@@ -247,7 +234,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         locationManager.stopUpdatingLocation()
         locationManager.stopMonitoringSignificantLocationChanges()
         print(RunningDataManager.selectlastScheduleTableId(username))
-        //Switch View
+        //Switch View during different phase of the application
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
@@ -289,9 +276,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         RunningDataManager.createSessionTable()
 
         //Ask permission to access user location but do not start first
-    
 
-        // need this for polyline
         locationManager.delegate = self
         updateMapRegion(rangeSpan: 100)
         
@@ -322,11 +307,12 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
 
     }
     override func viewWillAppear(_ animated: Bool) {
+        //At the instruction page show how much schedule has the user has complete and forfeited
         noofcomplete = RunningDataManager.checkUserScheduleComplete(username)
         completecount.text = String(noofcomplete)
         noofforfeit = RunningDataManager.checkUserScheduleforfeit(username)
         forfeitedcount.text = String(noofforfeit)
-        
+        //prepare audio for zombie mode
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ZombieChase", ofType: "mp3")!))
             audioPlayer.prepareToPlay()
@@ -341,6 +327,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         print(RunningDataManager.selectlastScheduleTableId(username))
         self.weatherService.delegate = self
         self.weatherService.getWeatherForCity(lat: "1.3521", lon :"103.8198")
+        //Switch View when the user return to the page
         if(RunningDataManager.checkUserScheduleExist(username) == false)
         {
             btnCreateSchedules.isHidden = false
@@ -418,7 +405,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         btnCreateSchedules.isHidden = true
         btnStart.isHidden = false
     }
-    
+    //Alert the different between the user current speend and last time
     func distanceAlert(){
         
         var Prevspeed : Double = 0
@@ -429,7 +416,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         var LastSessionSpeed = RunningDataManager.loadPreviousSession(lastSessionID)
         
         
-        
+        // get all the speed input previously and compare
         if (travelledDistance/1000 >= lapdistance * 5 )
         {
             
@@ -546,7 +533,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
     }
 
-
+//Set default speed of zombie , depending on where the zombie is, different warning and loudness will be played
     func ZombieAlert (){
         zombiedistance = zombiespeed * zombietime
     
@@ -606,7 +593,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     }
 
     
-    
+    //Change the label base on state of the switch
     @IBAction func SwitchZombie(_ sender: UISwitch) {
         
         if (sender.isOn == true)
@@ -623,7 +610,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     
     
     
-    
+   //Alert when the user complete the run
     func FinishAlert (title:String, message:String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -697,7 +684,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         
     }
-    
+    //Continue from pause
     @IBAction func btnContinue(_ sender: Any) {
         if self.resumeTapped == true{
          timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(RunningTimerViewController.action), userInfo: nil, repeats: true)
@@ -745,7 +732,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         }
         
     }
-    
+    //Pick the best accuracy because running need precision
     func enableLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -804,7 +791,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             
             calorie = distanceInkiloMeter * weight * 1.036
             var calorieString = String(calorie)
-            
+            //Display information everytime the this function is called
             print("Traveled Distance:", travelledDistance)
             print("Straight Distance:", startlocation.distance(from: locations.last!))
             self.lblDistance.text! = String(format : "%.2f",distanceInkiloMeter) + " Km "
@@ -872,6 +859,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
         {
         if(travelledDistance/1000 >= targetDistance)
         {
+            //Vibrate to notify user that he reached his goals
             AudioServicesPlayAlertSound(SystemSoundID(1304))
             var currentFinishTime = Session(time: finishingtime,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateTotalTime(session: currentFinishTime)
@@ -885,6 +873,8 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             RunningDataManager.UpdateProgress(Schedule: currentcomplete)
            // FinishedCurrentSchedule()
             
+            
+            //All the input for the database
             var thisSessionSpeed = Session(firstspeed : lap1Speed,secondspeed : lap2Speed,thirdspeed : lap3Speed,fourthspeed : lap4Speed,fivespeed : lap5Speed,RunningDataManager.selectlastSessionTableId())
             RunningDataManager.UpdateSessionSpeed(session: thisSessionSpeed)
             
@@ -912,7 +902,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
             RunningDataManager.UpdateTotalSpeed(session: thistotalspeed)
             
       
-            
+            //Convert Array to string to store it
             var RunLongitude : [String] = []
             var RunLatitude : [String] = []
            
@@ -947,7 +937,7 @@ class RunningTimerViewController: UIViewController,MKMapViewDelegate,CLLocationM
     }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
-    
+    //draw polyline 
         if overlay is MKPolyline{
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.black

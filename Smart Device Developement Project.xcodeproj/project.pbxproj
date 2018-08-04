@@ -64,6 +64,7 @@
 		7053561420F39FDC00D72FF0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7053561320F39FDC00D72FF0 /* Weather.swift */; };
 		70657D61210EEE0F0063F3A0 /* RunningPaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70657D60210EEE0F0063F3A0 /* RunningPaceViewController.swift */; };
 		70657D63210F4A6C0063F3A0 /* MultiColorPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70657D62210F4A6C0063F3A0 /* MultiColorPolyline.swift */; };
+		7078DD0E2115D10B00D304D4 /* Gpsiestrack-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 7078DD0D2115D10B00D304D4 /* Gpsiestrack-3.gpx */; };
 		70A3D92A20EB96DF003392C0 /* ZombieChase.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */; };
 		70E2568F20F0DA5A000B7F01 /* HistorySessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */; };
 		70E2CA1320F0A6BC0010FCBC /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */; };
@@ -195,6 +196,7 @@
 		7053561320F39FDC00D72FF0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		70657D60210EEE0F0063F3A0 /* RunningPaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningPaceViewController.swift; sourceTree = "<group>"; };
 		70657D62210F4A6C0063F3A0 /* MultiColorPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiColorPolyline.swift; sourceTree = "<group>"; };
+		7078DD0D2115D10B00D304D4 /* Gpsiestrack-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Gpsiestrack-3.gpx"; sourceTree = "<group>"; };
 		70A3D92920EB96DF003392C0 /* ZombieChase.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ZombieChase.mp3; sourceTree = "<group>"; };
 		70E2568E20F0DA59000B7F01 /* HistorySessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySessionViewController.swift; sourceTree = "<group>"; };
 		70E2CA1220F0A6BC0010FCBC /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		5169C62320AAA4460014E15D /* Smart Device Developement Project */ = {
 			isa = PBXGroup;
 			children = (
+				7078DD0D2115D10B00D304D4 /* Gpsiestrack-3.gpx */,
 				70A3D92820EB96CB003392C0 /* Music */,
 				9008B30820D3EDF40096D9F2 /* Helpers */,
 				90F9C7D820D39F39005BA228 /* DataManager */,
@@ -778,6 +781,7 @@
 				90F1EE5E20E8E0F6004353F7 /* Workout.storyboard in Resources */,
 				5169C62E20AAA4460014E15D /* Assets.xcassets in Resources */,
 				51ED27CF20F4873A0054E053 /* Profile.storyboard in Resources */,
+				7078DD0E2115D10B00D304D4 /* Gpsiestrack-3.gpx in Resources */,
 				5169C62C20AAA4460014E15D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

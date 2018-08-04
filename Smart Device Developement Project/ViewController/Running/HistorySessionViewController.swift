@@ -51,7 +51,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         cell.imageView?.image = tableimages[indexPath.section][indexPath.row]
         return cell
     }
-    
+    //Populate the header
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return header[section]
     }
@@ -117,22 +117,27 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
         
         var selectedID : Int = Int(currentid)!
         print("Selecte ID \(selectedID)")
-      
+        
+        //Get longitude and latitude from from user
         var selectedSession = RunningDataManager.loadSessionByID(selectedID)
         var selectSessionMap = RunningDataManager.loadSessionlocationByID(selectedID)
         let longitude = selectSessionMap.rangeoflongitude!.components(separatedBy: ",")
         let latitude = selectSessionMap.rangeoflatitude!.components(separatedBy: ",")
+        
+        //convert longitude and latitude to location , and append into list of array
        for i in 0 ..< longitude.count
             {
                 print("longitude = \(longitude[i]) latitude =\(latitude[i])")
                 let coordinate:CLLocation = CLLocation(latitude: Double(latitude[i])!, longitude: Double(longitude[i])!)
                 
                 mylocations.append(coordinate)
+                //Place startpin on the 1st location
                 if i == 0 {
                     var startlocation:CLLocationCoordinate2D = mylocations[0].coordinate
                     startpin.coordinate = startlocation
                     historyMap.addAnnotation(startpin)
                 }
+                //Place endingpin on the last location
                 if i == longitude.count - 1 {
                      var endlocation:CLLocationCoordinate2D = mylocations[mylocations.count - 1].coordinate
                       endpin.coordinate = endlocation
@@ -141,7 +146,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
                 
         }
       
-       
+       //Draw polyline base on the amount of location in the array
         for i in 0 ..< longitude.count - 1 {
    
          var sourceIndex = i
@@ -156,6 +161,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
             
         }
    
+        // format the time in h/m/s so the user understand , seperate den put each letter in
          var time = (selectedSession.totaltime!)
         var timehoursecond = time.components(separatedBy: ":")
         for i in 0 ... timehoursecond.count{
@@ -173,6 +179,7 @@ class HistorySessionViewController: UIViewController,MKMapViewDelegate,CLLocatio
                 time.append("s ")
             }
         }
+        // Put into table
         var distance = "\(String(format: "%.2f",selectedSession.totaldistance!)) Km"
         var calories = "\(String(format: "%.2f", selectedSession.totalcaloriesburnt!)) Cal"
         var speed = "\(String(format: "%.2f", selectedSession.totalspeed!)) m/s"

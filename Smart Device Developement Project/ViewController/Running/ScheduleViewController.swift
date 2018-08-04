@@ -53,6 +53,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         createDatePicker()
         // Do any additional setup after loading the view.
     }
+    //Check if the Schedule is completed and delete the event from calendar if complete
     func FinishedCurrentSchedule()
     {
  
@@ -82,6 +83,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         }
        
     }
+    //Check if there is any ongoing schedule
     func CheckCurrentSchedule()
     {
         if(RunningDataManager.checkUserScheduleExist(username) == true)
@@ -124,7 +126,6 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         }
     }
     //Mark Creating Picker
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -174,7 +175,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         datePickerTxt.text = "\(picker.date)"
         view.endEditing(true)
     }
-    //Finish Alert
+    //When user complete the race , alert will pop up
     func FinishAlert (title:String, message:String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -185,7 +186,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         
         self.present(alert, animated: true, completion: nil)
     }
-    //Creating Alert
+    //Confirmation Alert
     func createAlert (title:String, message:String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -197,7 +198,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
         self.present(alert, animated: true, completion: nil)
     }
     
-    
+    //Alert when user delete schedule
     func deleteAlert ( title:String, message:String)
     {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -336,7 +337,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     }
     
     
-    
+    //Delete event from the calendar
     func deleteEvent(){
         let currentschedule = RunningDataManager.loadScheduleInformation(username)
         let eventstore  = EKEventStore()

@@ -18,11 +18,11 @@ class WeatherService {
     func getWeatherForCity(lat: String, lon: String){
         
         
-        
+        //so that there wont be error if there is spacing and sort
         let latitude = lat.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)
         let longitude = lon.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)
         
-       
+       //Open Weather API call
         let path = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude!)&lon=\(longitude!)&appid=d90e2ff77f7a52c22cde2f9bb66038b2"
          print("path = \(path)")
         let url = URL(string: path)

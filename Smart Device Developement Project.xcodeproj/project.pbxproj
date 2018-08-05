@@ -101,7 +101,6 @@
 		90FBA46F20ECEE9C001785C8 /* WorkoutCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBA46E20ECEE9C001785C8 /* WorkoutCustomViewCell.swift */; };
 		90FF44C1210F2FC700CA8989 /* WorkoutHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF44C0210F2FC700CA8989 /* WorkoutHistoryViewController.swift */; };
 		F11D69AE21103EFE009EFCB0 /* food.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F11D69AD21103EFD009EFCB0 /* food.mlmodel */; };
-		F127A9DD210EB3910054F3E5 /* LoadingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127A9DC210EB3910054F3E5 /* LoadingData.swift */; };
 		F127A9DF210EB5720054F3E5 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */; };
 		F12F23EC20EDEEB900836A83 /* foodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F23EB20EDEEB900836A83 /* foodData.swift */; };
 		F147301920D7A4B700C63470 /* DietaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F147301820D7A4B700C63470 /* DietaryViewController.swift */; };
@@ -110,6 +109,7 @@
 		F192FE7720F25801005C76E8 /* NutrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F192FE7620F25801005C76E8 /* NutrInfo.swift */; };
 		F19AC74C210F0F6B005B66B2 /* DietaryPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6925CF7420CF5EED00EC86CC /* DietaryPlanViewController.swift */; };
 		F1A1B6D220EB60190026A962 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A1B6D020EB60190026A962 /* HTTP.swift */; };
+		F1D8AF1A21176C0D004EC3EA /* LoadingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D8AF1921176C0D004EC3EA /* LoadingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,7 +244,6 @@
 		BEBD9E276B8F559FC8FC8F6D /* Pods-Smart Device Developement ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Device Developement ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Device Developement ProjectTests/Pods-Smart Device Developement ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF4920FE10E359FB0C13EC03 /* Pods_Smart_Device_Developement_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_Device_Developement_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11D69AD21103EFD009EFCB0 /* food.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = food.mlmodel; sourceTree = "<group>"; };
-		F127A9DC210EB3910054F3E5 /* LoadingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingData.swift; sourceTree = "<group>"; };
 		F127A9DE210EB5720054F3E5 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		F12F23EB20EDEEB900836A83 /* foodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodData.swift; sourceTree = "<group>"; };
 		F147301820D7A4B700C63470 /* DietaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +251,7 @@
 		F192FE7420F2162B005C76E8 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		F192FE7620F25801005C76E8 /* NutrInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrInfo.swift; sourceTree = "<group>"; };
 		F1A1B6D020EB60190026A962 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
+		F1D8AF1921176C0D004EC3EA /* LoadingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,7 +485,7 @@
 				F192FE7620F25801005C76E8 /* NutrInfo.swift */,
 				5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */,
 				69E13BA3210A0045004630E5 /* checkForHawker.swift */,
-				F127A9DC210EB3910054F3E5 /* LoadingData.swift */,
+				F1D8AF1921176C0D004EC3EA /* LoadingData.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -983,7 +983,7 @@
 				513F09D720E2016B009806D8 /* Schedule.swift in Sources */,
 				F192FE7520F2162B005C76E8 /* BMIViewController.swift in Sources */,
 				513F09DA20E2019D009806D8 /* RunningTimerViewController.swift in Sources */,
-				F127A9DD210EB3910054F3E5 /* LoadingData.swift in Sources */,
+				F1D8AF1A21176C0D004EC3EA /* LoadingData.swift in Sources */,
 				90C601ED20B01596002FFF5D /* LoginViewController.swift in Sources */,
 				F19AC74C210F0F6B005B66B2 /* DietaryPlanViewController.swift in Sources */,
 				516C779620FDB1C10042F8CE /* Model.xcdatamodeld in Sources */,

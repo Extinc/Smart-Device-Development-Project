@@ -485,6 +485,7 @@
 				F192FE7620F25801005C76E8 /* NutrInfo.swift */,
 				5116A7CF20FDC551006C2EA3 /* HawkerCentres.swift */,
 				69E13BA3210A0045004630E5 /* checkForHawker.swift */,
+				F127A9DC210EB3910054F3E5 /* LoadingData.swift */,
 			);
 			path = Dietary;
 			sourceTree = "<group>";
@@ -638,7 +639,6 @@
 				6939311B20DA8F6F00C8775F /* Dietary */,
 				90F9C7D920D39F45005BA228 /* Exercise */,
 				51ED27C920F475D40054E053 /* AuthenticateUser.swift */,
-				F127A9DC210EB3910054F3E5 /* LoadingData.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";

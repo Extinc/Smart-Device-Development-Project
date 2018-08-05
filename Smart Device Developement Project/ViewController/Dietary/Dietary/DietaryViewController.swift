@@ -57,10 +57,12 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
         //loop for today calories and carbohydrates
         for i in 0..<mealPlan.count{
-            icalories = Int(mealPlan[i].calories!) + icalories
-            for x in 0..<meals.count{
-                if(mealPlan[i].mealID == meals[x].mealID){
-                    carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+            for _ in 0..<mealPlan[i].count!{
+                icalories = Int(mealPlan[i].calories!) + icalories
+                for x in 0..<meals.count{
+                    if(mealPlan[i].mealID == meals[x].mealID){
+                        carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+                    }
                 }
             }
         }
@@ -170,10 +172,12 @@ class DietaryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             //loop for today calories and carbohydrates
             for i in 0..<plan.count{
-                icalories = Int(plan[i].calories!) + icalories
-                for x in 0..<meals.count{
-                    if(plan[i].mealID == meals[x].mealID){
-                        carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+                for _ in 0..<plan[i].count!{
+                    icalories = Int(plan[i].calories!) + icalories
+                    for x in 0..<meals.count{
+                        if(plan[i].mealID == meals[x].mealID){
+                            carbIntake = Double(meals[x].carbohydrates!) + carbIntake
+                        }
                     }
                 }
             }

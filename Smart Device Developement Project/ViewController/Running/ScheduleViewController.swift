@@ -331,7 +331,7 @@ class ScheduleViewController: UIViewController,UIPickerViewDataSource,UIPickerVi
     // Delete Event from calendar
     
     @IBAction func btnDelete(_ sender: Any) {
-        deleteAlert(title: "Delete Schedule", message: "Are u going to forfeit this schedule!?")
+        deleteAlert(title: "Delete Schedule", message: "Are u going to cancel this schedule!?")
         
         
     }

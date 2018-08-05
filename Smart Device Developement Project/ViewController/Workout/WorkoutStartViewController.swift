@@ -20,7 +20,7 @@ class WorkoutStartViewController: UIViewController,UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var playVideo: UIBarButtonItem!
     
-    @IBOutlet weak var playBtn: MDCFloatingButton!
+    @IBOutlet weak var playBtn: MDCFlatButton!
     
     @IBAction func playVideoClick(_ sender: Any) {
         if let path = URL(string: passedExercise.videoLink!)
@@ -56,7 +56,8 @@ class WorkoutStartViewController: UIViewController,UIScrollViewDelegate {
         
         addImagetoPaging()
         
-        LifestyleTheme.styleFloatBtn(btn: playBtn, title: "Play", pColor: Colors.PrimaryDarkColor())
+        LifestyleTheme.styleBtn2(btn: playBtn, title: "Begin", pColor: Colors.PrimaryDarkColor())
+        
     }
     
     override func didReceiveMemoryWarning() {

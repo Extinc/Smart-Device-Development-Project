@@ -33,23 +33,34 @@ class RecommendMeal: NSObject {
         for i in 0...planDays - 1 {
             if (i != 0) {
                 date.day = date.day! + 1
+                let fDate = NSCalendar.current.date(from: date)
+                currentDate = dateFormatter.string(from: fDate!)
+                if (planType == "Dash") {
+                    plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: 0)
+                }
+                else if (planType == "Keto") {
+                    plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: 0)
+                }
+                else if (planType == "Normal"){
+                    plan = normalPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: 0)
+                }
             }
             else {
                 //remain same day
+                let fDate = NSCalendar.current.date(from: date)
+                currentDate = dateFormatter.string(from: fDate!)
+                if (planType == "Dash") {
+                    plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
+                }
+                else if (planType == "Keto") {
+                    plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
+                }
+                else if (planType == "Normal"){
+                    plan = normalPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
+                }
             }
             
-            let fDate = NSCalendar.current.date(from: date)
-            currentDate = dateFormatter.string(from: fDate!)
-            
-            if (planType == "Dash") {
-                plan = dashPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
-            }
-            else if (planType == "Keto") {
-                plan = ketoPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
-            }
-            else if (planType == "Normal"){
-                plan = normalPlan(meals: meals, planPreferences: preferences, date: currentDate, totalCalories: Float(totalCalories), planID: planid)
-            }
+           
           
             DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: plan)
         }
@@ -84,7 +95,7 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planid = planID
+        var planid = planID + 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
             planid += 1
@@ -130,7 +141,7 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planid = planID
+        var planid = planID + 1
         //Append into Meal Plan List
         for b in 0...mealListCount{
             planid += 1
@@ -171,9 +182,9 @@ class RecommendMeal: NSObject {
         }
         
         let mealListCount: Int = mealList.count - 1
-        var planid = planID
+        var planid = planID + 1
         //Append into Meal Plan List
-        for b in 0...mealListCount{
+        for b in 0...mealListCount {
             planid += 1
             let username = planPreferences.username!
             let mealID = mealList[b].mealID

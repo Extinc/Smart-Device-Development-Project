@@ -19,6 +19,7 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
     var frame = CGRect(x:0, y:0, width:0, height:0)
     
     var date: String = ""
+    var planID: Int = 0
     
     
     override func viewDidLoad() {
@@ -66,9 +67,18 @@ class MealTypesViewController: UIViewController, UIScrollViewDelegate {
         if(segue.identifier == "choosePlanSegue"){
             let PlanMealViewController = segue.destination as! PlanOptionsViewController
             PlanMealViewController.selectedDate = date
+            PlanMealViewController.planID = planID 
         }
     }
 
+    
+    //MARK: - Functions
+    func loadPlanID(date: String, username: String) {
+        DietaryPlanDataManagerFirebase.loadPlanID(date: date, username: username){
+            planIDFromFirebase in
+            self.planID = planIDFromFirebase
+        }
+    }
  
 
 }

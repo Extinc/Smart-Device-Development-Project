@@ -16,9 +16,7 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var generatePlanButton: MDCFlatButton!
-    @IBOutlet weak var notifyLabel: UILabel!
     @IBOutlet weak var addMeal: MDCFlatButton!
-    @IBOutlet weak var planCircleImage: UILabel!
     @IBOutlet weak var planLabel: UILabel!
     
     
@@ -202,15 +200,12 @@ class DietaryPlanViewController: UIViewController, UITableViewDataSource, UITabl
             self.planCount = planCountFromFirebase
             if(self.planCount < 1) {
                 self.generatePlanButton.isHidden = false
-                self.notifyLabel.text = "You do not have any meal plans planned for this date, press start a new plan to generate one."
-                self.planLabel.text = ""
-                self.planCircleImage.isHidden = true
+                self.planLabel.text = "No \nPlan"
             }
             else if (self.planCount > 1){
                 self.generatePlanButton.isHidden = true
-                self.notifyLabel.text = ""
                 self.loadPlanType(date: date, username: username)
-                self.planCircleImage.isHidden = false
+
             }
         }
         

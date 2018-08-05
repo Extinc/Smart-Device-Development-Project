@@ -237,13 +237,4 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
-    func loadPlanID(date: String, username: String) {
-        DietaryPlanDataManagerFirebase.loadPlanID(date: date, username: username){
-            planIDFromFirebase in
-            self.planID = planIDFromFirebase
-        }
-    }
-    
-
-    
 }

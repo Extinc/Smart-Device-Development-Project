@@ -435,7 +435,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifl-xL-33R">
                                                         <rect key="frame" x="331.33333333333331" y="0.0" width="82.666666666666686" height="70"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="Run Complete, Check Your Progress"/>
                                                         <connections>
                                                             <segue destination="woN-Tx-NNc" kind="show" id="LlE-nR-7ba"/>
@@ -744,7 +744,7 @@
                                     <constraint firstAttribute="height" constant="21" id="nA5-L7-oUH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -790,13 +790,13 @@
                                                 <rect key="frame" x="20" y="10.000000000000002" width="374" height="21.666666666666671"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Distance : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tk5-iQ-x4G" userLabel="Distance :">
-                                                        <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="21.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="364" height="21.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-ea-Wec">
-                                                        <rect key="frame" x="98.333333333333371" y="0.0" width="275.66666666666663" height="21.666666666666668"/>
+                                                        <rect key="frame" x="364" y="0.0" width="10" height="21.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -918,7 +918,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
                                                 <color key="backgroundColor" red="1" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <state key="normal" title="Cancel">
+                                                <state key="normal" title="Delete">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>

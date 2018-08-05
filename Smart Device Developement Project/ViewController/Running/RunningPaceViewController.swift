@@ -61,8 +61,8 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         handgestureinstruction.addGestureRecognizer(gesture)
         
         
-        view.backgroundColor = UIColor.graphcolorbrown
-        linechart.backgroundColor = UIColor.graphcolorbrown
+        view.backgroundColor = UIColor.white
+        linechart.backgroundColor = UIColor.white
         linechart.delegate = self
         linechart.dataSource = self
         linechart.minimumValue = 0
@@ -72,11 +72,11 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
         var footerView = UIView(frame: CGRect(x: 0, y: 0, width: linechart.frame.width, height: 30))
         
         var footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: linechart.frame.width/2 - 8, height: 16))
-        footer1.textColor = UIColor.white
+        footer1.textColor = UIColor.darkGray
         footer1.text = "\(RunningChartLegend[0])"
      
         var footer2 = UILabel(frame: CGRect(x: linechart.frame.width/2 - 8, y: 0 ,width: linechart.frame.width/2 - 8, height: 16))
-        footer2.textColor = UIColor.white
+        footer2.textColor = UIColor.darkGray
         footer2.text = "\(RunningChartLegend[RunningChartLegend.count - 1])"
         footer2.textAlignment = NSTextAlignment.right
        
@@ -87,7 +87,7 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
    
         //Add title for the graph
         var header = UILabel(frame: CGRect(x: 0, y: 0, width: linechart.frame.width, height: 50))
-        header.textColor = UIColor.white
+        header.textColor = UIColor.darkGray
         header.font = UIFont.systemFont(ofSize: 18)
         header.text = "Average Running Pace"
         header.textAlignment = NSTextAlignment.center
@@ -148,9 +148,10 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
         if (lineIndex == 0){
-            return UIColor.white
+            return UIColor.darkGray
         }
-        return UIColor.white
+        return UIColor.darkGray
+        
     }
     func lineChartView(_ lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
         return true
@@ -158,7 +159,7 @@ class RunningPaceViewController: UIViewController,JBLineChartViewDelegate,JBLine
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex: UInt, atLineIndex: UInt) -> UIColor
     {
-        return UIColor.white
+        return UIColor.darkGray
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {

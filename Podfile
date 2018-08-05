@@ -75,5 +75,5 @@ target 'Smart Device Developement Project' do
   
   pod 'IQDropDownTextField'
   pod 'IQKeyboardManagerSwift'
-  
+  pod 'SelectionList'
 end

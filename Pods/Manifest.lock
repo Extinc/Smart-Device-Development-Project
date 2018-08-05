@@ -216,6 +216,7 @@ PODS:
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
+  - SelectionList (1.2.0)
   - SwiftCharts (0.6.1)
 
 DEPENDENCIES:
@@ -254,6 +255,7 @@ DEPENDENCIES:
   - MZTimerLabel
   - RapidAPISDK (~> 0.1)
   - SDWebImage
+  - SelectionList
   - SwiftCharts (~> 0.6.1)
 
 SPEC REPOS:
@@ -282,6 +284,7 @@ SPEC REPOS:
     - Player
     - RapidAPISDK
     - SDWebImage
+    - SelectionList
     - SwiftCharts
 
 SPEC CHECKSUMS:
@@ -309,8 +312,9 @@ SPEC CHECKSUMS:
   Player: e45514e9e5fb8ff18f50eb2ba6f84dac9b6a0024
   RapidAPISDK: 799e0ed4bbc0835df6461044d45d508348389628
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SelectionList: 172bcbb659f2fd123efa04a3bb33dfda6f809d89
   SwiftCharts: 77378d6cf667e95f9c79a745b6778e66eed5339c
 
-PODFILE CHECKSUM: d344d6829bc00359154af8efc84cf251be97ee63
+PODFILE CHECKSUM: c848b6a2fa2a814e732a08da35311c2597b7dd8f
 
 COCOAPODS: 1.5.3

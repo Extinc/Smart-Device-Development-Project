@@ -52,13 +52,15 @@ class SummaryViewController: UIViewController {
             
             //loop for calories and carbohydrates
             for i in 0..<plan.count{
-                calories = Int(plan[i].calories!) + calories
-                for x in 0..<meals.count{
-                    if(plan[i].mealID == meals[x].mealID){
-                        carb = Double(meals[x].carbohydrates!) + carb
-                        fat = Double(meals[x].fat!) + fat
-                        protein = Double(meals[x].protein!) + protein
-                        sodium = Double(meals[x].sodium!) + sodium
+                for _ in 0..<plan[i].count!{
+                    calories = Int(plan[i].calories!) + calories
+                    for x in 0..<meals.count{
+                        if(plan[i].mealID == meals[x].mealID){
+                            carb = Double(meals[x].carbohydrates!) + carb
+                            fat = Double(meals[x].fat!) + fat
+                            protein = Double(meals[x].protein!) + protein
+                            sodium = Double(meals[x].sodium!) + sodium
+                        }
                     }
                 }
             }

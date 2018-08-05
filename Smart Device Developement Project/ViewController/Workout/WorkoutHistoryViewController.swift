@@ -69,9 +69,16 @@ class WorkoutHistoryViewController: UIViewController, UITableViewDelegate, UITab
         ExerciseDataManager.getWorkoutHistory { (hist) in
             self.workoutHist = hist
             
-            self.chart = self.swiftChart()
-            self.chartDisplay.addSubview((self.chart?.view)!)
+            self.filteredHist = self.workoutHist.filter({ (hist) -> Bool in
+                return hist.type == self.selectedMusc
+            })
             
+            if self.filteredHist.count == 0 {
+                self.chartDisplay.addSubview(self.noDataDisplay(frame: self.chartDisplay.bounds))
+            } else {
+                self.chart = self.swiftChart()
+                self.chartDisplay.addSubview((self.chart?.view)!)
+            }
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

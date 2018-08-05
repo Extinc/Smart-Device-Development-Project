@@ -8,6 +8,7 @@
 
 import UIKit
 import MaterialComponents
+import Firebase
 
 class FoodViewController: UIViewController {
 
@@ -66,9 +67,24 @@ class FoodViewController: UIViewController {
             let calories = Int(self.meal[0].calories!)
             let recipeImage = self.meal[0].recipeImage
             
-            mealInfo.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes", "Nil"), at: 0)
-            DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
-            self.performSegue(withIdentifier: "unwindback", sender: self)
+            DietaryPlanDataManagerFirebase.loadOneMealPlan(date: todayDate, username: username, mealID: mealID!){
+                plan in
+                
+                if plan.count == 0 {
+                    mealInfo.insert(MealPlan(username, planID, todayDate, mealID!, mealName!, mealImage!, Float(calories), recipeImage!, "Yes", "Nil", 1), at: 0)
+                    
+                    DietaryPlanDataManagerFirebase.createPlanData(mealPlanList: mealInfo)
+                    
+                    self.performSegue(withIdentifier: "unwindback", sender: self)
+                }
+                else{
+                    let quantity = plan.count! + 1
+                    let planid = String(plan.planID!)
+                    Database.database().reference().child("MealPlan").child(plan.username!).child(plan.date!).child(planid).updateChildValues(["count": quantity])
+                    
+                    self.performSegue(withIdentifier: "unwindback", sender: self)
+                }
+            }
         }
     }
     

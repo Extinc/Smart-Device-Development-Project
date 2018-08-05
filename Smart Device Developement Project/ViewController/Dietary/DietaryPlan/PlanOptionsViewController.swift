@@ -15,11 +15,10 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var planTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var mealsperdayTextField: UITextField!
-    @IBOutlet weak var mealtimingsTextField: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
-    @IBOutlet weak var remindersSwitch: UISwitch!
+
     
-    @IBOutlet weak var intervalStackView: UIStackView!
+  
     
     var picker1 = UIPickerView()
     var picker3 = UIPickerView()
@@ -30,10 +29,8 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     
     var dataPlan = ["Normal", "Keto", "Dash"]
-    var dataGoals = ["Gain Weight", "Lose Weight", "Maintain Weight"]
     var dataDuration = ["1 Week", "2 Weeks", "1 Month", "3 Months", "6 Months"]
     var dataMealsPD = ["1", "2", "3", "4", "5", "6"]
-    var dataMealsT = ["2 Hours","3 Hours", "4 Hours", "5 Hours", "6 Hours"]
     
     var planpreferences = [UserPlanPreferences]()
     var username = ""
@@ -48,15 +45,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        intervalStackView.isHidden = true
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {
-            (granted, error) in
-            self.isGrantedNotificationAccess = granted
-            if !granted {
-                //add alert to complain to user
-            }
-        }
         
         self.username = AuthenticateUser.getUID()
         self.meal = LoadingData.shared.mealList
@@ -67,19 +55,14 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         picker1.delegate = self
         picker3.delegate = self
         picker4.delegate = self
-        picker5.delegate = self
-
         
         picker1.dataSource = self
         picker3.dataSource = self
         picker4.dataSource = self
-        picker5.dataSource = self
-   
-        
+    
         picker1.tag = 1
         picker3.tag = 3
         picker4.tag = 4
-        picker5.tag = 5
  
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -92,7 +75,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         planTextField.inputView = picker1
         durationTextField.inputView = picker3
         mealsperdayTextField.inputView = picker4
-        mealtimingsTextField.inputView = picker5
         startDateTextField.inputView = datePicker
         
         
@@ -136,9 +118,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         else if pickerView.tag == 4 {
             return dataMealsPD.count
         }
-        else if pickerView.tag == 5 {
-            return dataMealsT.count
-        }
         else {
             return dataPlan.count
         }
@@ -157,10 +136,7 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
             mealsperdayTextField.text = dataMealsPD[row]
             view.endEditing(true)
         }
-        else if pickerView.tag == 5 {
-            mealtimingsTextField.text = dataMealsT[row]
-            view.endEditing(true)
-        }
+     
     }
     
     
@@ -174,9 +150,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         else if pickerView.tag == 4 {
             return dataMealsPD[row]
         }
-        else if pickerView.tag == 5 {
-            return dataMealsT[row]
-        }
         else {
             return dataPlan[row]
         }
@@ -188,10 +161,23 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
     @IBAction func goBackToDPC(_ sender: Any) {
         
-        if isGrantedNotificationAccess{
-            //let content = RecommendMeal.makeNotiContent()
-            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 500, repeats: true)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dDate = dateFormatter.date(from: selectedDate)
+        let dateinField = startDateTextField.text!
+        let fDate = dateFormatter.date(from: dateinField)
+        if (fDate! < dDate!) {
+            let alert = UIAlertController(title: "Dates before today cannot be selected", message: "You are not able to plan meals for days that have already passed", preferredStyle: .alert)
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: nil
+                ))
+            self.present(alert, animated: true, completion: nil)
+            return
         }
+  
         
         if (planTextField.text == "" ||
             durationTextField.text == "" ||
@@ -209,7 +195,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         else{
             let duration = durationTextField.text
-            let timingField = mealtimingsTextField.text
             var days: String = "0"
             var timing: String = "0"
             
@@ -229,24 +214,6 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 days = "180"
             }
             
-            if(timingField == "2 Hours"){
-                timing = "2"
-            }
-            else if (timingField == "3 Hours") {
-                timing = "3"
-            }
-            else if (timingField == "4 Hours") {
-                timing = "4"
-            }
-            else if (timingField == "5 Hours") {
-                timing = "5"
-            }
-            else if (timingField == "6 Hours") {
-                timing = "6"
-            }
-            else if (timingField == ""){
-                timing = "0"
-            }
             
             let dietplan = planTextField.text
             let mpd = Int(mealsperdayTextField.text!)
@@ -278,15 +245,5 @@ class PlanOptionsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
 
-    @IBAction func switchChanged(_ sender: Any) {
-        if (remindersSwitch.isOn) {
-            reminders = "Yes"
-            intervalStackView.isHidden = false
-        }
-        else {
-            reminders = "No"
-            intervalStackView.isHidden = true
-        }
-    }
     
 }

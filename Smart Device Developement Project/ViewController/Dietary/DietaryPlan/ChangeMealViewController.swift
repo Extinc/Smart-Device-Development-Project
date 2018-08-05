@@ -76,9 +76,14 @@ class ChangeMealViewController: UIViewController, UITableViewDataSource, UITable
         let isDiary = previousMealPlan.isDiary!
         let planID = previousMealPlan.planID!
         let planType = previousMealPlan.planType!
-        let count = previousMealPlan.count! - 1
+        let count = previousMealPlan.count!
+        var actualCount: Int = 1
+        if (count > 1) {
+            actualCount = count - 1
+        }
         
-        let mealPlan: MealPlan = MealPlan(username, planID, date, mealID, mealName, mealImage, calories, recipeImage, isDiary, planType, count)
+        
+        let mealPlan: MealPlan = MealPlan(username, planID, date, mealID, mealName, mealImage, calories, recipeImage, isDiary, planType, actualCount)
         DietaryPlanDataManagerFirebase.deleteMealPlan(previousMealPlan)
         DietaryPlanDataManagerFirebase.updatePlan(mealPlan: mealPlan)
         

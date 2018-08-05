@@ -87,14 +87,13 @@ class RecommendMeal: NSObject {
         var planid = planID
         //Append into Meal Plan List
         for b in 0...mealListCount{
+            planid += 1
             let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
             let mealImage = mealList[b].mealImage
             let calories = mealList[b].calories
             let recipeImage = mealList[b].recipeImage
-            
-            planid += 1
             
             plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Dash", 1))
             
@@ -134,6 +133,7 @@ class RecommendMeal: NSObject {
         var planid = planID
         //Append into Meal Plan List
         for b in 0...mealListCount{
+            planid += 1
             let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
@@ -141,7 +141,7 @@ class RecommendMeal: NSObject {
             let calories = mealList[b].calories
             let recipeImage = mealList[b].recipeImage
             
-            planid += 1
+            
             plan.append(MealPlan(username,planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Ketogenic", 1))
         }
         return plan
@@ -174,6 +174,7 @@ class RecommendMeal: NSObject {
         var planid = planID
         //Append into Meal Plan List
         for b in 0...mealListCount{
+            planid += 1
             let username = planPreferences.username!
             let mealID = mealList[b].mealID
             let mealName = mealList[b].name
@@ -181,7 +182,6 @@ class RecommendMeal: NSObject {
             let calories = mealList[b].calories
             let recipeImage = mealList[b].recipeImage
             
-            planid += 1
             plan.append(MealPlan(username, planid, date, mealID!, mealName!, mealImage!, calories!, recipeImage! ,"No", "Normal", 1))
         }
         

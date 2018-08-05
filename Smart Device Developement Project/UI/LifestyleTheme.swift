@@ -45,7 +45,7 @@ class LifestyleTheme: NSObject {
         btncolorScheme.primaryColor = pColor
         btn.setTitle(title, for: UIControlState())
         MDCButtonColorThemer.applySemanticColorScheme(btncolorScheme, to: btn)
-        btn.titleLabel?.textColor = color.primaryTextColor
+        btn.backgroundColor = color.primaryColor
     }
     
     
